@@ -1,72 +1,171 @@
-<mvc:View
+<mvc:View xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
     controllerName="cles.agenti.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m"
->
-    <f:DynamicPage title="{i18n>title}">
+    xmlns="sap.m">
+    <f:DynamicPage title="{i18n>title}"
+        headerExpanded="true"
+        toggleHeaderOnTitleClick="false"
+        fitContent="false"
+        showFooter="{main>/showFooter}">
         <f:title>
-            <f:DynamicPageTitle>
+            <f:DynamicPageTitle >
                 <f:heading>
-                    <Title text="App Agenti" />
+                    <Title text="Dettaglio Ordine" />
                 </f:heading>
-                <f:snappedTitleOnMobile>
-                    <Title text="This is a subheading" />
-                </f:snappedTitleOnMobile>
-                <f:expandedContent>
-                    <Label text="This is a subheading" />
-                </f:expandedContent>
-                <f:snappedContent>
-                    <Label text="This is a subheading" />
-                </f:snappedContent>
             </f:DynamicPageTitle>
         </f:title>
         <f:header>
             <f:DynamicPageHeader backgroundDesign="Solid">
                 <f:content>
-                    <VariantManagement
-                        popoverTitle="{i18n>variantManagementTitle}"
-                        showSaveAs="{variant>/showSaveAs}"
-                        showFooter="{variant>/showFooter}"
-                        selectedKey="{variant>/selectedKey}"
-                        defaultKey="{variant>/defaultKey}"
-                        select="onSelect"
-                        save="onSave"
-                        manage="onManage"
-                        items="{/Variants}"
-                    >
-                        <items>
-                            <VariantItem
-                                key="{_key}"
-                                title="{title}"
-                                text="{text}"
-                                favorite="{favorite}"
-                                author="{author}"
-                                changeable="{changeable}"
-                            />
-                        </items>
-                    </VariantManagement>
-                    <SearchField
-                        showSearchButton="false"
-                        liveChange="onSearch"
-                    />
+                    <VBox width="100%"
+                        justifyContent="SpaceBetween"
+                        alignContent="Center">
+                        <Label text="Cliente:" />
+                        <Select autoAdjustWidth="true"
+                            items="{main>/header/select/items}">
+                            <items>
+                                <core:Item key="{main>customer}"
+                                    text="{main>customer_name}" />
+                            </items>
+                        </Select>
+                        <HBox justifyContent="SpaceBetween">
+                            <VBox >
+                                <Label text="Note di Testata:" />
+                                <TextArea />
+                            </VBox>
+                            <VBox>
+                                <Label text="Allegati di Testata:" />
+                                <Button icon="sap-icon://attachment" />
+                            </VBox>
+                        </HBox>
+                    </VBox>
                 </f:content>
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <Table
-                items="{/CustomerOrderCollection}"
-                class="sapUiResponsiveMargin"
-            >
-                <columns>
-                    <Column>
-                        <Text text="Object ID" />
-                    </Column>
-                </columns>
+            <IconTabBar>
                 <items>
-                    <StandardListItem title="{ObjectID}" />
+                    <IconTabFilter text="Proposta Prodotti">
+                        <content>
+                            <Table id="lista_odv"
+                                mode="MultiSelect"
+                                growing="true"
+                                growingThreshold="20"
+                                growingScrollToLoad="true"
+                                sticky="HeaderToolbar,ColumnHeaders"
+                                alternateRowColors="false"
+                                popinLayout="GridSmall">
+                                <headerToolbar>
+                                    <Toolbar design="Transparent"
+                                        style="Standard">
+                                        <SearchField placeholder="Cerca per categoria o descrizione"
+                                            showSearchButton="false"
+                                            liveChange="onSearch" />
+                                        <ToolbarSpacer />
+                                        <CheckBox text="Raggruppa per Categoria"
+                                            selected="{main>/content/table/toolbar/groupByCategory}"
+                                            select=".onGroupByCategory" />
+                                        <Button text="Aggiungi Riga"
+                                            type="Emphasized"
+                                            icon="sap-icon://add" />
+                                        <Button text="Aggiungi Prodotto"
+                                            type="Emphasized"
+                                            icon="sap-icon://add" />
+                                    </Toolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column demandPopin="true"
+                                        width="12em"
+                                        popinDisplay="Block"
+                                        minScreenWidth="Desktop"
+                                        visible="{main>/content/table/columns/categoryColumnVisible}">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Categoria" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Prodotto" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Descrizione" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="U acq" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="U prz" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="U Qta" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Giacenza" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="UM" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Prz" />
+                                    </Column>
+
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Qta" />
+                                    </Column>
+                                    <Column demandPopin="true"
+                                        minScreenWidth="Desktop"
+                                        popinDisplay="WithoutHeader"
+                                        hAlign="Center">
+                                        <Label design="Bold"
+                                            wrapping="true"
+                                            text="Azioni" />
+                                    </Column>
+                                </columns>
+                            </Table>
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter text="Storico Ordini">
+                        <content>
+
+                        </content>
+                    </IconTabFilter>
                 </items>
-            </Table>
+            </IconTabBar>
         </f:content>
+        <f:footer>
+            <OverflowToolbar >
+                <ToolbarSpacer />
+                <Button text="Crea Ordine di Vendita" 
+                    type="Emphasized"
+                />
+            </OverflowToolbar>
+        </f:footer>
     </f:DynamicPage>
 </mvc:View>

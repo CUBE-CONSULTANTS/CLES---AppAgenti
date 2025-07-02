@@ -1,1 +1,8 @@
 /* Enter your custom styles here */
+.sapFDynamicPageContent {
+    padding: 0px 0px 0px 0px !important;
+}
+
+.sapFDynamicPageContentFitContainer {
+    padding: 0px 0px 0px 0px !important;
+}
