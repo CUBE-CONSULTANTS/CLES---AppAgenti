@@ -1,0 +1,72 @@
+<mvc:View
+    xmlns:f="sap.f"
+    controllerName="cles.agenti.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <f:DynamicPage title="{i18n>title}">
+        <f:title>
+            <f:DynamicPageTitle>
+                <f:heading>
+                    <Title text="App Agenti" />
+                </f:heading>
+                <f:snappedTitleOnMobile>
+                    <Title text="This is a subheading" />
+                </f:snappedTitleOnMobile>
+                <f:expandedContent>
+                    <Label text="This is a subheading" />
+                </f:expandedContent>
+                <f:snappedContent>
+                    <Label text="This is a subheading" />
+                </f:snappedContent>
+            </f:DynamicPageTitle>
+        </f:title>
+        <f:header>
+            <f:DynamicPageHeader backgroundDesign="Solid">
+                <f:content>
+                    <VariantManagement
+                        popoverTitle="{i18n>variantManagementTitle}"
+                        showSaveAs="{variant>/showSaveAs}"
+                        showFooter="{variant>/showFooter}"
+                        selectedKey="{variant>/selectedKey}"
+                        defaultKey="{variant>/defaultKey}"
+                        select="onSelect"
+                        save="onSave"
+                        manage="onManage"
+                        items="{/Variants}"
+                    >
+                        <items>
+                            <VariantItem
+                                key="{_key}"
+                                title="{title}"
+                                text="{text}"
+                                favorite="{favorite}"
+                                author="{author}"
+                                changeable="{changeable}"
+                            />
+                        </items>
+                    </VariantManagement>
+                    <SearchField
+                        showSearchButton="false"
+                        liveChange="onSearch"
+                    />
+                </f:content>
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <Table
+                items="{/CustomerOrderCollection}"
+                class="sapUiResponsiveMargin"
+            >
+                <columns>
+                    <Column>
+                        <Text text="Object ID" />
+                    </Column>
+                </columns>
+                <items>
+                    <StandardListItem title="{ObjectID}" />
+                </items>
+            </Table>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

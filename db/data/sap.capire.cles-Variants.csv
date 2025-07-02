@@ -1,0 +1,4 @@
+ID,_key,title,text,favorite,author,changeable,createdAt,createdBy,modifiedAt,modifiedBy
+"e7a5c8d1-4f2e-4b3a-9c8d-1e2f3a4b5c6d","default","Default Variant","This is the default variant for the CLES application.",true,"System",false,"2023-10-01T12:00:00Z","System","2023-10-01T12:00:00Z","System"
+"f8b6d9e2-5a3f-4c4b-ad9e-2f3a4b5c6d7e","urgent","Urgent Variant","This variant is for urgent incidents.",true,"System",false,"2023-10-01T12:00:00Z","System","2023-10-01T12:00:00Z","System"
+"a9c7eaf3-6b4a-4d5c-be0f-3a4b5c6d7e8f","highpriority","High Priority Variant","This variant is for high priority incidents.",true,"System",false,"2023-10-01T12:00:00Z","System","2023-10-01T12:00:00Z","System"
