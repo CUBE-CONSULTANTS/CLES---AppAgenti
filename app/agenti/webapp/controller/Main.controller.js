@@ -3,10 +3,20 @@ sap.ui.define(
     "./BaseController",
     "../model/models",
     "../model/formatter",
+    "../model/Dialog",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
+    "sap/ui/core/Fragment",
   ],
-  (BaseController, models, formatter, Filter, FilterOperator) => {
+  (
+    BaseController,
+    models,
+    formatter,
+    Dialog,
+    Filter,
+    FilterOperator,
+    Fragment
+  ) => {
     "use strict";
 
     return BaseController.extend("cles.agenti.controller.Main", {
@@ -21,56 +31,80 @@ sap.ui.define(
         this.onGroupByCategory();
       },
 
-      _getCells: [
-        new sap.m.Text({ text: "{main>category}" }),
-        new sap.m.Text({ text: "{main>product}" }),
-        new sap.m.Text({ text: "{main>description}" }),
-        new sap.m.Text({ text: "{main>u_acq}" }),
-        new sap.m.Text({ text: "{main>u_prz}" }),
-        new sap.m.Text({ text: "{main>u_qta}" }),
-        new sap.m.Text({ text: "{main>giacenza}" }),
-        new sap.m.Select({
-          items: [
-            { key: "PZ", text: "PZ" },
-            { key: "KG", text: "KG" },
-          ],
-          selectedKey: "KG",
-        }),
-        new sap.m.Input({ value: "{main>price}" }),
-        new sap.m.Input({ value: "{main>quantity}" }),
-        new sap.m.HBox({
-          height: "100%",
-          width: "100%",
-          justifyContent: "End",
-          items: [
-            new sap.m.Button({
-              tooltip: "Note",
-              icon: "sap-icon://notes",
-            }).addStyleClass("sapUiTinyMarginBegin"),
-            new sap.m.Button({
-              tooltip: "Foto",
-              icon: "sap-icon://camera",
-            }).addStyleClass("sapUiTinyMarginBegin"),
-          ],
-        }).addStyleClass("sapUiSmallMarginTopBottom"),
-      ],
+      _getCells() {
+        return [
+          new sap.m.Input({
+            value: "{proposta>category}",
+            showValueHelp: true,
+            editable: "{= ${proposta>category} ? false : true }",
+          }),
+          new sap.m.Input({
+            value: "{proposta>product}",
+            showValueHelp: true,
+            editable: "{= ${proposta>product} ? false : true }",
+          }),
+          new sap.m.Text({ text: "{proposta>description}" }),
+          new sap.m.Text({ text: "{proposta>u_acq}" }),
+          new sap.m.Text({ text: "{proposta>u_prz}" }),
+          new sap.m.Text({ text: "{proposta>u_qta}" }),
+          new sap.m.Text({ text: "{proposta>giacenza}" }),
+          new sap.m.Select({
+            items: [
+              { key: "PZ", text: "PZ" },
+              { key: "KG", text: "KG" },
+            ],
+            selectedKey: "KG",
+          }),
+          new sap.m.Input({ value: "{proposta>price}" }),
+          new sap.m.StepInput({
+            value: "{proposta>quantity}",
+            displayValuePrecision: 1,
+            step: 0.1,
+            change: this.onStepInputQuantityChange,
+          }),
+          new sap.m.HBox({
+            height: "100%",
+            width: "100%",
+            justifyContent: "End",
+            items: [
+              new sap.m.Button({
+                tooltip: "Note",
+                icon: "sap-icon://notes",
+                press: this.onAddNotePress.bind(this),
+              }).addStyleClass("sapUiTinyMarginBegin"),
+              new sap.m.Button({
+                tooltip: "Foto",
+                icon: "sap-icon://camera",
+                press: this.onShowPhotoPress.bind(this),
+              }).addStyleClass("sapUiTinyMarginBegin"),
+            ],
+          }).addStyleClass("sapUiSmallMarginTopBottom"),
+        ];
+      },
+
+      onStepInputQuantityChange(e) {
+        const context = e.getSource().getBindingContext("proposta");
+        const path = context.getPath();
+        const model = context.getModel();
+
+        model.setProperty(path + "/selected", true);
+      },
 
       onGroupByCategory() {
         const oTable = this.byId("lista_odv");
 
         if (!oTable) return;
 
-        const { groupByCategory } = this.getModel("main").getProperty(
-          "/content/table/toolbar"
-        );
+        const { groupByCategory } =
+          this.getModel("proposta").getProperty("/table/toolbar");
 
         if (groupByCategory) {
-          this.getModel("main").setProperty(
-            "/content/table/columns/categoryColumnVisible",
+          this.getModel("proposta").setProperty(
+            "/table/columns/categoryColumnVisible",
             false
           );
           oTable.bindAggregation("items", {
-            path: "main>/content/table/items",
+            path: "proposta>/table/items",
             sorter: new sap.ui.model.Sorter({
               path: "category",
               descending: false,
@@ -78,22 +112,24 @@ sap.ui.define(
             }),
             groupHeaderFactory: this.getCategoryHeader,
             template: new sap.m.ColumnListItem({
+              highlight: "{proposta>highlight}",
               vAlign: "Middle",
-              cells: this._getCells,
-              selected: "{main>selected}",
+              cells: this._getCells(),
+              selected: "{proposta>selected}",
             }),
           });
         } else {
-          this.getModel("main").setProperty(
-            "/content/table/columns/categoryColumnVisible",
+          this.getModel("proposta").setProperty(
+            "/table/columns/categoryColumnVisible",
             true
           );
           oTable.bindAggregation("items", {
-            path: "main>/content/table/items",
+            path: "proposta>/table/items",
             template: new sap.m.ColumnListItem({
+              highlight: "{proposta>highlight}",
               vAlign: "Middle",
-              cells: this._getCells,
-              selected: "{main>selected}",
+              cells: this._getCells(),
+              selected: "{proposta>selected}",
             }),
           });
         }
@@ -133,6 +169,81 @@ sap.ui.define(
         return new sap.m.GroupHeaderListItem({
           title: "Categoria: " + oGroup.key,
         });
+      },
+
+      onAddRowPress(e) {
+        const oTable = e.getSource().getParent().getParent();
+        const items = oTable.getModel("proposta").getProperty("/table/items");
+
+        items.unshift({
+          selected: false,
+          highlight: "Indication01",
+          category: "",
+          product: "",
+          description: "",
+          u_acq: "",
+          u_prz: "",
+          u_qta: "",
+          price: "",
+          unit_of_measure: "",
+          quantity: "",
+          giacenza: "",
+        });
+
+        oTable.getModel("proposta").setProperty(`/table/items`, items);
+      },
+
+      onAddNotePress() {
+        Dialog.getAddNoteDialog({ controller: this });
+      },
+
+      onShowPhotoPress() {
+        Dialog.getPhotoDialog({ controller: this });
+      },
+
+      onPanelExpand(e) {
+        const { expand } = e.getParameters();
+
+        if (expand) {
+          const view = this.byId("dettaglio_ordine");
+          const panel = e.getSource();
+          const processFlow = panel.getContent()[0].getItems()[1].getItems()[0];
+          const { top } = $(panel.getDomRef()).offset();
+          setTimeout(() => {
+            processFlow.setZoomLevel("Four");
+            view.getScrollDelegate().scrollTo(0, top);
+          }, 500);
+        }
+      },
+
+      onNodePress(oEvent) {
+        var oNode = oEvent.getParameters();
+        var sPath = oNode.getBindingContext("storico").getPath();
+
+        if (!this.oQuickView) {
+          Fragment.load({
+            name: "cles.agenti.view.fragment.QuickView",
+            type: "XML",
+          }).then(
+            function (oFragment) {
+              this.oQuickView = oFragment;
+              this.getView().addDependent(this.oQuickView);
+
+              this.oQuickView.bindElement({
+                path: sPath,
+                model: "storico",
+              });
+              this.oQuickView.openBy(oNode);
+            }.bind(this)
+          );
+        } else {
+          this.oQuickView.bindElement({ path: sPath, model: "storico" });
+          this.oQuickView.openBy(oNode);
+        }
+      },
+
+      onCreaOdvPress() {
+        Dialog.getCreaOdVDialog({ controller: this });
       },
     });
   }

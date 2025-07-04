@@ -76,6 +76,19 @@ sap.ui.define(
 				} else {
 					this.getRouter().navTo("main", {}, undefined, true);
 				}
+			},
+
+			defaultDialogClose(e) {
+				const source = e.getSource();
+				let parent = source.getParent();
+
+				while (parent) {
+					if (parent instanceof sap.m.Dialog) {
+						parent.close();
+						break;
+					}
+					parent = parent.getParent();
+				}
 			}
 		});
 	}

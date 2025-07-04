@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog showHeader="false">
+        <buttons>
+            <Button text="Chiudi" type="Emphasized" press=".defaultDialogClose"/>
+        </buttons>
+        <content>
+            <Image 
+                width="100%"
+                src="{
+                    path: '', 
+                    formatter: '.formatter.formatImage'
+                }"
+            />
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

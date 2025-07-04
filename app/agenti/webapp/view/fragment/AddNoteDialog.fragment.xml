@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog title="Aggiungi Note">
+        <buttons>
+            <Button text="Chiudi" type="Emphasized" press=".defaultDialogClose"/>
+        </buttons>
+        <content>
+            <form:SimpleForm >
+                <Label text="Note" design="Bold" />
+                <TextArea rows="12"/>
+            </form:SimpleForm>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

@@ -14,12 +14,12 @@ sap.ui.define(
         return oModel;
       },
 
-      createMainModel: function () {
+      createMainModel() {
         return new JSONModel({
           showFooter: true,
           header: {
             title: "",
-            select: {
+            customer: {
               items: [
                 {
                   customer: "2788",
@@ -35,59 +35,36 @@ sap.ui.define(
                 },
               ],
             },
-            searchField: {
-              value: "",
-            },
-          },
-          content: {
-            table: {
-              columns: {
-                categoryColumnVisible: true
-              },
-              toolbar: {
-                groupByCategory: false,
-              },
+            attachments: {
               items: [
                 {
-                  selected: false,
-                  category: "APERITIVI",
-                  product: "4060",
-                  description: "Bastoncini di mozzarella panati",
-                  u_acq: "18/06/2024",
-                  u_prz: "7.88",
-                  u_qta: "3.00",
-                  price: "0.00",
-                  unit_of_measure: "CF",
-                  quantity: "0.00",
-                  giacenza: "Test Giacenza"
+                  text: "Test Descrizione Allegato 1",
                 },
                 {
-                  selected: false,
-                  category: "ARTICOLO",
-                  product: "0340",
-                  description: "Coscia Pollo",
-                  u_acq: "15/02/2024",
-                  u_prz: "7.64",
-                  u_qta: "8.00",
-                  price: "0.00",
-                  unit_of_measure: "CF",
-                  quantity: "0.00",
-                  giacenza: "Test Giacenza"
+                  text: "Test Descrizione Allegato 2",
                 },
                 {
-                  selected: false,
-                  category: "ARTICOLO",
-                  product: "0341",
-                  description: "Fuselli di Pollo",
-                  u_acq: "15/07/2024",
-                  u_prz: "6.33",
-                  u_qta: "12.00",
-                  price: "0.00",
-                  unit_of_measure: "CF",
-                  quantity: "0.00",
-                  giacenza: "Test Giacenza"
+                  text: "Test Descrizione Allegato 3",
+                },
+                {
+                  text: "Test Descrizione Allegato 4",
+                },
+                {
+                  text: "Test Descrizione Allegato 5",
+                },
+                {
+                  text: "Test Descrizione Allegato 6",
+                },
+                {
+                  text: "Test Descrizione Allegato 7",
                 },
               ],
+            },
+            notes: {
+              value: "Test descrizione per le note di testata"
+            },
+            searchField: {
+              value: "",
             },
           },
           footer: {},

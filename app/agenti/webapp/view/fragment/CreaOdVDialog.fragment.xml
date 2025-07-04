@@ -1,0 +1,99 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog title="Crea OdV">
+        <buttons>
+            <Button text="Crea OdV"
+                enabled="{= ${/table/items/length} ? true : false }"
+                type="Success"
+                press=".defaultDialogClose" />
+            <Button text="Chiudi"
+                type="Emphasized"
+                press=".defaultDialogClose" />
+        </buttons>
+        <content>
+            <Table items="{/table/items}" popinLayout="GridSmall">
+                <columns>
+                    <Column demandPopin="true"
+                        width="12em"
+                        popinDisplay="Block"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Categoria" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Prodotto" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Descrizione" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="U acq" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="U prz" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="U Qta" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Giacenza" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="UM" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Prz" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Qta" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem >
+                        <cells>
+                            <Text text="{category}"/>
+                            <Text text="{product}"/>
+                            <Text text="{description}"/>
+                            <Text text="{u_acq}"/>
+                            <Text text="{u_prz}"/>
+                            <Text text="{u_qta}"/>
+                            <Text text="{giacenza}"/>
+                            <Text text="KG"/>
+                            <Text text="{price}"/>
+                            <Text text="{quantity}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

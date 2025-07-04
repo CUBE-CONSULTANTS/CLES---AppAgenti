@@ -3,7 +3,7 @@
     controllerName="cles.agenti.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <f:DynamicPage title="{i18n>title}"
+    <f:DynamicPage id="dettaglio_ordine"
         headerExpanded="true"
         toggleHeaderOnTitleClick="false"
         fitContent="false"
@@ -13,147 +13,65 @@
                 <f:heading>
                     <Title text="Dettaglio Ordine" />
                 </f:heading>
+                <f:actions>
+                    <Button text="Analisi"
+                        type="Emphasized" />
+                    <Button text="Fatture"
+                        type="Emphasized" />
+                </f:actions>
             </f:DynamicPageTitle>
         </f:title>
         <f:header>
             <f:DynamicPageHeader backgroundDesign="Solid">
                 <f:content>
-                    <VBox width="100%"
-                        justifyContent="SpaceBetween"
-                        alignContent="Center">
-                        <Label text="Cliente:" />
-                        <Select autoAdjustWidth="true"
-                            items="{main>/header/select/items}">
-                            <items>
-                                <core:Item key="{main>customer}"
-                                    text="{main>customer_name}" />
-                            </items>
-                        </Select>
-                        <HBox justifyContent="SpaceBetween">
-                            <VBox >
-                                <Label text="Note di Testata:" />
-                                <TextArea />
-                            </VBox>
-                            <VBox>
-                                <Label text="Allegati di Testata:" />
-                                <Button icon="sap-icon://attachment" />
-                            </VBox>
-                        </HBox>
-                    </VBox>
+                    <HBox width="100%"
+                        alignItems="Start">
+                        <VBox width="100%"
+                            class="sapUiTinyMarginEnd">
+                            <Label text="Cliente:" design="Bold"/>
+                            <Input showValueHelp="true"
+                                value="{main>/header/customer/items/0/customer_name}" />
+                            <Label text="Note di Testata:" design="Bold" />
+                            <TextArea rows="4"
+                                cols="120" value="{main>/header/notes/value}" />
+                        </VBox>
+                        <ScrollContainer height="185px"
+                            horizontal="false"
+                            vertical="true">
+                            <Label text="Allegati di Testata:" design="Bold" />
+                            <List items="{main>/header/attachments/items}">
+                                <items>
+                                    <CustomListItem>
+                                        <HBox alignItems="Center">
+                                            <Title class="sapUiTinyMarginBeginEnd"
+                                                text="{main>text}" />
+                                            <Button class="sapUiTinyMarginBeginEnd"
+                                                icon="sap-icon://attachment"
+                                                press="onDownloadPress" />
+                                        </HBox>
+                                    </CustomListItem>
+                                </items>
+                            </List>
+                        </ScrollContainer>
+                    </HBox>
                 </f:content>
             </f:DynamicPageHeader>
         </f:header>
         <f:content>
-            <IconTabBar>
+            <IconTabBar selectedKey="0">
                 <items>
-                    <IconTabFilter text="Proposta Prodotti">
+                    <IconTabFilter text="Proposta Prodotti"
+                        key="0">
                         <content>
-                            <Table id="lista_odv"
-                                mode="MultiSelect"
-                                growing="true"
-                                growingThreshold="20"
-                                growingScrollToLoad="true"
-                                sticky="HeaderToolbar,ColumnHeaders"
-                                alternateRowColors="false"
-                                popinLayout="GridSmall">
-                                <headerToolbar>
-                                    <Toolbar design="Transparent"
-                                        style="Standard">
-                                        <SearchField placeholder="Cerca per categoria o descrizione"
-                                            showSearchButton="false"
-                                            liveChange="onSearch" />
-                                        <ToolbarSpacer />
-                                        <CheckBox text="Raggruppa per Categoria"
-                                            selected="{main>/content/table/toolbar/groupByCategory}"
-                                            select=".onGroupByCategory" />
-                                        <Button text="Aggiungi Riga"
-                                            type="Emphasized"
-                                            icon="sap-icon://add" />
-                                        <Button text="Aggiungi Prodotto"
-                                            type="Emphasized"
-                                            icon="sap-icon://add" />
-                                    </Toolbar>
-                                </headerToolbar>
-                                <columns>
-                                    <Column demandPopin="true"
-                                        width="12em"
-                                        popinDisplay="Block"
-                                        minScreenWidth="Desktop"
-                                        visible="{main>/content/table/columns/categoryColumnVisible}">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Categoria" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Prodotto" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Descrizione" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="U acq" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="U prz" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="U Qta" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Giacenza" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="UM" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Prz" />
-                                    </Column>
-
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Qta" />
-                                    </Column>
-                                    <Column demandPopin="true"
-                                        minScreenWidth="Desktop"
-                                        popinDisplay="WithoutHeader"
-                                        hAlign="Center">
-                                        <Label design="Bold"
-                                            wrapping="true"
-                                            text="Azioni" />
-                                    </Column>
-                                </columns>
-                            </Table>
+                            <core:Fragment fragmentName="cles.agenti.view.fragment.PropostaProdotti"
+                                type="XML" />
                         </content>
                     </IconTabFilter>
-                    <IconTabFilter text="Storico Ordini">
+                    <IconTabFilter text="Storico Ordini"
+                        key="1">
                         <content>
-
+                            <core:Fragment fragmentName="cles.agenti.view.fragment.StoricoOrdini2"
+                                type="XML" />
                         </content>
                     </IconTabFilter>
                 </items>
@@ -162,9 +80,10 @@
         <f:footer>
             <OverflowToolbar >
                 <ToolbarSpacer />
-                <Button text="Crea Ordine di Vendita" 
-                    type="Emphasized"
-                />
+                <Button text="Crea Ordine di Vendita"
+                    icon="sap-icon://create-form"
+                    press=".onCreaOdvPress"
+                    type="Emphasized" />
             </OverflowToolbar>
         </f:footer>
     </f:DynamicPage>

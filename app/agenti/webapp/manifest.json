@@ -48,7 +48,8 @@
       "minUI5Version": "1.136.2",
       "libs": {
         "sap.m": {},
-        "sap.ui.core": {}
+        "sap.ui.core": {},
+        "sap.suite.ui.commons": {}
       }
     },
     "contentDensities": {
@@ -62,14 +63,13 @@
           "bundleName": "cles.agenti.i18n.i18n"
         }
       },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "operationMode": "Server",
-          "autoExpandSelect": true,
-          "earlyRequests": true
-        }
+      "proposta": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "./model/data/PropostaProdotti.json"
+      },
+      "storico": {
+        "type": "sap.ui.model.json.JSONModel",
+        "uri": "./model/data/StoricoOrdini.json"
       }
     },
     "resources": {

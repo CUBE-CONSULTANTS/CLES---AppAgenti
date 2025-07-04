@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns:f="sap.f"
+    xmlns="sap.m"
+    xmlns:commons="sap.suite.ui.commons"
+    xmlns:card="sap.f.cards"
+    xmlns:core="sap.ui.core">
+    <VBox height="{device>/resize/height}px">
+        <f:Card height="100%">
+            <f:content>
+                <VBox>
+                    <form:SimpleForm columnsM="2"
+                        columnsL="3">
+                        <core:Title text="Mittente" />
+                        <Label text="Indirizzo" />
+                        <Text text="Via del Mare 120, Roma, 00134" />
+                        <Label text="Contatto" />
+                        <Text text="LA BOTTEGA DI ERIKA DI FRACASSO ERIKA" />
+                        <Label text="Recapito" />
+                        <Text text="06 713 23 829" />
+                        <core:Title text="Destinatario" />
+                        <Label text="Indirizzo" />
+                        <Text text="Via del Porto 11, Livorno, 57100" />
+                    </form:SimpleForm>
+                    <Toolbar width="100%"
+                        height="1px" />
+                    <commons:ProcessFlow scrollable="true"
+                        nodes="{storico>nodes}"
+                        lanes="{storico>lanes}"
+                        headerPress="onHeaderPress">
+                        <commons:nodes>
+                            <commons:ProcessFlowNode laneId="{storico>lane}"
+                                nodeId="{storico>id}"
+                                title="{storico>title}"
+                                children="{storico>children}"
+                                state="{storico>state}"
+                                stateText="{storico>stateText}"
+                                texts="{storico>texts}"
+                                focused="{storico>focused}" />
+                        </commons:nodes>
+                        <commons:lanes>
+                            <commons:ProcessFlowLaneHeader laneId="{storico>id}"
+                                iconSrc="{storico>icon}"
+                                text="{storico>label}"
+                                position="{storico>position}"
+                                state="{storico>state}" />
+                        </commons:lanes>
+                    </commons:ProcessFlow>
+                    <Toolbar width="100%"
+                        height="1px" />
+                    <form:SimpleForm columnsM="2"
+                        columnsL="3">
+                        <core:Title text="Termini di Pagamento" />
+                        <Text text="Pagamento tramite POS in data 25/03/2024" />
+                        <core:Title text="Importo lordo" />
+                        <ObjectStatus state="Success"
+                            text="4300.00 €" />
+                    </form:SimpleForm>
+                </VBox>
+            </f:content>
+        </f:Card>
+    </VBox>
+</core:FragmentDefinition>
