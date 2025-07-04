@@ -38,25 +38,25 @@ sap.ui.define(
             attachments: {
               items: [
                 {
-                  text: "Test Descrizione Allegato 1",
+                  text: "Descrizione Allegato 1",
                 },
                 {
-                  text: "Test Descrizione Allegato 2",
+                  text: "Descrizione Allegato 2",
                 },
                 {
-                  text: "Test Descrizione Allegato 3",
+                  text: "Descrizione Allegato 3",
                 },
                 {
-                  text: "Test Descrizione Allegato 4",
+                  text: "Descrizione Allegato 4",
                 },
                 {
-                  text: "Test Descrizione Allegato 5",
+                  text: "Descrizione Allegato 5",
                 },
                 {
-                  text: "Test Descrizione Allegato 6",
+                  text: "Descrizione Allegato 6",
                 },
                 {
-                  text: "Test Descrizione Allegato 7",
+                  text: "Descrizione Allegato 7",
                 },
               ],
             },

@@ -18,14 +18,16 @@ sap.ui.define(
         return this[name];
       },
 
-      async getAddNoteDialog({ controller }) {
+      async getAddNoteDialog({ controller, prodotto }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
               name: "_addNoteDialog",
               path: "view.fragment.AddNoteDialog",
               controller,
-              model: new JSONModel({}),
+              model: new JSONModel({
+                prodotto,
+              }),
             });
 
             oDialog.open();
@@ -62,6 +64,14 @@ sap.ui.define(
               path: "view.fragment.CreaOdVDialog",
               controller,
               model: new JSONModel({
+                info: {
+                  customer: controller
+                    .getModel("main")
+                    .getProperty("/header/customer/items/0"),
+                },
+                nota: controller
+                  .getModel("main")
+                  .getProperty("/header/notes/value"),
                 table: {
                   items: controller
                     .getModel("proposta")

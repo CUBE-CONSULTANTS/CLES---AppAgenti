@@ -12,7 +12,18 @@
                 press=".defaultDialogClose" />
         </buttons>
         <content>
-            <Table items="{/table/items}" popinLayout="GridSmall">
+            <VBox class="sapUiTinyMargin">
+                <Title titleStyle="H4"
+                    text="Cliente: {/info/customer/customer_name}" />
+                <Label class="sapUiSmallMarginTop"
+                    text="Note"
+                    design="Bold" />
+                <TextArea rows="2"
+                    cols="120"
+                    value="{/info/nota}" />
+            </VBox>
+            <Table items="{/table/items}"
+                popinLayout="GridSmall">
                 <columns>
                     <Column demandPopin="true"
                         width="12em"
@@ -80,16 +91,16 @@
                 <items>
                     <ColumnListItem >
                         <cells>
-                            <Text text="{category}"/>
-                            <Text text="{product}"/>
-                            <Text text="{description}"/>
-                            <Text text="{u_acq}"/>
-                            <Text text="{u_prz}"/>
-                            <Text text="{u_qta}"/>
-                            <Text text="{giacenza}"/>
-                            <Text text="KG"/>
-                            <Text text="{price}"/>
-                            <Text text="{quantity}"/>
+                            <Text text="{category}" />
+                            <Text text="{product}" />
+                            <Text text="{description}" />
+                            <Text text="{u_acq}" />
+                            <Text text="{u_prz}" />
+                            <Text text="{u_qta}" />
+                            <Text text="{giacenza}" />
+                            <Text text="KG" />
+                            <Text text="{price}" />
+                            <Text text="{quantity}" />
                         </cells>
                     </ColumnListItem>
                 </items>

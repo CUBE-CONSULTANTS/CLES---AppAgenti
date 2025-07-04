@@ -12,6 +12,22 @@
                 "Currency": "EUR",
                 "OrderStatus": "In consegna",
                 "SalesRep": "Mario Rossi",
+                "posizioni": [
+                    {
+                        "selected": false,
+                        "highlight": "Indication03",
+                        "category": "APERITIVI",
+                        "product": "4060",
+                        "description": "Bastoncini di mozzarella panati",
+                        "u_acq": "18/06/2024",
+                        "u_prz": "7.88",
+                        "u_qta": "3.00",
+                        "price": "0.00",
+                        "unit_of_measure": "CF",
+                        "quantity": "0.00",
+                        "giacenza": "3"
+                    }
+                ],
                 "nodes": [
                     {
                         "id": "1",
@@ -74,6 +90,36 @@
                 "Currency": "EUR",
                 "OrderStatus": "Non Consegnato",
                 "SalesRep": "Giulia Bianchi",
+                "posizioni": [
+                    {
+                        "selected": false,
+                        "highlight": "Indication03",
+                        "category": "APERITIVI",
+                        "product": "4060",
+                        "description": "Bastoncini di mozzarella panati",
+                        "u_acq": "18/06/2024",
+                        "u_prz": "7.88",
+                        "u_qta": "3.00",
+                        "price": "0.00",
+                        "unit_of_measure": "CF",
+                        "quantity": "0.00",
+                        "giacenza": "3"
+                    },
+                    {
+                        "selected": false,
+                        "highlight": "Indication03",
+                        "category": "APERITIVI",
+                        "product": "4060",
+                        "description": "Bastoncini di mozzarella panati",
+                        "u_acq": "18/06/2024",
+                        "u_prz": "7.88",
+                        "u_qta": "3.00",
+                        "price": "0.00",
+                        "unit_of_measure": "CF",
+                        "quantity": "0.00",
+                        "giacenza": "3"
+                    }
+                ],
                 "nodes": [
                     {
                         "id": "1",
@@ -137,6 +183,50 @@
                 "Currency": "EUR",
                 "OrderStatus": "Consegnato",
                 "SalesRep": "Luca Verdi",
+                "posizioni": [
+                    {
+                        "selected": false,
+                        "highlight": "Indication03",
+                        "category": "APERITIVI",
+                        "product": "4060",
+                        "description": "Bastoncini di mozzarella panati",
+                        "u_acq": "18/06/2024",
+                        "u_prz": "7.88",
+                        "u_qta": "3.00",
+                        "price": "0.00",
+                        "unit_of_measure": "CF",
+                        "quantity": "0.00",
+                        "giacenza": "3"
+                    },
+                    {
+                        "selected": false,
+                        "highlight": "Indication03",
+                        "category": "APERITIVI",
+                        "product": "4060",
+                        "description": "Bastoncini di mozzarella panati",
+                        "u_acq": "18/06/2024",
+                        "u_prz": "7.88",
+                        "u_qta": "3.00",
+                        "price": "0.00",
+                        "unit_of_measure": "CF",
+                        "quantity": "0.00",
+                        "giacenza": "3"
+                    },
+                    {
+                        "selected": false,
+                        "highlight": "Indication03",
+                        "category": "APERITIVI",
+                        "product": "4060",
+                        "description": "Bastoncini di mozzarella panati",
+                        "u_acq": "18/06/2024",
+                        "u_prz": "7.88",
+                        "u_qta": "3.00",
+                        "price": "0.00",
+                        "unit_of_measure": "CF",
+                        "quantity": "0.00",
+                        "giacenza": "3"
+                    }
+                ],
                 "nodes": [
                     {
                         "id": "1",

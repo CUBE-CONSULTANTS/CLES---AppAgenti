@@ -193,8 +193,10 @@ sap.ui.define(
         oTable.getModel("proposta").setProperty(`/table/items`, items);
       },
 
-      onAddNotePress() {
-        Dialog.getAddNoteDialog({ controller: this });
+      onAddNotePress(e) {
+        const oSource = e.getSource();
+        const prodotto = oSource.getBindingContext("proposta").getObject();
+        Dialog.getAddNoteDialog({ controller: this, prodotto });
       },
 
       onShowPhotoPress() {

@@ -11,13 +11,18 @@
         <f:title>
             <f:DynamicPageTitle >
                 <f:heading>
-                    <Title text="Dettaglio Ordine" />
+                    <Title text="Proposta Ordine" />
                 </f:heading>
                 <f:actions>
-                    <Button text="Analisi"
-                        type="Emphasized" />
-                    <Button text="Fatture"
-                        type="Emphasized" />
+                    <Button text="Vai a Analisi"
+                        type="Emphasized"
+                        icon="sap-icon://chain-link" />
+                    <Button text="Vai a Fatture"
+                        type="Emphasized"
+                        icon="sap-icon://chain-link" />
+                    <Button text="Vai a Partitario"
+                        type="Emphasized"
+                        icon="sap-icon://chain-link" />
                 </f:actions>
             </f:DynamicPageTitle>
         </f:title>
@@ -38,8 +43,14 @@
                         <ScrollContainer height="185px"
                             horizontal="false"
                             vertical="true">
-                            <Label text="Allegati di Testata:" design="Bold" />
-                            <List items="{main>/header/attachments/items}">
+                            <List mode="Delete" items="{main>/header/attachments/items}">
+                                <headerToolbar>
+                                    <OverflowToolbar >
+                                        <Title text="Allegati di Testata"/>
+                                        <ToolbarSpacer />
+                                        <Button icon="sap-icon://add"/>
+                                    </OverflowToolbar>
+                                </headerToolbar>
                                 <items>
                                     <CustomListItem>
                                         <HBox alignItems="Center">

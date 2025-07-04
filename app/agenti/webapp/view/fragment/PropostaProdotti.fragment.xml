@@ -5,7 +5,7 @@
         growing="true"
         growingThreshold="20"
         growingScrollToLoad="true"
-        sticky="HeaderToolbar,ColumnHeaders"
+        sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
         alternateRowColors="false"
         popinLayout="GridSmall">
         <headerToolbar>
@@ -19,9 +19,6 @@
                     type="Emphasized"
                     icon="sap-icon://add"
                     press=".onAddRowPress" />
-                <Button text="Aggiungi Prodotto"
-                    type="Emphasized"
-                    icon="sap-icon://add-product" />
             </OverflowToolbar>
         </headerToolbar>
         <infoToolbar>

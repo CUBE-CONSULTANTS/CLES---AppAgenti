@@ -21,7 +21,8 @@
                             <Label text="Descrizione Ordine" />
                             <Text text="{storico>SalesOrderDescription}" />
                             <Label text="Stato Ordine" />
-                            <Title titleStyle="H5" text="{storico>OrderStatus}"/>
+                            <Title titleStyle="H5"
+                                text="{storico>OrderStatus}" />
                             <Label text="Totale" />
                             <ObjectNumber state="Success"
                                 number="{storico>TotalAmount}"
@@ -33,7 +34,8 @@
                             backgroundDesign="Transparent"
                             expandable="true"
                             expanded="false"
-                            expand=".onPanelExpand">
+                            expand=".onPanelExpand"
+                            visible="{= ${device>/system/phone} ? false : true }">
                             <content>
                                 <VBox >
                                     <VBox width="100%">
@@ -75,6 +77,70 @@
                                     </VBox>
                                 </VBox>
                             </content>
+                        </Panel>
+                        <Panel headerText="Posizioni Ordine ({storico>posizioni/length})"
+                            backgroundDesign="Transparent"
+                            expandable="true"
+                            expanded="false">
+                            <ScrollContainer vertical="true"
+                                horizontal="false"
+                                height="300px">
+                                <Table items="{storico>posizioni}"
+                                alternateRowColors="true"
+                                    popinLayout="GridSmall">
+                                    <columns>
+                                        <Column demandPopin="true"
+                                            popinDisplay="Block"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="Categoria" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="Prodotto" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="U acq" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="U prz" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="U Qta" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="Giacenza" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem >
+                                            <cells>
+                                                <Text text="{storico>category}" />
+                                                <Text text="{storico>product} - {storico>description}" />
+                                                <Text text="{storico>u_acq}" />
+                                                <Text text="{storico>u_prz}" />
+                                                <Text text="{storico>u_qta} (KG)" />
+                                                <Text text="{storico>giacenza}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </ScrollContainer>
                         </Panel>
                     </VBox>
                 </content>
