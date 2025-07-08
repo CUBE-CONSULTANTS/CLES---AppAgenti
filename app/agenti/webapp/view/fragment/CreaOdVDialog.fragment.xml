@@ -6,7 +6,7 @@
             <Button text="Crea OdV"
                 enabled="{= ${/table/items/length} ? true : false }"
                 type="Success"
-                press=".defaultDialogClose" />
+                press=".onCreaOdvConfirm" />
             <Button text="Chiudi"
                 type="Emphasized"
                 press=".defaultDialogClose" />
@@ -14,6 +14,7 @@
         <content>
             <VBox class="sapUiTinyMargin">
                 <Title titleStyle="H4"
+                    wrapping="true"
                     text="Cliente: {/info/customer/customer_name}" />
                 <Label class="sapUiSmallMarginTop"
                     text="Note"
@@ -23,6 +24,7 @@
                     value="{/info/nota}" />
             </VBox>
             <Table items="{/table/items}"
+                alternateRowColors="true"
                 popinLayout="GridSmall">
                 <columns>
                     <Column demandPopin="true"

@@ -30,35 +30,47 @@
             <f:DynamicPageHeader backgroundDesign="Solid">
                 <f:content>
                     <HBox width="100%"
-                        alignItems="Start">
-                        <VBox width="100%"
+                        alignItems="Start"
+                        justifyContent="SpaceBetween">
+                        <VBox width="50%"
                             class="sapUiTinyMarginEnd">
-                            <Label text="Cliente:" design="Bold"/>
+                            <Label text="Cliente:"
+                                design="Bold" />
                             <Input showValueHelp="true"
-                                value="{main>/header/customer/items/0/customer_name}" />
-                            <Label text="Note di Testata:" design="Bold" />
+                                valueHelpRequest=".onCustomerValueHelpRequest"
+                                value="{main>/header/customer/name}" />
+                            <Label text="Note di Testata:"
+                                design="Bold" />
                             <TextArea rows="4"
-                                cols="120" value="{main>/header/notes/value}" />
+                                cols="120"
+                                value="{main>/header/notes/value}" />
                         </VBox>
                         <ScrollContainer height="185px"
+                            width="{ ${device>/system/phone} ? 'auto' : '400px'}"
                             horizontal="false"
                             vertical="true">
-                            <List mode="Delete" items="{main>/header/attachments/items}">
+                            <List items="{main>/header/attachments/items}">
                                 <headerToolbar>
-                                    <OverflowToolbar >
-                                        <Title text="Allegati di Testata"/>
+                                    <OverflowToolbar width="100%">
+                                        <Title titleStyle="H5"
+                                            text="Allegati di Testata" />
                                         <ToolbarSpacer />
-                                        <Button icon="sap-icon://add"/>
+                                        <Button icon="sap-icon://add"
+                                            press=".onHeaderAttachmentPress" />
                                     </OverflowToolbar>
                                 </headerToolbar>
                                 <items>
-                                    <CustomListItem>
-                                        <HBox alignItems="Center">
-                                            <Title class="sapUiTinyMarginBeginEnd"
+                                    <CustomListItem type="Active"
+                                        press=".onHeaderAttachmentItemPress">
+                                        <HBox width="100%"
+                                            alignItems="Center"
+                                            justifyContent="SpaceBetween">
+                                            <Text class="sapUiTinyMarginBeginEnd"
+                                                wrapping="true"
                                                 text="{main>text}" />
                                             <Button class="sapUiTinyMarginBeginEnd"
-                                                icon="sap-icon://attachment"
-                                                press="onDownloadPress" />
+                                                icon="sap-icon://delete"
+                                                press=".onHeaderAttachmentDeletePress" />
                                         </HBox>
                                     </CustomListItem>
                                 </items>

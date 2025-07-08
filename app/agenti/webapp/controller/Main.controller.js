@@ -7,6 +7,7 @@ sap.ui.define(
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/Fragment",
+    "sap/m/MessageBox",
   ],
   (
     BaseController,
@@ -15,7 +16,8 @@ sap.ui.define(
     Dialog,
     Filter,
     FilterOperator,
-    Fragment
+    Fragment,
+    MessageBox
   ) => {
     "use strict";
 
@@ -24,11 +26,27 @@ sap.ui.define(
 
       onInit() {
         // variant model
+        this.getRouter()
+          .getRoute("RouteMain")
+          .attachPatternMatched(this._onObjectMatched, this);
         this.getView().setModel(models.createMainModel(), "main");
       },
 
       onAfterRendering() {
         this.onGroupByCategory();
+      },
+
+      _onObjectMatched(e) {
+        const { arguments: queryParams } = e.getParameters();
+
+        if (queryParams["?query"]) {
+          const { customer, customer_name } = queryParams["?query"];
+          this.getModel("main").setProperty("/header/customer/id", customer);
+          this.getModel("main").setProperty(
+            "/header/customer/name",
+            customer_name
+          );
+        }
       },
 
       _getCells() {
@@ -37,11 +55,13 @@ sap.ui.define(
             value: "{proposta>category}",
             showValueHelp: true,
             editable: "{= ${proposta>category} ? false : true }",
+            valueHelpRequest: this.onCategoryValueHelpRequest.bind(this),
           }),
           new sap.m.Input({
             value: "{proposta>product}",
             showValueHelp: true,
             editable: "{= ${proposta>product} ? false : true }",
+            valueHelpRequest: this.onProductValueHelpRequest.bind(this),
           }),
           new sap.m.Text({ text: "{proposta>description}" }),
           new sap.m.Text({ text: "{proposta>u_acq}" }),
@@ -171,6 +191,85 @@ sap.ui.define(
         });
       },
 
+      onHeaderAttachmentPress() {
+        Dialog.getAttachmentDialog({ controller: this });
+      },
+
+      onHeaderAttachmentItemPress(e) {
+        const pdfViewer = new sap.m.PDFViewer({
+          title: "Allegato",
+          isTrustedSource: true,
+        });
+
+        this.getView().addDependent(pdfViewer);
+        pdfViewer.setSource(sap.ui.require.toUrl("https://sapui5.hana.ondemand.com/sap/m/sample/PDFViewerPopup/sample1.pdf"));
+        pdfViewer.open();
+      },
+
+      //valuehelp
+
+      onCustomerValueHelpRequest() {
+        Dialog.getCustomerValueHelp({ controller: this });
+      },
+
+      onCustomerValueHelpConfirm(e) {
+        const { selectedItem } = e.getParameters();
+
+        if (!selectedItem) return;
+
+        const context = selectedItem.getBindingContext();
+
+        this.getModel("main").setProperty(
+          "/header/customer/id",
+          context.getProperty("name")
+        );
+
+        this.getModel("main").setProperty(
+          "/header/customer/name",
+          context.getProperty("description")
+        );
+      },
+
+      onCategoryValueHelpRequest() {
+        Dialog.getCategoryValueHelp({ controller: this });
+      },
+
+      onCategoryValueHelpConfirm(e) {
+        const { selectedItem } = e.getParameters();
+
+        if (!selectedItem) return;
+
+        const context = selectedItem.getBindingContext();
+
+        this.getModel("proposta").setProperty("/table/items/0", {
+          ...this.getModel("proposta").getProperty("/table/items/0"),
+          category: context.getProperty("description"),
+        });
+      },
+
+      onProductValueHelpRequest() {
+        Dialog.getProductValueHelp({ controller: this });
+      },
+
+      onProductValueHelpConfirm(e) {
+        const { selectedItem } = e.getParameters();
+
+        if (!selectedItem) return;
+
+        const context = selectedItem.getBindingContext();
+
+        this.getModel("proposta").setProperty("/table/items/0", {
+          ...this.getModel("proposta").getProperty("/table/items/0"),
+          category: context.getProperty("category"),
+          product: context.getProperty("name"),
+          description: context.getProperty("description"),
+          u_acq: "08/07/2025",
+          u_prz: ((Math.random() * (0.12 - 0.02) + 0.02) * 100).toFixed(2),
+          u_qta: ((Math.random() * (0.12 - 0.02) + 0.02) * 100).toFixed(2),
+          giacenza: (Math.random() * 100).toFixed(0),
+        });
+      },
+
       onAddRowPress(e) {
         const oTable = e.getSource().getParent().getParent();
         const items = oTable.getModel("proposta").getProperty("/table/items");
@@ -185,7 +284,7 @@ sap.ui.define(
           u_prz: "",
           u_qta: "",
           price: "",
-          unit_of_measure: "",
+          unit_of_measure: "KG",
           quantity: "",
           giacenza: "",
         });
@@ -203,16 +302,29 @@ sap.ui.define(
         Dialog.getPhotoDialog({ controller: this });
       },
 
-      onPanelExpand(e) {
+      onPanelProcessFlowExpand(e) {
         const { expand } = e.getParameters();
 
         if (expand) {
           const view = this.byId("dettaglio_ordine");
           const panel = e.getSource();
           const processFlow = panel.getContent()[0].getItems()[1].getItems()[0];
-          const { top } = $(panel.getDomRef()).offset();
+          const { top } = $(panel.getParent().getParent().getDomRef()).offset();
           setTimeout(() => {
             processFlow.setZoomLevel("Four");
+            view.getScrollDelegate().scrollTo(0, top);
+          }, 500);
+        }
+      },
+
+      onPanelPosizioniExpand(e) {
+        const { expand } = e.getParameters();
+
+        if (expand) {
+          const view = this.byId("dettaglio_ordine");
+          const panel = e.getSource();
+          const { top } = $(panel.getParent().getParent().getDomRef()).offset();
+          setTimeout(() => {
             view.getScrollDelegate().scrollTo(0, top);
           }, 500);
         }
@@ -246,6 +358,12 @@ sap.ui.define(
 
       onCreaOdvPress() {
         Dialog.getCreaOdVDialog({ controller: this });
+      },
+
+      onCreaOdvConfirm() {
+        MessageBox.success("Ordine di vendita creato con successo", {
+          onClose: () => sap.m.InstanceManager.closeAllDialogs(),
+        });
       },
     });
   }

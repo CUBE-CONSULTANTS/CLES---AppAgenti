@@ -21,6 +21,12 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            this.getRouter().navTo("RouteMain", {
+                query: {
+                    customer: "0324",
+                    customer_name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA"
+                }
+            })
         }
     });
 });

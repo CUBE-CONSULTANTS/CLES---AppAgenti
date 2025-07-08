@@ -24,7 +24,7 @@
             {
                 "selected": false,
                 "highlight": "Indication04",
-                "category": "ARTICOLO",
+                "category": "CARNI BIANCHE",
                 "product": "0340",
                 "description": "Coscia Pollo",
                 "u_acq": "15/02/2024",
@@ -38,7 +38,7 @@
             {
                 "selected": false,
                 "highlight": "Indication04",
-                "category": "ARTICOLO",
+                "category": "CARNI BIANCHE",
                 "product": "0341",
                 "description": "Fuselli di Pollo",
                 "u_acq": "15/07/2024",
@@ -52,16 +52,44 @@
             {
                 "selected": false,
                 "highlight": "Indication02",
-                "category": "ARTICOLO",
+                "category": "CARNI BIANCHE",
                 "product": "0342",
-                "description": "Petti di Pollo",
+                "description": "Faraona Nostrana",
                 "u_acq": "05/04/2024",
-                "u_prz": "6.33",
+                "u_prz": "16.33",
                 "u_qta": "12.00",
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
                 "giacenza": "0"
+            },
+            {
+                "selected": false,
+                "highlight": "Indication02",
+                "category": "CARNI ROSSE",
+                "product": "0343",
+                "description": "Lombo Suino Disossato",
+                "u_acq": "05/04/2024",
+                "u_prz": "11.33",
+                "u_qta": "12.00",
+                "price": "0.00",
+                "unit_of_measure": "CF",
+                "quantity": "0.00",
+                "giacenza": "0"
+            },
+            {
+                "selected": false,
+                "highlight": "Indication04",
+                "category": "CARNI ROSSE",
+                "product": "0344",
+                "description": "Coppa Suino Disossato",
+                "u_acq": "05/04/2024",
+                "u_prz": "9.33",
+                "u_qta": "12.00",
+                "price": "0.00",
+                "unit_of_measure": "CF",
+                "quantity": "0.00",
+                "giacenza": "15"
             }
         ]
     }

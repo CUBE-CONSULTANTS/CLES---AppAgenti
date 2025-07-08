@@ -18,6 +18,155 @@ sap.ui.define(
         return this[name];
       },
 
+      async getAttachmentDialog({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_attachmentValueHelp",
+              path: "view.fragment.AttachmentDialog",
+              controller,
+              model: new JSONModel({
+                value: null
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
+      async getCustomerValueHelp({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_customerValueHelp",
+              path: "view.fragment.CustomerValueHelp",
+              controller,
+              model: new JSONModel({
+                items: [
+                  {
+                    name: "351",
+                    description:
+                      "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
+                  },
+                  {
+                    name: "2788",
+                    description: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
+                  },
+                  {
+                    name: "2701",
+                    description:
+                      "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                  },
+                  {
+                    name: "3196",
+                    description: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                  },
+                ],
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
+      async getCategoryValueHelp({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_categoryValueHelp",
+              path: "view.fragment.CategoryValueHelp",
+              controller,
+              model: new JSONModel({
+                items: [
+                  {
+                    name: "1111",
+                    description: "APERITIVI",
+                  },
+                  {
+                    name: "1115",
+                    description: "CARNI BIANCHE",
+                  },
+                  {
+                    name: "1116",
+                    description: "CARNI ROSSE",
+                  },
+                ],
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
+      async getProductValueHelp({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_productValueHelp",
+              path: "view.fragment.ProductValueHelp",
+              controller,
+              model: new JSONModel({
+                items: [
+                  {
+                    icon: "https://shop.fattoriasila.it/wp-content/uploads/2020/07/salsiccia-2-FILEminimizer-1024x1024.jpg",
+                    category: "CARNI ROSSE",
+                    name: "1111",
+                    description: "Salsiccia Piccantina",
+                  },
+                  {
+                    icon: "https://www.salumidestefani.it/wp-content/uploads/2019/04/salsicciasalsicciabio-768x512.jpg",
+                    category: "CARNI ROSSE",
+                    name: "1112",
+                    description: "Salsiccia Nostrana",
+                  },
+                  {
+                    icon: "https://content.dambros.it/uploads/2017/01/30111846/0000105144.jpg",
+                    category: "CARNI ROSSE",
+                    name: "1113",
+                    description: "Salamella",
+                  },
+                  {
+                    icon: "https://www.foodexplore.com/media/catalog/product/cache/cfb506310985da6e6b5b75be9be619ee/p/o/poerchetta-ariccia-tronchetto.jpg",
+                    category: "CARNI ROSSE",
+                    name: "1114",
+                    description: "Porchetta Piccantina",
+                  },
+                  {
+                    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuri-uIVnGjSrNhBAxwqdMM6BdaodNaI-NoA&s",
+                    category: "CARNI ROSSE",
+                    name: "1115",
+                    description: "Porchetta alla Romana",
+                  },
+                  {
+                    icon: "https://www.sprintfood.it/cdn/shop/products/PorchettaTrevigiana.jpg",
+                    category: "CARNI ROSSE",
+                    name: "1116",
+                    description: "Porchetta alla Trevigiana",
+                  },
+                ],
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
       async getAddNoteDialog({ controller, prodotto }) {
         return new Promise(async (resolve, reject) => {
           try {

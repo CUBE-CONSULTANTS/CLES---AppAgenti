@@ -18,8 +18,9 @@ sap.ui.define(
         return new JSONModel({
           showFooter: true,
           header: {
-            title: "",
             customer: {
+              id: "",
+              name: "",
               items: [
                 {
                   customer: "2788",
@@ -38,25 +39,25 @@ sap.ui.define(
             attachments: {
               items: [
                 {
-                  text: "Descrizione Allegato 1",
+                  text: "Descr. Allegato 1",
                 },
                 {
-                  text: "Descrizione Allegato 2",
+                  text: "Descr. Allegato 2",
                 },
                 {
-                  text: "Descrizione Allegato 3",
+                  text: "Descr. Allegato 3",
                 },
                 {
-                  text: "Descrizione Allegato 4",
+                  text: "Descr. Allegato 4",
                 },
                 {
-                  text: "Descrizione Allegato 5",
+                  text: "Descr. Allegato 5",
                 },
                 {
-                  text: "Descrizione Allegato 6",
+                  text: "Descr. Allegato 6",
                 },
                 {
-                  text: "Descrizione Allegato 7",
+                  text: "Descr. Allegato 7",
                 },
               ],
             },

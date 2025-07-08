@@ -27,6 +27,11 @@
                             <ObjectNumber state="Success"
                                 number="{storico>TotalAmount}"
                                 unit="{storico>Currency}" />
+                            <core:Title text="" />
+                            <Label text="Data Ordine" />
+                            <Text text="{storico>OrderDate}" />
+                            <Label text="Data Consegna" />
+                            <Text text="{storico>DeliveryDate}" />
                         </form:SimpleForm>
                         <Toolbar width="100%"
                             height="1px" />
@@ -34,7 +39,7 @@
                             backgroundDesign="Transparent"
                             expandable="true"
                             expanded="false"
-                            expand=".onPanelExpand"
+                            expand=".onPanelProcessFlowExpand"
                             visible="{= ${device>/system/phone} ? false : true }">
                             <content>
                                 <VBox >
@@ -81,12 +86,13 @@
                         <Panel headerText="Posizioni Ordine ({storico>posizioni/length})"
                             backgroundDesign="Transparent"
                             expandable="true"
-                            expanded="false">
+                            expanded="false"
+                            expand=".onPanelPosizioniExpand">
                             <ScrollContainer vertical="true"
                                 horizontal="false"
                                 height="300px">
                                 <Table items="{storico>posizioni}"
-                                alternateRowColors="true"
+                                    alternateRowColors="true"
                                     popinLayout="GridSmall">
                                     <columns>
                                         <Column demandPopin="true"
@@ -134,8 +140,8 @@
                                                 <Text text="{storico>product} - {storico>description}" />
                                                 <Text text="{storico>u_acq}" />
                                                 <Text text="{storico>u_prz}" />
-                                                <Text text="{storico>u_qta} (KG)" />
-                                                <Text text="{storico>giacenza}" />
+                                                <Text text="{storico>u_qta} {storico>unit_of_measure}" />
+                                                <Text text="{storico>giacenza} {storico>unit_of_measure}" />
                                             </cells>
                                         </ColumnListItem>
                                     </items>
