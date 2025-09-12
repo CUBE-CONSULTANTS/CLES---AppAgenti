@@ -130,7 +130,7 @@
                                             minScreenWidth="Desktop">
                                             <Label design="Bold"
                                                 wrapping="true"
-                                                text="Giacenza" />
+                                                text="Disponibilita" />
                                         </Column>
                                     </columns>
                                     <items>
@@ -141,7 +141,7 @@
                                                 <Text text="{storico>u_acq}" />
                                                 <Text text="{storico>u_prz}" />
                                                 <Text text="{storico>u_qta} {storico>unit_of_measure}" />
-                                                <Text text="{storico>giacenza} {storico>unit_of_measure}" />
+                                                <Text text="{storico>disponibilita} {storico>unit_of_measure}" />
                                             </cells>
                                         </ColumnListItem>
                                     </items>

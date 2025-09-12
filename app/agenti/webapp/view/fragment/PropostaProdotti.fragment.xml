@@ -73,7 +73,7 @@
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="Giacenza" />
+                    text="Disponibilità" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
@@ -87,7 +87,6 @@
                     wrapping="true"
                     text="Prz" />
             </Column>
-
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
                 <Label design="Bold"

@@ -51,23 +51,19 @@ sap.ui.define(
 
       _getCells() {
         return [
-          new sap.m.Input({
-            value: "{proposta>category}",
-            showValueHelp: true,
-            editable: "{= ${proposta>category} ? false : true }",
-            valueHelpRequest: this.onCategoryValueHelpRequest.bind(this),
-          }),
+          new sap.m.Text({ text: "{proposta>category}" }),
           new sap.m.Input({
             value: "{proposta>product}",
             showValueHelp: true,
             editable: "{= ${proposta>product} ? false : true }",
             valueHelpRequest: this.onProductValueHelpRequest.bind(this),
+            valueHelpOnly: true,
           }),
           new sap.m.Text({ text: "{proposta>description}" }),
           new sap.m.Text({ text: "{proposta>u_acq}" }),
           new sap.m.Text({ text: "{proposta>u_prz}" }),
           new sap.m.Text({ text: "{proposta>u_qta}" }),
-          new sap.m.Text({ text: "{proposta>giacenza}" }),
+          new sap.m.Text({ text: "{proposta>disponibilita}" }),
           new sap.m.Select({
             items: [
               { key: "PZ", text: "PZ" },
@@ -260,13 +256,9 @@ sap.ui.define(
 
         this.getModel("proposta").setProperty("/table/items/0", {
           ...this.getModel("proposta").getProperty("/table/items/0"),
-          category: context.getProperty("category"),
+          ...context.getObject(),
           product: context.getProperty("name"),
-          description: context.getProperty("description"),
-          u_acq: "08/07/2025",
-          u_prz: ((Math.random() * (0.12 - 0.02) + 0.02) * 100).toFixed(2),
-          u_qta: ((Math.random() * (0.12 - 0.02) + 0.02) * 100).toFixed(2),
-          giacenza: (Math.random() * 100).toFixed(0),
+          disponibilita: context.getProperty("disponibilita"),
         });
       },
 
@@ -286,7 +278,7 @@ sap.ui.define(
           price: "",
           unit_of_measure: "KG",
           quantity: "",
-          giacenza: "",
+          disponibilita: "",
         });
 
         oTable.getModel("proposta").setProperty(`/table/items`, items);
@@ -365,6 +357,13 @@ sap.ui.define(
           onClose: () => sap.m.InstanceManager.closeAllDialogs(),
         });
       },
+
+      onShowFormPress (e) {
+        const oButton = e.getSource();
+        const oDialog = oButton.getParent();
+
+        oDialog.getModel().setProperty("/formVisible", !oDialog.getModel().getProperty("/formVisible"));
+      }
     });
   }
 );

@@ -19,7 +19,7 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "giacenza": "3"
+                "disponibilita": "3"
             },
             {
                 "selected": false,
@@ -33,7 +33,7 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "giacenza": "12"
+                "disponibilita": "12"
             },
             {
                 "selected": false,
@@ -47,7 +47,7 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "giacenza": "7"
+                "disponibilita": "7"
             },
             {
                 "selected": false,
@@ -61,7 +61,7 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "giacenza": "0"
+                "disponibilita": "0"
             },
             {
                 "selected": false,
@@ -75,7 +75,7 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "giacenza": "0"
+                "disponibilita": "0"
             },
             {
                 "selected": false,
@@ -89,7 +89,7 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "giacenza": "15"
+                "disponibilita": "15"
             }
         ]
     }

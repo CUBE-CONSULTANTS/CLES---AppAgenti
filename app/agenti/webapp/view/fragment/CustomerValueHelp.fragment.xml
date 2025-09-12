@@ -1,10 +1,78 @@
-<core:FragmentDefinition xmlns="sap.m"
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <SelectDialog title="Clienti"
-        confirm=".onCustomerValueHelpConfirm"
-        items="{/items}">
-        <StandardListItem
-            title="{name}"
-            description="{description}" />
-    </SelectDialog>
+    <Dialog stretch="true"
+        showHeader="false">
+        <buttons>
+            <Button text="Salva"
+                visible="{= ${/iconTabBar/selectedKey} === 'FORM' ? true : false}"
+                icon="sap-icon://save"
+                class="sapUiTinyMargin"
+                type="Success" />
+            <Button text="Chiudi"
+                type="Emphasized"
+                press=".defaultDialogClose" />
+        </buttons>
+        <content>
+            <IconTabBar selectedKey="{/iconTabBar/selectedKey}">
+                <items>
+                    <IconTabFilter key="LISTA"
+                        text="Lista Clienti">
+                        <List confirm=".onCustomerValueHelpConfirm"
+                            items="{/iconTabBar/list/items}">
+                            <headerToolbar>
+                                <OverflowToolbar >
+                                    <SearchField width="100%"
+                                        placeholder="Cerca per cliente o descrizione" />
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <items>
+                                <StandardListItem title="{name}"
+                                    description="{description}" />
+                            </items>
+                        </List>
+                    </IconTabFilter>
+                    <IconTabFilter key="FORM"
+                        text="Crea Anagrafica Cliente">
+                        <form:SimpleForm columnsL="2"
+                            columnsM="2">
+                            <form:content>
+                                <core:Title text="Dati Generali" />
+                                <Label text="Ragione sociale" />
+                                <Input value="" />
+                                <Label text="Indirizzo completo" />
+                                <Input value="" />
+                                <Label text="Partita IVA/Codice Fiscale" />
+                                <Input value="" />
+                                <Label text="Recapito" />
+                                <Input value="" />
+                                <Label text="Codice destinatario SDI" />
+                                <Input value="" />
+
+                                <core:Title text="Dati Societari" />
+                                <Label text="Conto riconciliazione" />
+                                <Input value="" />
+                                <Label text="Condizioni di pagamento" />
+                                <Input value="" />
+                                <Label text="Blocco contabile" />
+                                <Input value="" />
+                                <Label text="Gestione ritenute d' acconto" />
+                                <Input value="" />
+
+                                <core:Title text="Dati Commerciali" />
+                                <Label text="Organizzazione di Vendita" />
+                                <Input value="" />
+                                <Label text="Canale di Distribuzione" />
+                                <Input value="" />
+                                <Label text="Divisione" />
+                                <Input value="" />
+                                <Label text="Valuta" />
+                                <Input value="" />
+                            </form:content>
+                        </form:SimpleForm>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+    </Dialog>
 </core:FragmentDefinition>

@@ -26,7 +26,7 @@ sap.ui.define(
               path: "view.fragment.AttachmentDialog",
               controller,
               model: new JSONModel({
-                value: null
+                value: null,
               }),
             });
 
@@ -46,26 +46,32 @@ sap.ui.define(
               path: "view.fragment.CustomerValueHelp",
               controller,
               model: new JSONModel({
-                items: [
-                  {
-                    name: "351",
-                    description:
-                      "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
+                iconTabBar: {
+                  selectedKey: "LIST",
+                  form: {},
+                  list: {
+                    items: [
+                      {
+                        name: "351",
+                        description:
+                          "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
+                      },
+                      {
+                        name: "2788",
+                        description: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
+                      },
+                      {
+                        name: "2701",
+                        description:
+                          "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                      },
+                      {
+                        name: "3196",
+                        description: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                      },
+                    ],
                   },
-                  {
-                    name: "2788",
-                    description: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
-                  },
-                  {
-                    name: "2701",
-                    description:
-                      "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
-                  },
-                  {
-                    name: "3196",
-                    description: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
-                  },
-                ],
+                },
               }),
             });
 
@@ -124,36 +130,96 @@ sap.ui.define(
                     category: "CARNI ROSSE",
                     name: "1111",
                     description: "Salsiccia Piccantina",
+                    u_acq: "08/07/2025",
+                    u_prz: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    u_qta: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
                     icon: "https://www.salumidestefani.it/wp-content/uploads/2019/04/salsicciasalsicciabio-768x512.jpg",
                     category: "CARNI ROSSE",
                     name: "1112",
                     description: "Salsiccia Nostrana",
+                    u_acq: "08/07/2025",
+                    u_prz: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    u_qta: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
                     icon: "https://content.dambros.it/uploads/2017/01/30111846/0000105144.jpg",
                     category: "CARNI ROSSE",
                     name: "1113",
                     description: "Salamella",
+                    u_acq: "08/07/2025",
+                    u_prz: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    u_qta: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
                     icon: "https://www.foodexplore.com/media/catalog/product/cache/cfb506310985da6e6b5b75be9be619ee/p/o/poerchetta-ariccia-tronchetto.jpg",
                     category: "CARNI ROSSE",
                     name: "1114",
                     description: "Porchetta Piccantina",
+                    u_acq: "08/07/2025",
+                    u_prz: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    u_qta: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
                     icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuri-uIVnGjSrNhBAxwqdMM6BdaodNaI-NoA&s",
                     category: "CARNI ROSSE",
                     name: "1115",
                     description: "Porchetta alla Romana",
+                    u_acq: "08/07/2025",
+                    u_prz: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    u_qta: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
                     icon: "https://www.sprintfood.it/cdn/shop/products/PorchettaTrevigiana.jpg",
                     category: "CARNI ROSSE",
                     name: "1116",
                     description: "Porchetta alla Trevigiana",
+                    u_acq: "08/07/2025",
+                    u_prz: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    u_qta: (
+                      (Math.random() * (0.12 - 0.02) + 0.02) *
+                      100
+                    ).toFixed(2),
+                    disponibilita: (Math.random() * 100).toFixed(0),
                   },
                 ],
               }),

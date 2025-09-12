@@ -25,7 +25,7 @@
                         "price": "2.00",
                         "unit_of_measure": "PZ",
                         "quantity": "0.00",
-                        "giacenza": "203"
+                        "disponibilita": "203"
                     }
                 ],
                 "nodes": [
@@ -103,7 +103,7 @@
                         "price": "12.00",
                         "unit_of_measure": "PZ",
                         "quantity": "0.00",
-                        "giacenza": "8"
+                        "disponibilita": "8"
                     },
                     {
                         "selected": false,
@@ -117,7 +117,7 @@
                         "price": "10.00",
                         "unit_of_measure": "KG",
                         "quantity": "0.00",
-                        "giacenza": "13"
+                        "disponibilita": "13"
                     }
                 ],
                 "nodes": [
@@ -196,7 +196,7 @@
                         "price": "22.00",
                         "unit_of_measure": "KG",
                         "quantity": "0.00",
-                        "giacenza": "23"
+                        "disponibilita": "23"
                     },
                     {
                         "selected": false,
@@ -210,7 +210,7 @@
                         "price": "9.00",
                         "unit_of_measure": "KG",
                         "quantity": "0.00",
-                        "giacenza": "11"
+                        "disponibilita": "11"
                     },
                     {
                         "selected": false,
@@ -224,7 +224,7 @@
                         "price": "7.00",
                         "unit_of_measure": "KG",
                         "quantity": "0.00",
-                        "giacenza": "15"
+                        "disponibilita": "15"
                     }
                 ],
                 "nodes": [

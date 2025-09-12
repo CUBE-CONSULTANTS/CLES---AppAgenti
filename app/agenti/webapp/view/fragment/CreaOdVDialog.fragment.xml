@@ -26,6 +26,15 @@
             <Table items="{/table/items}"
                 alternateRowColors="true"
                 popinLayout="GridSmall">
+                <headerToolbar>
+                    <OverflowToolbar >
+                        <ToolbarSpacer />
+                        <Button text="Esporta"
+                            type="Emphasized"
+                            icon="sap-icon://excel-attachment"
+                            press=".defaultDialogClose" />
+                    </OverflowToolbar>
+                </headerToolbar>
                 <columns>
                     <Column demandPopin="true"
                         width="12em"
@@ -69,7 +78,7 @@
                         minScreenWidth="Desktop">
                         <Label design="Bold"
                             wrapping="true"
-                            text="Giacenza" />
+                            text="Disponibilita" />
                     </Column>
                     <Column demandPopin="true"
                         minScreenWidth="Desktop">
@@ -99,7 +108,7 @@
                             <Text text="{u_acq}" />
                             <Text text="{u_prz}" />
                             <Text text="{u_qta}" />
-                            <Text text="{giacenza}" />
+                            <Text text="{disponibilita}" />
                             <Text text="KG" />
                             <Text text="{price}" />
                             <Text text="{quantity}" />
