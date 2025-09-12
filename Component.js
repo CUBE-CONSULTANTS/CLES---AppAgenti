@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/core/UIComponent","cles/agenti/model/models"],(e,t)=>{"use strict";return e.extend("cles.agenti.Component",{metadata:{manifest:"json",interfaces:["sap.ui.core.IAsyncContentCreation"]},init(){e.prototype.init.apply(this,arguments);this.setModel(t.createDeviceModel(),"device");this.getRouter().initialize();this.getRouter().navTo("RouteMain",{query:{customer:"0324",customer_name:"COOP AGRICOLA MONTELLO SOC COOP AGRICOLA"}})}})});
+//# sourceMappingURL=Component.js.map

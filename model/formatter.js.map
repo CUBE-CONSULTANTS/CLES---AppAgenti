@@ -1,0 +1,1 @@
+{"version":3,"file":"formatter.js","names":["sap","ui","define","JSONModel","Device","ProcessFlowNodeState","formatImage","base64"],"sources":["formatter-dbg.js"],"mappings":"AAAAA,IAAIC,GAAGC,OACL,CACE,8BACA,gBACA,6CAEF,SAAUC,EAAWC,EAAQC,GAC3B,aAEA,MAAO,CACLC,YAAa,SAAUC,GAIrBA,EACE,+oCACF,MAAO,0BAA0BA,GACnC,EAEJ","ignoreList":[]}

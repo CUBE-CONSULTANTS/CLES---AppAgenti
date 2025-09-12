@@ -1,0 +1,106 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Table id="lista_odv"
+        mode="MultiSelect"
+        growing="true"
+        growingThreshold="20"
+        growingScrollToLoad="true"
+        sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
+        alternateRowColors="false"
+        popinLayout="GridSmall">
+        <headerToolbar>
+            <OverflowToolbar design="Solid"
+                style="Clear">
+                <ToolbarSpacer />
+                <CheckBox text="Raggruppa per Categoria"
+                    selected="{proposta>/table/toolbar/groupByCategory}"
+                    select=".onGroupByCategory" />
+                <Button text="Aggiungi Riga"
+                    type="Emphasized"
+                    icon="sap-icon://add"
+                    press=".onAddRowPress" />
+            </OverflowToolbar>
+        </headerToolbar>
+        <infoToolbar>
+            <Toolbar design="Solid"
+                style="Clear">
+                <SearchField placeholder="Cerca per categoria o descrizione"
+                    showSearchButton="false"
+                    liveChange="onSearch" />
+            </Toolbar>
+        </infoToolbar>
+        <columns>
+            <Column demandPopin="true"
+                width="12em"
+                popinDisplay="Block"
+                minScreenWidth="Desktop"
+                visible="{proposta>/table/columns/categoryColumnVisible}">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Categoria" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Prodotto" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Descrizione" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="U acq" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="U prz" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="U Qta" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Disponibilità" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="UM" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Prz" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Qta" />
+            </Column>
+            <Column demandPopin="true"
+                minScreenWidth="Desktop"
+                popinDisplay="WithoutHeader"
+                hAlign="Center">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Azioni" />
+            </Column>
+        </columns>
+    </Table>
+</core:FragmentDefinition>

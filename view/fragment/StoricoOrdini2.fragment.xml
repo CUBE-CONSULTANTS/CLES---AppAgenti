@@ -1,0 +1,156 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:commons="sap.suite.ui.commons">
+    <List id="storico_ordini"
+        growing="true"
+        growingThreshold="20"
+        growingScrollToLoad="true"
+        sticky="HeaderToolbar,ColumnHeaders"
+        items="{storico>/table/items}">
+        <items>
+            <CustomListItem >
+                <content>
+                    <VBox >
+                        <form:SimpleForm columnsM="2"
+                            columnsL="3">
+                            <core:Title text="Ordine di Vendita: ({storico>SalesOrderID})" />
+                            <Label text="Cliente" />
+                            <Title titleStyle="H5"
+                                text="{storico>CustomerID} - {storico>CustomerName}" />
+                            <Label text="Descrizione Ordine" />
+                            <Text text="{storico>SalesOrderDescription}" />
+                            <Label text="Stato Ordine" />
+                            <Title titleStyle="H5"
+                                text="{storico>OrderStatus}" />
+                            <Label text="Totale" />
+                            <ObjectNumber state="Success"
+                                number="{storico>TotalAmount}"
+                                unit="{storico>Currency}" />
+                            <core:Title text="" />
+                            <Label text="Data Ordine" />
+                            <Text text="{storico>OrderDate}" />
+                            <Label text="Data Consegna" />
+                            <Text text="{storico>DeliveryDate}" />
+                        </form:SimpleForm>
+                        <Toolbar width="100%"
+                            height="1px" />
+                        <Panel headerText="Dettagli"
+                            backgroundDesign="Transparent"
+                            expandable="true"
+                            expanded="false"
+                            expand=".onPanelProcessFlowExpand"
+                            visible="{= ${device>/system/phone} ? false : true }">
+                            <content>
+                                <VBox >
+                                    <VBox width="100%">
+                                        <form:SimpleForm columnsM="2"
+                                            columnsL="3">
+                                            <core:Title text="Responsabile Vendita: ({storico>SalesRep})" />
+                                            <Label text="Data Ordine" />
+                                            <Text text="{storico>OrderDate}" />
+                                            <core:Title text="" />
+                                            <Label text="Data Consegna" />
+                                            <Text text="{storico>DeliveryDate}" />
+                                        </form:SimpleForm>
+                                    </VBox>
+                                    <VBox width="100%">
+                                        <commons:ProcessFlow scrollable="true"
+                                            wheelZoomable="true"
+                                            nodes="{storico>nodes}"
+                                            lanes="{storico>lanes}"
+                                            nodePress="onNodePress">
+                                            <commons:nodes>
+                                                <commons:ProcessFlowNode laneId="{storico>lane}"
+                                                    nodeId="{storico>id}"
+                                                    title="{title}"
+                                                    children="{children}"
+                                                    stateText="{stateText}"
+                                                    texts="{texts}"
+                                                    highlighted="{highlighted}"
+                                                    focused="{focused}"
+                                                    state="{storico>state}" />
+                                            </commons:nodes>
+                                            <commons:lanes>
+                                                <commons:ProcessFlowLaneHeader laneId="{storico>id}"
+                                                    iconSrc="{storico>icon}"
+                                                    text="{storico>label}"
+                                                    position="{storico>position}"
+                                                    state="{storico>state}" />
+                                            </commons:lanes>
+                                        </commons:ProcessFlow>
+                                    </VBox>
+                                </VBox>
+                            </content>
+                        </Panel>
+                        <Panel headerText="Posizioni Ordine ({storico>posizioni/length})"
+                            backgroundDesign="Transparent"
+                            expandable="true"
+                            expanded="false"
+                            expand=".onPanelPosizioniExpand">
+                            <ScrollContainer vertical="true"
+                                horizontal="false"
+                                height="300px">
+                                <Table items="{storico>posizioni}"
+                                    alternateRowColors="true"
+                                    popinLayout="GridSmall">
+                                    <columns>
+                                        <Column demandPopin="true"
+                                            popinDisplay="Block"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="Categoria" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="Prodotto" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="U acq" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="U prz" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="U Qta" />
+                                        </Column>
+                                        <Column demandPopin="true"
+                                            minScreenWidth="Desktop">
+                                            <Label design="Bold"
+                                                wrapping="true"
+                                                text="Disponibilita" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem >
+                                            <cells>
+                                                <Text text="{storico>category}" />
+                                                <Text text="{storico>product} - {storico>description}" />
+                                                <Text text="{storico>u_acq}" />
+                                                <Text text="{storico>u_prz}" />
+                                                <Text text="{storico>u_qta} {storico>unit_of_measure}" />
+                                                <Text text="{storico>disponibilita} {storico>unit_of_measure}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </ScrollContainer>
+                        </Panel>
+                    </VBox>
+                </content>
+            </CustomListItem>
+        </items>
+    </List>
+</core:FragmentDefinition>
