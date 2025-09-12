@@ -14,6 +14,9 @@
     "@sap/ux-ui5-tooling": "1"
   },
   "scripts": {
+    "build": "ui5 build --clean --include-task=generateManifestBundle --dest webapp/dist",
+    "build:watch": "ui5 build --watch --dest webapp/dist",
+    "serve:dist": "npx http-server ./webapp/dist -p 8080 --silent",
     "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
   }
 }
