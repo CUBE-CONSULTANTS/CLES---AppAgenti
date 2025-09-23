@@ -66,10 +66,6 @@
       "proposta": {
         "type": "sap.ui.model.json.JSONModel",
         "uri": "./model/data/PropostaProdotti.json"
-      },
-      "storico": {
-        "type": "sap.ui.model.json.JSONModel",
-        "uri": "./model/data/StoricoOrdini.json"
       }
     },
     "resources": {

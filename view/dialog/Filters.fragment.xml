@@ -1,0 +1,66 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <ViewSettingsDialog confirm="handleConfirm">
+        <sortItems>
+			<ViewSettingsItem text="Tipo" key="1" selected="true" />
+			<ViewSettingsItem text="Descrizione" key="2" />
+			<ViewSettingsItem text="Top Seller" key="3" />
+		</sortItems>
+        <customTabs>
+            <ViewSettingsCustomTab icon="sap-icon://filter"
+                title="Filtri"
+                tooltip="Impostazioni Visualizzazione">
+                <content>
+                    <Panel>
+                        <HBox justifyContent="SpaceBetween"
+                            alignItems="Center">
+                            <Label text="Ultimo acquisto"
+                                design="Bold" />
+                            <Button text="Resetta" />
+                        </HBox>
+                        <DateRangeSelection change="handleChange" />
+
+                        <HBox justifyContent="SpaceBetween"
+                            alignItems="Center">
+                            <Label text="Ultimo prezzo"
+                                design="Bold"
+                                class="sapUiMediumMarginTop" />
+                            <Button text="Resetta" />
+                        </HBox>
+                        <RangeSlider showAdvancedTooltip="true"
+                            min="0"
+                            max="100"
+                            width="80%"
+                            class="sapUiMediumMarginBottom" />
+
+                        <HBox justifyContent="SpaceBetween"
+                            alignItems="Center">
+                            <Label text="Ultima quantità"
+                                design="Bold"
+                                class="sapUiMediumMarginTop" />
+                            <Button text="Resetta" />
+                        </HBox>
+                        <RangeSlider showAdvancedTooltip="true"
+                            min="0"
+                            max="100"
+                            width="80%"
+                            class="sapUiMediumMarginBottom" />
+
+                        <HBox justifyContent="SpaceBetween"
+                            alignItems="Center">
+                            <Label text="Disponibilità"
+                                design="Bold"
+                                class="sapUiMediumMarginTop" />
+                            <Button text="Resetta" />
+                        </HBox>
+                        <RangeSlider showAdvancedTooltip="true"
+                            min="0"
+                            max="100"
+                            width="80%"
+                            class="sapUiMediumMarginBottom" />
+                    </Panel>
+                </content>
+            </ViewSettingsCustomTab>
+        </customTabs>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

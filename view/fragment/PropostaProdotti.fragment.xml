@@ -1,5 +1,6 @@
 <core:FragmentDefinition xmlns="sap.m"
-    xmlns:core="sap.ui.core">
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
     <Table id="lista_odv"
         mode="MultiSelect"
         growing="true"
@@ -7,18 +8,24 @@
         growingScrollToLoad="true"
         sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
         alternateRowColors="false"
-        popinLayout="GridSmall">
+        popinLayout="GridSmall"
+        autoPopinMode="true">
         <headerToolbar>
             <OverflowToolbar design="Solid"
                 style="Clear">
                 <ToolbarSpacer />
+                <Button text="Ordina e Filtra"
+                    type="Emphasized"
+                    icon="sap-icon://action-settings"
+                    press=".onFilterPress"/>
                 <CheckBox text="Raggruppa per Categoria"
+                    visible="false"
                     selected="{proposta>/table/toolbar/groupByCategory}"
                     select=".onGroupByCategory" />
-                <Button text="Aggiungi Riga"
+                <Button text="Aggiungi Prodotti"
                     type="Emphasized"
                     icon="sap-icon://add"
-                    press=".onAddRowPress" />
+                    press=".onProductValueHelpRequest" />
             </OverflowToolbar>
         </headerToolbar>
         <infoToolbar>
@@ -31,6 +38,14 @@
         </infoToolbar>
         <columns>
             <Column demandPopin="true"
+                importance="High"
+                minScreenWidth="Desktop">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Foto" />
+            </Column>
+            <Column demandPopin="true"
+                importance="Low"
                 width="12em"
                 popinDisplay="Block"
                 minScreenWidth="Desktop"
@@ -39,35 +54,37 @@
                     wrapping="true"
                     text="Categoria" />
             </Column>
-            <Column demandPopin="true"
+            <!-- <Column demandPopin="true"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Prodotto" />
-            </Column>
+            </Column> -->
             <Column demandPopin="true"
+                importance="Low"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Descrizione" />
             </Column>
             <Column demandPopin="true"
+                importance="Medium"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="U acq" />
+                    text="Ultimo acquisto" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="U prz" />
+                    text="Ultimo prezzo" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="U Qta" />
+                    text="Ultima Quantità" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
@@ -79,27 +96,28 @@
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="UM" />
+                    text="Unita di Misura" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="Prz" />
+                    text="Prezzo" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
-                    text="Qta" />
+                    text="Quantità" />
             </Column>
             <Column demandPopin="true"
                 minScreenWidth="Desktop"
                 popinDisplay="WithoutHeader"
+                importance="High"
                 hAlign="Center">
                 <Label design="Bold"
                     wrapping="true"
-                    text="Azioni" />
+                    text="Note" />
             </Column>
         </columns>
     </Table>

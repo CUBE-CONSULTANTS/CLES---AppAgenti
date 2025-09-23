@@ -68,6 +68,37 @@ sap.ui.define(
               value: "",
             },
           },
+          body: {
+            iconTabBar: {},
+            table: {
+              menu: {
+                items: [{
+                  text: "Categorie",
+                  icon: "sap-icon://target-group",
+                  key: "CATEGORIE",
+                  items: [{
+                    text: "TUTTI",
+                    key: "ALL"
+                  }, {
+                    text: "APERITIVI",
+                    key: "APERITIVI"
+                  }, {
+                    text: "CARNI BIANCHE",
+                    key: "CARNI BIANCHE"
+                  }, {
+                    text: "CARNI ROSSE",
+                    key: "CARNI ROSSE"
+                  }]
+                }]
+              },
+              toolbar: {
+                filters: {
+                  items: [],
+                }
+              },
+              items: [],
+            }
+          },
           footer: {},
         });
       },
