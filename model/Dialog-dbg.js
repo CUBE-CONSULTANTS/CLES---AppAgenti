@@ -136,12 +136,12 @@ sap.ui.define(
         });
       },
 
-      async getProductValueHelp({ controller }) {
+      async getCatalogValueHelp({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
               name: "_productValueHelp",
-              path: "view.valuehelp.Product",
+              path: "view.valuehelp.Catalog",
               controller,
               model: new JSONModel({
                 items: [

@@ -21,7 +21,9 @@
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
                 "disponibilita": "3",
-                "note": "1"
+                "note": "1",
+                "status_text": "Top Seller",
+                "status_state": "Indication15"
             },
             {
                 "selected": false,
@@ -37,7 +39,9 @@
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
                 "disponibilita": "3",
-                "note": "0"
+                "note": "0",
+                "status_text": "Gluten Free",
+                "status_state": "Indication14"
             },
             {
                 "selected": false,
@@ -53,7 +57,9 @@
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
                 "disponibilita": "12",
-                "note": "3"
+                "note": "3",
+                "status_text": "Gluten Free",
+                "status_state": "Indication14"
             },
             {
                 "selected": false,
@@ -69,7 +75,9 @@
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
                 "disponibilita": "7",
-                "note": "1"
+                "note": "1",
+                "status_text": "In arrivo 25/10/2025",
+                "status_state": "Indication12"
             },
             {
                 "selected": false,

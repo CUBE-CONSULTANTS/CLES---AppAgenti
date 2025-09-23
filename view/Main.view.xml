@@ -9,19 +9,19 @@
     <uxap:ObjectPageLayout showEditHeaderButton="false"
         showTitleInHeaderContent="false"
         alwaysShowContentHeader="false"
-        useIconTabBar="false"
+        useIconTabBar="true"
         backgroundDesignAnchorBar="Transparent"
-        preserveHeaderStateOnScroll="false"
-        headerContentPinnable="false"
+        preserveHeaderStateOnScroll="true"
+        headerContentPinnable="true"
         isChildPage="false"
-        upperCaseAnchorBar="false"
-        showHeaderContent="false"
+        upperCaseAnchorBar="true"
+        showHeaderContent="true"
         showFooter="true"
         sectionChange=".onObjectPageSectionChange">
         <uxap:headerTitle>
             <uxap:ObjectPageHeader objectTitle="Proposta Ordine" >
                 <uxap:actions>
-                    <core:Fragment fragmentName="cles.agenti.view.fragment.DynamicPageTitle"
+                    <core:Fragment fragmentName="cles.agenti.view.fragment.HeaderToolbar"
                         type="XML" />
                 </uxap:actions>
             </uxap:ObjectPageHeader>
@@ -31,7 +31,7 @@
                 showTitle="false">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection >
-                        <core:Fragment fragmentName="cles.agenti.view.fragment.DynamicPageHeader"
+                        <core:Fragment fragmentName="cles.agenti.view.fragment.HeaderContent"
                             type="XML" />
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
@@ -58,7 +58,7 @@
                             </tnt:SideNavigation>
                             <ScrollContainer vertical="true"
                                 height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 215 + 'px') }">
-                                <core:Fragment fragmentName="cles.agenti.view.fragment.PropostaProdotti"
+                                <core:Fragment fragmentName="cles.agenti.view.fragment.Content"
                                     type="XML" />
                             </ScrollContainer>
                         </FlexBox>

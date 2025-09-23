@@ -2,7 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
     <TableSelectDialog title="Catalogo"
-        confirm=".onProductValueHelpConfirm"
+        confirm=".onCatalogValueHelpConfirm"
         multiSelect="true"
         items="{/items}">
         <columns>

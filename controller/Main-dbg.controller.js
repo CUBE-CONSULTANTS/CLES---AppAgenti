@@ -55,16 +55,9 @@ sap.ui.define(
             src: "{proposta>src}",
             width: "5rem",
             height: "5rem",
-            press: this.onShowPhotoPress.bind(this)
+            press: this.onShowPhotoPress.bind(this),
           }),
           new sap.m.Text({ text: "{proposta>category}" }),
-          /* new sap.m.Input({
-            value: "{proposta>product}",
-            showValueHelp: true,
-            editable: "{= ${proposta>product} ? false : true }",
-            valueHelpRequest: this.onProductValueHelpRequest.bind(this),
-            valueHelpOnly: true,
-          }), */
           new sap.m.Text({
             text: "{proposta>product} - {proposta>description}",
           }),
@@ -86,30 +79,43 @@ sap.ui.define(
             step: 1,
             change: this.onStepInputQuantityChange,
           }),
-          new sap.m.HBox({
+          new sap.m.VBox({
             height: "100%",
             width: "100%",
-            justifyContent: "Center",
+            alignItems: "Center",
             items: [
-              new sap.m.Button({
-                tooltip: "Note",
-                icon: "sap-icon://notes",
-                press: this.onAddNotePress.bind(this),
+              new sap.m.HBox({
+                alignItems: "Baseline",
+                items: [
+                  new sap.m.Button({
+                    tooltip: "Note",
+                    icon: "sap-icon://notes",
+                    press: this.onAddNotePress.bind(this),
+                  }),
+                  new sap.m.ObjectNumber({
+                    number: "{proposta>note}",
+                  }).addStyleClass("sapUiTinyMarginBegin"),
+                ],
               }),
-              new sap.m.ObjectNumber({
-                number: "{proposta>note}"
-              }).addStyleClass("sapUiTinyMarginBegin"),
+              new sap.m.ObjectStatus({
+                text: "{proposta>status_text}",
+                active: true,
+                inverted: true,
+                state: "{proposta>status_state}",
+              }).addStyleClass("sapUiTinyMarginTop"),
             ],
           }).addStyleClass("sapUiSmallMarginTopBottom"),
         ];
       },
 
       onStepInputQuantityChange(e) {
+        const { value } = e.getParameters();
         const context = e.getSource().getBindingContext("proposta");
         const path = context.getPath();
         const model = context.getModel();
 
-        model.setProperty(path + "/selected", true);
+        if (value !== 0) model.setProperty(path + "/selected", true);
+        else model.setProperty(path + "/selected", false);
       },
 
       onGroupByCategory() {
@@ -245,22 +251,25 @@ sap.ui.define(
         const oTable = this.byId("lista_odv");
         const binding = oTable.getBinding("items");
         const key = oItem.getKey();
-        const filter = key === "ALL" ? [] : [new Filter("category", FilterOperator.EQ, key)];
+        const filter =
+          key === "ALL" ? [] : [new Filter("category", FilterOperator.EQ, key)];
         binding.filter(filter);
       },
 
-      onProductValueHelpRequest() {
-        Dialog.getProductValueHelp({ controller: this });
+      onCatalogValueHelpRequest() {
+        Dialog.getCatalogValueHelp({ controller: this });
       },
 
-      onProductValueHelpConfirm(e) {
+      onCatalogValueHelpConfirm(e) {
         const { selectedItems } = e.getParameters();
 
-        if (!selectedItems.length ) return;
+        if (!selectedItems.length) return;
 
         const items = this.getModel("proposta").getProperty("/table/items");
 
-        selectedItems.forEach((el) => items.unshift(el.getBindingContext().getObject()));
+        selectedItems.forEach((el) =>
+          items.unshift(el.getBindingContext().getObject())
+        );
 
         this.getModel("proposta").setProperty("/table/items", items);
       },

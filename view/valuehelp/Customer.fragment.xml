@@ -41,6 +41,8 @@
                                 <core:Title text="Dati Generali" />
                                 <Label text="Ragione sociale" />
                                 <Input value="" />
+                                <Label text="Destinazione" />
+                                <Input value="" />
                                 <Label text="Indirizzo completo" />
                                 <Input value="" />
                                 <Label text="Partita IVA/Codice Fiscale" />

@@ -22,10 +22,10 @@
                     visible="false"
                     selected="{proposta>/table/toolbar/groupByCategory}"
                     select=".onGroupByCategory" />
-                <Button text="Aggiungi Prodotti"
+                <Button text="Sfoglia Catalogo"
                     type="Emphasized"
                     icon="sap-icon://add"
-                    press=".onProductValueHelpRequest" />
+                    press=".onCatalogValueHelpRequest" />
             </OverflowToolbar>
         </headerToolbar>
         <infoToolbar>
@@ -55,9 +55,6 @@
                     wrapping="true"
                     text="Categoria" />
             </Column>
-            <!-- <Column demandPopin="true" minScreenWidth="Desktop">
-                <Label design="Bold" wrapping="true" text="Prodotto" />
-            </Column> -->
             <Column demandPopin="true"
                 importance="Low"
                 minScreenWidth="Desktop">
