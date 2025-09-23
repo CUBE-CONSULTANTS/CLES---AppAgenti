@@ -14,8 +14,28 @@
                     <Panel>
                         <HBox justifyContent="SpaceBetween"
                             alignItems="Center">
+                            <Label text="Categoria"
+                                design="Bold" 
+                                />
+                            <Button text="Resetta" />
+                        </HBox>
+                        <Select>
+                            <items>
+                                <core:Item text="Tutti"
+                                    key="all" />
+                                <core:Item text="Aperitivi"
+                                    key="elec" />
+                                <core:Item text="Carni Rosse"
+                                    key="can" />
+                                <core:Item text="Carni Bianche"
+                                    key="info" />
+                            </items>
+                        </Select>
+
+                        <HBox justifyContent="SpaceBetween"
+                            alignItems="Center">
                             <Label text="Ultimo acquisto"
-                                design="Bold" />
+                                design="Bold" class="sapUiMediumMarginTop"/>
                             <Button text="Resetta" />
                         </HBox>
                         <DateRangeSelection change="handleChange" />

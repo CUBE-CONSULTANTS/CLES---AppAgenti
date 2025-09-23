@@ -79,10 +79,12 @@ sap.ui.define(
             step: 1,
             change: this.onStepInputQuantityChange,
           }),
-          new sap.m.VBox({
+          new sap.m.FlexBox({
             height: "100%",
             width: "100%",
             alignItems: "Center",
+            justifyContent: this.getModel("device").getProperty("/system/desktop") ? "SpaceBetween" : "Start",
+            direction: this.getModel("device").getProperty("/system/desktop") ? "Column" : "Row",
             items: [
               new sap.m.HBox({
                 alignItems: "Baseline",
@@ -102,7 +104,7 @@ sap.ui.define(
                 active: true,
                 inverted: true,
                 state: "{proposta>status_state}",
-              }).addStyleClass("sapUiTinyMarginTop"),
+              }).addStyleClass("sapUiTinyMarginBegin sapUiTinyMarginTop"),
             ],
           }).addStyleClass("sapUiSmallMarginTopBottom"),
         ];

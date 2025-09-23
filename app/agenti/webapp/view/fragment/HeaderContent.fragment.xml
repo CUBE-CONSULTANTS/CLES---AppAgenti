@@ -27,37 +27,43 @@
         <TextArea rows="4"
             cols="120"
             value="{main>/header/notes/value}" />
-        <List items="{main>/header/attachments/items}">
-            <headerToolbar>
-                <OverflowToolbar width="100%">
-                    <Title titleStyle="H5"
-                        text="Allegati di Testata" />
-                    <ToolbarSpacer />
-                    <Button icon="sap-icon://add"
-                        type="Emphasized"
-                        press=".onHeaderAttachmentPress" />
-                </OverflowToolbar>
-            </headerToolbar>
-            <items>
-                <CustomListItem type="Active"
-                    press=".onHeaderAttachmentItemPress">
-                    <HBox width="100%"
-                        alignItems="Center"
-                        justifyContent="SpaceBetween">
-                        <Text class="sapUiTinyMarginBeginEnd"
-                            wrapping="true"
-                            text="{main>data}" />
-                        <Text class="sapUiTinyMarginBeginEnd"
-                            wrapping="true"
-                            text="{main>nome}" />
-                        <Button class="sapUiTinyMarginBeginEnd"
-                            type="Negative"
-                            icon="sap-icon://delete"
-                            press=".onHeaderAttachmentDeletePress" />
-                    </HBox>
-                </CustomListItem>
-            </items>
-        </List>
+        <ScrollContainer vertical="true"
+            horizontal="false"
+            height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 420 + 'px') }"
+            width="100%">
+            <List items="{main>/header/attachments/items}" sticky="HeaderToolbar">
+                <headerToolbar>
+                    <OverflowToolbar width="100%">
+                        <Title titleStyle="H5"
+                            text="Allegati di Testata" />
+                        <ToolbarSpacer />
+                        <Button icon="sap-icon://add"
+                            type="Emphasized"
+                            press=".onHeaderAttachmentPress" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <items>
+                    <CustomListItem type="Active"
+                        press=".onHeaderAttachmentItemPress">
+                        <HBox width="100%"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween">
+                            <Text class="sapUiTinyMarginBeginEnd"
+                                wrapping="true"
+                                text="{main>data}" />
+                            <Text class="sapUiTinyMarginBeginEnd"
+                                wrapping="true"
+                                text="{main>nome}" />
+                            <Button class="sapUiTinyMarginBeginEnd"
+                                type="Negative"
+                                icon="sap-icon://delete"
+                                press=".onHeaderAttachmentDeletePress" />
+                        </HBox>
+                    </CustomListItem>
+                </items>
+            </List>
+        </ScrollContainer>
+
     </VBox>
 
 </core:FragmentDefinition>
