@@ -42,7 +42,7 @@
                     <uxap:ObjectPageSubSection >
                         <FlexBox height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 215 + 'px') }">
                             <tnt:SideNavigation selectedKey="Categorie"
-                                expanded="true"
+                                expanded="false"
                                 visible="{= ${device>/system/phone} ? false : true }">
                                 <tnt:NavigationList selectedKey="ALL"
                                     items="{main>/body/table/menu/items}">

@@ -87,6 +87,15 @@
                     text="Disponibilità" />
             </Column>
             <Column demandPopin="true"
+                minScreenWidth="Desktop"
+                popinDisplay="WithoutHeader"
+                importance="Low"
+                hAlign="Center">
+                <Label design="Bold"
+                    wrapping="true"
+                    text="Note" />
+            </Column>
+            <Column demandPopin="true"
                 importance="Low"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
@@ -108,13 +117,12 @@
                     text="Quantità" />
             </Column>
             <Column demandPopin="true"
-                minScreenWidth="Desktop"
-                popinDisplay="WithoutHeader"
                 importance="Low"
-                hAlign="Center">
+                minScreenWidth="Desktop"
+                popinDisplay="WithoutHeader">
                 <Label design="Bold"
                     wrapping="true"
-                    text="Note" />
+                    text="" />
             </Column>
         </columns>
     </Table>
