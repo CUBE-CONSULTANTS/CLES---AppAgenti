@@ -1,7 +1,7 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <TableSelectDialog title="Aggiungi Prodotto"
+    <TableSelectDialog title="Catalogo"
         confirm=".onProductValueHelpConfirm"
         multiSelect="true"
         items="{/items}">

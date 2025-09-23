@@ -2,7 +2,7 @@
     xmlns:core="sap.ui.core">
     <OverflowToolbar >
         <ToolbarSpacer />
-        <Button text="Crea Ordine di Vendita"
+        <Button text="Riepilogo"
             icon="sap-icon://create-form"
             press=".onCreaOdvPress"
             type="Emphasized" />

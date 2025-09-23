@@ -113,7 +113,7 @@
             <Column demandPopin="true"
                 minScreenWidth="Desktop"
                 popinDisplay="WithoutHeader"
-                importance="High"
+                importance="Medium"
                 hAlign="Center">
                 <Label design="Bold"
                     wrapping="true"

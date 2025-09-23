@@ -1,14 +1,22 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <Dialog title="Crea OdV">
+    <Dialog title="Crea OdV" stretch="true">
         <buttons>
-            <Button text="Crea OdV"
+            <Button text="Salva come Preordine"
                 enabled="{= ${/table/items/length} ? true : false }"
-                type="Success"
+                type="Attention"
+                press=".onCreaOdvConfirm" />
+            <Button text="Salva come Offerta"
+                enabled="{= ${/table/items/length} ? true : false }"
+                type="Accept"
+                press=".onCreaOdvConfirm" />
+            <Button text="Salva come Ordine di Vendita"
+                enabled="{= ${/table/items/length} ? true : false }"
+                type="Accept"
                 press=".onCreaOdvConfirm" />
             <Button text="Chiudi"
-                type="Emphasized"
+                type="Reject"
                 press=".defaultDialogClose" />
         </buttons>
         <content>

@@ -20,7 +20,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "3"
+                "disponibilita": "3",
+                "note": "1"
             },
             {
                 "selected": false,
@@ -35,7 +36,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "3"
+                "disponibilita": "3",
+                "note": "0"
             },
             {
                 "selected": false,
@@ -50,7 +52,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "12"
+                "disponibilita": "12",
+                "note": "3"
             },
             {
                 "selected": false,
@@ -65,7 +68,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "7"
+                "disponibilita": "7",
+                "note": "1"
             },
             {
                 "selected": false,
@@ -79,7 +83,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "0"
+                "disponibilita": "0",
+                "note": "0"
             },
             {
                 "selected": false,
@@ -93,7 +98,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "0"
+                "disponibilita": "0",
+                "note": "0"
             },
             {
                 "selected": false,
@@ -107,7 +113,8 @@
                 "price": "0.00",
                 "unit_of_measure": "CF",
                 "quantity": "0.00",
-                "disponibilita": "15"
+                "disponibilita": "15",
+                "note": "2"
             }
         ]
     }

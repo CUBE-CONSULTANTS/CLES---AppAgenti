@@ -4,57 +4,71 @@
     xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:tnt="sap.tnt"
+    xmlns:uxap="sap.uxap"
     xmlns="sap.m">
-    <f:DynamicPage id="dettaglio_ordine"
-        headerExpanded="true"
-        toggleHeaderOnTitleClick="false"
-        fitContent="false"
-        showFooter="{main>/showFooter}">
-        <f:title>
-            <core:Fragment fragmentName="cles.agenti.view.fragment.DynamicPageTitle"
-                type="XML" />
-        </f:title>
-        <f:header>
-            <f:DynamicPageHeader backgroundDesign="Solid">
-                <f:content>
-                    <core:Fragment fragmentName="cles.agenti.view.fragment.DynamicPageHeader"
+    <uxap:ObjectPageLayout showEditHeaderButton="false"
+        showTitleInHeaderContent="false"
+        alwaysShowContentHeader="false"
+        useIconTabBar="false"
+        backgroundDesignAnchorBar="Transparent"
+        preserveHeaderStateOnScroll="false"
+        headerContentPinnable="false"
+        isChildPage="false"
+        upperCaseAnchorBar="false"
+        showHeaderContent="false"
+        showFooter="true"
+        sectionChange=".onObjectPageSectionChange">
+        <uxap:headerTitle>
+            <uxap:ObjectPageHeader objectTitle="Proposta Ordine" >
+                <uxap:actions>
+                    <core:Fragment fragmentName="cles.agenti.view.fragment.DynamicPageTitle"
                         type="XML" />
-                </f:content>
-            </f:DynamicPageHeader>
-        </f:header>
-        <f:content>
-            <IconTabBar selectedKey="0">
-                <items>
-                    <IconTabFilter text="Proposta Prodotti"
-                        key="0">
-                        <content>
-                            <FlexBox height="{= ${device>/resize/height} - 420}px">
-                                <tnt:SideNavigation selectedKey="Categorie"
-                                    expanded="true" visible="{= ${device>/system/phone} ? false : true }">
-                                    <tnt:NavigationList selectedKey="ALL"
-                                        items="{main>/body/table/menu/items}">
-                                        <tnt:NavigationListItem text="{main>text}"
-                                            key="{main>key}"
-                                            icon="{main>icon}"
-                                            items="{main>items}">
-                                            <tnt:NavigationListItem key="{main>key}"
-                                                text="{main>text}" press=".onCategoryListItemPress" />
-                                        </tnt:NavigationListItem>
-                                    </tnt:NavigationList>
-                                </tnt:SideNavigation>
-                                <ScrollContainer vertical="true" height="{= ${device>/resize/height} - 420}px">
-                                    <core:Fragment fragmentName="cles.agenti.view.fragment.PropostaProdotti"
-                                        type="XML" />
-                                </ScrollContainer>
-                            </FlexBox>
-                        </content>
-                    </IconTabFilter>
-                </items>
-            </IconTabBar>
-        </f:content>
-        <f:footer>
+                </uxap:actions>
+            </uxap:ObjectPageHeader>
+        </uxap:headerTitle>
+        <uxap:sections>
+            <uxap:ObjectPageSection title="Testata"
+                showTitle="false">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <core:Fragment fragmentName="cles.agenti.view.fragment.DynamicPageHeader"
+                            type="XML" />
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Proposta Prodotti"
+                showTitle="false">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection >
+                        <FlexBox height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 215 + 'px') }">
+                            <tnt:SideNavigation selectedKey="Categorie"
+                                expanded="true"
+                                visible="{= ${device>/system/phone} ? false : true }">
+                                <tnt:NavigationList selectedKey="ALL"
+                                    items="{main>/body/table/menu/items}">
+                                    <tnt:NavigationListItem text="{main>text}"
+                                        key="{main>key}"
+                                        icon="{main>icon}"
+                                        items="{main>items}">
+                                        <tnt:NavigationListItem key="{main>key}"
+                                            text="{main>text}"
+                                            press=".onCategoryListItemPress" />
+                                    </tnt:NavigationListItem>
+                                </tnt:NavigationList>
+                            </tnt:SideNavigation>
+                            <ScrollContainer vertical="true"
+                                height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 215 + 'px') }">
+                                <core:Fragment fragmentName="cles.agenti.view.fragment.PropostaProdotti"
+                                    type="XML" />
+                            </ScrollContainer>
+                        </FlexBox>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+        <uxap:footer>
             <core:Fragment fragmentName="cles.agenti.view.fragment.Footer"
                 type="XML" />
-        </f:footer>
-    </f:DynamicPage>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
 </mvc:View>

@@ -34,35 +34,43 @@
                     <!-- Identificazione -->
                     <core:Title text="Identificazione Prodotto" />
                     <Label text="Codice Materiale" />
-                    <Text text="PRD-001234" />
+                    <Text text="PRD-002345" />
                     <Label text="Descrizione" />
-                    <Text text="Pasta integrale di grano duro" />
+                    <Text text="Bastoncini di mozzarella panati surgelati" />
                     <Label text="Categoria" />
-                    <Text text="Pasta" />
+                    <Text text="Prodotti panati surgelati" />
                     <Label text="Marchio / Produttore" />
-                    <Text text="Pastificio Italiano S.p.A." />
+                    <Text text="Pastificio e Latticini Italia S.p.A." />
+                    <Label text="Codice EAN" />
+                    <Text text="8001234567895" />
 
                     <!-- Informazioni Legali e Normative -->
                     <core:Title text="Informazioni Legali e Normative" />
                     <Label text="Ingredienti" />
-                    <Text text="Farina integrale di grano duro, acqua, fibra di grano, sale" />
+                    <Text text="Mozzarella (50%) [latte, sale, caglio], panatura [farina di grano, farina di mais, amido, uovo in polvere, paprica, lievito, sale], olio di semi di girasole, acqua." />
                     <Label text="Allergeni" />
-                    <Text text="Glutine" />
+                    <Text text="Latte, uova, glutine. Può contenere tracce di soia e sedano." />
                     <Label text="Valori Nutrizionali (100 g)" />
-                    <Text text="Energia 1450 kJ / 345 kcal • Grassi 2,5 g • di cui saturi 0,5 g • Carboidrati 67 g • di cui zuccheri 3,5 g • Fibre 11 g • Proteine 12 g • Sale 0,02 g" />
+                    <Text text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g" />
                     <Label text="Additivi" />
-                    <Text text="–" />
+                    <Text text="Non dichiarati" />
+                    <Label text="Data Scadenza / TMC" />
+                    <Text text="12 mesi dalla produzione" />
+                    <Label text="Normativa" />
+                    <Text text="Reg. UE 1169/2011" />
 
                     <!-- Logistica -->
                     <core:Title text="Informazioni Logistiche" />
                     <Label text="Unità di misura base" />
-                    <Text text="Pacco da 500 g" />
+                    <Text text="Confezione da 500 g" />
                     <Label text="Peso netto / lordo" />
                     <Text text="500 g / 510 g" />
                     <Label text="Dimensioni imballo" />
-                    <Text text="L 30 cm × P 20 cm × A 5 cm" />
+                    <Text text="L 28 cm × P 18 cm × A 5 cm" />
                     <Label text="Quantità confezione / cartone / pallet" />
                     <Text text="1 confezione, 12 confezioni/cartone, 72 cartoni/pallet" />
+                    <Label text="Condizioni di conservazione" />
+                    <Text text="Conservare a -18 °C. Non ricongelare dopo lo scongelamento." />
 
                     <!-- Qualità e Sicurezza -->
                     <core:Title text="Qualità e Sicurezza" />
@@ -73,9 +81,9 @@
                     <Label text="Shelf Life residua minima" />
                     <Text text="3 mesi" />
                     <Label text="Parametri Qualità" />
-                    <Text text="Umidità ≤ 12 %, Ceneri ≤ 2 %" />
+                    <Text text="Umidità ≤12%, Ceneri ≤2%" />
                     <Label text="Processo produttivo" />
-                    <Text text="Essiccazione lenta a bassa temperatura" />
+                    <Text text="Panatura, prefrittura in olio di girasole, surgelazione rapida" />
                 </form:SimpleForm>
             </FlexBox>
 
