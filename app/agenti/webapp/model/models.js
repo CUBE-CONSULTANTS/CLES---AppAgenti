@@ -66,6 +66,34 @@ sap.ui.define(
                   data: "05/01/2024",
                   nome: "Descr. Allegato 7",
                 },
+                {
+                  data: "15/12/2023",
+                  nome: "Descr. Allegato 8",
+                },
+                {
+                  data: "20/11/2023",
+                  nome: "Descr. Allegato 9",
+                },
+                {
+                  data: "30/10/2023",
+                  nome: "Descr. Allegato 10",
+                },
+                {
+                  data: "05/10/2023",
+                  nome: "Descr. Allegato 11",
+                },
+                {
+                  data: "15/09/2023",
+                  nome: "Descr. Allegato 12",
+                },
+                {
+                  data: "25/08/2023",
+                  nome: "Descr. Allegato 13",
+                },
+                {
+                  data: "30/07/2023",
+                  nome: "Descr. Allegato 14", 
+                },
               ],
             },
             notes: {
