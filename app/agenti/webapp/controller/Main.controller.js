@@ -51,15 +51,23 @@ sap.ui.define(
 
       _getCells() {
         return [
+          new sap.m.Image({
+            src: "{proposta>src}",
+            width: "5rem",
+            height: "5rem",
+            press: this.onShowPhotoPress.bind(this)
+          }),
           new sap.m.Text({ text: "{proposta>category}" }),
-          new sap.m.Input({
+          /* new sap.m.Input({
             value: "{proposta>product}",
             showValueHelp: true,
             editable: "{= ${proposta>product} ? false : true }",
             valueHelpRequest: this.onProductValueHelpRequest.bind(this),
             valueHelpOnly: true,
+          }), */
+          new sap.m.Text({
+            text: "{proposta>product} - {proposta>description}",
           }),
-          new sap.m.Text({ text: "{proposta>description}" }),
           new sap.m.Text({ text: "{proposta>u_acq}" }),
           new sap.m.Text({ text: "{proposta>u_prz}" }),
           new sap.m.Text({ text: "{proposta>u_qta}" }),
@@ -74,25 +82,20 @@ sap.ui.define(
           new sap.m.Input({ value: "{proposta>price}" }),
           new sap.m.StepInput({
             value: "{proposta>quantity}",
-            displayValuePrecision: 1,
-            step: 0.1,
+            displayValuePrecision: 0,
+            step: 1,
             change: this.onStepInputQuantityChange,
           }),
           new sap.m.HBox({
             height: "100%",
             width: "100%",
-            justifyContent: "End",
+            justifyContent: "Center",
             items: [
               new sap.m.Button({
                 tooltip: "Note",
                 icon: "sap-icon://notes",
                 press: this.onAddNotePress.bind(this),
-              }).addStyleClass("sapUiTinyMarginBegin"),
-              new sap.m.Button({
-                tooltip: "Foto",
-                icon: "sap-icon://camera",
-                press: this.onShowPhotoPress.bind(this),
-              }).addStyleClass("sapUiTinyMarginBegin"),
+              }),
             ],
           }).addStyleClass("sapUiSmallMarginTopBottom"),
         ];
@@ -177,6 +180,10 @@ sap.ui.define(
         ]);
       },
 
+      onFilterPress(e) {
+        Dialog.getFiltersDialog({ controller: this });
+      },
+
       getCategory(oContext) {
         return oContext.getProperty("category");
       },
@@ -198,7 +205,11 @@ sap.ui.define(
         });
 
         this.getView().addDependent(pdfViewer);
-        pdfViewer.setSource(sap.ui.require.toUrl("https://sapui5.hana.ondemand.com/sap/m/sample/PDFViewerPopup/sample1.pdf"));
+        pdfViewer.setSource(
+          sap.ui.require.toUrl(
+            "https://sapui5.hana.ondemand.com/sap/m/sample/PDFViewerPopup/sample1.pdf"
+          )
+        );
         pdfViewer.open();
       },
 
@@ -226,21 +237,13 @@ sap.ui.define(
         );
       },
 
-      onCategoryValueHelpRequest() {
-        Dialog.getCategoryValueHelp({ controller: this });
-      },
-
-      onCategoryValueHelpConfirm(e) {
-        const { selectedItem } = e.getParameters();
-
-        if (!selectedItem) return;
-
-        const context = selectedItem.getBindingContext();
-
-        this.getModel("proposta").setProperty("/table/items/0", {
-          ...this.getModel("proposta").getProperty("/table/items/0"),
-          category: context.getProperty("description"),
-        });
+      onCategoryListItemPress(e) {
+        const oItem = e.getParameter("item");
+        const oTable = this.byId("lista_odv");
+        const binding = oTable.getBinding("items");
+        const key = oItem.getKey();
+        const filter = key === "ALL" ? [] : [new Filter("category", FilterOperator.EQ, key)];
+        binding.filter(filter);
       },
 
       onProductValueHelpRequest() {
@@ -248,18 +251,15 @@ sap.ui.define(
       },
 
       onProductValueHelpConfirm(e) {
-        const { selectedItem } = e.getParameters();
+        const { selectedItems } = e.getParameters();
 
-        if (!selectedItem) return;
+        if (!selectedItems.length ) return;
 
-        const context = selectedItem.getBindingContext();
+        const items = this.getModel("proposta").getProperty("/table/items");
 
-        this.getModel("proposta").setProperty("/table/items/0", {
-          ...this.getModel("proposta").getProperty("/table/items/0"),
-          ...context.getObject(),
-          product: context.getProperty("name"),
-          disponibilita: context.getProperty("disponibilita"),
-        });
+        selectedItems.forEach((el) => items.unshift(el.getBindingContext().getObject()));
+
+        this.getModel("proposta").setProperty("/table/items", items);
       },
 
       onAddRowPress(e) {
@@ -290,8 +290,10 @@ sap.ui.define(
         Dialog.getAddNoteDialog({ controller: this, prodotto });
       },
 
-      onShowPhotoPress() {
-        Dialog.getPhotoDialog({ controller: this });
+      onShowPhotoPress(e) {
+        const src = e.getSource().getProperty("src");
+
+        Dialog.getPhotoDialog({ controller: this, src });
       },
 
       onPanelProcessFlowExpand(e) {
@@ -322,32 +324,6 @@ sap.ui.define(
         }
       },
 
-      onNodePress(oEvent) {
-        var oNode = oEvent.getParameters();
-        var sPath = oNode.getBindingContext("storico").getPath();
-
-        if (!this.oQuickView) {
-          Fragment.load({
-            name: "cles.agenti.view.fragment.QuickView",
-            type: "XML",
-          }).then(
-            function (oFragment) {
-              this.oQuickView = oFragment;
-              this.getView().addDependent(this.oQuickView);
-
-              this.oQuickView.bindElement({
-                path: sPath,
-                model: "storico",
-              });
-              this.oQuickView.openBy(oNode);
-            }.bind(this)
-          );
-        } else {
-          this.oQuickView.bindElement({ path: sPath, model: "storico" });
-          this.oQuickView.openBy(oNode);
-        }
-      },
-
       onCreaOdvPress() {
         Dialog.getCreaOdVDialog({ controller: this });
       },
@@ -358,12 +334,17 @@ sap.ui.define(
         });
       },
 
-      onShowFormPress (e) {
+      onShowFormPress(e) {
         const oButton = e.getSource();
         const oDialog = oButton.getParent();
 
-        oDialog.getModel().setProperty("/formVisible", !oDialog.getModel().getProperty("/formVisible"));
-      }
+        oDialog
+          .getModel()
+          .setProperty(
+            "/formVisible",
+            !oDialog.getModel().getProperty("/formVisible")
+          );
+      },
     });
   }
 );

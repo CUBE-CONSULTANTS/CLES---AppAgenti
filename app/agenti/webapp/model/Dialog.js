@@ -22,8 +22,28 @@ sap.ui.define(
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
-              name: "_attachmentValueHelp",
-              path: "view.fragment.AttachmentDialog",
+              name: "_attachmentDialog",
+              path: "view.dialog.Attachment",
+              controller,
+              model: new JSONModel({
+                value: null,
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
+      async getFiltersDialog({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_filtersDialog",
+              path: "view.dialog.Filters",
               controller,
               model: new JSONModel({
                 value: null,
@@ -43,7 +63,7 @@ sap.ui.define(
           try {
             const oDialog = await this._getDialogBase({
               name: "_customerValueHelp",
-              path: "view.fragment.CustomerValueHelp",
+              path: "view.valuehelp.Customer",
               controller,
               model: new JSONModel({
                 iconTabBar: {
@@ -88,7 +108,7 @@ sap.ui.define(
           try {
             const oDialog = await this._getDialogBase({
               name: "_categoryValueHelp",
-              path: "view.fragment.CategoryValueHelp",
+              path: "view.valuehelp.Category",
               controller,
               model: new JSONModel({
                 items: [
@@ -121,14 +141,16 @@ sap.ui.define(
           try {
             const oDialog = await this._getDialogBase({
               name: "_productValueHelp",
-              path: "view.fragment.ProductValueHelp",
+              path: "view.valuehelp.Product",
               controller,
               model: new JSONModel({
                 items: [
                   {
-                    icon: "https://shop.fattoriasila.it/wp-content/uploads/2020/07/salsiccia-2-FILEminimizer-1024x1024.jpg",
+                    selected: false,
+                    highlight: "Indication04",
+                    src: "https://shop.fattoriasila.it/wp-content/uploads/2020/07/salsiccia-2-FILEminimizer-1024x1024.jpg",
                     category: "CARNI ROSSE",
-                    name: "1111",
+                    product: "1111",
                     description: "Salsiccia Piccantina",
                     u_acq: "08/07/2025",
                     u_prz: (
@@ -142,9 +164,11 @@ sap.ui.define(
                     disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
-                    icon: "https://www.salumidestefani.it/wp-content/uploads/2019/04/salsicciasalsicciabio-768x512.jpg",
+                    selected: false,
+                    highlight: "Indication04",
+                    src: "https://www.salumidestefani.it/wp-content/uploads/2019/04/salsicciasalsicciabio-768x512.jpg",
                     category: "CARNI ROSSE",
-                    name: "1112",
+                    product: "1112",
                     description: "Salsiccia Nostrana",
                     u_acq: "08/07/2025",
                     u_prz: (
@@ -158,9 +182,11 @@ sap.ui.define(
                     disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
-                    icon: "https://content.dambros.it/uploads/2017/01/30111846/0000105144.jpg",
+                    selected: false,
+                    highlight: "Indication04",
+                    src: "https://content.dambros.it/uploads/2017/01/30111846/0000105144.jpg",
                     category: "CARNI ROSSE",
-                    name: "1113",
+                    product: "1113",
                     description: "Salamella",
                     u_acq: "08/07/2025",
                     u_prz: (
@@ -174,9 +200,11 @@ sap.ui.define(
                     disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
-                    icon: "https://www.foodexplore.com/media/catalog/product/cache/cfb506310985da6e6b5b75be9be619ee/p/o/poerchetta-ariccia-tronchetto.jpg",
+                    selected: false,
+                    highlight: "Indication04",
+                    src: "https://www.foodexplore.com/media/catalog/product/cache/cfb506310985da6e6b5b75be9be619ee/p/o/poerchetta-ariccia-tronchetto.jpg",
                     category: "CARNI ROSSE",
-                    name: "1114",
+                    product: "1114",
                     description: "Porchetta Piccantina",
                     u_acq: "08/07/2025",
                     u_prz: (
@@ -190,9 +218,11 @@ sap.ui.define(
                     disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
-                    icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuri-uIVnGjSrNhBAxwqdMM6BdaodNaI-NoA&s",
+                    selected: false,
+                    highlight: "Indication04",
+                    src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuri-uIVnGjSrNhBAxwqdMM6BdaodNaI-NoA&s",
                     category: "CARNI ROSSE",
-                    name: "1115",
+                    product: "1115",
                     description: "Porchetta alla Romana",
                     u_acq: "08/07/2025",
                     u_prz: (
@@ -206,9 +236,11 @@ sap.ui.define(
                     disponibilita: (Math.random() * 100).toFixed(0),
                   },
                   {
-                    icon: "https://www.sprintfood.it/cdn/shop/products/PorchettaTrevigiana.jpg",
+                    selected: false,
+                    highlight: "Indication04",
+                    src: "https://www.sprintfood.it/cdn/shop/products/PorchettaTrevigiana.jpg",
                     category: "CARNI ROSSE",
-                    name: "1116",
+                    product: "1116",
                     description: "Porchetta alla Trevigiana",
                     u_acq: "08/07/2025",
                     u_prz: (
@@ -238,7 +270,7 @@ sap.ui.define(
           try {
             const oDialog = await this._getDialogBase({
               name: "_addNoteDialog",
-              path: "view.fragment.AddNoteDialog",
+              path: "view.dialog.AddNote",
               controller,
               model: new JSONModel({
                 prodotto,
@@ -253,14 +285,22 @@ sap.ui.define(
         });
       },
 
-      async getPhotoDialog({ controller }) {
+      async getPhotoDialog({ controller, src }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
               name: "_photoDialog",
-              path: "view.fragment.PhotoDialog",
+              path: "view.dialog.ProductDetail",
               controller,
-              model: new JSONModel({}),
+              model: new JSONModel({
+                carousel: {
+                  pages: [
+                    { src },
+                    { src },
+                    { src }
+                  ]
+                }
+              }),
             });
 
             oDialog.open();
@@ -276,7 +316,7 @@ sap.ui.define(
           try {
             const oDialog = await this._getDialogBase({
               name: "_creaOdvDialog",
-              path: "view.fragment.CreaOdVDialog",
+              path: "view.dialog.CreaOdV",
               controller,
               model: new JSONModel({
                 info: {

@@ -1,6 +1,10 @@
-<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <TableSelectDialog title="Aggiungi Prodotto" confirm=".onProductValueHelpConfirm" items="{/items}">
+    <TableSelectDialog title="Aggiungi Prodotto"
+        confirm=".onProductValueHelpConfirm"
+        multiSelect="true"
+        items="{/items}">
         <columns>
             <Column demandPopin="true"
                 popinDisplay="Block"
@@ -46,13 +50,14 @@
         <items>
             <ColumnListItem >
                 <cells>
-                    <Image src="{icon}" width="50px"/>
-                    <Text text="{name}"/>
-                    <Text text="{description}"/>
-                    <Text text="{u_acq}"/>
-                    <Text text="{u_prz}"/>
-                    <Text text="{u_qta}"/>
-                    <Text text="{disponibilita}"/>
+                    <Image src="{src}"
+                        width="50px" />
+                    <Text text="{product}" />
+                    <Text text="{description}" />
+                    <Text text="{u_acq}" />
+                    <Text text="{u_prz}" />
+                    <Text text="{u_qta}" />
+                    <Text text="{disponibilita}" />
                 </cells>
             </ColumnListItem>
         </items>
