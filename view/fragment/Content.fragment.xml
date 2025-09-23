@@ -18,10 +18,6 @@
                     type="Emphasized"
                     icon="sap-icon://action-settings"
                     press=".onFilterPress" />
-                <CheckBox text="Raggruppa per Categoria"
-                    visible="false"
-                    selected="{proposta>/table/toolbar/groupByCategory}"
-                    select=".onGroupByCategory" />
                 <Button text="Sfoglia Catalogo"
                     type="Emphasized"
                     icon="sap-icon://add"
