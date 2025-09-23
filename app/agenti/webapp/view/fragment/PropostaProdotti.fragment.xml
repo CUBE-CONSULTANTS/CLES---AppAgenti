@@ -17,7 +17,7 @@
                 <Button text="Ordina e Filtra"
                     type="Emphasized"
                     icon="sap-icon://action-settings"
-                    press=".onFilterPress"/>
+                    press=".onFilterPress" />
                 <CheckBox text="Raggruppa per Categoria"
                     visible="false"
                     selected="{proposta>/table/toolbar/groupByCategory}"
@@ -38,14 +38,15 @@
         </infoToolbar>
         <columns>
             <Column demandPopin="true"
-                importance="High"
+                importance="None"
+                popinDisplay="WithoutHeader"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Foto" />
             </Column>
             <Column demandPopin="true"
-                importance="Low"
+                importance="High"
                 width="12em"
                 popinDisplay="Block"
                 minScreenWidth="Desktop"
@@ -54,11 +55,8 @@
                     wrapping="true"
                     text="Categoria" />
             </Column>
-            <!-- <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="Prodotto" />
+            <!-- <Column demandPopin="true" minScreenWidth="Desktop">
+                <Label design="Bold" wrapping="true" text="Prodotto" />
             </Column> -->
             <Column demandPopin="true"
                 importance="Low"
@@ -68,43 +66,49 @@
                     text="Descrizione" />
             </Column>
             <Column demandPopin="true"
-                importance="Medium"
+                importance="High"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Ultimo acquisto" />
             </Column>
             <Column demandPopin="true"
+                importance="High"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Ultimo prezzo" />
             </Column>
             <Column demandPopin="true"
+                importance="High"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Ultima Quantità" />
             </Column>
             <Column demandPopin="true"
+                importance="High"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Disponibilità" />
             </Column>
             <Column demandPopin="true"
+                importance="Low"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Unita di Misura" />
             </Column>
             <Column demandPopin="true"
+                importance="Low"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
                     text="Prezzo" />
             </Column>
             <Column demandPopin="true"
+                importance="Low"
                 minScreenWidth="Desktop">
                 <Label design="Bold"
                     wrapping="true"
@@ -113,7 +117,7 @@
             <Column demandPopin="true"
                 minScreenWidth="Desktop"
                 popinDisplay="WithoutHeader"
-                importance="Medium"
+                importance="Low"
                 hAlign="Center">
                 <Label design="Bold"
                     wrapping="true"
