@@ -96,6 +96,9 @@ sap.ui.define(
                 icon: "sap-icon://notes",
                 press: this.onAddNotePress.bind(this),
               }),
+              new sap.m.ObjectNumber({
+                number: "{proposta>note}"
+              }).addStyleClass("sapUiTinyMarginBegin"),
             ],
           }).addStyleClass("sapUiSmallMarginTopBottom"),
         ];

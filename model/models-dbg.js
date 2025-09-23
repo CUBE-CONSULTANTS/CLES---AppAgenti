@@ -39,25 +39,32 @@ sap.ui.define(
             attachments: {
               items: [
                 {
-                  text: "Descr. Allegato 1",
+                  data: "21/06/2024",
+                  nome: "Descr. Allegato 1",
                 },
                 {
-                  text: "Descr. Allegato 2",
+                  data: "15/05/2024",
+                  nome: "Descr. Allegato 2",
                 },
                 {
-                  text: "Descr. Allegato 3",
+                  data: "18/04/2024",
+                  nome: "Descr. Allegato 3",
                 },
                 {
-                  text: "Descr. Allegato 4",
+                  data: "10/03/2024",
+                  nome: "Descr. Allegato 4",
                 },
                 {
-                  text: "Descr. Allegato 5",
+                  data: "25/02/2024",
+                  nome: "Descr. Allegato 5",
                 },
                 {
-                  text: "Descr. Allegato 6",
+                  data: "30/01/2024",
+                  nome: "Descr. Allegato 6",
                 },
                 {
-                  text: "Descr. Allegato 7",
+                  data: "05/01/2024",
+                  nome: "Descr. Allegato 7",
                 },
               ],
             },
