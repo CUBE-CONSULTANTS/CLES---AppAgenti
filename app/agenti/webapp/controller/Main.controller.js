@@ -65,6 +65,39 @@ sap.ui.define(
           new sap.m.Text({ text: "{proposta>u_prz}" }),
           new sap.m.Text({ text: "{proposta>u_qta}" }),
           new sap.m.Text({ text: "{proposta>disponibilita}" }),
+          new sap.m.FlexBox({
+            height: "100%",
+            width: "100%",
+            alignItems: "Center",
+            justifyContent: this.getModel("device").getProperty(
+              "/system/desktop"
+            )
+              ? "SpaceBetween"
+              : "Start",
+            direction: this.getModel("device").getProperty("/system/desktop")
+              ? "Column"
+              : "Row",
+            items: [
+              new sap.m.HBox({
+                alignItems: "Baseline",
+                items: [
+                  new sap.m.Button({
+                    tooltip: "Note",
+                    icon: "sap-icon://notes",
+                    badgeStyle: "Default",
+                    press: this.onAddNotePress.bind(this),
+                    customData: [
+                      new sap.m.BadgeCustomData({
+                        key: "badge",
+                        value: "{proposta>note}",
+                        writeToDom: true,
+                      }),
+                    ]
+                  })
+                ],
+              }),
+            ],
+          }).addStyleClass("sapUiSmallMarginTopBottom"),
           new sap.m.Select({
             items: [
               { key: "PZ", text: "PZ" },
@@ -79,34 +112,13 @@ sap.ui.define(
             step: 1,
             change: this.onStepInputQuantityChange,
           }),
-          new sap.m.FlexBox({
-            height: "100%",
-            width: "100%",
-            alignItems: "Center",
-            justifyContent: this.getModel("device").getProperty("/system/desktop") ? "SpaceBetween" : "Start",
-            direction: this.getModel("device").getProperty("/system/desktop") ? "Column" : "Row",
-            items: [
-              new sap.m.HBox({
-                alignItems: "Baseline",
-                items: [
-                  new sap.m.Button({
-                    tooltip: "Note",
-                    icon: "sap-icon://notes",
-                    press: this.onAddNotePress.bind(this),
-                  }),
-                  new sap.m.ObjectNumber({
-                    number: "{proposta>note}",
-                  }).addStyleClass("sapUiTinyMarginBegin"),
-                ],
-              }),
-              new sap.m.ObjectStatus({
-                text: "{proposta>status_text}",
-                active: true,
-                inverted: true,
-                state: "{proposta>status_state}",
-              }).addStyleClass("sapUiTinyMarginBegin sapUiTinyMarginTop"),
-            ],
-          }).addStyleClass("sapUiSmallMarginTopBottom"),
+
+          new sap.m.ObjectStatus({
+            text: "{proposta>status_text}",
+            active: true,
+            inverted: true,
+            state: "{proposta>status_state}",
+          }).addStyleClass("sapUiTinyMarginBegin sapUiTinyMarginTop"),
         ];
       },
 
