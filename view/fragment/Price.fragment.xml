@@ -1,0 +1,7 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <form:SimpleForm >
+        <core:Title text="PREZZO" />
+    </form:SimpleForm>
+</core:FragmentDefinition>

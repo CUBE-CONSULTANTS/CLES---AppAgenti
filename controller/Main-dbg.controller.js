@@ -32,12 +32,10 @@ sap.ui.define(
         this.getView().setModel(models.createMainModel(), "main");
       },
 
-      onAfterRendering() {
-        this.onGroupByCategory();
-      },
-
       _onObjectMatched(e) {
         const { arguments: queryParams } = e.getParameters();
+
+        this.getModel("layout").setProperty("/layoutMode", "OneColumn")
 
         if (queryParams["?query"]) {
           const { customer, customer_name } = queryParams["?query"];
@@ -132,51 +130,6 @@ sap.ui.define(
         else model.setProperty(path + "/selected", false);
       },
 
-      onGroupByCategory() {
-        const oTable = this.byId("lista_odv");
-
-        if (!oTable) return;
-
-        const { groupByCategory } =
-          this.getModel("proposta").getProperty("/table/toolbar");
-
-        if (groupByCategory) {
-          this.getModel("proposta").setProperty(
-            "/table/columns/categoryColumnVisible",
-            false
-          );
-          oTable.bindAggregation("items", {
-            path: "proposta>/table/items",
-            sorter: new sap.ui.model.Sorter({
-              path: "category",
-              descending: false,
-              group: this.getCategory,
-            }),
-            groupHeaderFactory: this.getCategoryHeader,
-            template: new sap.m.ColumnListItem({
-              highlight: "{proposta>highlight}",
-              vAlign: "Middle",
-              cells: this._getCells(),
-              selected: "{proposta>selected}",
-            }),
-          });
-        } else {
-          this.getModel("proposta").setProperty(
-            "/table/columns/categoryColumnVisible",
-            true
-          );
-          oTable.bindAggregation("items", {
-            path: "proposta>/table/items",
-            template: new sap.m.ColumnListItem({
-              highlight: "{proposta>highlight}",
-              vAlign: "Middle",
-              cells: this._getCells(),
-              selected: "{proposta>selected}",
-            }),
-          });
-        }
-      },
-
       onSearch(e) {
         const { newValue } = e.getParameters();
         const oTable = this.byId("lista_odv");
@@ -242,8 +195,13 @@ sap.ui.define(
         Dialog.getCustomerValueHelp({ controller: this });
       },
 
+      onPreorderValueHelpRequest() {
+        Dialog.getPreorderValueHelp({ controller: this });
+      },
+
       onCustomerValueHelpConfirm(e) {
-        const { selectedItem } = e.getParameters();
+        const oDialog = e.getSource().getParent().getParent().getParent().getParent().getParent();
+        const selectedItem = e.getSource();
 
         if (!selectedItem) return;
 
@@ -251,13 +209,36 @@ sap.ui.define(
 
         this.getModel("main").setProperty(
           "/header/customer/id",
-          context.getProperty("name")
+          context.getProperty("id")
         );
 
         this.getModel("main").setProperty(
           "/header/customer/name",
-          context.getProperty("description")
+          context.getProperty("name")
         );
+
+        oDialog.close()
+      },
+
+      onPreorderValueHelpConfirm(e) {
+        const oDialog = e.getSource().getParent().getParent();
+        const selectedItem = e.getSource();
+
+        if (!selectedItem) return;
+
+        const context = selectedItem.getBindingContext();
+
+        this.getModel("main").setProperty(
+          "/header/preorder/id",
+          context.getProperty("id")
+        );
+
+        this.getModel("main").setProperty(
+          "/header/preorder/name",
+          context.getProperty("name")
+        );
+
+        oDialog.close()
       },
 
       onCategoryListItemPress(e) {
@@ -288,26 +269,10 @@ sap.ui.define(
         this.getModel("proposta").setProperty("/table/items", items);
       },
 
-      onAddRowPress(e) {
-        const oTable = e.getSource().getParent().getParent();
-        const items = oTable.getModel("proposta").getProperty("/table/items");
+      onProductListItemPress(e) {
+        const product = e.getSource().getBindingContext("proposta").getProperty("product");
 
-        items.unshift({
-          selected: false,
-          highlight: "Indication01",
-          category: "",
-          product: "",
-          description: "",
-          u_acq: "",
-          u_prz: "",
-          u_qta: "",
-          price: "",
-          unit_of_measure: "KG",
-          quantity: "",
-          disponibilita: "",
-        });
-
-        oTable.getModel("proposta").setProperty(`/table/items`, items);
+        this.getRouter().navTo("detail", { product: product });
       },
 
       onAddNotePress(e) {

@@ -58,6 +58,41 @@ sap.ui.define(
         });
       },
 
+      async getPreorderValueHelp({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_preorderValueHelp",
+              path: "view.valuehelp.Preorder",
+              controller,
+              model: new JSONModel({
+                list: {
+                  items: [
+                    {
+                      id: "2024-001",
+                      name: "Preordine 2024-001",
+                    },
+                    {
+                      id: "2024-002",
+                      name: "Preordine 2024-002",
+                    },
+                    {
+                      id: "2024-003",
+                      name: "Preordine 2024-003",
+                    },
+                  ],
+                },
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
       async getCustomerValueHelp({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
@@ -72,22 +107,22 @@ sap.ui.define(
                   list: {
                     items: [
                       {
-                        name: "351",
-                        description:
+                        id: "351",
+                        name:
                           "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
                       },
                       {
-                        name: "2788",
-                        description: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
+                        id: "2788",
+                        name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
                       },
                       {
-                        name: "2701",
-                        description:
+                        id: "2701",
+                        name:
                           "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
                       },
                       {
-                        name: "3196",
-                        description: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                        id: "3196",
+                        name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
                       },
                     ],
                   },
@@ -294,12 +329,8 @@ sap.ui.define(
               controller,
               model: new JSONModel({
                 carousel: {
-                  pages: [
-                    { src },
-                    { src },
-                    { src }
-                  ]
-                }
+                  pages: [{ src }, { src }, { src }],
+                },
               }),
             });
 

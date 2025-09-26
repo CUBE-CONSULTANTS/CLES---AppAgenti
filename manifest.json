@@ -77,36 +77,49 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
+        "routerClass": "sap.f.routing.Router",
+        "controlId": "fcl",
         "transition": "slide",
         "type": "View",
         "viewType": "XML",
         "path": "cles.agenti.view",
         "async": true,
-        "viewPath": "cles.agenti.view"
+        "clearControlAggregation": false
       },
       "routes": [
         {
           "name": "RouteMain",
           "pattern": ":?query:",
           "target": [
-            "TargetMain"
+            "TargetMain",
+            "Detail"
+          ]
+        },
+        {
+          "name": "detail",
+          "pattern": "Detail/{product}",
+          "target": [
+            "Detail"
           ]
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
-          "name": "Main"
+          "name": "Main",
+          "controlAggregation": "beginColumnPages"
+        },
+        "Detail": {
+          "id": "Detail",
+          "name": "Detail",
+          "controlAggregation": "midColumnPages"
         }
       }
     },
     "rootView": {
       "viewName": "cles.agenti.view.App",
       "type": "XML",
-      "id": "App",
+      "id": "fcl",
       "async": true
     }
   }

@@ -18,15 +18,10 @@ sap.ui.define([
 
             // set the device model
             this.setModel(models.createDeviceModel(), "device");
+            this.setModel(models.createLayoutModel(), "layout");
 
             // enable routing
             this.getRouter().initialize();
-            this.getRouter().navTo("RouteMain", {
-                query: {
-                    customer: "0324",
-                    customer_name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA"
-                }
-            })
         }
     });
 });

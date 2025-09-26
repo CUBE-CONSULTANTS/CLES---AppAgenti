@@ -1,0 +1,2 @@
+sap.ui.define(["sap/ui/model/json/JSONModel","./BaseController"],function(e,t){"use strict";return t.extend("cles.agenti.controller.Detail",{onInit(){this.getRouter().getRoute("detail").attachPatternMatched(this._onObjectMatched,this)},_onObjectMatched(e){this.getModel("layout").setProperty("/layoutMode","TwoColumnsBeginExpanded")},onClosePress(){this.getRouter().navTo("RouteMain")}})});
+//# sourceMappingURL=Detail.controller.js.map

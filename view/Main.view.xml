@@ -19,7 +19,7 @@
         showFooter="true"
         sectionChange=".onObjectPageSectionChange">
         <uxap:headerTitle>
-            <uxap:ObjectPageHeader objectTitle="Proposta Ordine" >
+            <uxap:ObjectPageHeader>
                 <uxap:actions>
                     <core:Fragment fragmentName="cles.agenti.view.fragment.HeaderToolbar"
                         type="XML" />
@@ -40,28 +40,30 @@
                 showTitle="false">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection >
-                        <FlexBox height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 215 + 'px') }">
-                            <tnt:SideNavigation selectedKey="Categorie"
-                                expanded="true"
-                                visible="{= ${device>/system/phone} ? false : true }">
-                                <tnt:NavigationList selectedKey="ALL"
-                                    items="{main>/body/table/menu/items}">
-                                    <tnt:NavigationListItem text="{main>text}"
-                                        key="{main>key}"
-                                        icon="{main>icon}"
-                                        items="{main>items}">
-                                        <tnt:NavigationListItem key="{main>key}"
-                                            text="{main>text}"
-                                            press=".onCategoryListItemPress" />
-                                    </tnt:NavigationListItem>
-                                </tnt:NavigationList>
-                            </tnt:SideNavigation>
-                            <ScrollContainer vertical="true"
-                                height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 215 + 'px') }">
-                                <core:Fragment fragmentName="cles.agenti.view.fragment.Content"
-                                    type="XML" />
-                            </ScrollContainer>
-                        </FlexBox>
+                        <!-- <l:ResponsiveSplitter defaultPane="default" height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 200 + 'px') }" width="100%">
+                            <l:PaneContainer resize=".onRootContainerResize">
+                                <l:SplitPane>
+                                    <l:layoutData>
+                                        <l:SplitterLayoutData size="auto" resizable="false"/>
+                                    </l:layoutData>
+                                    <core:Fragment fragmentName="cles.agenti.view.fragment.Products" type="XML" />
+                                </l:SplitPane>
+                                <l:SplitPane >
+                                        <l:layoutData>
+                                            <l:SplitterLayoutData size="auto" resizable="false" />
+                                        </l:layoutData>
+                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Quantity" type="XML" />
+                                </l:SplitPane>
+                                <l:SplitPane >
+                                        <l:layoutData>
+                                            <l:SplitterLayoutData size="auto" resizable="false"/>
+                                        </l:layoutData>
+                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Price" type="XML" />
+                                </l:SplitPane>
+                            </l:PaneContainer>
+                        </l:ResponsiveSplitter> -->
+                        <core:Fragment fragmentName="cles.agenti.view.fragment.Products"
+                            type="XML" />
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>
