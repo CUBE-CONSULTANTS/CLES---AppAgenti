@@ -1,0 +1,62 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <List id="lista_odv"
+        width="100%"
+        mode="None"
+        growing="true"
+        growingThreshold="20"
+        growingScrollToLoad="true"
+        sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
+        items="{proposta>/table/items}">
+        <headerToolbar>
+            <OverflowToolbar design="Solid"
+                style="Clear">
+                <ToolbarSpacer />
+                <Button text="Ordina e Filtra"
+                    type="Emphasized"
+                    icon="sap-icon://action-settings"
+                    press=".onFilterPress" />
+                <Button text="Sfoglia Catalogo"
+                    type="Emphasized"
+                    icon="sap-icon://add"
+                    press=".onCatalogValueHelpRequest" />
+            </OverflowToolbar>
+        </headerToolbar>
+        <infoToolbar>
+            <Toolbar design="Solid"
+                style="Clear">
+                <SearchField placeholder="Cerca per categoria o descrizione"
+                    showSearchButton="false"
+                    liveChange="onSearch" />
+            </Toolbar>
+        </infoToolbar>
+        <items>
+            <CustomListItem type="Active"
+                press=".onProductListItemPress">
+                <HBox wrap="Wrap">
+                    <HBox width="100%">
+                        <Image src="{proposta>src}"
+                            width="10rem"
+                            height="10rem"
+                            press=".onShowPhotoPress" />
+                        <HBox wrap="Wrap" class="sapUiSmallMarginBegin" alignContent="Center" alignItems="Center">
+                            <Label class="sapUiTinyMarginBegin" wrapping="true" design="Bold" text="Prodotto: {proposta>product}" />
+                            <Label class="sapUiTinyMarginBegin" wrapping="true" design="Bold"
+                                text="{proposta>description}" />
+                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Ultimo acquisto: {proposta>u_acq}" />
+                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Ultimo prezzo: {proposta>u_prz}" />
+                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Ultima quantità: {proposta>u_qta}" />
+                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Disponibilità: {proposta>disponibilita}" />
+                            <ObjectStatus class="sapUiTinyMarginBegin" text="{proposta>status_text}"
+                                active="true"
+                                inverted="true"
+                                state="{proposta>status_state}" />
+                        </HBox>
+                    </HBox>
+                </HBox>
+
+            </CustomListItem>
+        </items>
+    </List>
+</core:FragmentDefinition>

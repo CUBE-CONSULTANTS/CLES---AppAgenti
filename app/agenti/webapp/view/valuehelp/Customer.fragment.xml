@@ -19,7 +19,7 @@
                 <items>
                     <IconTabFilter key="LISTA"
                         text="Lista Clienti">
-                        <List confirm=".onCustomerValueHelpConfirm"
+                        <List
                             items="{/iconTabBar/list/items}">
                             <headerToolbar>
                                 <OverflowToolbar >
@@ -28,8 +28,9 @@
                                 </OverflowToolbar>
                             </headerToolbar>
                             <items>
-                                <StandardListItem title="{name}"
-                                    description="{description}" />
+                                <StandardListItem type="Active" title="{id}"
+                                    press=".onCustomerValueHelpConfirm"
+                                    description="{name}" />
                             </items>
                         </List>
                     </IconTabFilter>

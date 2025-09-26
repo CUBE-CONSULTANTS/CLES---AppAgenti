@@ -1,7 +1,12 @@
 <mvc:View controllerName="cles.agenti.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
+    xmlns="sap.m"
+    xmlns:f="sap.f">
     <App id="app">
+        <f:FlexibleColumnLayout
+            id="fcl"
+            layout="{layout>/layoutMode}"
+            backgroundDesign="Solid" />
     </App>
 </mvc:View>

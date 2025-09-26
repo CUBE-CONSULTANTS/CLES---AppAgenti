@@ -14,27 +14,36 @@ sap.ui.define(
         return oModel;
       },
 
+      createLayoutModel() {
+        return new JSONModel({
+          layoutMode: "OneColumn",
+        });
+      },
+
       createMainModel() {
         return new JSONModel({
           showFooter: true,
           header: {
+            mode: {
+              selectedKey: "OFF",
+              items: [
+                {
+                  key: "PRE",
+                  text: "Preordine",
+                },
+                {
+                  key: "OFF",
+                  text: "Offerta/Ordine",
+                },
+              ],
+            },
             customer: {
               id: "",
               name: "",
-              items: [
-                {
-                  customer: "2788",
-                  customer_name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
-                },
-                {
-                  customer: "3196",
-                  customer_name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
-                },
-                {
-                  customer: "1243",
-                  customer_name: "LIBRA SRLS",
-                },
-              ],
+            },
+            preorder: {
+              id: "",
+              name: "",
             },
             attachments: {
               items: [
@@ -92,7 +101,7 @@ sap.ui.define(
                 },
                 {
                   data: "30/07/2023",
-                  nome: "Descr. Allegato 14", 
+                  nome: "Descr. Allegato 14",
                 },
                 {
                   data: "05/07/2023",
@@ -106,11 +115,10 @@ sap.ui.define(
                   data: "25/05/2023",
                   nome: "Descr. Allegato 17",
                 },
-                
               ],
             },
             notes: {
-              value: "Test descrizione per le note di testata"
+              value: "Test descrizione per le note di testata",
             },
             searchField: {
               value: "",
@@ -120,32 +128,39 @@ sap.ui.define(
             iconTabBar: {},
             table: {
               menu: {
-                items: [{
-                  text: "Categorie",
-                  icon: "sap-icon://target-group",
-                  key: "CATEGORIE",
-                  items: [{
-                    text: "TUTTI",
-                    key: "ALL"
-                  }, {
-                    text: "APERITIVI",
-                    key: "APERITIVI"
-                  }, {
-                    text: "CARNI BIANCHE",
-                    key: "CARNI BIANCHE"
-                  }, {
-                    text: "CARNI ROSSE",
-                    key: "CARNI ROSSE"
-                  }]
-                }]
+                items: [
+                  {
+                    text: "Categorie",
+                    icon: "sap-icon://target-group",
+                    key: "CATEGORIE",
+                    items: [
+                      {
+                        text: "TUTTI",
+                        key: "ALL",
+                      },
+                      {
+                        text: "APERITIVI",
+                        key: "APERITIVI",
+                      },
+                      {
+                        text: "CARNI BIANCHE",
+                        key: "CARNI BIANCHE",
+                      },
+                      {
+                        text: "CARNI ROSSE",
+                        key: "CARNI ROSSE",
+                      },
+                    ],
+                  },
+                ],
               },
               toolbar: {
                 filters: {
                   items: [],
-                }
+                },
               },
               items: [],
-            }
+            },
           },
           footer: {},
         });

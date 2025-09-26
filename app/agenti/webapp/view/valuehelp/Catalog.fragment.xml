@@ -1,65 +1,24 @@
 <core:FragmentDefinition xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <TableSelectDialog title="Catalogo"
-        confirm=".onCatalogValueHelpConfirm"
-        multiSelect="true"
-        items="{/items}">
-        <columns>
-            <Column demandPopin="true"
-                popinDisplay="Block"
-                minScreenWidth="Desktop">
-            </Column>
-            <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="Prodotto" />
-            </Column>
-            <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="Descrizione" />
-            </Column>
-            <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="U acq" />
-            </Column>
-            <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="U prz" />
-            </Column>
-            <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="U qta" />
-            </Column>
-            <Column demandPopin="true"
-                minScreenWidth="Desktop">
-                <Label design="Bold"
-                    wrapping="true"
-                    text="Disponibilità" />
-            </Column>
-        </columns>
-        <items>
-            <ColumnListItem >
-                <cells>
-                    <Image src="{src}"
-                        width="50px" />
-                    <Text text="{product}" />
-                    <Text text="{description}" />
-                    <Text text="{u_acq}" />
-                    <Text text="{u_prz}" />
-                    <Text text="{u_qta}" />
-                    <Text text="{disponibilita}" />
-                </cells>
-            </ColumnListItem>
-        </items>
-    </TableSelectDialog>
+    <Dialog stretch="true"
+        showHeader="true"
+        title="Ricerca Articoli">
+        <subHeader>
+            <OverflowToolbar >
+                <ToolbarSpacer />
+                <Button text="Richiama Selezione"
+                    type="Emphasized" />
+                <Button text="Salva"
+                    type="Emphasized" />
+                <Button text="Assegna"
+                    type="Emphasized" />
+                <Button text="Converti ODV"
+                    type="Emphasized" />
+            </OverflowToolbar>
+        </subHeader>
+        <buttons></buttons>
+        <content></content>
+
+    </Dialog>
 </core:FragmentDefinition>

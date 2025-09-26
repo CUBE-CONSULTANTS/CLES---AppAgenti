@@ -1,0 +1,131 @@
+<mvc:View displayBlock="true"
+    controllerName="cles.agenti.controller.Detail"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page>
+        <headerContent>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <OverflowToolbarButton type="Transparent"
+                    icon="sap-icon://decline"
+                    press="onClosePress"
+                    tooltip="Close middle column" />
+            </OverflowToolbar>
+        </headerContent>
+        <content>
+            <HBox width="97%" justifyContent="SpaceBetween">
+                <Title class="sapUiSmallMargin"
+                    text="QUANTITA"
+                    titleStyle="H2" />
+                <VBox class="sapUiSmallMarginTop sapUiSmallMarginEnd">
+                    <Button class="sapUiSmallMarginBeginEnd"
+                        width="100%"
+                        text="Ultimi Ordini" />
+                    <Button class="sapUiSmallMarginBeginEnd"
+                        width="100%"
+                        text="Nota Riga" />
+                </VBox>
+            </HBox>
+            <form:SimpleForm backgroundDesign="Transparent"
+                maxContainerCols="2"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanL="12"
+                labelSpanM="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="1"
+                columnsM="1">
+                <form:content>
+                    <Label design="Bold"
+                        text="Tipo Riga" />
+                    <Select>
+                        <items>
+                            <core:Item key="VENDITA"
+                                text="Vendita" />
+                        </items>
+                    </Select>
+                    <Label design="Bold"
+                        text="U.M." />
+                    <Select>
+                        <items>
+                            <core:Item key="VENDITA"
+                                text="Cassa" />
+                        </items>
+                    </Select>
+                    <Label design="Bold"
+                        text="Quantità per unità" />
+                    <HBox alignContent="Center"
+                        alignItems="Center"
+                        justifyContent="End">
+                        <Text class="sapUiTinyMarginEnd"
+                            textAlign="End"
+                            text="3 PEZZI" />
+                        <StepInput value="1" />
+                    </HBox>
+                    <Label design="Bold"
+                        text="Totale Quantità" />
+                    <Text textAlign="End"
+                        text="9 PEZZI" />
+                </form:content>
+            </form:SimpleForm>
+
+            <Toolbar class="sapUiSmallMargin"
+                width="100%"
+                height="1px" />
+            <Title class="sapUiSmallMargin"
+                text="PREZZO"
+                titleStyle="H2" />
+            <form:SimpleForm backgroundDesign="Transparent"
+                maxContainerCols="2"
+                editable="false"
+                layout="ResponsiveGridLayout"
+                labelSpanL="12"
+                labelSpanM="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="1"
+                columnsM="1">
+                <form:content>
+                    <Label design="Bold"
+                        text="Prezzo unità di vendita" />
+                    <Title textAlign="End"
+                        text="3.50$"
+                        titleStyle="H4" />
+                    <Label design="Bold"
+                        text="Sconto agente %" />
+                    <Input value="5%" />
+                    <Label design="Bold"
+                        text="Prezzo applicato" />
+                    <Title textAlign="End"
+                        text="3.50$/PZ"
+                        titleStyle="H4" />
+                    <Label design="Bold"
+                        text="Totale riga" />
+                    <Title textAlign="End"
+                        text="10.50$/PZ"
+                        titleStyle="H4" />
+                    <Label design="Bold"
+                        text="Marginalità" />
+                    <HBox justifyContent="End"
+                        alignContent="Center"
+                        alignItems="Center">
+                        <core:Icon class="sapUiTinyMarginEnd"
+                            src="sap-icon://circle-task-2"
+                            color="Neutral" />
+                        <core:Icon class="sapUiTinyMarginEnd"
+                            src="sap-icon://circle-task-2"
+                            color="Neutral" />
+                        <core:Icon src="sap-icon://circle-task-2"
+                            color="Positive" />
+                    </HBox>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+    </Page>
+</mvc:View>

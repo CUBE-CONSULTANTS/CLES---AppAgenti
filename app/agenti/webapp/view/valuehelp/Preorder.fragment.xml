@@ -1,0 +1,29 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    <Dialog stretch="false"
+        showHeader="false">
+        <buttons>
+            <Button text="Chiudi"
+                type="Emphasized"
+                press=".defaultDialogClose" />
+        </buttons>
+        <content>
+            <List
+                items="{/list/items}">
+                <headerToolbar>
+                    <OverflowToolbar >
+                        <SearchField width="100%"
+                            placeholder="Cerca per id o descrizione" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <items>
+                    <StandardListItem type="Active" title="{id}"
+                    press=".onPreorderValueHelpConfirm"
+                        description="{name}" />
+                </items>
+            </List>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>
