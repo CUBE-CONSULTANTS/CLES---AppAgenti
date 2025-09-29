@@ -29,6 +29,7 @@ sap.ui.define(
         this.getRouter()
           .getRoute("RouteMain")
           .attachPatternMatched(this._onObjectMatched, this);
+
         this.getView().setModel(models.createMainModel(), "main");
       },
 
@@ -67,6 +68,11 @@ sap.ui.define(
         return binding.filter([
           new Filter({
             filters: [
+              new Filter({
+                path: "product",
+                operator: FilterOperator.Contains,
+                value1: newValue,
+              }),
               new Filter({
                 path: "category",
                 operator: FilterOperator.Contains,
@@ -206,26 +212,29 @@ sap.ui.define(
         this.getModel("proposta").setProperty("/table/items", items);
       },
 
-      onProductListItemPress(e) {
+      onProductListItemPress(e, from) {
         const { description, product, src } = e
           .getSource()
           .getBindingContext("proposta")
           .getObject();
 
         this.getModel("detail").setData({
+          from,
           product: {
             id: product,
             description,
-            notes: [{
-              nota_1: "test nota 1"
-            }]
+            notes: [
+              {
+                nota_1: "test nota 1",
+              },
+            ],
           },
           carousel: {
             pages: [{ src }, { src }, { src }],
           },
         });
 
-        this.getRouter().navTo("detail", { product: product });
+        this.getRouter().navTo("detail", { from, product: product });
       },
 
       onPanelProcessFlowExpand(e) {
@@ -254,10 +263,6 @@ sap.ui.define(
             view.getScrollDelegate().scrollTo(0, top);
           }, 500);
         }
-      },
-
-      onCreaOdvPress() {
-        Dialog.getCreaOdVDialog({ controller: this });
       },
 
       onCreaOdvConfirm() {

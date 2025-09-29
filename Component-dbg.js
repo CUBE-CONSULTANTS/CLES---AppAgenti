@@ -1,7 +1,8 @@
 sap.ui.define([
     "sap/ui/core/UIComponent",
-    "cles/agenti/model/models"
-], (UIComponent, models) => {
+    "cles/agenti/model/models",
+    "cles/agenti/model/Dialog"
+], (UIComponent, models, Dialog) => {
     "use strict";
 
     return UIComponent.extend("cles.agenti.Component", {
@@ -10,6 +11,10 @@ sap.ui.define([
             interfaces: [
                 "sap.ui.core.IAsyncContentCreation"
             ]
+        },
+
+        _checkOrdini() {
+            Dialog.getCheckOrdiniDialog({ controller: this })
         },
 
         init() {
@@ -23,6 +28,8 @@ sap.ui.define([
 
             // enable routing
             this.getRouter().initialize();
+            this.getRouter().navTo("RouteMain");
+            this._checkOrdini();
         }
     });
 });

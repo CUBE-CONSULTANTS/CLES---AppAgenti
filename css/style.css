@@ -6,3 +6,7 @@
 .sapFDynamicPageContentFitContainer {
     padding: 0px 0px 0px 0px !important;
 }
+
+.tabbedBar .sapMITBHead{
+    text-align:center;
+}

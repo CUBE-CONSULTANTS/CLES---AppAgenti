@@ -14,26 +14,23 @@
                 style="Clear">
                 <ToolbarSpacer />
                 <Button text="Ordina e Filtra"
+                visible="{device>/system/phone}"
                     type="Emphasized"
                     icon="sap-icon://action-settings"
                     press=".onFilterPress" />
-                <Button text="Sfoglia Catalogo"
-                    type="Emphasized"
-                    icon="sap-icon://add"
-                    press=".onCatalogValueHelpRequest" />
             </OverflowToolbar>
         </headerToolbar>
         <infoToolbar>
             <Toolbar design="Solid"
                 style="Clear">
-                <SearchField placeholder="Cerca per categoria o descrizione"
+                <SearchField placeholder="Cerca per categoria o codice/descrizione"
                     showSearchButton="false"
                     liveChange="onSearch" />
             </Toolbar>
         </infoToolbar>
         <items>
             <CustomListItem type="Active"
-                press=".onProductListItemPress">
+                press=".onProductListItemPress($event, 'LISTA')">
                 <HBox>
                     <Image src="{proposta>src}"
                         lazyLoading="true"
@@ -47,36 +44,32 @@
                         alignItems="Center"
                         justifyContent="SpaceBetween">
                         <VBox class="sapUiTinyMargin">
-                            <Label class="sapUiTinyMarginBegin"
-                                wrapping="true"
+                            <Label wrapping="true"
                                 design="Bold"
                                 text="Categoria: {proposta>category}" />
-                            <Label class="sapUiTinyMarginBegin"
-                                wrapping="true"
+                            <Label wrapping="true"
                                 design="Bold"
                                 text="Prodotto: {proposta>product}" />
-                            <Label class="sapUiTinyMarginBegin"
-                                wrapping="true"
+                            <Label wrapping="true"
                                 design="Bold"
-                                text="{proposta>description}" />
+                                text="Descrizione: {proposta>description}" />
                         </VBox>
                         <VBox class="sapUiTinyMargin">
-                            <Label class="sapUiTinyMarginBegin"
-                                design="Bold"
+                            <Label design="Bold"
                                 text="Ultimo acquisto: {proposta>u_acq}" />
-                            <Label class="sapUiTinyMarginBegin"
-                                design="Bold"
-                                text="Ultimo prezzo: {proposta>u_prz}" />
-                            <Label class="sapUiTinyMarginBegin"
-                                design="Bold"
+                            <Label design="Bold"
+                                text="Ultimo prezzo: {proposta>u_prz} €" />
+                            <Label design="Bold"
                                 text="Ultima quantità: {proposta>u_qta}" />
                         </VBox>
                         <VBox class="sapUiTinyMargin">
-                            <Label class="sapUiTinyMarginBegin"
-                                design="Bold"
+                            <Label design="Bold"
                                 text="Disponibilità: {proposta>disponibilita}" />
-                            <ObjectStatus class="sapUiTinyMarginBegin"
-                                text="{proposta>status_text}"
+                            <ProgressIndicator class="sapUiSmallMarginBottom"
+                                percentValue="50"
+                                showValue="false"
+                                state="Error" />
+                            <ObjectStatus text="{proposta>status_text}"
                                 active="true"
                                 inverted="true"
                                 state="{proposta>status_state}" />

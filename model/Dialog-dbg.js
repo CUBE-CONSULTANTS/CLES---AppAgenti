@@ -8,14 +8,34 @@ sap.ui.define(
 
       _getDialogBase: async function ({ name, path, controller, model }) {
         this[name] = await Fragment.load({
-          id: controller.getView().getId(),
+          id: controller.getView ? controller.getView().getId() : null,
           name: this._namespace + path,
           controller,
         });
 
         this[name].setModel(model);
-        controller.getView().addDependent(this[name]);
+        controller.getView ? controller.getView().addDependent(this[name]) : null;
         return this[name];
+      },
+
+      async getCheckOrdiniDialog({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_checkOrdiniDialog",
+              path: "view.dialog.CheckOrdini",
+              controller,
+              model: new JSONModel({
+                value: null,
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
       },
 
       async getAttachmentDialog({ controller }) {
@@ -338,11 +358,11 @@ sap.ui.define(
         });
       },
 
-      async getPhotoDialog({ controller }) {
+      async getProductDetailDialog({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
-              name: "_photoDialog",
+              name: "_productDetailDialog",
               path: "view.dialog.ProductDetail",
               controller,
               model: new JSONModel({
@@ -389,27 +409,45 @@ sap.ui.define(
         });
       },
 
-      async getCreaOdVDialog({ controller }) {
+      async getProductAttachmentDialog({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
-              name: "_creaOdvDialog",
-              path: "view.dialog.CreaOdV",
+              name: "_productAttachmentDialog",
+              path: "view.dialog.ProductAttachment",
               controller,
               model: new JSONModel({
-                info: {
-                  customer: controller
-                    .getModel("main")
-                    .getProperty("/header/customer/items/0"),
-                },
-                nota: controller
-                  .getModel("main")
-                  .getProperty("/header/notes/value"),
-                table: {
-                  items: controller
-                    .getModel("proposta")
-                    .getProperty("/table/items")
-                    .filter((el) => el.selected),
+                attachments: {
+                  items: [
+                    {
+                      data: "21/06/2024",
+                      nome: "Descr. Allegato 1",
+                    },
+                    {
+                      data: "15/05/2024",
+                      nome: "Descr. Allegato 2",
+                    },
+                    {
+                      data: "18/04/2024",
+                      nome: "Descr. Allegato 3",
+                    },
+                    {
+                      data: "11/05/2024",
+                      nome: "Descr. Allegato 4",
+                    },
+                    {
+                      data: "26/02/2024",
+                      nome: "Descr. Allegato 5",
+                    },
+                    {
+                      data: "05/12/2024",
+                      nome: "Descr. Allegato 6",
+                    },
+                    {
+                      data: "06/12/2024",
+                      nome: "Descr. Allegato 7",
+                    }
+                  ],
                 },
               }),
             });
@@ -420,7 +458,7 @@ sap.ui.define(
             reject(error);
           }
         });
-      },
+      }
     };
   }
 );

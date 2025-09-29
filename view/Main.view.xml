@@ -36,34 +36,41 @@
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection title="Proposta Prodotti"
+            <uxap:ObjectPageSection title="Crea Ordini"
                 showTitle="false">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection >
-                        <!-- <l:ResponsiveSplitter defaultPane="default" height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 200 + 'px') }" width="100%">
-                            <l:PaneContainer resize=".onRootContainerResize">
-                                <l:SplitPane>
-                                    <l:layoutData>
-                                        <l:SplitterLayoutData size="auto" resizable="false"/>
-                                    </l:layoutData>
-                                    <core:Fragment fragmentName="cles.agenti.view.fragment.Products" type="XML" />
-                                </l:SplitPane>
-                                <l:SplitPane >
-                                        <l:layoutData>
-                                            <l:SplitterLayoutData size="auto" resizable="false" />
-                                        </l:layoutData>
-                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Quantity" type="XML" />
-                                </l:SplitPane>
-                                <l:SplitPane >
-                                        <l:layoutData>
-                                            <l:SplitterLayoutData size="auto" resizable="false"/>
-                                        </l:layoutData>
-                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Price" type="XML" />
-                                </l:SplitPane>
-                            </l:PaneContainer>
-                        </l:ResponsiveSplitter> -->
-                        <core:Fragment fragmentName="cles.agenti.view.fragment.Products"
-                            type="XML" />
+                        <IconTabBar class="tabbedBar"
+                            stretchContentHeight="true"
+                            applyContentPadding="false"
+                            expandable="false"
+                            expanded="true">
+                            <items>
+                                <IconTabFilter key="LISTA"
+                                    text="Proposta Prodotti"
+                                    visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }">
+                                    <content>
+                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Lista"
+                                            type="XML" />
+                                    </content>
+                                </IconTabFilter>
+                                <IconTabFilter key="CATALOGO"
+                                    text="Catalogo">
+                                    <content>
+                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Catalogo"
+                                            type="XML" />
+                                    </content>
+                                </IconTabFilter>
+                                <IconTabFilter key="RIEPILOGO"
+                                    text="Riepilogo"
+                                    visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }">
+                                    <content>
+                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Riepilogo"
+                                            type="XML" />
+                                    </content>
+                                </IconTabFilter>
+                            </items>
+                        </IconTabBar>
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>

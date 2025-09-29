@@ -2,9 +2,19 @@
     xmlns:core="sap.ui.core">
     <OverflowToolbar >
         <ToolbarSpacer />
-        <Button text="Riepilogo"
-            icon="sap-icon://create-form"
+        <Button text="Salva Preordine"
+            type="Success"
+            visible="{= ${main>/header/mode/selectedKey} === 'PRE' ? true : false }" />
+        <Button text="Vai a Riepilogo"
+            icon="sap-icon://open-command-field"
             press=".onCreaOdvPress"
-            type="Emphasized" />
+            type="Emphasized"
+            visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }">
+            <customData>
+                <BadgeCustomData key="badge"
+                    value="7"
+                    writeToDom="true" />
+            </customData>
+        </Button>
     </OverflowToolbar>
 </core:FragmentDefinition>

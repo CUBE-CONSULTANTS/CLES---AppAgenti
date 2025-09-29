@@ -39,7 +39,7 @@ sap.ui.define(
             },
             customer: {
               id: "",
-              name: "",
+              name: "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
             },
             preorder: {
               id: "",
@@ -140,6 +140,7 @@ sap.ui.define(
 
       createDetailModel() {
         return new JSONModel({
+          from: "",
           carousel: {
             pages: []
           }

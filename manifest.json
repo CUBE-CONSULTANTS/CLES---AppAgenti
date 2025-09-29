@@ -97,7 +97,7 @@
         },
         {
           "name": "detail",
-          "pattern": "Detail/{product}",
+          "pattern": "Detail/{from}/{product}",
           "target": [
             "Detail"
           ]
