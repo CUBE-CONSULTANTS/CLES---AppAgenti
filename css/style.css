@@ -10,3 +10,8 @@
 .tabbedBar .sapMITBHead{
     text-align:center;
 }
+
+.circularImage {
+  border-radius: 50%; /* Or a value like 100px */
+  object-fit: cover; /* Ensures the image covers the circular area */
+}

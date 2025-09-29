@@ -29,7 +29,7 @@ sap.ui.define([
             // enable routing
             this.getRouter().initialize();
             this.getRouter().navTo("RouteMain");
-            this._checkOrdini();
+            //this._checkOrdini();
         }
     });
 });

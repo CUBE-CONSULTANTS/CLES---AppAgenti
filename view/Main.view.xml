@@ -16,7 +16,7 @@
         isChildPage="false"
         upperCaseAnchorBar="true"
         showHeaderContent="true"
-        showFooter="true"
+        showFooter="{= ${device>/system/desktop} ? true : false }"
         sectionChange=".onObjectPageSectionChange">
         <uxap:headerTitle>
             <uxap:ObjectPageHeader>
@@ -44,7 +44,8 @@
                             stretchContentHeight="true"
                             applyContentPadding="false"
                             expandable="false"
-                            expanded="true">
+                            expanded="true"
+                            selectedKey="{main>/body/iconTabBar/selectedKey}">
                             <items>
                                 <IconTabFilter key="LISTA"
                                     text="Proposta Prodotti"
@@ -62,8 +63,7 @@
                                     </content>
                                 </IconTabFilter>
                                 <IconTabFilter key="RIEPILOGO"
-                                    text="Riepilogo"
-                                    visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }">
+                                    text="Riepilogo">
                                     <content>
                                         <core:Fragment fragmentName="cles.agenti.view.fragment.Riepilogo"
                                             type="XML" />

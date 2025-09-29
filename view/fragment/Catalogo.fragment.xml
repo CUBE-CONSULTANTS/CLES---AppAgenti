@@ -89,7 +89,7 @@
                 </HBox>
                 <RangeSlider showAdvancedTooltip="true"
                     min="0"
-                    max="1000"
+                    max="100"
                     width="100%"
                     class="sapUiMediumMarginBottom" />
 
@@ -123,14 +123,7 @@
                 <headerToolbar>
                     <OverflowToolbar design="Solid"
                         style="Clear">
-                        <HBox alignItems="Center"
-                            alignContent="Center"
-                            visible="{= ${main>/header/mode/selectedKey} === 'PRE' ? true : false }">
-                            <Label class="sapUiTinyMarginEnd"
-                                text="Proponi Posizioni"
-                                design="Bold" />
-                            <Input showValueHelp="true" />
-                        </HBox>
+                        
                         <ToolbarSpacer />
                         <Button text="Ordina e Filtra"
                             type="Emphasized"
@@ -154,9 +147,10 @@
                         press=".onProductListItemPress($event, 'CATALOGO')">
                         <HBox>
                             <Image src="{proposta>src}"
+                                class="circularImage"
                                 lazyLoading="true"
-                                width="10rem"
-                                height="10rem"
+                                width="8rem"
+                                height="8rem"
                                 press=".onShowPhotoPress" />
                             <HBox width="100%"
                                 wrap="Wrap"
@@ -174,6 +168,9 @@
                                     <Label wrapping="true"
                                         design="Bold"
                                         text="Descrizione: {proposta>description}" />
+                                    <Label wrapping="true"
+                                        design="Bold"
+                                        text="Prezzo di listino: {proposta>listino}" />
                                 </VBox>
                                 <VBox class="sapUiTinyMargin">
                                     <Label design="Bold"
