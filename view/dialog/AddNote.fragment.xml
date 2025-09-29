@@ -7,9 +7,9 @@
         <content>
             <form:SimpleForm >
                 <Label text="Prodotto" design="Bold" />
-                <Text text="{/prodotto/product} - {/prodotto/description}"/>
+                <Text text="{/prodotto/id} - {/prodotto/description}"/>
                 <Label text="Istruzione di Produzione" design="Bold" />
-                <TextArea rows="4"/>
+                <TextArea rows="4" value="{/prodotto/notes/0/nota_1}"/>
                 <Label text="Note di imballaggio" design="Bold" />
                 <TextArea rows="4"/>
                 <Label text="Appunto posizione" design="Bold" />

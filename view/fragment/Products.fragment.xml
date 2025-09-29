@@ -34,28 +34,55 @@
         <items>
             <CustomListItem type="Active"
                 press=".onProductListItemPress">
-                <HBox wrap="Wrap">
-                    <HBox width="100%">
-                        <Image src="{proposta>src}"
-                            width="10rem"
-                            height="10rem"
-                            press=".onShowPhotoPress" />
-                        <HBox wrap="Wrap" class="sapUiSmallMarginBegin" alignContent="Center" alignItems="Center">
-                            <Label class="sapUiTinyMarginBegin" wrapping="true" design="Bold" text="Prodotto: {proposta>product}" />
-                            <Label class="sapUiTinyMarginBegin" wrapping="true" design="Bold"
+                <HBox>
+                    <Image src="{proposta>src}"
+                        lazyLoading="true"
+                        width="10rem"
+                        height="10rem"
+                        press=".onShowPhotoPress" />
+                    <HBox width="100%"
+                        wrap="Wrap"
+                        class="sapUiSmallMarginBegin"
+                        alignContent="Center"
+                        alignItems="Center"
+                        justifyContent="SpaceBetween">
+                        <VBox class="sapUiTinyMargin">
+                            <Label class="sapUiTinyMarginBegin"
+                                wrapping="true"
+                                design="Bold"
+                                text="Categoria: {proposta>category}" />
+                            <Label class="sapUiTinyMarginBegin"
+                                wrapping="true"
+                                design="Bold"
+                                text="Prodotto: {proposta>product}" />
+                            <Label class="sapUiTinyMarginBegin"
+                                wrapping="true"
+                                design="Bold"
                                 text="{proposta>description}" />
-                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Ultimo acquisto: {proposta>u_acq}" />
-                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Ultimo prezzo: {proposta>u_prz}" />
-                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Ultima quantità: {proposta>u_qta}" />
-                            <Label class="sapUiTinyMarginBegin" design="Bold" text="Disponibilità: {proposta>disponibilita}" />
-                            <ObjectStatus class="sapUiTinyMarginBegin" text="{proposta>status_text}"
+                        </VBox>
+                        <VBox class="sapUiTinyMargin">
+                            <Label class="sapUiTinyMarginBegin"
+                                design="Bold"
+                                text="Ultimo acquisto: {proposta>u_acq}" />
+                            <Label class="sapUiTinyMarginBegin"
+                                design="Bold"
+                                text="Ultimo prezzo: {proposta>u_prz}" />
+                            <Label class="sapUiTinyMarginBegin"
+                                design="Bold"
+                                text="Ultima quantità: {proposta>u_qta}" />
+                        </VBox>
+                        <VBox class="sapUiTinyMargin">
+                            <Label class="sapUiTinyMarginBegin"
+                                design="Bold"
+                                text="Disponibilità: {proposta>disponibilita}" />
+                            <ObjectStatus class="sapUiTinyMarginBegin"
+                                text="{proposta>status_text}"
                                 active="true"
                                 inverted="true"
                                 state="{proposta>status_state}" />
-                        </HBox>
+                        </VBox>
                     </HBox>
                 </HBox>
-
             </CustomListItem>
         </items>
     </List>

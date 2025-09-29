@@ -35,7 +35,7 @@ sap.ui.define(
       _onObjectMatched(e) {
         const { arguments: queryParams } = e.getParameters();
 
-        this.getModel("layout").setProperty("/layoutMode", "OneColumn")
+        this.getModel("layout").setProperty("/layoutMode", "OneColumn");
 
         if (queryParams["?query"]) {
           const { customer, customer_name } = queryParams["?query"];
@@ -45,79 +45,6 @@ sap.ui.define(
             customer_name
           );
         }
-      },
-
-      _getCells() {
-        return [
-          new sap.m.Image({
-            src: "{proposta>src}",
-            width: "5rem",
-            height: "5rem",
-            press: this.onShowPhotoPress.bind(this),
-          }),
-          new sap.m.Text({ text: "{proposta>category}" }),
-          new sap.m.Text({
-            text: "{proposta>product} - {proposta>description}",
-          }),
-          new sap.m.Text({ text: "{proposta>u_acq}" }),
-          new sap.m.Text({ text: "{proposta>u_prz}" }),
-          new sap.m.Text({ text: "{proposta>u_qta}" }),
-          new sap.m.Text({ text: "{proposta>disponibilita}" }),
-          new sap.m.FlexBox({
-            height: "100%",
-            width: "100%",
-            alignItems: "Center",
-            justifyContent: this.getModel("device").getProperty(
-              "/system/desktop"
-            )
-              ? "SpaceBetween"
-              : "Start",
-            direction: this.getModel("device").getProperty("/system/desktop")
-              ? "Column"
-              : "Row",
-            items: [
-              new sap.m.HBox({
-                alignItems: "Baseline",
-                items: [
-                  new sap.m.Button({
-                    tooltip: "Note",
-                    icon: "sap-icon://notes",
-                    badgeStyle: "Default",
-                    press: this.onAddNotePress.bind(this),
-                    customData: [
-                      new sap.m.BadgeCustomData({
-                        key: "badge",
-                        value: "{proposta>note}",
-                        writeToDom: true,
-                      }),
-                    ]
-                  })
-                ],
-              }),
-            ],
-          }).addStyleClass("sapUiSmallMarginTopBottom"),
-          new sap.m.Select({
-            items: [
-              { key: "PZ", text: "PZ" },
-              { key: "KG", text: "KG" },
-            ],
-            selectedKey: "KG",
-          }),
-          new sap.m.Input({ value: "{proposta>price}" }),
-          new sap.m.StepInput({
-            value: "{proposta>quantity}",
-            displayValuePrecision: 0,
-            step: 1,
-            change: this.onStepInputQuantityChange,
-          }),
-
-          new sap.m.ObjectStatus({
-            text: "{proposta>status_text}",
-            active: true,
-            inverted: true,
-            state: "{proposta>status_state}",
-          }).addStyleClass("sapUiTinyMarginBegin sapUiTinyMarginTop"),
-        ];
       },
 
       onStepInputQuantityChange(e) {
@@ -174,6 +101,10 @@ sap.ui.define(
         Dialog.getAttachmentDialog({ controller: this });
       },
 
+      onReportPress() {
+        Dialog.getReportDialog({ controller: this });
+      },
+
       onHeaderAttachmentItemPress(e) {
         const pdfViewer = new sap.m.PDFViewer({
           title: "Allegato",
@@ -200,7 +131,13 @@ sap.ui.define(
       },
 
       onCustomerValueHelpConfirm(e) {
-        const oDialog = e.getSource().getParent().getParent().getParent().getParent().getParent();
+        const oDialog = e
+          .getSource()
+          .getParent()
+          .getParent()
+          .getParent()
+          .getParent()
+          .getParent();
         const selectedItem = e.getSource();
 
         if (!selectedItem) return;
@@ -217,7 +154,7 @@ sap.ui.define(
           context.getProperty("name")
         );
 
-        oDialog.close()
+        oDialog.close();
       },
 
       onPreorderValueHelpConfirm(e) {
@@ -238,7 +175,7 @@ sap.ui.define(
           context.getProperty("name")
         );
 
-        oDialog.close()
+        oDialog.close();
       },
 
       onCategoryListItemPress(e) {
@@ -270,21 +207,25 @@ sap.ui.define(
       },
 
       onProductListItemPress(e) {
-        const product = e.getSource().getBindingContext("proposta").getProperty("product");
+        const { description, product, src } = e
+          .getSource()
+          .getBindingContext("proposta")
+          .getObject();
+
+        this.getModel("detail").setData({
+          product: {
+            id: product,
+            description,
+            notes: [{
+              nota_1: "test nota 1"
+            }]
+          },
+          carousel: {
+            pages: [{ src }, { src }, { src }],
+          },
+        });
 
         this.getRouter().navTo("detail", { product: product });
-      },
-
-      onAddNotePress(e) {
-        const oSource = e.getSource();
-        const prodotto = oSource.getBindingContext("proposta").getObject();
-        Dialog.getAddNoteDialog({ controller: this, prodotto });
-      },
-
-      onShowPhotoPress(e) {
-        const src = e.getSource().getProperty("src");
-
-        Dialog.getPhotoDialog({ controller: this, src });
       },
 
       onPanelProcessFlowExpand(e) {
