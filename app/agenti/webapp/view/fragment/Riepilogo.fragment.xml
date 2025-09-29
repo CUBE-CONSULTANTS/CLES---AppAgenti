@@ -1,0 +1,167 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns:card="sap.f.cards"
+    xmlns:f="sap.f"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <FlexBox direction="Row" backgroundDesign="Solid">
+        <VBox width="50%"
+            >
+            <!-- Elenco -->
+            <Table items="{proposta>/table/items}"
+                alternateRowColors="true"
+                popinLayout="GridSmall">
+                <headerToolbar>
+                    <OverflowToolbar >
+                        <ToolbarSpacer />
+                        <Button text="Esporta"
+                            type="Emphasized"
+                            icon="sap-icon://excel-attachment"
+                            press=".defaultDialogClose" />
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                    <Column demandPopin="true"
+                        width="12em"
+                        popinDisplay="Block"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Categoria" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Prodotto" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Descrizione" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Unità di misura" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Prezzo" />
+                    </Column>
+                    <Column demandPopin="true"
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="Quantità" />
+                    </Column>
+                    <Column demandPopin="true"
+                        
+                        minScreenWidth="Desktop">
+                        <Label design="Bold"
+                            wrapping="true"
+                            text="" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem >
+                        <cells>
+                            <Text text="{proposta>category}" />
+                            <Text text="{proposta>product}" />
+                            <Text text="{proposta>description}" />
+                            <Text text="KG" />
+                            <Text text="{proposta>price} €" />
+                            <Text text="{proposta>quantity}" />
+                            <Button type="Negative" icon="sap-icon://delete" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+        <VBox width="25%"
+            >
+            <!-- Totali -->
+            <Title class="sapUiSmallMargin"
+                text="Totali"
+                titleStyle="H4" />
+
+            <f:Card class="sapUiMediumMargin"
+                width="300px">
+                <f:header>
+                    <card:Header title="Totali"
+                        subtitle="Riepilogo totali | EUR" />
+                </f:header>
+                <f:content>
+                    <VBox width="100%"
+                        class="sapUiSmallMargin"
+                        justifyContent="End">
+                        <Label design="Bold"
+                            text="Totale" />
+                        <ObjectNumber state="Success"
+                            inverted="true"
+                            number="270.00€"
+                            emphasized="true" />
+                    </VBox>
+                </f:content>
+            </f:Card>
+        </VBox>
+        <VBox width="25%"
+            >
+            <!-- Chiusura -->
+            <Title class="sapUiSmallMargin"
+                text="Chiusura"
+                titleStyle="H4" />
+            <form:SimpleForm 
+                maxContainerCols="2"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="12"
+                labelSpanM="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="1"
+                columnsM="1">
+                <Label text="Cliente" />
+                <Input editable="false"
+                    value="ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT" />
+                <Label text="Città" />
+                <Input editable="true"
+                    value="Roma" />
+                <Label text="Indirizzo" />
+                <Input editable="true"
+                    value="Via del Mare, 29" />
+                <Label text="ZIP" />
+                <Input editable="true"
+                    value="00100" />
+                <Label text="Orario" />
+                <DateTimePicker />
+            </form:SimpleForm>
+            <form:SimpleForm 
+                maxContainerCols="2"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanL="12"
+                labelSpanM="12"
+                emptySpanL="0"
+                emptySpanM="0"
+                columnsL="1"
+                columnsM="1">
+                <Label text="Note Ordine" />
+                <TextArea rows="8"
+                    editable="true"
+                    value="Test descrizione per le note di testata" />
+            </form:SimpleForm>
+            <VBox alignItems="End">
+                <Button text="Crea Offerta"
+                    type="Emphasized"
+                    icon="sap-icon://save" />
+                <Button text="Crea Ordine"
+                    type="Emphasized"
+                    icon="sap-icon://sales-order" />
+            </VBox>
+        </VBox>
+    </FlexBox>
+</core:FragmentDefinition>

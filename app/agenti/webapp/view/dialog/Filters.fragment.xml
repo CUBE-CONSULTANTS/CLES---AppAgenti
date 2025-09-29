@@ -2,10 +2,14 @@
     xmlns:core="sap.ui.core">
     <ViewSettingsDialog confirm="handleConfirm">
         <sortItems>
-			<ViewSettingsItem text="Tipo" key="1" selected="true" />
-			<ViewSettingsItem text="Descrizione" key="2" />
-			<ViewSettingsItem text="Top Seller" key="3" />
-		</sortItems>
+            <ViewSettingsItem text="Tipo"
+                key="1"
+                selected="true" />
+            <ViewSettingsItem text="Descrizione"
+                key="2" />
+            <ViewSettingsItem text="Top Seller"
+                key="3" />
+        </sortItems>
         <customTabs>
             <ViewSettingsCustomTab icon="sap-icon://filter"
                 title="Filtri"
@@ -15,8 +19,7 @@
                         <HBox justifyContent="SpaceBetween"
                             alignItems="Center">
                             <Label text="Categoria"
-                                design="Bold" 
-                                />
+                                design="Bold" />
                             <Button text="Resetta" />
                         </HBox>
                         <Select>
@@ -33,50 +36,60 @@
                         </Select>
 
                         <HBox justifyContent="SpaceBetween"
-                            alignItems="Center">
-                            <Label text="Ultimo acquisto"
-                                design="Bold" class="sapUiMediumMarginTop"/>
-                            <Button text="Resetta" />
+                            alignItems="Center"
+                            class="sapUiMediumMarginTop">
+                            <Label text="Caratteristiche"
+                                design="Bold" />
                         </HBox>
-                        <DateRangeSelection change="handleChange" />
+                        <HBox justifyContent="SpaceBetween"
+                            wrap="Wrap"
+                            class="sapUiTinyMarginTop">
+                            <ObjectStatus class="sapUiTinyMarginBegin"
+                                text="Top Seller"
+                                active="true"
+                                inverted="true"
+                                state="Indication15" />
+                            <ObjectStatus class="sapUiTinyMarginBegin"
+                                text="Gluten Free"
+                                active="true"
+                                inverted="true"
+                                state="Indication14" />
+                            <ObjectStatus class="sapUiTinyMarginBegin"
+                                text="Stock limitato"
+                                active="true"
+                                inverted="true"
+                                state="Indication17" />
+                            <ObjectStatus class="sapUiTinyMarginBegin"
+                                text="In arrivo"
+                                active="true"
+                                inverted="true"
+                                state="Indication12" />
+                        </HBox>
 
                         <HBox justifyContent="SpaceBetween"
-                            alignItems="Center">
-                            <Label text="Ultimo prezzo"
-                                design="Bold"
-                                class="sapUiMediumMarginTop" />
-                            <Button text="Resetta" />
-                        </HBox>
-                        <RangeSlider showAdvancedTooltip="true"
-                            min="0"
-                            max="100"
-                            width="80%"
-                            class="sapUiMediumMarginBottom" />
-
-                        <HBox justifyContent="SpaceBetween"
-                            alignItems="Center">
-                            <Label text="Ultima quantità"
-                                design="Bold"
-                                class="sapUiMediumMarginTop" />
-                            <Button text="Resetta" />
-                        </HBox>
-                        <RangeSlider showAdvancedTooltip="true"
-                            min="0"
-                            max="100"
-                            width="80%"
-                            class="sapUiMediumMarginBottom" />
-
-                        <HBox justifyContent="SpaceBetween"
-                            alignItems="Center">
+                            alignItems="Center"
+                            class="sapUiMediumMarginTop">
                             <Label text="Disponibilità"
                                 design="Bold"
                                 class="sapUiMediumMarginTop" />
-                            <Button text="Resetta" />
                         </HBox>
                         <RangeSlider showAdvancedTooltip="true"
                             min="0"
-                            max="100"
-                            width="80%"
+                            max="1000"
+                            width="100%"
+                            class="sapUiMediumMarginBottom" />
+
+                        <HBox justifyContent="SpaceBetween"
+                            alignItems="Center">
+
+                            <Label text="Listino"
+                                design="Bold"
+                                class="sapUiMediumMarginTop" />
+                        </HBox>
+                        <RangeSlider showAdvancedTooltip="true"
+                            min="0"
+                            max="1000"
+                            width="100%"
                             class="sapUiMediumMarginBottom" />
                     </Panel>
                 </content>

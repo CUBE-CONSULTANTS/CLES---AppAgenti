@@ -1,0 +1,119 @@
+<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <HBox >
+        <VBox visible="{= ${device>/system/phone} ? false : true }"
+            width="{= ${device>/system/desktop} ? '25%' : ${device>/system/tablet} ? '30%' : 'auto' }">
+            <Panel height="auto"
+                headerText="Ordinamento"
+                backgroundDesign="Solid">
+                <HBox direction="{= ${device>/system/desktop} ? 'Row' : 'Column' }" justifyContent="SpaceBetween">
+                    <VBox >
+                        <Label design="Bold"
+                            text="Modalità" />
+                        <RadioButtonGroup >
+                            <RadioButton text="Crescente" />
+                            <RadioButton text="Decrescente" />
+                        </RadioButtonGroup>
+                    </VBox>
+                    <VBox>
+                        <Label design="Bold"
+                            text="Caratteristiche" />
+                        <RadioButtonGroup >
+                            <RadioButton text="Categoria" />
+                            <RadioButton text="Descrizione" />
+                            <RadioButton text="Giacenza" />
+                        </RadioButtonGroup>
+                    </VBox>
+                </HBox>
+            </Panel>
+            <Panel height="auto"
+                headerText="Filtri"
+                backgroundDesign="Solid">
+                <HBox justifyContent="SpaceBetween"
+                    alignItems="Center">
+                    <Label text="Categoria"
+                        design="Bold" />
+                    <Button text="Resetta" />
+                </HBox>
+                <Select>
+                    <items>
+                        <core:Item text="Tutti"
+                            key="all" />
+                        <core:Item text="Aperitivi"
+                            key="elec" />
+                        <core:Item text="Carni Rosse"
+                            key="can" />
+                        <core:Item text="Carni Bianche"
+                            key="info" />
+                    </items>
+                </Select>
+
+                <HBox justifyContent="SpaceBetween"
+                    alignItems="Center"
+                    class="sapUiMediumMarginTop">
+                    <Label text="Caratteristiche"
+                        design="Bold" />
+                </HBox>
+                <HBox justifyContent="SpaceBetween"
+                    wrap="Wrap"
+                    class="sapUiTinyMarginTop">
+                    <ObjectStatus class="sapUiTinyMarginBegin"
+                        text="Top Seller"
+                        active="true"
+                        inverted="true"
+                        state="Indication15" />
+                    <ObjectStatus class="sapUiTinyMarginBegin"
+                        text="Gluten Free"
+                        active="true"
+                        inverted="true"
+                        state="Indication14" />
+                    <ObjectStatus class="sapUiTinyMarginBegin"
+                        text="Stock limitato"
+                        active="true"
+                        inverted="true"
+                        state="Indication17" />
+                    <ObjectStatus class="sapUiTinyMarginBegin"
+                        text="In arrivo"
+                        active="true"
+                        inverted="true"
+                        state="Indication12" />
+                </HBox>
+
+                <HBox justifyContent="SpaceBetween"
+                    alignItems="Center">
+
+                    <Label text="Listino (€)"
+                        design="Bold"
+                        class="sapUiMediumMarginTop" />
+                </HBox>
+                <RangeSlider showAdvancedTooltip="true"
+                    min="0"
+                    max="1000"
+                    width="100%"
+                    class="sapUiMediumMarginBottom" />
+
+                <HBox justifyContent="SpaceBetween"
+                    alignItems="Center">
+                    <Label text="Disponibilità"
+                        design="Bold"
+                        class="sapUiTinyMarginTop" />
+                    <CheckBox />
+                </HBox>
+
+                <HBox justifyContent="SpaceBetween"
+                    alignItems="Center">
+                    <Label text="Ultimo Ordine"
+                        design="Bold"
+                        class="sapUiTinyMarginTop" />
+                    <CheckBox />
+                </HBox>
+
+            </Panel>
+        </VBox>
+        <VBox width="{= ${device>/system/desktop} ? '75%' : ${device>/system/tablet} ? '70%' : '100%' }">
+            <core:Fragment fragmentName="cles.agenti.view.fragment.Products"
+                type="XML" />
+        </VBox>
+    </HBox>
+</core:FragmentDefinition>

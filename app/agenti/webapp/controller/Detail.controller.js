@@ -21,8 +21,12 @@ sap.ui.define(
         this.getRouter().navTo("RouteMain");
       },
 
-      onShowPhotoPress(e) {
-        Dialog.getPhotoDialog({ controller: this });
+      onShowProductDetailPress(e) {
+        Dialog.getProductDetailDialog({ controller: this });
+      },
+
+      onShowProductAttachmentsPress() {
+        Dialog.getProductAttachmentDialog({ controller: this });
       },
 
       onAddNotePress(e) {
