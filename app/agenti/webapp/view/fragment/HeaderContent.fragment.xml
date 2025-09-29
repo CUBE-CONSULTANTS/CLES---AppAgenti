@@ -3,10 +3,17 @@
     <VBox width="100%"
         class="sapUiTinyMarginBottom">
         <HBox class="sapUiSmallMarginBottom"
+            wrap="Wrap"
             width="100%"
             alignItems="Center"
             alignContent="Center"
-            justifyContent="Start">
+            justifyContent="SpaceBetween">
+            <ObjectStatus
+                text="ESISTONO PARTITE SCADUTE"
+                active="false"
+                inverted="true"
+                state="Error"
+                icon="sap-icon://warning" />
             <SegmentedButton width="15rem"
                 selectedKey="{main>/header/mode/selectedKey}"
                 items="{main>/header/mode/items}">
@@ -15,12 +22,6 @@
                         text="{main>text}" />
                 </items>
             </SegmentedButton>
-            <ObjectStatus class="sapUiTinyMarginBegin"
-                text="ESISTONO PARTITE SCADUTE"
-                active="false"
-                inverted="true"
-                state="Error"
-                icon="sap-icon://warning" />
         </HBox>
         <HBox width="100%"
             justifyContent="SpaceBetween">
@@ -47,7 +48,14 @@
                 cols="120"
                 value="{main>/header/notes/value}" />
         </VBox>
-
+         <VBox width="100%" alignItems="End" class="sapUiSmallMarginBottom">
+            <Button
+                text="Crea una segnalazione"
+                type="Critical"
+                icon="sap-icon://warning"
+                press=".onReportPress"
+            />
+        </VBox>
         <ScrollContainer vertical="true"
             horizontal="false"
             height="{= ${device>/system/phone} ? '100%' : (${device>/resize/height} - 420 + 'px') }"

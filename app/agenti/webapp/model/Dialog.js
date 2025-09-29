@@ -38,6 +38,26 @@ sap.ui.define(
         });
       },
 
+      async getReportDialog({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_reportDialog",
+              path: "view.dialog.Report",
+              controller,
+              model: new JSONModel({
+                value: null,
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
       async getFiltersDialog({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
@@ -108,8 +128,7 @@ sap.ui.define(
                     items: [
                       {
                         id: "351",
-                        name:
-                          "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
+                        name: "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
                       },
                       {
                         id: "2788",
@@ -117,8 +136,7 @@ sap.ui.define(
                       },
                       {
                         id: "2701",
-                        name:
-                          "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                        name: "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
                       },
                       {
                         id: "3196",
@@ -320,7 +338,7 @@ sap.ui.define(
         });
       },
 
-      async getPhotoDialog({ controller, src }) {
+      async getPhotoDialog({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
@@ -328,8 +346,37 @@ sap.ui.define(
               path: "view.dialog.ProductDetail",
               controller,
               model: new JSONModel({
-                carousel: {
-                  pages: [{ src }, { src }, { src }],
+                attachments: {
+                  items: [
+                    {
+                      data: "21/06/2024",
+                      nome: "Descr. Allegato 1",
+                    },
+                    {
+                      data: "15/05/2024",
+                      nome: "Descr. Allegato 2",
+                    },
+                    {
+                      data: "18/04/2024",
+                      nome: "Descr. Allegato 3",
+                    },
+                    {
+                      data: "11/05/2024",
+                      nome: "Descr. Allegato 4",
+                    },
+                    {
+                      data: "26/02/2024",
+                      nome: "Descr. Allegato 5",
+                    },
+                    {
+                      data: "05/12/2024",
+                      nome: "Descr. Allegato 6",
+                    },
+                    {
+                      data: "06/12/2024",
+                      nome: "Descr. Allegato 7",
+                    }
+                  ],
                 },
               }),
             });
