@@ -3,7 +3,7 @@
     xmlns:core="sap.ui.core"
     xmlns:u="sap.ui.unified">
     <Dialog stretch="false"
-        contentWidth="50%"
+        contentWidth="100%"
         showHeader="false">
         <buttons>
             <Button text="Salva"
@@ -12,7 +12,7 @@
                 class="sapUiTinyMargin"
                 type="Success" />
             <Button text="Chiudi"
-                type="Emphasized"
+                type="Emphasized"    
                 press=".defaultDialogClose" />
         </buttons>
         <content>

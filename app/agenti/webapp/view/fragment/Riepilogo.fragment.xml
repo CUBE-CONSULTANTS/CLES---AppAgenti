@@ -3,9 +3,12 @@
     xmlns:f="sap.f"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
-    <FlexBox direction="Row" backgroundDesign="Solid">
-        <VBox width="50%"
-            >
+    <FlexBox direction="{= ${device>/system/desktop} ? 'Row' : 'Column'}"
+        backgroundDesign="Solid">
+        <VBox width="{= ${device>/system/desktop} ? '50%' : '100%'}">
+            <Title class="sapUiSmallMargin"
+                text="Articoli"
+                titleStyle="H4" />
             <!-- Elenco -->
             <Table items="{proposta>/table/items}"
                 alternateRowColors="true"
@@ -59,7 +62,7 @@
                             text="Quantità" />
                     </Column>
                     <Column demandPopin="true"
-                        
+                        popinDisplay="WithoutHeader"
                         minScreenWidth="Desktop">
                         <Label design="Bold"
                             wrapping="true"
@@ -75,47 +78,68 @@
                             <Text text="KG" />
                             <Text text="{proposta>price} €" />
                             <Text text="{proposta>quantity}" />
-                            <Button type="Negative" icon="sap-icon://delete" />
+                            <Button type="Negative"
+                                icon="sap-icon://delete" />
                         </cells>
                     </ColumnListItem>
                 </items>
             </Table>
         </VBox>
-        <VBox width="25%"
-            >
+        <VBox width="{= ${device>/system/desktop} ? '25%' : '100%'}">
             <!-- Totali -->
             <Title class="sapUiSmallMargin"
                 text="Totali"
                 titleStyle="H4" />
 
             <f:Card class="sapUiMediumMargin"
-                width="300px">
+                width="90%">
                 <f:header>
                     <card:Header title="Totali"
                         subtitle="Riepilogo totali | EUR" />
                 </f:header>
                 <f:content>
-                    <VBox width="100%"
-                        class="sapUiSmallMargin"
-                        justifyContent="End">
+                    <form:SimpleForm editable="false"
+                        columnsL="2"
+                        columnsM="2"
+                        layout="ResponsiveGridLayout">
                         <Label design="Bold"
-                            text="Totale" />
+                            text="Totale Netto" />
                         <ObjectNumber state="Success"
                             inverted="true"
-                            number="270.00€"
+                            number="270.00"
+                            unit="€"
                             emphasized="true" />
-                    </VBox>
+                        <Label design="Bold"
+                            text="Totale Lordo" />
+                        <ObjectNumber state="Warning"
+                            inverted="true"
+                            number="329.40"
+                            unit="€"
+                            emphasized="true" />
+                        <Label design="Bold"
+                            text="IVA" />
+                        <ObjectNumber state="Error"
+                            unit="%"
+                            inverted="true"
+                            number="22"
+                            emphasized="true" />
+                        <Label design="Bold"
+                            text="Peso" />
+                        <ObjectNumber state="Information"
+                            unit="KG"
+                            inverted="true"
+                            number="200"
+                            emphasized="true" />
+                    </form:SimpleForm>
                 </f:content>
             </f:Card>
         </VBox>
-        <VBox width="25%"
-            >
+        <VBox width="{= ${device>/system/desktop} ? '25%' : '100%'}">
             <!-- Chiusura -->
             <Title class="sapUiSmallMargin"
                 text="Chiusura"
                 titleStyle="H4" />
-            <form:SimpleForm 
-                maxContainerCols="2"
+            <form:SimpleForm maxContainerCols="2"
                 editable="true"
                 layout="ResponsiveGridLayout"
                 labelSpanL="12"
@@ -139,8 +163,7 @@
                 <Label text="Orario" />
                 <DateTimePicker />
             </form:SimpleForm>
-            <form:SimpleForm 
-                maxContainerCols="2"
+            <form:SimpleForm maxContainerCols="2"
                 editable="true"
                 layout="ResponsiveGridLayout"
                 labelSpanL="12"
@@ -154,7 +177,7 @@
                     editable="true"
                     value="Test descrizione per le note di testata" />
             </form:SimpleForm>
-            <VBox alignItems="End">
+            <VBox alignItems="End" class="sapUiSmallMarginEnd">
                 <Button text="Crea Offerta"
                     type="Emphasized"
                     icon="sap-icon://save" />

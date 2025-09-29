@@ -89,7 +89,7 @@
                 </HBox>
                 <RangeSlider showAdvancedTooltip="true"
                     min="0"
-                    max="1000"
+                    max="100"
                     width="100%"
                     class="sapUiMediumMarginBottom" />
 

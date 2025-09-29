@@ -97,7 +97,9 @@ sap.ui.define(
             },
           },
           body: {
-            iconTabBar: {},
+            iconTabBar: {
+              selectedKey: "LISTA"
+            },
             table: {
               menu: {
                 items: [

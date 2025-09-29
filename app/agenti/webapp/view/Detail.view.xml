@@ -156,7 +156,9 @@
             <FlexBox direction="Column"
                 visible="{= ${detail>/from} === 'CATALOGO' ? true : false }">
                 <HBox backgroundDesign="Solid"
-                    justifyContent="End">
+                    justifyContent="SpaceBetween" alignContent="Center"
+                    alignItems="Center" class="sapUiSmallMarginBeginEnd">
+                    <Label design="Bold" text="Prezzo di Listino: 3.50€"/>
                     <Button text="Aggiungi alla Proposta Prodotti"
                         icon="sap-icon://add"
                         type="Emphasized" />
