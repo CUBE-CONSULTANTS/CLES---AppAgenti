@@ -16,6 +16,7 @@ sap.ui.define(
 
       createLayoutModel() {
         return new JSONModel({
+          previousRoute: "",
           layoutMode: "OneColumn",
         });
       },
@@ -25,25 +26,31 @@ sap.ui.define(
           showFooter: true,
           header: {
             mode: {
-              selectedKey: "OFF",
+              selectedKey: "ORD",
               items: [
                 {
-                  key: "PRE",
-                  text: "Preordine",
+                  key: "ORD",
+                  text: "Ordine",
                 },
                 {
                   key: "OFF",
-                  text: "Offerta/Ordine",
+                  text: "Offerta",
                 },
+                {
+                  key: "PRE",
+                  text: "Preordine",
+                }
               ],
             },
             customer: {
               id: "",
-              name: "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
-            },
-            preorder: {
-              id: "",
               name: "",
+            },
+            date: {
+              value: new Date()
+            },
+            title: {
+              value: "",
             },
             attachments: {
               items: [
@@ -62,30 +69,6 @@ sap.ui.define(
                 {
                   data: "10/03/2024",
                   nome: "Descr. Allegato 4",
-                },
-                {
-                  data: "25/02/2024",
-                  nome: "Descr. Allegato 5",
-                },
-                {
-                  data: "30/01/2024",
-                  nome: "Descr. Allegato 6",
-                },
-                {
-                  data: "05/01/2024",
-                  nome: "Descr. Allegato 7",
-                },
-                {
-                  data: "15/12/2023",
-                  nome: "Descr. Allegato 8",
-                },
-                {
-                  data: "20/11/2023",
-                  nome: "Descr. Allegato 9",
-                },
-                {
-                  data: "30/10/2023",
-                  nome: "Descr. Allegato 10",
                 }
               ],
             },
@@ -140,7 +123,7 @@ sap.ui.define(
         });
       },
 
-      createDetailModel() {
+      createProductModel() {
         return new JSONModel({
           from: "",
           carousel: {

@@ -1,0 +1,83 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+>
+    <f:Card >
+        <f:header>
+            <card:Header
+                title="Totali"
+                subtitle="Riepilogo totali | EUR"
+            />
+        </f:header>
+        <f:content>
+            <VBox width="100%">
+                <HBox
+                    class="sapUiSmallMargin"
+                    justifyContent="SpaceAround"
+                    alignContent="SpaceAround"
+                >
+                    <VBox>
+                        <Label
+                            design="Bold"
+                            text="Totale Imponibile"
+                        />
+                        <ObjectNumber
+                            state="Success"
+                            inverted="true"
+                            number="270.00"
+                            unit="€"
+                            emphasized="true"
+                        />
+                    </VBox>
+                    <VBox>
+                        <Label
+                            design="Bold"
+                            text="Totale IVA"
+                        />
+                        <ObjectNumber
+                            state="Warning"
+                            inverted="true"
+                            number="329.40"
+                            unit="€"
+                            emphasized="true"
+                        />
+                    </VBox>
+                </HBox>
+                <HBox
+                    class="sapUiSmallMargin"
+                    justifyContent="SpaceAround"
+                    alignContent="SpaceAround"
+                >
+                    <VBox>
+                        <Label
+                            design="Bold"
+                            text="IVA"
+                        />
+                        <ObjectNumber
+                            state="Error"
+                            unit="%"
+                            inverted="true"
+                            number="22"
+                            emphasized="true"
+                        />
+                    </VBox>
+                    <VBox>
+                        <Label
+                            design="Bold"
+                            text="Peso"
+                        />
+                        <ObjectNumber
+                            state="Information"
+                            unit="KG"
+                            inverted="true"
+                            number="200"
+                            emphasized="true"
+                        />
+                    </VBox>
+                </HBox>
+            </VBox>
+        </f:content>
+    </f:Card>
+</core:FragmentDefinition>

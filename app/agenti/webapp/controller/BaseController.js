@@ -3,8 +3,9 @@ sap.ui.define(
 		"sap/ui/core/mvc/Controller",
 		"sap/ui/core/UIComponent",
 		"sap/ui/core/routing/History",
+    "../model/Dialog"
 	],
-	function (Controller, UIComponent, History) {
+	function (Controller, UIComponent, History, Dialog) {
 		"use strict";
 
 		return Controller.extend("cles.agenti.controller.BaseController", {
@@ -74,9 +75,26 @@ sap.ui.define(
 				if (sPreviousHash !== undefined) {
 					window.history.go(-1);
 				} else {
-					this.getRouter().navTo("main", {}, undefined, true);
+					this.getRouter().navTo("Main", {}, undefined, true);
 				}
 			},
+
+      //Navigation Actions
+      
+      onHeaderAttachmentPress() {
+        Dialog.getAttachmentDialog({
+          controller: this,
+          items: this.getModel("proposta").getProperty("/header/attachments"),
+        });
+      },
+
+      onReportPress() {
+        Dialog.getReportDialog({ controller: this });
+      },
+
+      onClosePress() {
+        this.getRouter().navTo("Main");
+      },
 
 			defaultDialogClose(e) {
 				const source = e.getSource();

@@ -1,133 +1,174 @@
 {
-    "table": {
-        "columns": {
-            "categoryColumnVisible": true
-        },
-        "toolbar": {
-            "groupByCategory": false
-        },
-        "items": [
-            {
-                "selected": false,
-                "highlight": "Indication03",
-                "category": "APERITIVI",
-                "product": "4060",
-                "src": "https://i1.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2018/08/3681_Bastoncini.jpg?resize=895%2C616&ssl=1",
-                "description": "Bastoncini di mozzarella panati",
-                "u_acq": "18/06/2024",
-                "u_prz": "3.88",
-                "u_qta": "3.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "3",
-                "note": "1",
-                "status_text": "Top Seller",
-                "status_state": "Indication15",
-                "listino": "3.50€"
-            },
-            {
-                "selected": false,
-                "highlight": "Indication03",
-                "category": "CARNI ROSSE",
-                "product": "4060",
-                "src": "https://www.clesfood.com/wp-content/uploads/2019/12/Cles-Food-rotolo-peperoni-patate-viola-0278-1024x678.jpg",
-                "description": "Lonza di maiale ai peperoni",
-                "u_acq": "18/06/2024",
-                "u_prz": "7.88",
-                "u_qta": "3.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "3",
-                "note": "0",
-                "status_text": "Gluten Free",
-                "status_state": "Indication14",
-                "listino": "10.50€"
-            },
-            {
-                "selected": false,
-                "highlight": "Indication04",
-                "category": "CARNI BIANCHE",
-                "product": "0340",
-                "src": "https://www.clesfood.com/wp-content/uploads/2019/12/Cles-Food-quaglie-0175-1024x678.jpg",
-                "description": "Quaglie ripiene in padella",
-                "u_acq": "15/02/2024",
-                "u_prz": "7.64",
-                "u_qta": "8.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "12",
-                "note": "3",
-                "status_text": "Gluten Free",
-                "status_state": "Indication14",
-                "listino": "11.50€"
-            },
-            {
-                "selected": false,
-                "highlight": "Indication04",
-                "category": "CARNI BIANCHE",
-                "product": "0341",
-                "src": "https://www.clesfood.com/wp-content/uploads/2019/12/Cles-Food-straccetti-pollo-verdure-0314-1024x678.jpg",
-                "description": "Straccetti di pollo alle verdure",
-                "u_acq": "15/07/2024",
-                "u_prz": "6.33",
-                "u_qta": "12.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "7",
-                "note": "1",
-                "status_text": "In arrivo 25/10/2025",
-                "status_state": "Indication12",
-                "listino": "9.50€"
-            },
-            {
-                "selected": false,
-                "highlight": "Indication02",
-                "category": "CARNI BIANCHE",
-                "product": "0342",
-                "description": "Faraona Nostrana",
-                "u_acq": "05/04/2024",
-                "u_prz": "16.33",
-                "u_qta": "12.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "0",
-                "note": "0"
-            },
-            {
-                "selected": false,
-                "highlight": "Indication02",
-                "category": "CARNI ROSSE",
-                "product": "0343",
-                "description": "Lombo Suino Disossato",
-                "u_acq": "05/04/2024",
-                "u_prz": "11.33",
-                "u_qta": "12.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "0",
-                "note": "0"
-            },
-            {
-                "selected": false,
-                "highlight": "Indication04",
-                "category": "CARNI ROSSE",
-                "product": "0344",
-                "description": "Coppa Suino Disossato",
-                "u_acq": "05/04/2024",
-                "u_prz": "9.33",
-                "u_qta": "12.00",
-                "price": "0.00",
-                "unit_of_measure": "CF",
-                "quantity": "0.00",
-                "disponibilita": "15",
-                "note": "2"
-            }
+  "objectPageLayout": {
+    "currentList": ""
+  },
+  "table": {
+    "columns": {
+      "categoryColumnVisible": true
+    },
+    "toolbar": {
+      "groupByCategory": false,
+      "filtri": {
+        "categorie": [
+          {
+            "text": "APERITIVO",
+            "type": "Default"
+          },
+          {
+            "text": "CARNE BIANCA",
+            "type": "Default"
+          },
+          {
+            "text": "CARNE ROSSA",
+            "type": "Default"
+          },
+          {
+            "text": "PANE",
+            "type": "Default"
+          },
+          {
+            "text": "PASTA",
+            "type": "Default"
+          },
+          {
+            "text": "ALCOLICI",
+            "type": "Default"
+          }
+        ],
+        "caratteristiche": [
+          {
+            "text": "TOP SELLER",
+            "type": "Default"
+          },
+          {
+            "text": "GLUTEN FREE",
+            "type": "Default"
+          }
         ]
-    }
+      }
+    },
+    "items": [
+      {
+        "selected": false,
+        "highlight": "Indication03",
+        "category": "APERITIVO",
+        "product": "4060",
+        "src": "https://i1.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2018/08/3681_Bastoncini.jpg?resize=895%2C616&ssl=1",
+        "description": "Bastoncini di mozzarella panati",
+        "u_acq": "18/06/2024",
+        "u_prz": "3.88",
+        "u_qta": "3.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "3",
+        "note": "1",
+        "status_text": "TOP SELLER",
+        "status_state": "Indication15",
+        "listino": "3.50€"
+      },
+      {
+        "selected": false,
+        "highlight": "Indication03",
+        "category": "CARNE ROSSA",
+        "product": "4060",
+        "src": "https://www.clesfood.com/wp-content/uploads/2019/12/Cles-Food-rotolo-peperoni-patate-viola-0278-1024x678.jpg",
+        "description": "Lonza di maiale ai peperoni",
+        "u_acq": "18/06/2024",
+        "u_prz": "7.88",
+        "u_qta": "3.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "3",
+        "note": "0",
+        "status_text": "GLUTEN FREE",
+        "status_state": "Indication14",
+        "listino": "10.50€"
+      },
+      {
+        "selected": false,
+        "highlight": "Indication04",
+        "category": "CARNE BIANCA",
+        "product": "0340",
+        "src": "https://www.clesfood.com/wp-content/uploads/2019/12/Cles-Food-quaglie-0175-1024x678.jpg",
+        "description": "Quaglie ripiene in padella",
+        "u_acq": "15/02/2024",
+        "u_prz": "7.64",
+        "u_qta": "8.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "12",
+        "note": "3",
+        "status_text": "GLUTEN FREE",
+        "status_state": "Indication14",
+        "listino": "11.50€"
+      },
+      {
+        "selected": false,
+        "highlight": "Indication04",
+        "category": "CARNE BIANCA",
+        "product": "0341",
+        "src": "https://www.clesfood.com/wp-content/uploads/2019/12/Cles-Food-straccetti-pollo-verdure-0314-1024x678.jpg",
+        "description": "Straccetti di pollo alle verdure",
+        "u_acq": "15/07/2024",
+        "u_prz": "6.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "7",
+        "note": "1",
+        "status_text": "In arrivo 25/10/2025",
+        "status_state": "Indication12",
+        "listino": "9.50€"
+      },
+      {
+        "selected": false,
+        "highlight": "Indication02",
+        "category": "CARNE BIANCA",
+        "product": "0342",
+        "description": "Faraona Nostrana",
+        "u_acq": "05/04/2024",
+        "u_prz": "16.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "0",
+        "note": "0"
+      },
+      {
+        "selected": false,
+        "highlight": "Indication02",
+        "category": "CARNE ROSSA",
+        "product": "0343",
+        "description": "Lombo Suino Disossato",
+        "u_acq": "05/04/2024",
+        "u_prz": "11.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "0",
+        "note": "0"
+      },
+      {
+        "selected": false,
+        "highlight": "Indication04",
+        "category": "CARNE ROSSA",
+        "product": "0344",
+        "description": "Coppa Suino Disossato",
+        "u_acq": "05/04/2024",
+        "u_prz": "9.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": "15",
+        "note": "2"
+      }
+    ]
+  }
 }

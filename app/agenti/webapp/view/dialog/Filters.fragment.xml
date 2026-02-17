@@ -10,7 +10,7 @@
             <ViewSettingsItem text="Top Seller"
                 key="3" />
         </sortItems>
-        <customTabs>
+        <!-- <customTabs>
             <ViewSettingsCustomTab icon="sap-icon://filter"
                 title="Filtri"
                 tooltip="Impostazioni Visualizzazione">
@@ -93,6 +93,6 @@
                     </Panel>
                 </content>
             </ViewSettingsCustomTab>
-        </customTabs>
+        </customTabs> -->
     </ViewSettingsDialog>
 </core:FragmentDefinition>

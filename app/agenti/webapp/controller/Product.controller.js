@@ -3,22 +3,22 @@ sap.ui.define(
   function (BaseController, Dialog) {
     "use strict";
 
-    return BaseController.extend("cles.agenti.controller.Detail", {
+    return BaseController.extend("cles.agenti.controller.Product", {
       onInit() {
         this.getRouter()
-          .getRoute("detail")
+          .getRoute("Product")
           .attachPatternMatched(this._onObjectMatched, this);
       },
 
       _onObjectMatched(oEvent) {
         this.getModel("layout").setProperty(
           "/layoutMode",
-          "TwoColumnsBeginExpanded"
+          "EndColumnFullScreen",
         );
       },
 
       onClosePress() {
-        this.getRouter().navTo("RouteMain");
+        window.history.go(-1);
       },
 
       onShowProductDetailPress(e) {
@@ -30,9 +30,9 @@ sap.ui.define(
       },
 
       onAddNotePress(e) {
-        const prodotto = this.getModel("detail").getProperty("/product");
+        const prodotto = this.getModel("product").getProperty("/product");
         Dialog.getAddNoteDialog({ controller: this, prodotto });
       },
     });
-  }
+  },
 );

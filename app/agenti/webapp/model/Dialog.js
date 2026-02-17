@@ -38,7 +38,7 @@ sap.ui.define(
         });
       },
 
-      async getAttachmentDialog({ controller }) {
+      async getAttachmentDialog({ controller, items }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
@@ -47,6 +47,9 @@ sap.ui.define(
               controller,
               model: new JSONModel({
                 value: null,
+                attachments: {
+                  items
+                }
               }),
             });
 
@@ -149,18 +152,22 @@ sap.ui.define(
                       {
                         id: "351",
                         name: "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
+                        city: "ROMA"
                       },
                       {
                         id: "2788",
                         name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
+                        city: "BRESCIA"
                       },
                       {
                         id: "2701",
                         name: "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                        city: "MILANO"
                       },
                       {
                         id: "3196",
                         name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                        city: "SIENA"
                       },
                     ],
                   },
