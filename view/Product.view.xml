@@ -1,5 +1,5 @@
 <mvc:View displayBlock="true"
-    controllerName="cles.agenti.controller.Detail"
+    controllerName="cles.agenti.controller.Product"
     height="100%"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
@@ -7,7 +7,7 @@
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form">
-    <Page title="{detail>/product/id} - {detail>/product/description}">
+    <Page title="{product>/product/id} - {product>/product/description}">
         <headerContent>
             <OverflowToolbar>
                 <ToolbarSpacer />
@@ -19,11 +19,11 @@
         </headerContent>
         <content>
             <HBox justifyContent="End"
-                visible="{= ${detail>/from} === 'LISTA' ? true : false }">
+                visible="{= ${product>/from} === 'LISTA' ? true : false }">
                 <Button class="sapUiTinyMargin"
                     text="Dettagli Prodotto"
                     icon="sap-icon://information"
-                    press=".onShowProductDetailPress" />
+                    press=".onShowProductproductPress" />
                 <Button class="sapUiTinyMargin"
                     text="Allegati prodotto"
                     icon="sap-icon://attachment"
@@ -31,18 +31,18 @@
             </HBox>
             <VBox width="100%">
                 <Carousel width="100%"
-                    pages="{detail>/carousel/pages}">
+                    pages="{product>/carousel/pages}">
                     <pages>
-                        <Image src="{detail>src}" />
+                        <Image src="{product>src}" />
                     </pages>
                 </Carousel>
             </VBox>
             <FlexBox direction="{= ${device>/system/phone} ? 'Column': 'Row' }"
-                visible="{= ${detail>/from} === 'LISTA' ? true : false }">
+                visible="{= ${product>/from} === 'LISTA' ? true : false }">
                 <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
                     <Title class="sapUiSmallMargin"
                         text="QUANTITA"
-                        titleStyle="H2" />
+                        titleStyle="H3" />
                     <form:SimpleForm backgroundDesign="Transparent"
                         maxContainerCols="2"
                         editable="false"
@@ -91,8 +91,8 @@
                             text="Nota Riga"
                             press=".onAddNotePress">
                             <customData>
-                                <BadgeCustomData key="badge"
-                                    value="{detail>/product/notes/length}"
+                                <BadgeCustomData
+                                    value="{product>/product/notes/length}"
                                     writeToDom="true" />
                             </customData>
                         </Button>
@@ -105,7 +105,7 @@
                 <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
                     <Title class="sapUiSmallMargin"
                         text="PREZZO"
-                        titleStyle="H2" />
+                        titleStyle="H3" />
                     <form:SimpleForm backgroundDesign="Transparent"
                         maxContainerCols="2"
                         editable="false"
@@ -154,12 +154,12 @@
                 </VBox>
             </FlexBox>
             <FlexBox direction="Column"
-                visible="{= ${detail>/from} === 'CATALOGO' ? true : false }">
+                visible="{= ${product>/from} === 'CATALOGO' ? true : false }">
                 <HBox backgroundDesign="Solid"
                     justifyContent="SpaceBetween" alignContent="Center"
                     alignItems="Center" class="sapUiSmallMarginBeginEnd">
                     <Label design="Bold" text="Prezzo di Listino: 3.50€"/>
-                    <Button text="Aggiungi alla Proposta Prodotti"
+                    <Button text="Aggiungi alla Proposta"
                         icon="sap-icon://add"
                         type="Emphasized" />
                 </HBox>

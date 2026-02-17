@@ -1,0 +1,28 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <OverflowToolbar>
+        <ToolbarSpacer />
+        <Button
+            class="sapUiTinyMargin"
+            text="Crea Offerta"
+            type="Emphasized"
+            icon="sap-icon://save"
+            visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }"
+        />
+        <Button
+            class="sapUiTinyMargin"
+            text="Crea Ordine"
+            type="Emphasized"
+            icon="sap-icon://sales-order"
+            visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }"
+        />
+        <Button
+            class="sapUiTinyMargin"
+            text="Salva Preordine"
+            type="Success"
+            visible="{= ${main>/header/mode/selectedKey} === 'PRE' ? true : false }"
+        />
+    </OverflowToolbar>
+</core:FragmentDefinition>

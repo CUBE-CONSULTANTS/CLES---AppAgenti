@@ -1,0 +1,45 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <VBox>
+        <ScrollContainer
+            vertical="false"
+            horizontal="true"
+        >
+            <HBox
+                items="{
+                path: 'proposta>/table/toolbar/filtri/categorie', 
+                sorter: { path: 'text', descending: false}
+              }"
+            >
+                <Button
+                    icon=""
+                    press=".onFiltriCategorieButtonPress($event, ${proposta>/objectPageLayout/currentList})"
+                    class="sapUiTinyMargin"
+                    text="{proposta>text}"
+                    type="{proposta>type}"
+                />
+            </HBox>
+        </ScrollContainer>
+        <ScrollContainer
+            vertical="false"
+            horizontal="true"
+        >
+            <HBox
+                items="{
+                path: 'proposta>/table/toolbar/filtri/caratteristiche', 
+                sorter: { path: 'text', descending: false}
+              }"
+            >
+                <Button
+                    icon=""
+                    press=".onFiltriCaratteristicheButtonPress"
+                    class="sapUiTinyMargin"
+                    text="{proposta>text}"
+                    type="{proposta>type}"
+                />
+            </HBox>
+        </ScrollContainer>
+    </VBox>
+</core:FragmentDefinition>

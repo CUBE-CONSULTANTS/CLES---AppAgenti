@@ -1,83 +1,33 @@
-<mvc:View xmlns:core="sap.ui.core"
-    xmlns:f="sap.f"
+<mvc:View
     controllerName="cles.agenti.controller.Main"
-    xmlns:l="sap.ui.layout"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:tnt="sap.tnt"
-    xmlns:uxap="sap.uxap"
-    xmlns="sap.m">
-    <uxap:ObjectPageLayout showEditHeaderButton="false"
-        showTitleInHeaderContent="false"
-        alwaysShowContentHeader="false"
-        useIconTabBar="true"
-        backgroundDesignAnchorBar="Transparent"
-        preserveHeaderStateOnScroll="true"
-        headerContentPinnable="true"
-        isChildPage="false"
-        upperCaseAnchorBar="true"
-        showHeaderContent="true"
-        showFooter="{= ${device>/system/desktop} ? true : false }"
-        sectionChange=".onObjectPageSectionChange">
-        <uxap:headerTitle>
-            <uxap:ObjectPageHeader>
-                <uxap:actions>
-                    <core:Fragment fragmentName="cles.agenti.view.fragment.HeaderToolbar"
-                        type="XML" />
-                </uxap:actions>
-            </uxap:ObjectPageHeader>
-        </uxap:headerTitle>
-        <uxap:sections>
-            <uxap:ObjectPageSection title="Testata"
-                showTitle="false">
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection >
-                        <core:Fragment fragmentName="cles.agenti.view.fragment.HeaderContent"
-                            type="XML" />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection title="Crea Ordini"
-                showTitle="false">
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection >
-                        <IconTabBar class="tabbedBar"
-                            stretchContentHeight="true"
-                            applyContentPadding="false"
-                            expandable="false"
-                            expanded="true"
-                            selectedKey="{main>/body/iconTabBar/selectedKey}">
-                            <items>
-                                <IconTabFilter key="LISTA"
-                                    text="Proposta Prodotti"
-                                    visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }">
-                                    <content>
-                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Lista"
-                                            type="XML" />
-                                    </content>
-                                </IconTabFilter>
-                                <IconTabFilter key="CATALOGO"
-                                    text="Catalogo">
-                                    <content>
-                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Catalogo"
-                                            type="XML" />
-                                    </content>
-                                </IconTabFilter>
-                                <IconTabFilter key="RIEPILOGO"
-                                    text="Riepilogo">
-                                    <content>
-                                        <core:Fragment fragmentName="cles.agenti.view.fragment.Riepilogo"
-                                            type="XML" />
-                                    </content>
-                                </IconTabFilter>
-                            </items>
-                        </IconTabBar>
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-        </uxap:sections>
-        <uxap:footer>
-            <core:Fragment fragmentName="cles.agenti.view.fragment.Footer"
-                type="XML" />
-        </uxap:footer>
-    </uxap:ObjectPageLayout>
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    height="100%"
+>
+    <f:DynamicPage showFooter="true">
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="false">
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.main.Header"
+                    type="XML"
+                />
+            </f:DynamicPageHeader>
+        </f:header>
+        <f:content>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.main.Content"
+                type="XML"
+            />
+        </f:content>
+        <f:footer>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.main.Footer"
+                type="XML"
+            />
+        </f:footer>
+    </f:DynamicPage>
 </mvc:View>

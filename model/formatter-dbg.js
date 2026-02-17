@@ -1,10 +1,9 @@
 sap.ui.define(
   [
     "sap/ui/model/json/JSONModel",
-    "sap/ui/Device",
-    "sap/suite/ui/commons/ProcessFlowNodeState",
+    "sap/ui/Device"
   ],
-  function (JSONModel, Device, ProcessFlowNodeState) {
+  function (JSONModel, Device) {
     "use strict";
 
     return {

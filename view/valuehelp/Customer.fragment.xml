@@ -1,88 +1,89 @@
-<core:FragmentDefinition xmlns:form="sap.ui.layout.form"
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
-    xmlns:u="sap.ui.unified">
-    <Dialog stretch="false"
+    xmlns:u="sap.ui.unified"
+>
+    <Dialog
+        stretch="false"
         contentWidth="100%"
-        showHeader="false">
+        showHeader="false"
+    >
         <buttons>
-            <Button text="Salva"
+            <Button
+                text="Conferma"
+                press=".onCustomerValueHelpConfirm"
                 visible="{= ${/iconTabBar/selectedKey} === 'FORM' ? true : false}"
                 icon="sap-icon://save"
                 class="sapUiTinyMargin"
-                type="Success" />
-            <Button text="Chiudi"
-                type="Emphasized"    
-                press=".defaultDialogClose" />
+                type="Success"
+            />
+            <Button
+                text="Chiudi"
+                type="Emphasized"
+                press=".defaultDialogClose"
+            />
         </buttons>
         <content>
             <IconTabBar selectedKey="{/iconTabBar/selectedKey}">
                 <items>
-                    <IconTabFilter key="LISTA"
-                        text="Lista Clienti">
-                        <List
-                            items="{/iconTabBar/list/items}">
+                    <IconTabFilter
+                        key="LISTA"
+                        text="Lista Clienti"
+                    >
+                        <List items="{/iconTabBar/list/items}">
                             <headerToolbar>
-                                <OverflowToolbar >
-                                    <SearchField width="100%"
-                                        placeholder="Cerca per cliente o descrizione" />
+                                <OverflowToolbar>
+                                    <SearchField
+                                        width="100%"
+                                        placeholder="Cerca per cliente, descrizione o città"
+                                    />
                                 </OverflowToolbar>
                             </headerToolbar>
                             <items>
-                                <StandardListItem type="Active" title="{id}"
-                                    press=".onCustomerValueHelpConfirm"
-                                    description="{name}" />
+                                <StandardListItem
+                                    type="Active"
+                                    title="{id} - {city}"
+                                    press=".onCustomerListSelect"
+                                    wrapping="true"
+                                    description="{name}"
+                                />
                             </items>
                         </List>
                     </IconTabFilter>
-                    <IconTabFilter key="FORM"
-                        text="Crea Anagrafica Cliente">
-                        <form:SimpleForm layout="ResponsiveGridLayout" columnsL="2"
-                            columnsM="2">
+                    <IconTabFilter
+                        key="FORM"
+                        text="Anagrafica Cliente"
+                    >
+                        <form:SimpleForm
+                            layout="ResponsiveGridLayout"
+                            columnsL="2"
+                            columnsM="2"
+                        >
                             <form:content>
                                 <core:Title text="Dati Generali" />
-                                <Label text="Ragione sociale" />
-                                <Input value="" />
-                                <Label text="Paese" />
-                                <Input value="" />
-                                <Label text="Città" />
-                                <Input value="" />
                                 <Label text="Indirizzo" />
-                                <Input value="" />
-                                <Label text="ZIP" />
-                                <Input value="" />                                
-                                <Label text="Partita IVA/Codice Fiscale" />
-                                <Input value="" />
-                                <Label text="Recapito" />
-                                <Input value="" />
-                                <Label text="Codice destinatario SDI" />
-                                <Input value="" />
-
-                                <core:Title text="Destinazione Merci" />
-                                <Label text="Città" />
-                                <Input value="" />
-                                <Label text="Indirizzo" />
-                                <Input value="" />
-                                <Label text="ZIP" />
-                                <Input value="" />     
-
-                                <core:Title text="Dati Societari" />
-                                <Label text="Conto riconciliazione" />
-                                <Input value="" />
-                                <Label text="Condizioni di pagamento" />
-                                <Input value="" />
-                                <Label text="Blocco contabile" />
-                                <Input value="" />
-                                <Label text="Gestione ritenute d' acconto" />
-                                <Input value="" />
-
-                                <core:Title text="Allegati" />
-                                <u:FileUploader width="100%"
-                                    style="Emphasized"
-                                    name="myFileUpload"
-                                    uploadUrl="upload/"
-                                    value="{/value}"
-                                    uploadComplete="handleUploadComplete" />
+                                <Input editable="false" value="" />
+                                <Label text="Partita IVA" />
+                                <Input editable="false" value="" />
+                                <Label text="Codice SDI" />
+                                <Input editable="false" value="" />
+                                <Label text="Giorni di consegna" />
+                                <Input editable="false" value="" />
+                                <Label text="Giorni di visita" />
+                                <Input editable="false" value="" />
+                                <Label text="Agente" />
+                                <Input editable="false" value="" />
+                                <Label text="Pagatore" />
+                                <Input editable="false" value="" />
+                                <Label text="Termini di Pagamento" />
+                                <Input editable="false" value="" />
+                                <Label text="Telefono" />
+                                <Input editable="false" value="" />
+                                <Label text="Mail" />
+                                <Input editable="false" value="" />
+                                <Label text="Esposizione Fido" />
+                                <Input editable="false" value="" />
                             </form:content>
                         </form:SimpleForm>
                     </IconTabFilter>

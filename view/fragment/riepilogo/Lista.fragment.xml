@@ -1,0 +1,72 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <List
+        width="100%"
+        mode="None"
+        growing="true"
+        growingThreshold="20"
+        growingScrollToLoad="true"
+        sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
+        items="{proposta>/table/items}"
+    >
+        <items>
+            <CustomListItem
+                type="Active"
+                press=".onProductListItemPress($event, 'RIEPILOGO')"
+            >
+                <HBox>
+                    <Image
+                        src="{proposta>src}"
+                        
+                        lazyLoading="true"
+                        width="6rem"
+                        height="6rem"
+                        press=".onShowPhotoPress"
+                    />
+                    <HBox
+                        width="100%"
+                        wrap="Wrap"
+                        class="sapUiSmallMarginBegin"
+                        alignContent="Center"
+                        alignItems="Center"
+                        justifyContent="SpaceBetween"
+                    >
+                        <VBox class="sapUiTinyMargin">
+                            <Label
+                                wrapping="true"
+                                design="Bold"
+                                text="Prodotto: {proposta>product}"
+                            />
+                            <Label
+                                wrapping="true"
+                                design="Bold"
+                                text="Descrizione: {proposta>description}"
+                            />
+                            <Label
+                                wrapping="true"
+                                design="Bold"
+                                text="Prezzo unitario: {proposta>price}"
+                            />
+                            <Label
+                                wrapping="true"
+                                design="Bold"
+                                text="Valore totale di riga: {proposta>quantity}"
+                            />
+                            <Label
+                                wrapping="true"
+                                design="Bold"
+                                text="Aliquota IVA: {proposta>quantity}"
+                            />
+                            <Button
+                                type="Negative"
+                                icon="sap-icon://delete"
+                            />
+                        </VBox>
+                    </HBox>
+                </HBox>
+            </CustomListItem>
+        </items>
+    </List>
+</core:FragmentDefinition>

@@ -1,0 +1,20 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Button
+        text="Analisi"
+        type="Emphasized"
+        icon="sap-icon://chain-link"
+    />
+    <Button
+        text="Fatture"
+        type="Emphasized"
+        icon="sap-icon://chain-link"
+    />
+    <Button
+        text="Partitario"
+        type="Emphasized"
+        icon="sap-icon://chain-link"
+    />
+</core:FragmentDefinition>

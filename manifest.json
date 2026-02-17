@@ -88,31 +88,62 @@
       },
       "routes": [
         {
-          "name": "RouteMain",
+          "name": "Main",
           "pattern": ":?query:",
-          "target": [
-            "TargetMain",
-            "Detail"
-          ]
+          "target": ["TargetMain"]
         },
         {
-          "name": "detail",
-          "pattern": "Detail/{from}/{product}",
-          "target": [
-            "Detail"
-          ]
+          "name": "Ordine",
+          "pattern": "Ordine",
+          "target": ["TargetMain", "TargetOrdine"]
+        },
+        {
+          "name": "Product",
+          "pattern": "ordine/product/{from}/{product}",
+          "target": ["TargetMain", "TargetOrdine", "TargetProduct"]
+        },
+        {
+          "name": "Riepilogo",
+          "pattern": "ordine/riepilogo",
+          "target": ["TargetMain", "TargetOrdine", "TargetRiepilogo"]
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main",
-          "controlAggregation": "beginColumnPages"
+          "controlAggregation": "beginColumnPages",
+          "level": 0
         },
-        "Detail": {
-          "id": "Detail",
-          "name": "Detail",
-          "controlAggregation": "midColumnPages"
+        "TargetOrdine": {
+          "id": "Ordine",
+          "name": "Ordine",
+          "controlAggregation": "midColumnPages",
+          "level": 1
+        },
+        "TargetOfferta": {
+          "id": "Offerta",
+          "name": "Offerta",
+          "controlAggregation": "midColumnPages",
+          "level": 1
+        },
+        "TargetPreordine": {
+          "id": "Preordine",
+          "name": "Preordine",
+          "controlAggregation": "midColumnPages",
+          "level": 1
+        },
+        "TargetProduct": {
+          "id": "Product",
+          "name": "Product",
+          "controlAggregation": "endColumnPages",
+          "level": 2
+        },
+        "TargetRiepilogo": {
+          "id": "Riepilogo",
+          "name": "Riepilogo",
+          "controlAggregation": "endColumnPages",
+          "level": 2
         }
       }
     },

@@ -1,0 +1,56 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <HeaderContainer showDividers="true">
+        <VBox>
+            <ObjectStatus
+                class="sapUiTinyMargin"
+                text="ESISTONO PARTITE SCADUTE"
+                active="false"
+                inverted="true"
+                state="Error"
+                icon="sap-icon://warning"
+            />
+            <ObjectStatus
+                class="sapUiTinyMargin"
+                text="UTILIZZO DEL FIDO TRA 1% E 2%"
+                active="false"
+                inverted="true"
+                state="Warning"
+                icon="sap-icon://warning"
+            />
+        </VBox>
+        <VBox>
+            <Label text="Cliente" />
+            <Title
+                text="{proposta>/header/customer/name}"
+                wrapping="true"
+            />
+        </VBox>
+        <VBox>
+            <Label
+                text="Titolo"
+                visible="{= ${proposta>/header/title/value} ? true : false }"
+            />
+            <Title
+                visible="{= ${proposta>/header/title/value} ? true : false }"
+                text="{proposta>/header/title/value}"
+                wrapping="true"
+            />
+        </VBox>
+        <VBox>
+            <Label
+                text="Data Validità"
+                visible="{= ${proposta>/header/date/value} ? true : false }"
+            />
+            <Title
+                visible="{= ${proposta>/header/date/value} ? true : false }"
+                text="{proposta>/header/date/value}"
+                wrapping="true"
+            />
+        </VBox>
+        <form:SimpleForm />
+    </HeaderContainer>
+</core:FragmentDefinition>

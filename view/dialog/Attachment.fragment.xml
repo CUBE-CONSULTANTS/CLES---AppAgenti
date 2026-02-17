@@ -1,25 +1,82 @@
-<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core">
-    <Dialog showHeader="false" contentWidth="20%">
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        showHeader="false"
+        contentWidth="20%"
+    >
         <content>
             <VBox class="sapUiSmallMargin">
-                <Label text="Carica un allegato" design="Bold"/>
-                <u:FileUploader width="100%" style="Emphasized"
+                <Label
+                    text="Carica un allegato"
+                    design="Bold"
+                />
+                <u:FileUploader
+                    width="100%"
+                    style="Emphasized"
                     name="myFileUpload"
                     uploadUrl="upload/"
                     value="{/value}"
-                    uploadComplete="handleUploadComplete" />
+                    uploadComplete="handleUploadComplete"
+                />
+
+                <ScrollContainer
+                    vertical="true"
+                    horizontal="false"
+                    width="100%"
+                >
+                    <List
+                        items="{/attachments/items}"
+                        sticky="HeaderToolbar"
+                    >
+                        <items>
+                            <CustomListItem
+                                type="Active"
+                                press=".onHeaderAttachmentItemPress"
+                            >
+                                <HBox
+                                    width="100%"
+                                    alignItems="Center"
+                                    justifyContent="SpaceBetween"
+                                >
+                                    <Text
+                                        class="sapUiTinyMarginBeginEnd"
+                                        wrapping="true"
+                                        text="{data}"
+                                    />
+                                    <Text
+                                        class="sapUiTinyMarginBeginEnd"
+                                        wrapping="true"
+                                        text="{nome}"
+                                    />
+                                    <Button
+                                        class="sapUiTinyMarginBeginEnd"
+                                        type="Negative"
+                                        icon="sap-icon://delete"
+                                        press=".onHeaderAttachmentDeletePress"
+                                    />
+                                </HBox>
+                            </CustomListItem>
+                        </items>
+                    </List>
+                </ScrollContainer>
             </VBox>
         </content>
         <buttons>
-            <Button text="Upload"
+            <Button
+                text="Upload"
                 enabled="{= ${/value} ? true : false }"
                 type="Emphasized"
-                press=".defaultDialogClose" />
-            <Button text="Chiudi"
+                press=".defaultDialogClose"
+            />
+            <Button
+                text="Chiudi"
                 type="Emphasized"
-                press=".defaultDialogClose" />
+                press=".defaultDialogClose"
+            />
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

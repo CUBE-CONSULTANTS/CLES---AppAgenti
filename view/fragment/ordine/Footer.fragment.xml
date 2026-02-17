@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <OverflowToolbar>
+        <ToolbarSpacer />
+        <Button
+            icon="sap-icon://cart"
+            type="Emphasized"
+            badgeStyle="Default"
+            text="Riepilogo"
+            press=".onRiepilogoPress"
+        >
+            <customData>
+                <BadgeCustomData
+                    writeToDom="true"
+                    value="7"
+                />
+            </customData>
+        </Button>
+    </OverflowToolbar>
+</core:FragmentDefinition>

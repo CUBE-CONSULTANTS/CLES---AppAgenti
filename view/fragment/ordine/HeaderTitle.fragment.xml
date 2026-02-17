@@ -1,0 +1,33 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+>
+    <uxap:ObjectPageDynamicHeaderTitle>
+        <uxap:content>
+            <OverflowToolbarButton
+                class="sapUiTinyMarginTop"
+                type="Emphasized"
+                tooltip="Naviga indietro"
+                icon="sap-icon://nav-back"
+                press=".onNavBack"
+            />
+        </uxap:content>
+        <uxap:navigationActions>
+            <OverflowToolbarButton
+                text="SEGNALAZIONE"
+                type="Critical"
+                tooltip="Apre il menù delle segnalazioni"
+                icon="sap-icon://warning"
+                press=".onReportPress"
+            />
+            <OverflowToolbarButton
+                text="ALLEGATI"
+                type="Emphasized"
+                tooltip="Carica allegati di testata"
+                icon="sap-icon://attachment"
+                press=".onHeaderAttachmentPress"
+            />
+        </uxap:navigationActions>
+    </uxap:ObjectPageDynamicHeaderTitle>
+</core:FragmentDefinition>
