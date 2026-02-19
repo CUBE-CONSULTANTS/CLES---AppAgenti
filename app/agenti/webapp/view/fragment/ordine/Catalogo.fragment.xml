@@ -50,6 +50,7 @@
                 >
                     <HBox>
                         <Image
+                            class="circularImage"
                             src="{proposta>src}"
                             lazyLoading="true"
                             width="6rem"
@@ -101,7 +102,7 @@
                             </VBox>
                             <VBox>
                                 <Button
-                                    text="Aggiungi alla Proposta"
+                                    text="Aggiungi al Riepilogo"
                                     icon="sap-icon://add"
                                     type="Emphasized"
                                 />

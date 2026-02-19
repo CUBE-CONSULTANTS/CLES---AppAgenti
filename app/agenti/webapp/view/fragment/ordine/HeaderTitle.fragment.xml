@@ -4,16 +4,13 @@
     xmlns:uxap="sap.uxap"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
-        <uxap:content>
-            <OverflowToolbarButton
-                class="sapUiTinyMarginTop"
-                type="Emphasized"
-                tooltip="Naviga indietro"
-                icon="sap-icon://nav-back"
-                press=".onNavBack"
-            />
-        </uxap:content>
         <uxap:navigationActions>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
+                type="XML"
+            />
+        </uxap:navigationActions>
+        <uxap:actions>
             <OverflowToolbarButton
                 text="SEGNALAZIONE"
                 type="Critical"
@@ -28,6 +25,6 @@
                 icon="sap-icon://attachment"
                 press=".onHeaderAttachmentPress"
             />
-        </uxap:navigationActions>
+        </uxap:actions>
     </uxap:ObjectPageDynamicHeaderTitle>
 </core:FragmentDefinition>

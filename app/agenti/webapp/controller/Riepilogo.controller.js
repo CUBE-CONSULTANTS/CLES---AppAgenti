@@ -11,10 +11,18 @@ sap.ui.define([
       },
 
       _onObjectMatched(oEvent) {
-        this.getModel("layout").setProperty(
-          "/layoutMode",
-          "EndColumnFullScreen"
-        );
+        const { desktop } = this.getModel("device").getProperty("/system");
+
+        if( desktop )
+          this.getModel("layout").setProperty(
+            "/layoutMode",
+            "TwoColumnsBeginExpanded",
+          );
+          else
+            this.getModel("layout").setProperty(
+            "/layoutMode",
+            "MidColumnFullScreen",
+          );
       },
 
       onProductListItemPress(e, from) {

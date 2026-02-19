@@ -1,4 +1,4 @@
-/* Enter your custom styles here */
+/* SAP OVERWRITE */
 .sapFDynamicPageContent {
     padding: 0px 0px 0px 0px !important;
 }
@@ -6,6 +6,12 @@
 .sapFDynamicPageContentFitContainer {
     padding: 0px 0px 0px 0px !important;
 }
+
+/* .sapMCrslControls {
+  visibility: hidden !important;
+} */
+
+/* Custom CSS */
 
 .tabbedBar .sapMITBHead{
     text-align:center;

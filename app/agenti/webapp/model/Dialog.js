@@ -14,19 +14,171 @@ sap.ui.define(
         });
 
         this[name].setModel(model);
-        controller.getView ? controller.getView().addDependent(this[name]) : null;
+        controller.getView
+          ? controller.getView().addDependent(this[name])
+          : null;
         return this[name];
       },
 
-      async getCheckOrdiniDialog({ controller }) {
+      async getModalitaDialog({ controller }) {
         return new Promise(async (resolve, reject) => {
           try {
             const oDialog = await this._getDialogBase({
               name: "_checkOrdiniDialog",
-              path: "view.dialog.CheckOrdini",
+              path: "view.dialog.Wizard",
               controller,
               model: new JSONModel({
-                value: null,
+                currentStep: 0,
+                step1: {
+                  mode: {
+                    selectedKey: "ORD",
+                    activeCard: {
+                      key: "ORD",
+                      cardHeader: {
+                        title: "Crea Ordine di Vendita",
+                      },
+                      cardContent: {
+                        src: "./public/img/OdV.svg",
+                        text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini e il catalogo per la creazione di un ordine di vendita",
+                      },
+                    },
+                    cards: [
+                      {
+                        key: "ORD",
+                        cardHeader: {
+                          title: "Crea Ordine di Vendita",
+                        },
+                        cardContent: {
+                          src: "./public/img/OdV.svg",
+                          text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini e il catalogo per la creazione di un ordine di vendita",
+                        },
+                      },
+                      {
+                        key: "OFF",
+                        cardHeader: {
+                          title: "Crea Offerta",
+                        },
+                        cardContent: {
+                          src: "./public/img/Offer.svg",
+                          text: "Selezionando questa modalità verranno visualizzati la proposta prodotti e il catalogo per la creazione di una nuova offerta o la convalida di una già esistente",
+                        },
+                      },
+                      {
+                        key: "PRE",
+                        cardHeader: {
+                          title: "Crea Preordine",
+                        },
+                        cardContent: {
+                          src: "./public/img/Preorder.svg",
+                          text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere con la creazione di un preordine",
+                        },
+                      },
+                      {
+                        key: "SKIP",
+                        cardHeader: {
+                          title: "Scegli in seguito",
+                        },
+                        cardContent: {
+                          src: "./public/img/Undecided.svg",
+                          text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere solo successivamente alla scelta della modalità operativa",
+                        },
+                      },
+                    ],
+                    items: [
+                      {
+                        key: "ORD",
+                        text: "Ordine",
+                      },
+                      {
+                        key: "OFF",
+                        text: "Offerta",
+                      },
+                      {
+                        key: "PRE",
+                        text: "Preordine",
+                      },
+                      {
+                        key: "SKIP",
+                        text: "Scegli dopo",
+                      },
+                    ],
+                  },
+                },
+                step2: {
+                  customer: {
+                    formEnabled: false,
+                    selected: {
+                      id: "",
+                      name: "",
+                      city: "",
+                    },
+                    items: [
+                      {
+                        id: "351",
+                        name: "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
+                        city: "ROMA",
+                      },
+                      {
+                        id: "2788",
+                        name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
+                        city: "BRESCIA",
+                      },
+                      {
+                        id: "2701",
+                        name: "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                        city: "MILANO",
+                      },
+                      {
+                        id: "3196",
+                        name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                        city: "SIENA",
+                      },
+                      {
+                        id: "1325",
+                        name: "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                        city: "MILANO",
+                      },
+                      {
+                        id: "1123",
+                        name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                        city: "SIENA",
+                      },
+                      {
+                        id: "2701",
+                        name: "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
+                        city: "MILANO",
+                      },
+                      {
+                        id: "3196",
+                        name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
+                        city: "SIENA",
+                      },
+                    ],
+                  },
+                  preorder: {
+                    formEnabled: false,
+                    selected: {
+                      name: ""
+                    },
+                    items: [
+                      {
+                        id: "2024-001",
+                        name: "Preordine 2024-001",
+                      },
+                      {
+                        id: "2024-002",
+                        name: "Preordine 2024-002",
+                      },
+                      {
+                        id: "2024-003",
+                        name: "Preordine 2024-003",
+                      },
+                    ],
+                  },
+                  date: {
+                    value: new Date(),
+                  },
+                },
               }),
             });
 
@@ -48,8 +200,8 @@ sap.ui.define(
               model: new JSONModel({
                 value: null,
                 attachments: {
-                  items
-                }
+                  items,
+                },
               }),
             });
 
@@ -67,6 +219,26 @@ sap.ui.define(
             const oDialog = await this._getDialogBase({
               name: "_reportDialog",
               path: "view.dialog.Report",
+              controller,
+              model: new JSONModel({
+                value: null,
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
+      async getCustomerReportDialog({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_customerReportDialog",
+              path: "view.dialog.CustomerReport",
               controller,
               model: new JSONModel({
                 value: null,
@@ -152,22 +324,22 @@ sap.ui.define(
                       {
                         id: "351",
                         name: "ALBERGO RISTORANTE ALLA PERGOLA SNC DI ROSSI MARIA ROSSI CAT",
-                        city: "ROMA"
+                        city: "ROMA",
                       },
                       {
                         id: "2788",
                         name: "COOP AGRICOLA MONTELLO SOC COOP AGRICOLA",
-                        city: "BRESCIA"
+                        city: "BRESCIA",
                       },
                       {
                         id: "2701",
                         name: "FONTANA MICHELANGELO SNC DI FONTANA VALTER, ANDREA & C.",
-                        city: "MILANO"
+                        city: "MILANO",
                       },
                       {
                         id: "3196",
                         name: "LA BOTTEGA DI ERIKA DI FRACASSO ERIKA",
-                        city: "SIENA"
+                        city: "SIENA",
                       },
                     ],
                   },
@@ -402,7 +574,7 @@ sap.ui.define(
                     {
                       data: "06/12/2024",
                       nome: "Descr. Allegato 7",
-                    }
+                    },
                   ],
                 },
               }),
@@ -453,7 +625,7 @@ sap.ui.define(
                     {
                       data: "06/12/2024",
                       nome: "Descr. Allegato 7",
-                    }
+                    },
                   ],
                 },
               }),
@@ -465,7 +637,7 @@ sap.ui.define(
             reject(error);
           }
         });
-      }
+      },
     };
-  }
+  },
 );

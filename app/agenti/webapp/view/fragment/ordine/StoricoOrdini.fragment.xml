@@ -59,8 +59,8 @@
                 >
                     <HBox>
                         <Image
+                            class="circularImage"
                             src="{proposta>src}"
-                            
                             lazyLoading="true"
                             width="6rem"
                             height="6rem"

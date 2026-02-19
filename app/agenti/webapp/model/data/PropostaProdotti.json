@@ -2,6 +2,23 @@
   "objectPageLayout": {
     "currentList": ""
   },
+  "header": {
+    "customer": {
+      "id": "",
+      "name": ""
+    },
+    "title": {
+      "value": ""
+    },
+    "date": {
+      "value": ""
+    },
+    "preorder": {
+      "id": "",
+      "name": ""
+    },
+    "mode": "ORD"
+  },
   "table": {
     "columns": {
       "categoryColumnVisible": true

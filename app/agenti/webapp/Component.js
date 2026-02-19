@@ -13,23 +13,6 @@ sap.ui.define(
         interfaces: ["sap.ui.core.IAsyncContentCreation"],
       },
 
-      _checkOrdini() {
-        Dialog.getCheckOrdiniDialog({ controller: this });
-      },
-
-      defaultDialogClose(e) {
-        const source = e.getSource();
-        let parent = source.getParent();
-
-        while (parent) {
-          if (parent instanceof sap.m.Dialog) {
-            parent.close();
-            break;
-          }
-          parent = parent.getParent();
-        }
-      },
-
       init() {
         // call the base component's init function
         UIComponent.prototype.init.apply(this, arguments);
@@ -42,7 +25,6 @@ sap.ui.define(
         // enable routing
         this.getRouter().initialize();
         this.getRouter().navTo("Main");
-        this._checkOrdini();
       },
     });
   },

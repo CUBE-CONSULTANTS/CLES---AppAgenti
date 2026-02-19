@@ -1,0 +1,410 @@
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:u="sap.ui.unified"
+>
+    <Dialog
+        showHeader="true"
+        stretch="false"
+        title="Crea documento"
+    >
+        <buttons>
+            <Button
+                text="Indietro"
+                visible="{= ${/currentStep} === 0 ? false : true }"
+                press=".onWizardPreviousStep"
+                type="Emphasized"
+            />
+            <Button
+                text="Avanti"
+                visible="{= ${/currentStep} === 0 ? true : false }"
+                press=".onWizardNextStep"
+                type="Emphasized"
+            />
+            <Button
+                text="Scegli successivamente"
+                visible="{= ${/currentStep} === 2 ? true : false }"
+                press=".onWizardClose"
+                type="Emphasized"
+            />
+        </buttons>
+        <content>
+            <Wizard
+                id="wizardMode"
+                class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+                showNextButton="false"
+                renderMode="Page"
+                navigationChange="handleNavigationChange"
+            >
+                <steps>
+                    <WizardStep title="Scegli una Modalità">
+                        <VBox
+                            justifyContent="SpaceBetween"
+                            alignItems="Center"
+                        >
+                            <f:Card>
+                                <f:header>
+                                    <card:Header
+                                        title="{/step1/mode/activeCard/cardHeader/title}"
+                                    />
+                                </f:header>
+                                <f:content>
+                                    <VBox
+                                        class="sapUiTinyMargin"
+                                        justifyContent="Center"
+                                        alignItems="Center"
+                                    >
+                                        <Image
+                                            width="100%"
+                                            src="{/step1/mode/activeCard/cardContent/src}"
+                                        />
+                                        <Text
+                                            text="{/step1/mode/activeCard/cardContent/text}"
+                                        />
+                                    </VBox>
+                                </f:content>
+                            </f:Card>
+                            <HBox
+                                class="sapUiSmallMarginTop"
+                                wrap="Wrap"
+                                items="{/step1/mode/items}"
+                            >
+                                <items>
+                                    <Button
+                                        class="sapUiTinyMarginEnd"
+                                        text="{text}"
+                                        press=".onModeSelectionChange($event, ${key})"
+                                        type="{= ${/step1/mode/selectedKey} === ${key} ? 'Emphasized' : 'Default'}"
+                                    />
+                                </items>
+                            </HBox>
+                        </VBox>
+                    </WizardStep>
+                    <WizardStep title="Informazioni obbligatorie">
+                        <VBox
+                            class="sapUiTinyMarginBottom"
+                            width="{= ${device>/system/phone} ? '100%' : '50%' }"
+                            visible="{= ${/step1/mode/selectedKey} === 'ORD' ? false : true }"
+                        >
+                            <Label
+                                required="true"
+                                text="Data di Validità:"
+                                design="Bold"
+                            />
+                            <DatePicker dateValue="{/step2/date/value}" />
+                        </VBox>
+                        <VBox
+                            class="sapUiTinyMarginBottom"
+                            visible="{= ${/step1/mode/selectedKey} === 'PRE' ? false : true }"
+                        >
+                            <Carousel
+                                id="customer_carousel"
+                                showPageIndicator="true"
+                                arrowsPlacement="PageIndicator"
+                                backgroundDesign="Solid"
+                            >
+                                <pages>
+                                    <ScrollContainer
+                                        height="440px"
+                                        vertical="true"
+                                        horizontal="false"
+                                    >
+                                        <List
+                                            items="{/step2/customer/items}"
+                                            sticky="HeaderToolbar"
+                                        >
+                                            <headerToolbar>
+                                                <OverflowToolbar>
+                                                    <SearchField
+                                                        width="100%"
+                                                        placeholder="Cerca per cliente, descrizione o città"
+                                                    />
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <items>
+                                                <StandardListItem
+                                                    type="Active"
+                                                    title="{id} - {city}"
+                                                    press=".onCustomerListSelect"
+                                                    wrapping="true"
+                                                    description="{name}"
+                                                />
+                                            </items>
+                                        </List>
+                                    </ScrollContainer>
+                                    <VBox>
+                                        <form:SimpleForm
+                                            editable="true"
+                                            layout="ResponsiveGridLayout"
+                                            columnsL="2"
+                                            columnsM="2"
+                                        >
+                                            <form:toolbar>
+                                                <OverflowToolbar>
+                                                    <ToggleButton
+                                                        text="Crea anagrafica cliente"
+                                                        type="{= ${/step2/customer/formEnabled} ? 'Emphasized' : 'Default' }"
+                                                        tooltip="Crea una nuova anagrafica di un cliente"
+                                                        icon="sap-icon://write-new"
+                                                        pressed="{/step2/customer/formEnabled}"
+                                                    />
+                                                    <ToolbarSpacer />
+                                                    <Button
+                                                        text="Segnala informazioni mancanti/errate"
+                                                        type="Critical"
+                                                        tooltip="Apre il menù delle segnalazioni"
+                                                        icon="sap-icon://warning"
+                                                        press=".onCustomerReportPress"
+                                                    />
+                                                </OverflowToolbar>
+                                            </form:toolbar>
+                                            <form:content>
+                                                <core:Title
+                                                    text="Dati Generali"
+                                                />
+                                                <Label text="Cliente" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value="{/step2/customer/selected/name}"
+                                                />
+                                                <Label text="Indirizzo" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label text="Partita IVA" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label text="Codice SDI" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label
+                                                    text="Giorni di consegna"
+                                                />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label
+                                                    text="Giorni di visita"
+                                                />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label text="Agente" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label text="Pagatore" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label
+                                                    text="Termini di Pagamento"
+                                                />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label text="Telefono" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label text="Mail" />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                                <Label
+                                                    text="Esposizione Fido"
+                                                />
+                                                <Input
+                                                    editable="{/step2/customer/formEnabled}"
+                                                    value=""
+                                                />
+                                            </form:content>
+                                        </form:SimpleForm>
+                                        <HBox
+                                            backgroundDesign="Translucent"
+                                            justifyContent="End"
+                                        >
+                                            <Button
+                                                type="Success"
+                                                text="Conferma"
+                                                press=".onCustomerConfirmPress"
+                                            />
+                                        </HBox>
+                                    </VBox>
+                                </pages>
+                            </Carousel>
+                        </VBox>
+                        <VBox
+                            class="sapUiTinyMarginBottom"
+                            visible="{= ${/step1/mode/selectedKey} === 'PRE' ? true : false }"
+                        >
+                            <Carousel
+                                id="titles_carousel"
+                                showPageIndicator="true"
+                                arrowsPlacement="PageIndicator"
+                                backgroundDesign="Solid"
+                            >
+                                <pages>
+                                    <ScrollContainer
+                                        height="440px"
+                                        vertical="true"
+                                        horizontal="false"
+                                    >
+                                        <List
+                                            items="{/step2/preorder/items}"
+                                            sticky="HeaderToolbar"
+                                        >
+                                            <headerToolbar>
+                                                <OverflowToolbar>
+                                                    <SearchField
+                                                        width="100%"
+                                                        placeholder="Cerca per id e descrizione"
+                                                    />
+                                                </OverflowToolbar>
+                                            </headerToolbar>
+                                            <items>
+                                                <StandardListItem
+                                                    type="Active"
+                                                    title="{id}"
+                                                    press=".onPreorderListSelect"
+                                                    wrapping="true"
+                                                    description="{name}"
+                                                />
+                                            </items>
+                                        </List>
+                                    </ScrollContainer>
+                                    <VBox>
+                                        <form:SimpleForm
+                                            editable="true"
+                                            layout="ResponsiveGridLayout"
+                                            columnsL="2"
+                                            columnsM="2"
+                                        >
+                                            <form:toolbar>
+                                                <OverflowToolbar>
+                                                    <ToggleButton
+                                                        text="Crea preordine"
+                                                        type="{= ${/step2/preorder/formEnabled} ? 'Emphasized' : 'Default' }"
+                                                        tooltip="Crea un nuovo preordine"
+                                                        icon="sap-icon://write-new"
+                                                        pressed="{/step2/preorder/formEnabled}"
+                                                    />
+                                                </OverflowToolbar>
+                                            </form:toolbar>
+                                            <form:content>
+                                                <core:Title
+                                                    text="Dati Generali"
+                                                />
+                                                <Label text="Titolo" />
+                                                <Input
+                                                    editable="{/step2/preorder/formEnabled}"
+                                                    value="{/step2/preorder/selected/name}"
+                                                />
+                                            </form:content>
+                                        </form:SimpleForm>
+                                        <HBox
+                                            backgroundDesign="Translucent"
+                                            justifyContent="End"
+                                        >
+                                            <Button
+                                                type="Success"
+                                                text="Conferma"
+                                                 press=".onPreorderConfirmPress"
+                                            />
+                                        </HBox>
+                                    </VBox>
+                                </pages>
+                            </Carousel>
+                        </VBox>
+                    </WizardStep>
+                    <WizardStep title="Informazioni facoltative">
+                        <VBox
+                            class="sapUiSmallMargin"
+                            width="{= ${device>/system/phone} ? '100%' : '50%' }"
+                        >
+                            <Label
+                                text="Note di Testata:"
+                                design="Bold"
+                            />
+                            <TextArea
+                                rows="4"
+                                cols="120"
+                                value="{main>/header/notes/value}"
+                            />
+                        </VBox>
+                        <VBox class="sapUiSmallMargin">
+                            <Label
+                                text="Carica un allegato"
+                                design="Bold"
+                            />
+                            <u:FileUploader
+                                width="100%"
+                                style="Emphasized"
+                                name="myFileUpload"
+                                uploadUrl="upload/"
+                                value="{/value}"
+                                uploadComplete="handleUploadComplete"
+                            />
+
+                            <ScrollContainer
+                                vertical="true"
+                                horizontal="false"
+                                width="100%"
+                            >
+                                <List
+                                    items="{/attachments/items}"
+                                    sticky="HeaderToolbar"
+                                >
+                                    <items>
+                                        <CustomListItem
+                                            type="Active"
+                                            press=".onHeaderAttachmentItemPress"
+                                        >
+                                            <HBox
+                                                width="100%"
+                                                alignItems="Center"
+                                                justifyContent="SpaceBetween"
+                                            >
+                                                <Text
+                                                    class="sapUiTinyMarginBeginEnd"
+                                                    wrapping="true"
+                                                    text="{data}"
+                                                />
+                                                <Text
+                                                    class="sapUiTinyMarginBeginEnd"
+                                                    wrapping="true"
+                                                    text="{nome}"
+                                                />
+                                                <Button
+                                                    class="sapUiTinyMarginBeginEnd"
+                                                    type="Negative"
+                                                    icon="sap-icon://delete"
+                                                    press=".onHeaderAttachmentDeletePress"
+                                                />
+                                            </HBox>
+                                        </CustomListItem>
+                                    </items>
+                                </List>
+                            </ScrollContainer>
+                        </VBox>
+                    </WizardStep>
+                </steps>
+            </Wizard>
+        </content>
+    </Dialog>
+</core:FragmentDefinition>

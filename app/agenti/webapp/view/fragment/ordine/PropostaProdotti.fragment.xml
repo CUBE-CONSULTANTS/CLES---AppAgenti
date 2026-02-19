@@ -9,7 +9,7 @@
             type="XML"
         />
         <List
-          id="proposta_list"
+            id="proposta_list"
             width="100%"
             mode="None"
             growing="true"
@@ -59,8 +59,8 @@
                 >
                     <HBox>
                         <Image
+                            class="circularImage"
                             src="{proposta>src}"
-                            
                             lazyLoading="true"
                             width="6rem"
                             height="6rem"

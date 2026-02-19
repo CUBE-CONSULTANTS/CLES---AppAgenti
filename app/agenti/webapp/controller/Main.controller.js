@@ -36,6 +36,7 @@ sap.ui.define(
         }
       },
 
+
       onHeaderAttachmentPress() {
         Dialog.getAttachmentDialog({ controller: this });
       },

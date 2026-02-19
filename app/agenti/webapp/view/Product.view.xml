@@ -19,7 +19,7 @@
         </headerContent>
         <content>
             <HBox justifyContent="End"
-                visible="{= ${product>/from} === 'LISTA' ? true : false }">
+                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }">
                 <Button class="sapUiTinyMargin"
                     text="Dettagli Prodotto"
                     icon="sap-icon://information"
@@ -38,7 +38,7 @@
                 </Carousel>
             </VBox>
             <FlexBox direction="{= ${device>/system/phone} ? 'Column': 'Row' }"
-                visible="{= ${product>/from} === 'LISTA' ? true : false }">
+                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }">
                 <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
                     <Title class="sapUiSmallMargin"
                         text="QUANTITA"
@@ -159,7 +159,7 @@
                     justifyContent="SpaceBetween" alignContent="Center"
                     alignItems="Center" class="sapUiSmallMarginBeginEnd">
                     <Label design="Bold" text="Prezzo di Listino: 3.50€"/>
-                    <Button text="Aggiungi alla Proposta"
+                    <Button text="Aggiungi al Riepilogo"
                         icon="sap-icon://add"
                         type="Emphasized" />
                 </HBox>

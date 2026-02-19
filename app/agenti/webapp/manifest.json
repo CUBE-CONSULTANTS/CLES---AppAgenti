@@ -45,7 +45,7 @@
   "sap.ui5": {
     "flexEnabled": false,
     "dependencies": {
-      "minUI5Version": "1.136.2",
+      "minUI5Version": "1.142.0",
       "libs": {
         "sap.m": {},
         "sap.ui.core": {},
@@ -71,7 +71,7 @@
     "resources": {
       "css": [
         {
-          "uri": "css/style.css"
+          "uri": "public/css/style.css"
         }
       ]
     },
@@ -93,19 +93,14 @@
           "target": ["TargetMain"]
         },
         {
-          "name": "Ordine",
-          "pattern": "Ordine",
-          "target": ["TargetMain", "TargetOrdine"]
-        },
-        {
           "name": "Product",
-          "pattern": "ordine/product/{from}/{product}",
-          "target": ["TargetMain", "TargetOrdine", "TargetProduct"]
+          "pattern": "product/{from}/{product}",
+          "target": ["TargetMain", "TargetProduct"]
         },
         {
           "name": "Riepilogo",
-          "pattern": "ordine/riepilogo",
-          "target": ["TargetMain", "TargetOrdine", "TargetRiepilogo"]
+          "pattern": "riepilogo",
+          "target": ["TargetMain", "TargetRiepilogo"]
         }
       ],
       "targets": {
@@ -115,34 +110,16 @@
           "controlAggregation": "beginColumnPages",
           "level": 0
         },
-        "TargetOrdine": {
-          "id": "Ordine",
-          "name": "Ordine",
-          "controlAggregation": "midColumnPages",
-          "level": 1
-        },
-        "TargetOfferta": {
-          "id": "Offerta",
-          "name": "Offerta",
-          "controlAggregation": "midColumnPages",
-          "level": 1
-        },
-        "TargetPreordine": {
-          "id": "Preordine",
-          "name": "Preordine",
-          "controlAggregation": "midColumnPages",
-          "level": 1
-        },
         "TargetProduct": {
           "id": "Product",
           "name": "Product",
-          "controlAggregation": "endColumnPages",
+          "controlAggregation": "midColumnPages",
           "level": 2
         },
         "TargetRiepilogo": {
           "id": "Riepilogo",
           "name": "Riepilogo",
-          "controlAggregation": "endColumnPages",
+          "controlAggregation": "midColumnPages",
           "level": 2
         }
       }
