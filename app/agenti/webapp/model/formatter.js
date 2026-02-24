@@ -19,6 +19,12 @@ sap.ui.define(
       calculateHeight: function (iHeight) {
         return iHeight - 200 + "px";
       },
+
+      formatDate(jsDate) {
+        if( !jsDate ) return;
+
+        return jsDate.toLocaleDateString()
+      }
     };
   }
 );

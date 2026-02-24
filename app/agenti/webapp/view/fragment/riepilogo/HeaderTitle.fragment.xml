@@ -4,9 +4,19 @@
     xmlns:uxap="sap.uxap"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
+        <uxap:content>
+            <VBox class="sapUiTinyMarginTop">
+                <ObjectStatus
+                    text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
+                    inverted="true"
+                    active="true"
+                    state="Indication15"
+                />
+            </VBox>
+        </uxap:content>
         <uxap:navigationActions>
-            <OverflowToolbarButton
-                text="Torna indietro"
+            <Button
+                text="Indietro"
                 type="Emphasized"
                 tooltip="Naviga indietro"
                 icon="sap-icon://nav-back"

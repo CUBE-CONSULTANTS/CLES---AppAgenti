@@ -19,12 +19,6 @@
                 press=".onWizardPreviousStep"
                 type="Emphasized"
             />
-            <Button
-                text="Scegli successivamente"
-                visible="{= ${/currentStep} === 2 ? true : false }"
-                press=".onWizardClose"
-                type="Emphasized"
-            />
         </buttons>
         <content>
             <Wizard

@@ -55,7 +55,7 @@
                     alignItems="Center"
                     justifyContent="End"
                 >
-                    <StepInput value="1" />
+                    <StepInput change=".onStepInputChange" min="0"  value="1" />
                 </HBox>
                 <Label
                     design="Bold"

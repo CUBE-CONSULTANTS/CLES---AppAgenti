@@ -4,6 +4,16 @@
     xmlns:uxap="sap.uxap"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
+        <uxap:content>
+            <VBox class="sapUiTinyMarginTop">
+                <ObjectStatus
+                    text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
+                    inverted="true"
+                    active="true"
+                    state="Indication15"
+                />
+            </VBox>
+        </uxap:content>
         <uxap:navigationActions>
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ExternalLinks"

@@ -1,6 +1,8 @@
 {
   "objectPageLayout": {
-    "currentList": ""
+    "currentList": "",
+    "mode": "",
+    "title": ""
   },
   "header": {
     "customer": {
@@ -17,7 +19,7 @@
       "id": "",
       "name": ""
     },
-    "mode": "ORD",
+    "mode": "ORDINE",
     "tabOrdine": "STORICO"
   },
   "table": {

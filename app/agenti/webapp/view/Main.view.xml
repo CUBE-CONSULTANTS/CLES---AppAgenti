@@ -44,8 +44,8 @@
                 title="Storico Ordini"
                 showTitle="false"
                 visible="{= 
-                  (${proposta>/header/mode} === 'ORD' &amp;&amp; ${proposta>/header/tabOrdine} === 'STORICO') ? true :
-                  ${proposta>/header/mode} === 'OFF' ? true :
+                  (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'STORICO') ? true :
+                  ${proposta>/header/mode} === 'OFFERTA' ? true :
                   false 
                 }"
             >
@@ -62,7 +62,7 @@
                 id="offertaOrdini"
                 title="Offerta"
                 showTitle="false"
-                visible="{= (${proposta>/header/mode} === 'ORD' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
+                visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
             >
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
@@ -77,7 +77,7 @@
                 id="propostaProdotti"
                 title="Proposta Prodotti"
                 showTitle="false"
-                visible="{= (${proposta>/header/mode} === 'ORD' || ${proposta>/header/mode} === 'OFF') ? true : false }"
+                visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
             >
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>

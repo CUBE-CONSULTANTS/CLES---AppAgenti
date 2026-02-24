@@ -4,7 +4,7 @@
     xmlns:form="sap.ui.layout.form"
 >
     <VBox
-        visible="{= (${proposta>/header/mode} === 'PRE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
+        visible="{= (${proposta>/header/mode} === 'PREORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
     >
         <Label text="Cliente" />
         <Title
@@ -12,19 +12,22 @@
             wrapping="true"
         />
     </VBox>
-    <VBox visible="{= ${proposta>/header/mode} === 'PRE' ? true : false }">
+    <VBox visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }">
         <Label text="Titolo" />
         <Title
-            text="{proposta>/header/title/name}"
+            text="{proposta>/header/title/value}"
             wrapping="true"
         />
     </VBox>
     <VBox
-        visible="{= (${proposta>/header/mode} === 'ORD' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
+        visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
     >
         <Label text="Data Validità" />
         <Title
-            text="{proposta>/header/date/value}"
+            text="{
+              path: 'proposta>/header/date/value',
+              formatter: '.formatter.formatDate' 
+            }"
             wrapping="true"
         />
     </VBox>

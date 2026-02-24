@@ -3,12 +3,14 @@ sap.ui.define(
 		"sap/ui/core/mvc/Controller",
 		"sap/ui/core/UIComponent",
 		"sap/ui/core/routing/History",
-    "../model/Dialog"
+    "../model/Dialog",
+    "../model/Formatter"
 	],
-	function (Controller, UIComponent, History, Dialog) {
+	function (Controller, UIComponent, History, Dialog, formatter) {
 		"use strict";
 
 		return Controller.extend("cles.agenti.controller.BaseController", {
+      formatter: formatter,
 			/**
 			 * Convenience method for accessing the component of the controller's view.
 			 * @returns {sap.ui.core.Component} The component of the controller's view

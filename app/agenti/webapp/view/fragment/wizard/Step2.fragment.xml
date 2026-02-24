@@ -6,11 +6,11 @@
     <VBox
         class="sapUiTinyMarginBottom"
         width="{= ${device>/system/phone} ? '100%' : '50%' }"
-        visible="{= ${/selectedMode} === 'PRE' ? false : true }"
+        visible="{= ${/selectedMode} === 'PREORDINE' ? false : true }"
     >
         <Label
             required="true"
-            text="{= ${/selectedMode} === 'ORD' ? 'Data di Consegna:' : 'Data di Validità:' }"
+            text="{= ${/selectedMode} === 'ORDINE' ? 'Data di Consegna:' : 'Data di Validità:' }"
             design="Bold"
         />
         <DatePicker dateValue="{/step2/date/value}" />
@@ -18,7 +18,7 @@
     <VBox
         class="sapUiTinyMarginBottom"
         width="{= ${device>/system/phone} ? '100%' : '50%' }"
-        visible="{= ${/selectedMode} === 'ORD' ? true : false }"
+        visible="{= ${/selectedMode} === 'ORDINE' ? true : false }"
     >
         <Label
             required="true"
@@ -38,13 +38,13 @@
         class="sapUiTinyMarginBottom"
         fitContainer="true"
         height="100%"
-        visible="{= ${/selectedMode} === 'PRE' ? false : true }"
+        visible="{= ${/selectedMode} === 'PREORDINE' ? false : true }"
     >
         <core:Fragment fragmentName="cles.agenti.view.fragment.customer.List" />
     </VBox>
     <VBox
         class="sapUiTinyMarginBottom"
-        visible="{= ${/selectedMode} === 'PRE' ? true : false }"
+        visible="{= ${/selectedMode} === 'PREORDINE' ? true : false }"
     >
         <core:Fragment fragmentName="cles.agenti.view.fragment.preorder.Form" />
     </VBox>

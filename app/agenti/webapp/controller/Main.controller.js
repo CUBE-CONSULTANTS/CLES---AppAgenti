@@ -77,7 +77,11 @@ sap.ui.define(
         const context = e.getSource().getBindingContext();
         const selectedKey = context.getProperty("key");
 
-        if (selectedKey === "SKIP") this.onWizardClose(e);
+        if (selectedKey === "SKIP") {
+          context.getModel().setProperty("/selectedMode", selectedKey);
+          this.getModel("proposta").setProperty("/header/mode", selectedKey);
+          wizard.getParent().close();
+        }
 
         wizard.nextStep();
 
@@ -156,23 +160,33 @@ sap.ui.define(
           .setProperty("/step2/customer/city", context.getProperty("city"));
 
         this.getModel("proposta").setProperty(
+          "/header/mode",
+          context.getModel().getProperty("/selectedMode"),
+        );
+
+        this.getModel("proposta").setProperty(
           "/header/customer",
           context.getObject(),
         );
 
         this.getModel("proposta").setProperty(
-          "/header/mode",
+          "/objectPageLayout/mode",
           context.getModel().getProperty("/selectedMode"),
         );
 
-        if (context.getModel().getProperty("/selectedMode") === "ORD") {
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          context.getProperty("name"),
+        );
+
+        if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
           this.getModel("proposta").setProperty(
             "/header/tabOrdine",
             context.getModel().getProperty("/step2/tab/selected"),
           );
         }
 
-        if (context.getModel().getProperty("/selectedMode") === "OFF") {
+        if (context.getModel().getProperty("/selectedMode") === "OFFERTA") {
           this.getModel("proposta").setProperty(
             "/header/date/value",
             context.getModel().getProperty("/step2/date/value"),
@@ -223,60 +237,41 @@ sap.ui.define(
           );
       },
 
-      onPreorderListSelect(e) {
-        const selectedItem = e.getSource();
+      onPreorderConfirmPress(e) {
+        const model = e.getSource().getModel();
 
-        if (!selectedItem) return;
+        this.getModel("proposta").setProperty(
+          "/header/mode",
+          model.getProperty("/selectedMode"),
+        );
 
-        const context = selectedItem.getBindingContext();
+        this.getModel("proposta").setProperty(
+          "/header/title/value",
+          model.getProperty("/step2/title/value"),
+        );
 
-        context
-          .getModel()
-          .setProperty("/step2/title/value", context.getProperty("name"));
+        this.getModel("proposta").setProperty(
+          "/header/date/value",
+          model.getProperty("/step2/date/value"),
+        );
 
-        this.byId("titles_carousel").next();
-      },
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/mode",
+          model.getProperty("/selectedMode"),
+        );
 
-      onPreorderConfirmPress() {
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          model.getProperty("/step2/title/value"),
+        );
+
         this.byId("wizardMode").getParent().close();
-      },
-
-      onWizardClose(e) {
-        const dialog = this.byId("wizardMode").getParent();
-        const model = dialog.getModel();
-        const selectedKey = model.getProperty("/selectedMode");
-        const {
-          id,
-          name: customer_name,
-          city,
-        } = model.getProperty("/step2/customer");
-        const { value } = model.getProperty("/step2/date");
-        const { value: preorder_name } = model.getProperty("/step2/title");
-
-        this.getModel("proposta").setProperty("/header/date/value", value);
-
-        //customer
-        this.getModel("proposta").setProperty("/header/customer/id", id);
-        this.getModel("proposta").setProperty(
-          "/header/customer/name",
-          customer_name,
-        );
-        this.getModel("proposta").setProperty("/header/customer/city", city);
-
-        //preorder
-        this.getModel("proposta").setProperty(
-          "/header/title/name",
-          preorder_name,
-        );
-
-        this.getModel("proposta").setProperty("/header/mode", selectedKey);
-        dialog.close();
       },
 
       //List
 
       getGroup(oContext) {
-        return oContext.getProperty("order_id");
+        return oContext.getProperty("category");
       },
 
       getGroupFactory(oGroup) {
@@ -381,6 +376,15 @@ sap.ui.define(
               ),
             );
         }
+      },
+
+      onStepInputChange(e) {
+        const { value } = e.getParameters();
+        const listItem = e.getSource().getParent().getParent().getParent().getParent()
+
+        if( value > 0 ) return listItem.addStyleClass("coloredCustomListItem")
+
+        return listItem.removeStyleClass("coloredCustomListItem")
       },
 
       onProductListItemPress(e, from) {

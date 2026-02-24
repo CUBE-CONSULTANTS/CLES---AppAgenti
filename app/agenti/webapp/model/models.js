@@ -26,18 +26,18 @@ sap.ui.define(
           showFooter: true,
           header: {
             mode: {
-              selectedKey: "ORD",
+              selectedKey: "ORDINE",
               items: [
                 {
-                  key: "ORD",
+                  key: "ORDINE",
                   text: "Ordine",
                 },
                 {
-                  key: "OFF",
+                  key: "OFFERTA",
                   text: "Offerta",
                 },
                 {
-                  key: "PRE",
+                  key: "PREORDINE",
                   text: "Preordine",
                 }
               ],

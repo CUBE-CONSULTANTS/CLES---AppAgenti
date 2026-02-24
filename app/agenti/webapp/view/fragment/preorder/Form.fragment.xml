@@ -14,7 +14,7 @@
                 text="Titolo"
                 required="true"
             />
-            <Input value="{/step2/preorder/selected/name}" />
+            <Input value="{/step2/title/value}" />
             <Label
                 required="true"
                 text="Data di Validità:"

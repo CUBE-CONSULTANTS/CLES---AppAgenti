@@ -1,45 +1,72 @@
 <core:FragmentDefinition
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
+    xmlns:grid="sap.ui.layout.cssgrid"
 >
-    <VBox>
-        <ScrollContainer
-            vertical="false"
-            horizontal="true"
-        >
-            <HBox
+    <grid:CSSGrid>
+        <grid:customLayout>
+            <grid:GridResponsiveLayout>
+                <grid:layoutS>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr"
+                        gridGap="1rem"
+                    />
+                </grid:layoutS>
+                <grid:layout>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr 1fr"
+                        gridGap="1rem"
+                    />
+                </grid:layout>
+                <grid:layoutXL>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr 1fr"
+                        gridGap="1rem"
+                    />
+                </grid:layoutXL>
+            </grid:GridResponsiveLayout>
+        </grid:customLayout>
+        <VBox width="100%">
+            <Label text="Categorie" design="Bold" />
+            <MultiComboBox
+                placeholder="Categorie"
                 items="{
-                path: 'proposta>/table/toolbar/filtri/categorie', 
-                sorter: { path: 'text', descending: false}
-              }"
+                      path: 'proposta>/table/toolbar/filtri/categorie', 
+                      sorter: { path: 'text', descending: false}
+                    }"
             >
-                <Button
-                    icon=""
-                    press=".onFiltriCategorieButtonPress($event, ${proposta>/objectPageLayout/currentList})"
-                    class="sapUiTinyMargin"
-                    text="{proposta>text}"
-                    type="{proposta>type}"
-                />
-            </HBox>
-        </ScrollContainer>
-        <ScrollContainer
-            vertical="false"
-            horizontal="true"
-        >
-            <HBox
+                <items>
+                    <core:Item
+                        key="{proposta>key}"
+                        text="{proposta>text}"
+                    />
+                </items>
+            </MultiComboBox>
+        </VBox>
+        <VBox width="100%">
+            <Label text="Caratteristiche" design="Bold" />
+            <MultiComboBox
+                placeholder="Caratteristiche"
                 items="{
-                path: 'proposta>/table/toolbar/filtri/caratteristiche', 
-                sorter: { path: 'text', descending: false}
-              }"
+                      path: 'proposta>/table/toolbar/filtri/caratteristiche', 
+                      sorter: { path: 'text', descending: false}
+                    }"
             >
-                <Button
-                    icon=""
-                    press=".onFiltriCaratteristicheButtonPress"
-                    class="sapUiTinyMargin"
-                    text="{proposta>text}"
-                    type="{proposta>type}"
-                />
-            </HBox>
-        </ScrollContainer>
-    </VBox>
+                <items>
+                    <core:Item
+                        key="{proposta>key}"
+                        text="{proposta>text}"
+                    />
+                </items>
+            </MultiComboBox>
+        </VBox>
+        <VBox width="100%">
+            <Label text="Cerca" design="Bold" />
+            <SearchField
+                placeholder="Cerca per categoria o codice/descrizione"
+                showSearchButton="false"
+                liveChange=".onSearch($event, 'catalogo_odv')"
+            />
+        </VBox>
+    </grid:CSSGrid>
 </core:FragmentDefinition>

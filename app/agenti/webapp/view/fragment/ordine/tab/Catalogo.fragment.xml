@@ -7,106 +7,107 @@
             fragmentName="cles.agenti.view.fragment.common.FilterBar"
             type="XML"
         />
-        <List
-            id="catalogo_list"
-            width="100%"
-            mode="None"
-            growing="true"
-            growingThreshold="20"
-            growingScrollToLoad="true"
-            sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
-            items="{proposta>/table/items}"
+        <ScrollContainer
+            height="420px"
+            vertical="true"
         >
-            <headerToolbar>
-                <OverflowToolbar
-                    design="Solid"
-                    style="Clear"
-                >
-                    <ToolbarSpacer />
-                    <Button
-                        text="Ordina"
-                        type="Emphasized"
-                        icon="sap-icon://sort"
-                        press=".onFilterPress"
-                    />
-                </OverflowToolbar>
-            </headerToolbar>
-            <infoToolbar>
-                <Toolbar
-                    design="Solid"
-                    style="Clear"
-                >
-                    <SearchField
-                        placeholder="Cerca per categoria o codice/descrizione"
-                        showSearchButton="false"
-                        liveChange=".onSearch($event, 'catalogo_odv')"
-                    />
-                </Toolbar>
-            </infoToolbar>
-            <items>
-                <CustomListItem
-                    type="Active"
-                    press=".onProductListItemPress($event, 'CATALOGO')"
-                >
-                    <HBox>
-                        <Image
-                            class="circularImage"
-                            src="{proposta>src}"
-                            lazyLoading="true"
-                            width="6rem"
-                            height="6rem"
-                            press=".onShowPhotoPress"
+            <List
+                id="catalogo_list"
+                width="100%"
+                mode="None"
+                growing="true"
+                growingThreshold="20"
+                growingScrollToLoad="true"
+                sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
+                items="{
+                  path: 'proposta>/table/items', 
+                  sorter: {
+                    path: 'category',
+                    descending: false,
+                    group: '.getGroup'
+                  },
+                  groupHeaderFactory: '.getGroupFactory'
+                }"
+            >
+                <headerToolbar>
+                    <OverflowToolbar
+                        design="Solid"
+                        style="Clear"
+                    >
+                        <ToolbarSpacer />
+                        <Button
+                            text="Ordina"
+                            type="Emphasized"
+                            icon="sap-icon://sort"
+                            press=".onFilterPress"
                         />
-                        <HBox
-                            width="100%"
-                            wrap="Wrap"
-                            class="sapUiSmallMarginBegin"
-                            alignContent="Center"
-                            alignItems="Center"
-                            justifyContent="SpaceBetween"
-                        >
-                            <VBox class="sapUiTinyMargin">
-                                <Label
-                                    wrapping="true"
-                                    design="Bold"
-                                    text="{proposta>category}"
-                                />
-                                <Label
-                                    wrapping="true"
-                                    design="Bold"
-                                    text="{proposta>description} ({proposta>product})"
-                                />
-                                <Label
-                                    wrapping="true"
-                                    design="Bold"
-                                    text="Prezzo di listino: {proposta>listino}"
-                                />
-                            </VBox>
-                            <VBox class="sapUiTinyMargin">
-                                <Label
-                                    design="Bold"
-                                    text="Disponibilità: {proposta>disponibilita}"
-                                />
-                                <ProgressIndicator
-                                    class="sapUiSmallMarginBottom"
-                                    percentValue="50"
-                                    showValue="false"
-                                    state="Error"
-                                />
-                                <ObjectStatus
-                                    text="{proposta>status_text}"
-                                    active="true"
-                                    inverted="true"
-                                    state="{proposta>status_state}"
-                                />
-                            </VBox>
-                            <VBox>
-                                <StepInput />
-                            </VBox>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <items>
+                    <CustomListItem
+                        type="Active"
+                        press=".onProductListItemPress($event, 'CATALOGO')"
+                    >
+                        <HBox>
+                            <Image
+                                class="circularImage"
+                                src="{proposta>src}"
+                                lazyLoading="true"
+                                width="6rem"
+                                height="6rem"
+                                press=".onShowPhotoPress"
+                            />
+                            <HBox
+                                width="100%"
+                                wrap="Wrap"
+                                class="sapUiSmallMarginBegin"
+                                alignContent="Center"
+                                alignItems="Center"
+                                justifyContent="SpaceBetween"
+                            >
+                                <VBox class="sapUiTinyMargin">
+                                    <Label
+                                        wrapping="true"
+                                        design="Bold"
+                                        text="{proposta>category}"
+                                    />
+                                    <Label
+                                        wrapping="true"
+                                        design="Bold"
+                                        text="{proposta>description} ({proposta>product})"
+                                    />
+                                    <Label
+                                        wrapping="true"
+                                        design="Bold"
+                                        text="Prezzo di listino: {proposta>listino}"
+                                    />
+                                </VBox>
+                                <VBox class="sapUiTinyMargin">
+                                    <Label
+                                        design="Bold"
+                                        text="Disponibilità: {proposta>disponibilita}"
+                                    />
+                                    <ProgressIndicator
+                                        class="sapUiSmallMarginBottom"
+                                        percentValue="50"
+                                        showValue="false"
+                                        state="Error"
+                                    />
+                                    <ObjectStatus
+                                        text="{proposta>status_text}"
+                                        active="true"
+                                        inverted="true"
+                                        state="{proposta>status_state}"
+                                    />
+                                </VBox>
+                                <VBox>
+                                    <StepInput change=".onStepInputChange" min="0"  />
+                                </VBox>
+                            </HBox>
                         </HBox>
-                    </HBox>
-                </CustomListItem>
-            </items>
-        </List>
+                    </CustomListItem>
+                </items>
+            </List>
+        </ScrollContainer>
     </VBox>
 </core:FragmentDefinition>

@@ -8,11 +8,11 @@
         <f:header>
             <card:Header
                 title="{proposta>/header/customer/name}"
-                subtitle="Riepilogo totali | EUR"
+                subtitle="Articoli selezionati: ({proposta>/table/items/length})"
             />
         </f:header>
         <f:content>
-            <VBox width="100%">
+            <VBox class="sapUiTinyMarginBegin">
                 <HBox>
                     <ObjectStatus
                         class="sapUiTinyMargin"
@@ -32,14 +32,13 @@
                     />
                 </HBox>
                 <HBox
-                    class="sapUiSmallMargin"
-                    justifyContent="SpaceBetween"
-                    alignContent="SpaceBetween"
+                    class="sapUiSmallMarginTop sapUiTinyMarginBegin"
+                    alignItems="Center"
                 >
-                    <VBox>
+                    <VBox class="sapUiTinyMarginBottom">
                         <Label
                             design="Bold"
-                            text="Totale Imponibile"
+                            text="Totale Imponibile:"
                         />
                         <ObjectNumber
                             state="Success"
@@ -49,10 +48,10 @@
                             emphasized="true"
                         />
                     </VBox>
-                    <VBox>
+                    <VBox class="sapUiSmallMarginBegin sapUiTinyMarginBottom">
                         <Label
                             design="Bold"
-                            text="Totale IVA"
+                            text="Totale IVA:"
                         />
                         <ObjectNumber
                             state="Warning"

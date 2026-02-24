@@ -9,20 +9,20 @@
             text="Crea Offerta"
             type="Emphasized"
             icon="sap-icon://save"
-            visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }"
+            visible="{= ${main>/header/mode/selectedKey} === 'OFFERTA' ? true : false }"
         />
         <Button
             class="sapUiTinyMargin"
             text="Crea Ordine"
             type="Emphasized"
             icon="sap-icon://sales-order"
-            visible="{= ${main>/header/mode/selectedKey} === 'OFF' ? true : false }"
+            visible="{= ${main>/header/mode/selectedKey} === 'OFFERTA' ? true : false }"
         />
         <Button
             class="sapUiTinyMargin"
             text="Salva Preordine"
             type="Success"
-            visible="{= ${main>/header/mode/selectedKey} === 'PRE' ? true : false }"
+            visible="{= ${main>/header/mode/selectedKey} === 'PREORDINE' ? true : false }"
         />
     </OverflowToolbar>
 </core:FragmentDefinition>

@@ -29,11 +29,11 @@ sap.ui.define(
               controller,
               model: new JSONModel({
                 currentStep: 0,
-                selectedMode: "ORD",
+                selectedMode: "ORDINE",
                 step1: {
                   cards: [
                     {
-                      key: "ORD",
+                      key: "ORDINE",
                       text: "Ordine",
                       cardHeader: {
                         title: "Crea Ordine di Vendita",
@@ -44,7 +44,7 @@ sap.ui.define(
                       },
                     },
                     {
-                      key: "OFF",
+                      key: "OFFERTA",
                       text: "Offerta",
                       cardHeader: {
                         title: "Crea Offerta",
@@ -55,7 +55,7 @@ sap.ui.define(
                       },
                     },
                     {
-                      key: "PRE",
+                      key: "PREORDINE",
                       text: "Preordine",
                       cardHeader: {
                         title: "Crea Preordine",
