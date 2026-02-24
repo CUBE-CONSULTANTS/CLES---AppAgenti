@@ -9,7 +9,7 @@
             type="XML"
         />
         <ScrollContainer
-            height="420px"
+            height="400px"
             vertical="true"
         >
             <List
@@ -31,18 +31,10 @@
             }"
             >
                 <headerToolbar>
-                    <OverflowToolbar
-                        design="Solid"
-                        style="Clear"
-                    >
-                        <ToolbarSpacer />
-                        <Button
-                            text="Ordina"
-                            type="Emphasized"
-                            icon="sap-icon://sort"
-                            press=".onFilterPress"
-                        />
-                    </OverflowToolbar>
+                    <core:Fragment
+                        fragmentName="cles.agenti.view.fragment.common.HeaderToolbar"
+                        type="XML"
+                    />
                 </headerToolbar>
                 <items>
                     <CustomListItem
@@ -67,9 +59,9 @@
                                 justifyContent="SpaceBetween"
                             >
                                 <VBox class="sapUiTinyMargin">
-                                    <Label
-                                        wrapping="true"
-                                        design="Bold"
+                                    <ObjectStatus
+                                        inverted="true"
+                                        state="Indication12"
                                         text="{proposta>category}"
                                     />
                                     <Label

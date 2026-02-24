@@ -1,6 +1,7 @@
 {
   "objectPageLayout": {
     "currentList": "",
+    "dynamicListHeight": "",
     "mode": "",
     "title": ""
   },
@@ -140,7 +141,7 @@
         "quantity": "0.00",
         "disponibilita": "7",
         "note": "1",
-        "status_text": "In arrivo 25/10/2025",
+        "status_text": "",
         "status_state": "Indication12",
         "listino": "9.50€"
       },

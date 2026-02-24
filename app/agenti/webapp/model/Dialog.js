@@ -159,6 +159,28 @@ sap.ui.define(
         });
       },
 
+      async getCustomerDetailDialog({ controller }) {
+        return new Promise(async (resolve, reject) => {
+          try {
+            const oDialog = await this._getDialogBase({
+              name: "_customerDetailDialog",
+              path: "view.dialog.CustomerDetail",
+              controller,
+              model: new JSONModel({
+                step3: {
+                  formEnabled: false
+                }
+              }),
+            });
+
+            oDialog.open();
+            resolve();
+          } catch (error) {
+            reject(error);
+          }
+        });
+      },
+
       async getAttachmentDialog({ controller, items }) {
         return new Promise(async (resolve, reject) => {
           try {

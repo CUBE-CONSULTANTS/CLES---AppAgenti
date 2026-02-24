@@ -14,7 +14,7 @@ sap.ui.define(
           .getRoute("Main")
           .attachPatternMatched(this._onObjectMatched, this);
 
-        this._getModalita();
+        this.getModalita();
       },
 
       _onObjectMatched(e) {
@@ -33,14 +33,6 @@ sap.ui.define(
             customer_name,
           );
         }
-      },
-
-      _getModalita() {
-        Dialog.getModalitaDialog({ controller: this });
-      },
-
-      onCardPress(e) {
-        debugger;
       },
 
       //Navigation Actions
@@ -80,7 +72,7 @@ sap.ui.define(
         if (selectedKey === "SKIP") {
           context.getModel().setProperty("/selectedMode", selectedKey);
           this.getModel("proposta").setProperty("/header/mode", selectedKey);
-          wizard.getParent().close();
+          return wizard.getParent().close();
         }
 
         wizard.nextStep();

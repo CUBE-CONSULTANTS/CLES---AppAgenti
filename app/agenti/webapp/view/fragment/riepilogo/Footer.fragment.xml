@@ -6,23 +6,24 @@
         <ToolbarSpacer />
         <Button
             class="sapUiTinyMargin"
-            text="Crea Offerta"
-            type="Emphasized"
-            icon="sap-icon://save"
-            visible="{= ${main>/header/mode/selectedKey} === 'OFFERTA' ? true : false }"
-        />
-        <Button
-            class="sapUiTinyMargin"
             text="Crea Ordine"
-            type="Emphasized"
+            type="{= ${proposta>/header/mode} === 'ORDINE' ? 'Success' : 'Ghost' }"
             icon="sap-icon://sales-order"
-            visible="{= ${main>/header/mode/selectedKey} === 'OFFERTA' ? true : false }"
+            press=".onRiepilogoPress"
         />
         <Button
             class="sapUiTinyMargin"
-            text="Salva Preordine"
-            type="Success"
-            visible="{= ${main>/header/mode/selectedKey} === 'PREORDINE' ? true : false }"
+            text="Crea Offerta"
+            type="{= ${proposta>/header/mode} === 'OFFERTA' ? 'Success' : 'Ghost' }"
+            icon="sap-icon://sales-quote"
+            press=".onRiepilogoPress"
+        />
+        <Button
+            class="sapUiTinyMargin"
+            text="Crea Preordine"
+            type="{= ${proposta>/header/mode} === 'PREORDINE' ? 'Success' : 'Ghost' }"
+            icon="sap-icon://sales-document"
+            press=".onRiepilogoPress"
         />
     </OverflowToolbar>
 </core:FragmentDefinition>

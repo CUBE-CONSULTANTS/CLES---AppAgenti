@@ -26,8 +26,20 @@
                 </grid:layoutXL>
             </grid:GridResponsiveLayout>
         </grid:customLayout>
+        <VBox width="100%" visible="{= ${proposta>/header/tabOrdine} === 'OFFERTA' }">
+            <Label
+                text="Offerta:"
+                design="Bold"
+            />
+            <Input
+                showValueHelp="true"
+            />
+        </VBox>
         <VBox width="100%">
-            <Label text="Categorie" design="Bold" />
+            <Label
+                text="Categorie"
+                design="Bold"
+            />
             <MultiComboBox
                 placeholder="Categorie"
                 items="{
@@ -44,7 +56,10 @@
             </MultiComboBox>
         </VBox>
         <VBox width="100%">
-            <Label text="Caratteristiche" design="Bold" />
+            <Label
+                text="Caratteristiche"
+                design="Bold"
+            />
             <MultiComboBox
                 placeholder="Caratteristiche"
                 items="{
@@ -61,7 +76,10 @@
             </MultiComboBox>
         </VBox>
         <VBox width="100%">
-            <Label text="Cerca" design="Bold" />
+            <Label
+                text="Cerca"
+                design="Bold"
+            />
             <SearchField
                 placeholder="Cerca per categoria o codice/descrizione"
                 showSearchButton="false"

@@ -2,12 +2,12 @@
     xmlns:core="sap.ui.core">
     <ViewSettingsDialog confirm="handleConfirm">
         <sortItems>
-            <ViewSettingsItem text="Tipo"
+            <ViewSettingsItem text="Codice"
                 key="1"
                 selected="true" />
             <ViewSettingsItem text="Descrizione"
                 key="2" />
-            <ViewSettingsItem text="Top Seller"
+            <ViewSettingsItem text="Gruppo Materiale"
                 key="3" />
         </sortItems>
         <!-- <customTabs>

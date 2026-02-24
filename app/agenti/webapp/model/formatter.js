@@ -1,8 +1,5 @@
 sap.ui.define(
-  [
-    "sap/ui/model/json/JSONModel",
-    "sap/ui/Device"
-  ],
+  ["sap/ui/model/json/JSONModel", "sap/ui/Device"],
   function (JSONModel, Device) {
     "use strict";
 
@@ -16,15 +13,11 @@ sap.ui.define(
         return `data:image/jpeg;base64,${base64}`;
       },
 
-      calculateHeight: function (iHeight) {
-        return iHeight - 200 + "px";
-      },
-
       formatDate(jsDate) {
-        if( !jsDate ) return;
+        if (!jsDate) return;
 
-        return jsDate.toLocaleDateString()
-      }
+        return "Valido fino al " + jsDate.toLocaleDateString();
+      },
     };
-  }
+  },
 );

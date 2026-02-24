@@ -1,0 +1,90 @@
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        showHeader="true"
+        title="Crea Segnalazione">
+        <content>
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                columnsL="2"
+                columnsM="2"
+            >
+                <form:content>
+                    <core:Title text="Dati Generali" />
+                    <Label text="Cliente" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value="{/step3/customer/name}"
+                    />
+                    <Label text="Indirizzo" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Partita IVA" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Codice SDI" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Giorni di consegna" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Giorni di visita" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Agente" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Pagatore" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Termini di Pagamento" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Telefono" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Mail" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                    <Label text="Esposizione Fido" />
+                    <Input
+                        editable="{/step3/formEnabled}"
+                        value=""
+                    />
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <buttons>
+            <Button
+                text="Chiudi"
+                type="Emphasized"
+                press=".defaultDialogClose"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

@@ -10,19 +10,6 @@
             columnsL="2"
             columnsM="2"
         >
-            <form:toolbar>
-                <OverflowToolbar>
-                    <ToolbarSpacer />
-                    <Button
-                        visible="{= ${/step3/formEnabled} ? false : true }"
-                        text="Segnala informazioni mancanti/errate"
-                        type="Critical"
-                        tooltip="Apre il menù delle segnalazioni"
-                        icon="sap-icon://warning"
-                        press=".onCustomerReportPress"
-                    />
-                </OverflowToolbar>
-            </form:toolbar>
             <form:content>
                 <core:Title text="Dati Generali" />
                 <Label text="Cliente" />

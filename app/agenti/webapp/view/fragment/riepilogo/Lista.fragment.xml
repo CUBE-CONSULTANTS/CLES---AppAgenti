@@ -59,7 +59,11 @@
                                 design="Bold"
                                 text="Aliquota IVA: {proposta>quantity}"
                             />
+                            <VBox>
+                                    <StepInput change=".onStepInputChange" min="0"  />
+                                </VBox>
                             <Button
+                                text="Elimina Articolo"
                                 type="Negative"
                                 icon="sap-icon://delete"
                             />

@@ -1,0 +1,77 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+>
+    <OverflowToolbar
+        design="Solid"
+        style="Clear"
+    >
+        <ToolbarSpacer />
+        <Button
+            type="Emphasized"
+            text="Raggruppa per Categoria"
+            icon="sap-icon://group-2"
+        />
+        <ToolbarSeparator />
+        <MenuButton
+            text="Codice"
+            type="Emphasized"
+            icon="sap-icon://sort"
+        >
+            <menu>
+                <Menu>
+                    <items>
+                        <MenuItem
+                            text="Ordine Ascendente"
+                            icon="sap-icon://sort-ascending"
+                        />
+                        <MenuItem
+                            text="Ordine Discendente"
+                            icon="sap-icon://sort-descending"
+                        />
+                    </items>
+                </Menu>
+            </menu>
+        </MenuButton>
+        <MenuButton
+            text="Descrizione"
+            type="Emphasized"
+            icon="sap-icon://sort"
+        >
+            <menu>
+                <Menu>
+                    <items>
+                        <MenuItem
+                            text="Ordine Ascendente"
+                            icon="sap-icon://sort-ascending"
+                        />
+                        <MenuItem
+                            text="Ordine Discendente"
+                            icon="sap-icon://sort-descending"
+                        />
+                    </items>
+                </Menu>
+            </menu>
+        </MenuButton>
+        <MenuButton
+            text="Categoria"
+            type="Emphasized"
+            icon="sap-icon://sort"
+        >
+            <menu>
+                <Menu>
+                    <items>
+                        <MenuItem
+                            text="Ordine Ascendente"
+                            icon="sap-icon://sort-ascending"
+                        />
+                        <MenuItem
+                            text="Ordine Discendente"
+                            icon="sap-icon://sort-descending"
+                        />
+                    </items>
+                </Menu>
+            </menu>
+        </MenuButton>
+    </OverflowToolbar>
+</core:FragmentDefinition>

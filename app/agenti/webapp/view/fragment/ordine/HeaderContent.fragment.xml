@@ -6,34 +6,42 @@
     <VBox
         visible="{= (${proposta>/header/mode} === 'PREORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
     >
-        <Label text="Cliente" />
-        <Title
-            text="{proposta>/header/customer/name}"
-            wrapping="true"
-        />
-    </VBox>
-    <VBox visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }">
-        <Label text="Titolo" />
-        <Title
-            text="{proposta>/header/title/value}"
-            wrapping="true"
+        <ObjectStatus
+            press=".onCustomerObjectPagePress"
+            text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
+            inverted="true"
+            active="true"
+            icon="sap-icon://information"
+            state="Indication14"
         />
     </VBox>
     <VBox
+        visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }"
+    >
+        <ObjectStatus
+            text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
+            inverted="true"
+            active="false"
+            state="Indication14"
+        />
+    </VBox>
+    <VBox
+      class="sapUiTinyMarginTop"
         visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
     >
-        <Label text="Data Validità" />
-        <Title
+      <ObjectStatus
             text="{
               path: 'proposta>/header/date/value',
               formatter: '.formatter.formatDate' 
             }"
-            wrapping="true"
+            inverted="true"
+            active="false"
+            state="Indication12"
         />
     </VBox>
     <HBox>
         <ObjectStatus
-            class="sapUiTinyMargin"
+            class="sapUiTinyMarginTop"
             text="PARTITE SCADUTE"
             active="false"
             inverted="true"
@@ -41,7 +49,7 @@
             icon="sap-icon://warning"
         />
         <ObjectStatus
-            class="sapUiTinyMargin"
+            class="sapUiTinyMarginTop sapUiTinyMarginBegin"
             text="FIDO TRA 1% E 2%"
             active="false"
             inverted="true"

@@ -98,6 +98,10 @@ sap.ui.define(
         this.getRouter().navTo("Main");
       },
 
+      getModalita() {
+        Dialog.getModalitaDialog({ controller: this });
+      },
+
 			defaultDialogClose(e) {
 				const source = e.getSource();
 				let parent = source.getParent();
@@ -115,6 +119,10 @@ sap.ui.define(
         Dialog.getAttachmentDialog({ controller: this });
       },
 
+      onCustomerObjectPagePress() {
+        Dialog.getCustomerDetailDialog({ controller: this });
+      },
+
       onHeaderAttachmentItemPress(e) {
         const pdfViewer = new sap.m.PDFViewer({
           title: "Allegato",
@@ -128,6 +136,20 @@ sap.ui.define(
           ),
         );
         pdfViewer.open();
+      },
+
+      calculateHeight: function (e) {
+        var oScroll = this.byId("catalogo_list")
+        var oParent = e.getSource().getParent().getParent().getParent().getParent().getParent().getDomRef();
+
+        if (!oParent) return;
+
+        var iParentHeight = oParent.clientHeight;
+        var iOffsetTop = oScroll.getDomRef().offsetTop;
+
+        var iHeight = iParentHeight - iOffsetTop;
+
+        oScroll.setHeight(iHeight + "px");
       },
 		});
 	}

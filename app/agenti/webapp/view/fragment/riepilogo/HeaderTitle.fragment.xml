@@ -7,10 +7,12 @@
         <uxap:content>
             <VBox class="sapUiTinyMarginTop">
                 <ObjectStatus
+                    press=".onCustomerObjectPagePress"
                     text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
                     inverted="true"
                     active="true"
-                    state="Indication15"
+                    icon="sap-icon://information"
+                    state="Indication14"
                 />
             </VBox>
         </uxap:content>
