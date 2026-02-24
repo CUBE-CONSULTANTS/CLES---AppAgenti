@@ -5,6 +5,13 @@
 >
     <uxap:ObjectPageDynamicHeaderTitle>
         <uxap:navigationActions>
+            <OverflowToolbarButton
+                text="Torna indietro"
+                type="Emphasized"
+                tooltip="Naviga indietro"
+                icon="sap-icon://nav-back"
+                press=".onNavBack"
+            />
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
                 type="XML"

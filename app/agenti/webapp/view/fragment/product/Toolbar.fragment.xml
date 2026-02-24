@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <HBox
+        justifyContent="End"
+        visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
+    >
+        <Button
+            class="sapUiTinyMargin"
+            text="Dettagli Prodotto"
+            icon="sap-icon://information"
+            press=".onShowProductproductPress"
+        />
+        <Button
+            class="sapUiTinyMargin"
+            text="Allegati prodotto"
+            icon="sap-icon://attachment"
+            press=".onShowProductAttachmentsPress"
+        />
+    </HBox>
+</core:FragmentDefinition>

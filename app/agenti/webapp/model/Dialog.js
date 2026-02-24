@@ -29,11 +29,12 @@ sap.ui.define(
               controller,
               model: new JSONModel({
                 currentStep: 0,
+                selectedMode: "ORD",
                 step1: {
-                  mode: {
-                    selectedKey: "ORD",
-                    activeCard: {
+                  cards: [
+                    {
                       key: "ORD",
+                      text: "Ordine",
                       cardHeader: {
                         title: "Crea Ordine di Vendita",
                       },
@@ -42,76 +43,59 @@ sap.ui.define(
                         text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini e il catalogo per la creazione di un ordine di vendita",
                       },
                     },
-                    cards: [
-                      {
-                        key: "ORD",
-                        cardHeader: {
-                          title: "Crea Ordine di Vendita",
-                        },
-                        cardContent: {
-                          src: "./public/img/OdV.svg",
-                          text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini e il catalogo per la creazione di un ordine di vendita",
-                        },
+                    {
+                      key: "OFF",
+                      text: "Offerta",
+                      cardHeader: {
+                        title: "Crea Offerta",
                       },
-                      {
-                        key: "OFF",
-                        cardHeader: {
-                          title: "Crea Offerta",
-                        },
-                        cardContent: {
-                          src: "./public/img/Offer.svg",
-                          text: "Selezionando questa modalità verranno visualizzati la proposta prodotti e il catalogo per la creazione di una nuova offerta o la convalida di una già esistente",
-                        },
+                      cardContent: {
+                        src: "./public/img/Offer.svg",
+                        text: "Selezionando questa modalità verranno visualizzati la proposta prodotti e il catalogo per la creazione di una nuova offerta o la convalida di una già esistente",
                       },
-                      {
-                        key: "PRE",
-                        cardHeader: {
-                          title: "Crea Preordine",
-                        },
-                        cardContent: {
-                          src: "./public/img/Preorder.svg",
-                          text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere con la creazione di un preordine",
-                        },
+                    },
+                    {
+                      key: "PRE",
+                      text: "Preordine",
+                      cardHeader: {
+                        title: "Crea Preordine",
                       },
-                      {
-                        key: "SKIP",
-                        cardHeader: {
-                          title: "Scegli in seguito",
-                        },
-                        cardContent: {
-                          src: "./public/img/Undecided.svg",
-                          text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere solo successivamente alla scelta della modalità operativa",
-                        },
+                      cardContent: {
+                        src: "./public/img/Preorder.svg",
+                        text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere con la creazione di un preordine",
                       },
-                    ],
-                    items: [
-                      {
-                        key: "ORD",
-                        text: "Ordine",
+                    },
+                    {
+                      key: "SKIP",
+                      text: "Salta",
+                      cardHeader: {
+                        title: "Scegli in seguito",
                       },
-                      {
-                        key: "OFF",
-                        text: "Offerta",
+                      cardContent: {
+                        src: "./public/img/Undecided2.svg",
+                        text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere solo successivamente alla scelta della modalità operativa",
                       },
-                      {
-                        key: "PRE",
-                        text: "Preordine",
-                      },
-                      {
-                        key: "SKIP",
-                        text: "Scegli dopo",
-                      },
-                    ],
-                  },
+                    },
+                  ],
                 },
                 step2: {
+                  title: {
+                    value: "",
+                  },
+                  date: {
+                    value: new Date(),
+                  },
+                  tab: {
+                    selected: "STORICO",
+                    items: [
+                      { key: "STORICO", text: "Storico Ordini" },
+                      { key: "OFFERTA", text: "Offerta" },
+                    ],
+                  },
                   customer: {
-                    formEnabled: false,
-                    selected: {
-                      id: "",
-                      name: "",
-                      city: "",
-                    },
+                    id: "",
+                    name: "",
+                    city: "",
                     items: [
                       {
                         id: "351",
@@ -155,28 +139,13 @@ sap.ui.define(
                       },
                     ],
                   },
-                  preorder: {
-                    formEnabled: false,
-                    selected: {
-                      name: ""
-                    },
-                    items: [
-                      {
-                        id: "2024-001",
-                        name: "Preordine 2024-001",
-                      },
-                      {
-                        id: "2024-002",
-                        name: "Preordine 2024-002",
-                      },
-                      {
-                        id: "2024-003",
-                        name: "Preordine 2024-003",
-                      },
-                    ],
-                  },
-                  date: {
-                    value: new Date(),
+                },
+                step3: {
+                  formEnabled: false,
+                  customer: {
+                    id: "",
+                    name: "",
+                    city: "",
                   },
                 },
               }),

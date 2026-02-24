@@ -1,0 +1,74 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <HBox
+        backgroundDesign="Solid"
+        justifyContent="SpaceBetween"
+        alignContent="Center"
+        alignItems="Center"
+        class="sapUiSmallMarginBeginEnd"
+    >
+        <Label
+            design="Bold"
+            text="Prezzo di Listino: 3.50€"
+        />
+        <Button
+            text="Aggiungi al Riepilogo"
+            icon="sap-icon://add"
+            type="Emphasized"
+        />
+    </HBox>
+    <VBox>
+        <form:SimpleForm
+            layout="ResponsiveGridLayout"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            emptySpanXL="1"
+            emptySpanL="1"
+            emptySpanM="0"
+            emptySpanS="0"
+            editable="false"
+        >
+            <!-- Identificazione -->
+            <core:Title text="Identificazione Prodotto" />
+            <Label text="Codice Materiale" />
+            <Text text="PRD-002345" />
+            <Label text="Descrizione" />
+            <Text text="Bastoncini di mozzarella panati surgelati" />
+            <Label text="Categoria" />
+            <Text text="Prodotti panati surgelati" />
+            <Label text="Marchio / Produttore" />
+            <Text text="Pastificio e Latticini Italia S.p.A." />
+            <Label text="Codice EAN" />
+            <Text text="8001234567895" />
+
+            <!-- Informazioni Legali e Normative -->
+            <core:Title text="Informazioni Legali e Normative" />
+            <Label text="Ingredienti" />
+            <Text
+                text="Mozzarella (50%) [latte, sale, caglio], panatura [farina di grano, farina di mais, amido, uovo in polvere, paprica, lievito, sale], olio di semi di girasole, acqua."
+            />
+            <Label text="Allergeni" />
+            <Text
+                text="Latte, uova, glutine. Può contenere tracce di soia e sedano."
+            />
+            <Label text="Valori Nutrizionali (100 g)" />
+            <Text
+                text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g"
+            />
+            <Label text="Additivi" />
+            <Text text="Non dichiarati" />
+            <Label text="Data Scadenza / TMC" />
+            <Text text="12 mesi dalla produzione" />
+            <Label text="Normativa" />
+            <Text text="Reg. UE 1169/2011" />
+        </form:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>

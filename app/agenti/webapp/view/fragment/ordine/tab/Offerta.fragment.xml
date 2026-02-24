@@ -1,6 +1,7 @@
 <core:FragmentDefinition
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
 >
     <VBox>
         <core:Fragment
@@ -8,20 +9,32 @@
             type="XML"
         />
         <List
-            id="catalogo_list"
+            id="storico_offerte_list"
             width="100%"
             mode="None"
             growing="true"
             growingThreshold="20"
             growingScrollToLoad="true"
             sticky="HeaderToolbar,ColumnHeaders,InfoToolbar"
-            items="{proposta>/table/items}"
+            items="{
+              path: 'proposta>/table/items', 
+              sorter: {
+                path: 'order_id',
+                descending: false,
+                group: '.getGroup'
+              },
+              groupHeaderFactory: '.getGroupFactory'
+            }"
         >
             <headerToolbar>
                 <OverflowToolbar
                     design="Solid"
                     style="Clear"
                 >
+                    <HBox alignItems="Center">
+                        <Label text="Offerta:" design="Bold" />
+                        <Input class="sapUiTinyMarginBegin" showValueHelp="true" />
+                    </HBox>
                     <ToolbarSpacer />
                     <Button
                         text="Ordina"
@@ -39,14 +52,14 @@
                     <SearchField
                         placeholder="Cerca per categoria o codice/descrizione"
                         showSearchButton="false"
-                        liveChange=".onSearch($event, 'catalogo_odv')"
+                        liveChange="onSearch($event, 'storico_ordini')"
                     />
                 </Toolbar>
             </infoToolbar>
             <items>
                 <CustomListItem
                     type="Active"
-                    press=".onProductListItemPress($event, 'CATALOGO')"
+                    press=".onProductListItemPress($event, 'LISTA')"
                 >
                     <HBox>
                         <Image
@@ -69,17 +82,26 @@
                                 <Label
                                     wrapping="true"
                                     design="Bold"
-                                    text="Prodotto: {proposta>product}"
+                                    text="{proposta>category}"
                                 />
                                 <Label
                                     wrapping="true"
                                     design="Bold"
-                                    text="Descrizione: {proposta>description}"
+                                    text="{proposta>description} ({proposta>product})"
+                                />
+                            </VBox>
+                            <VBox class="sapUiTinyMargin">
+                                <Label
+                                    design="Bold"
+                                    text="Ultimo acquisto: {proposta>u_acq}"
                                 />
                                 <Label
-                                    wrapping="true"
                                     design="Bold"
-                                    text="Prezzo di listino: {proposta>listino}"
+                                    text="Ultimo prezzo: {proposta>u_prz} €"
+                                />
+                                <Label
+                                    design="Bold"
+                                    text="Ultima quantità: {proposta>u_qta}"
                                 />
                             </VBox>
                             <VBox class="sapUiTinyMargin">
@@ -101,11 +123,7 @@
                                 />
                             </VBox>
                             <VBox>
-                                <Button
-                                    text="Aggiungi al Riepilogo"
-                                    icon="sap-icon://add"
-                                    type="Emphasized"
-                                />
+                                <StepInput />
                             </VBox>
                         </HBox>
                     </HBox>

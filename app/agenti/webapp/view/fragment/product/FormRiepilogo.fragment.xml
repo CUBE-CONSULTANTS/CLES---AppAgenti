@@ -1,0 +1,174 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
+        <Title
+            class="sapUiSmallMargin"
+            text="QUANTITA"
+            titleStyle="H3"
+        />
+        <form:SimpleForm
+            backgroundDesign="Transparent"
+            maxContainerCols="2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanL="12"
+            labelSpanM="12"
+            emptySpanL="0"
+            emptySpanM="0"
+            columnsL="1"
+            columnsM="1"
+        >
+            <form:content>
+                <Label
+                    design="Bold"
+                    text="Tipo Riga"
+                />
+                <Select>
+                    <items>
+                        <core:Item
+                            key="VENDITA"
+                            text="Vendita"
+                        />
+                    </items>
+                </Select>
+                <Label
+                    design="Bold"
+                    text="U.M."
+                />
+                <Select>
+                    <items>
+                        <core:Item
+                            key="VENDITA"
+                            text="Cassa"
+                        />
+                    </items>
+                </Select>
+                <Label
+                    design="Bold"
+                    text="Quantità per unità ( 3 PZ )"
+                />
+                <HBox
+                    alignContent="Center"
+                    alignItems="Center"
+                    justifyContent="End"
+                >
+                    <StepInput value="1" />
+                </HBox>
+                <Label
+                    design="Bold"
+                    text="Totale Quantità"
+                />
+                <Text
+                    textAlign="End"
+                    text="9 PEZZI"
+                />
+            </form:content>
+        </form:SimpleForm>
+        <HBox
+            justifyContent="End"
+            class="sapUiSmallMarginBeginEnd"
+        >
+            <Button
+                width="100%"
+                icon="sap-icon://notes"
+                tooltip="Nota Riga"
+                text="Nota Riga"
+                press=".onAddNotePress"
+            >
+                <customData>
+                    <BadgeCustomData
+                        value="{product>/product/notes/length}"
+                        writeToDom="true"
+                    />
+                </customData>
+            </Button>
+        </HBox>
+    </VBox>
+    <Toolbar
+        class="sapUiSmallMargin"
+        width="100%"
+        height="1px"
+        visible="{= ${device>/system/phone} ? true : false }"
+    />
+    <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
+        <Title
+            class="sapUiSmallMargin"
+            text="PREZZO"
+            titleStyle="H3"
+        />
+        <form:SimpleForm
+            backgroundDesign="Transparent"
+            maxContainerCols="2"
+            editable="false"
+            layout="ResponsiveGridLayout"
+            labelSpanL="12"
+            labelSpanM="12"
+            emptySpanL="0"
+            emptySpanM="0"
+            columnsL="1"
+            columnsM="1"
+        >
+            <form:content>
+                <Label
+                    design="Bold"
+                    text="Prezzo unità di vendita"
+                />
+                <Title
+                    textAlign="End"
+                    text="3.50€"
+                    titleStyle="H4"
+                />
+                <Label
+                    design="Bold"
+                    text="Sconto agente %"
+                />
+                <Input value="5%" />
+                <Label
+                    design="Bold"
+                    text="Prezzo applicato"
+                />
+                <Title
+                    textAlign="End"
+                    text="3.50€/PZ"
+                    titleStyle="H4"
+                />
+                <Label
+                    design="Bold"
+                    text="Totale riga"
+                />
+                <Title
+                    textAlign="End"
+                    text="10.50€/PZ"
+                    titleStyle="H4"
+                />
+                <Label
+                    design="Bold"
+                    text="Marginalità"
+                />
+                <HBox
+                    justifyContent="End"
+                    alignContent="Center"
+                    alignItems="Center"
+                >
+                    <core:Icon
+                        class="sapUiTinyMarginEnd"
+                        src="sap-icon://circle-task-2"
+                        color="Neutral"
+                    />
+                    <core:Icon
+                        class="sapUiTinyMarginEnd"
+                        src="sap-icon://circle-task-2"
+                        color="Neutral"
+                    />
+                    <core:Icon
+                        src="sap-icon://circle-task-2"
+                        color="Positive"
+                    />
+                </HBox>
+            </form:content>
+        </form:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>

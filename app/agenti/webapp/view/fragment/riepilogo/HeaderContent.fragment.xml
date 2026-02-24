@@ -4,19 +4,37 @@
     xmlns:f="sap.f"
     xmlns:card="sap.f.cards"
 >
-    <f:Card >
+    <f:Card>
         <f:header>
             <card:Header
-                title="Totali"
+                title="{proposta>/header/customer/name}"
                 subtitle="Riepilogo totali | EUR"
             />
         </f:header>
         <f:content>
             <VBox width="100%">
+                <HBox>
+                    <ObjectStatus
+                        class="sapUiTinyMargin"
+                        text="PARTITE SCADUTE"
+                        active="false"
+                        inverted="true"
+                        state="Error"
+                        icon="sap-icon://warning"
+                    />
+                    <ObjectStatus
+                        class="sapUiTinyMargin"
+                        text="FIDO TRA 1% E 2%"
+                        active="false"
+                        inverted="true"
+                        state="Warning"
+                        icon="sap-icon://warning"
+                    />
+                </HBox>
                 <HBox
                     class="sapUiSmallMargin"
-                    justifyContent="SpaceAround"
-                    alignContent="SpaceAround"
+                    justifyContent="SpaceBetween"
+                    alignContent="SpaceBetween"
                 >
                     <VBox>
                         <Label
@@ -41,38 +59,6 @@
                             inverted="true"
                             number="329.40"
                             unit="€"
-                            emphasized="true"
-                        />
-                    </VBox>
-                </HBox>
-                <HBox
-                    class="sapUiSmallMargin"
-                    justifyContent="SpaceAround"
-                    alignContent="SpaceAround"
-                >
-                    <VBox>
-                        <Label
-                            design="Bold"
-                            text="IVA"
-                        />
-                        <ObjectNumber
-                            state="Error"
-                            unit="%"
-                            inverted="true"
-                            number="22"
-                            emphasized="true"
-                        />
-                    </VBox>
-                    <VBox>
-                        <Label
-                            design="Bold"
-                            text="Peso"
-                        />
-                        <ObjectNumber
-                            state="Information"
-                            unit="KG"
-                            inverted="true"
-                            number="200"
                             emphasized="true"
                         />
                     </VBox>

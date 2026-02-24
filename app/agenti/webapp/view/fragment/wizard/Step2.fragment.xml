@@ -1,0 +1,51 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <VBox
+        class="sapUiTinyMarginBottom"
+        width="{= ${device>/system/phone} ? '100%' : '50%' }"
+        visible="{= ${/selectedMode} === 'PRE' ? false : true }"
+    >
+        <Label
+            required="true"
+            text="{= ${/selectedMode} === 'ORD' ? 'Data di Consegna:' : 'Data di Validità:' }"
+            design="Bold"
+        />
+        <DatePicker dateValue="{/step2/date/value}" />
+    </VBox>
+    <VBox
+        class="sapUiTinyMarginBottom"
+        width="{= ${device>/system/phone} ? '100%' : '50%' }"
+        visible="{= ${/selectedMode} === 'ORD' ? true : false }"
+    >
+        <Label
+            required="true"
+            text="Visualizzazione:"
+            design="Bold"
+        />
+        <SegmentedButton selectedKey="{/step2/tab/selected}" items="{/step2/tab/items}">
+            <items>
+                <SegmentedButtonItem
+                    key="{key}"
+                    text="{text}"
+                />
+            </items>
+        </SegmentedButton>
+    </VBox>
+    <VBox
+        class="sapUiTinyMarginBottom"
+        fitContainer="true"
+        height="100%"
+        visible="{= ${/selectedMode} === 'PRE' ? false : true }"
+    >
+        <core:Fragment fragmentName="cles.agenti.view.fragment.customer.List" />
+    </VBox>
+    <VBox
+        class="sapUiTinyMarginBottom"
+        visible="{= ${/selectedMode} === 'PRE' ? true : false }"
+    >
+        <core:Fragment fragmentName="cles.agenti.view.fragment.preorder.Form" />
+    </VBox>
+</core:FragmentDefinition>

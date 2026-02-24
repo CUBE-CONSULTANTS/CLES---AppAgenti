@@ -21,3 +21,12 @@
   border-radius: 50%; /* Or a value like 100px */
   object-fit: cover; /* Ensures the image covers the circular area */
 }
+
+.clickableCard {
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.clickableCard:hover {
+  transform: translateY(-2px);
+}

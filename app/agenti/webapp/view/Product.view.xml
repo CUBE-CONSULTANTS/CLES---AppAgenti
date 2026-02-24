@@ -1,4 +1,5 @@
-<mvc:View displayBlock="true"
+<mvc:View
+    displayBlock="true"
     controllerName="cles.agenti.controller.Product"
     height="100%"
     xmlns="sap.m"
@@ -6,207 +7,41 @@
     xmlns:m="sap.m"
     xmlns:f="sap.f"
     xmlns:core="sap.ui.core"
-    xmlns:form="sap.ui.layout.form">
+    xmlns:form="sap.ui.layout.form"
+>
     <Page title="{product>/product/id} - {product>/product/description}">
         <headerContent>
-            <OverflowToolbar>
-                <ToolbarSpacer />
-                <OverflowToolbarButton type="Transparent"
-                    icon="sap-icon://decline"
-                    press="onClosePress"
-                    tooltip="Close middle column" />
-            </OverflowToolbar>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.product.HeaderContent"
+                type="XML"
+            />
         </headerContent>
         <content>
-            <HBox justifyContent="End"
-                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }">
-                <Button class="sapUiTinyMargin"
-                    text="Dettagli Prodotto"
-                    icon="sap-icon://information"
-                    press=".onShowProductproductPress" />
-                <Button class="sapUiTinyMargin"
-                    text="Allegati prodotto"
-                    icon="sap-icon://attachment"
-                    press=".onShowProductAttachmentsPress" />
-            </HBox>
-            <VBox width="100%">
-                <Carousel width="100%"
-                    pages="{product>/carousel/pages}">
-                    <pages>
-                        <Image src="{product>src}" />
-                    </pages>
-                </Carousel>
-            </VBox>
-            <FlexBox direction="{= ${device>/system/phone} ? 'Column': 'Row' }"
-                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }">
-                <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
-                    <Title class="sapUiSmallMargin"
-                        text="QUANTITA"
-                        titleStyle="H3" />
-                    <form:SimpleForm backgroundDesign="Transparent"
-                        maxContainerCols="2"
-                        editable="false"
-                        layout="ResponsiveGridLayout"
-                        labelSpanL="12"
-                        labelSpanM="12"
-                        emptySpanL="0"
-                        emptySpanM="0"
-                        columnsL="1"
-                        columnsM="1">
-                        <form:content>
-                            <Label design="Bold"
-                                text="Tipo Riga" />
-                            <Select>
-                                <items>
-                                    <core:Item key="VENDITA"
-                                        text="Vendita" />
-                                </items>
-                            </Select>
-                            <Label design="Bold"
-                                text="U.M." />
-                            <Select>
-                                <items>
-                                    <core:Item key="VENDITA"
-                                        text="Cassa" />
-                                </items>
-                            </Select>
-                            <Label design="Bold"
-                                text="Quantità per unità ( 3 PZ )" />
-                            <HBox alignContent="Center"
-                                alignItems="Center"
-                                justifyContent="End">
-                                <StepInput value="1" />
-                            </HBox>
-                            <Label design="Bold"
-                                text="Totale Quantità" />
-                            <Text textAlign="End"
-                                text="9 PEZZI" />
-                        </form:content>
-                    </form:SimpleForm>
-                    <HBox justifyContent="End"
-                        class="sapUiSmallMarginBeginEnd">
-                        <Button width="100%"
-                            icon="sap-icon://notes"
-                            tooltip="Nota Riga"
-                            text="Nota Riga"
-                            press=".onAddNotePress">
-                            <customData>
-                                <BadgeCustomData
-                                    value="{product>/product/notes/length}"
-                                    writeToDom="true" />
-                            </customData>
-                        </Button>
-                    </HBox>
-                </VBox>
-                <Toolbar class="sapUiSmallMargin"
-                    width="100%"
-                    height="1px"
-                    visible="{= ${device>/system/phone} ? true : false }" />
-                <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
-                    <Title class="sapUiSmallMargin"
-                        text="PREZZO"
-                        titleStyle="H3" />
-                    <form:SimpleForm backgroundDesign="Transparent"
-                        maxContainerCols="2"
-                        editable="false"
-                        layout="ResponsiveGridLayout"
-                        labelSpanL="12"
-                        labelSpanM="12"
-                        emptySpanL="0"
-                        emptySpanM="0"
-                        columnsL="1"
-                        columnsM="1">
-                        <form:content>
-                            <Label design="Bold"
-                                text="Prezzo unità di vendita" />
-                            <Title textAlign="End"
-                                text="3.50€"
-                                titleStyle="H4" />
-                            <Label design="Bold"
-                                text="Sconto agente %" />
-                            <Input value="5%" />
-                            <Label design="Bold"
-                                text="Prezzo applicato" />
-                            <Title textAlign="End"
-                                text="3.50€/PZ"
-                                titleStyle="H4" />
-                            <Label design="Bold"
-                                text="Totale riga" />
-                            <Title textAlign="End"
-                                text="10.50€/PZ"
-                                titleStyle="H4" />
-                            <Label design="Bold"
-                                text="Marginalità" />
-                            <HBox justifyContent="End"
-                                alignContent="Center"
-                                alignItems="Center">
-                                <core:Icon class="sapUiTinyMarginEnd"
-                                    src="sap-icon://circle-task-2"
-                                    color="Neutral" />
-                                <core:Icon class="sapUiTinyMarginEnd"
-                                    src="sap-icon://circle-task-2"
-                                    color="Neutral" />
-                                <core:Icon src="sap-icon://circle-task-2"
-                                    color="Positive" />
-                            </HBox>
-                        </form:content>
-                    </form:SimpleForm>
-                </VBox>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.product.Toolbar"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.product.Carousel"
+                type="XML"
+            />
+            <FlexBox
+                direction="{= ${device>/system/phone} ? 'Column': 'Row' }"
+                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
+            >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.product.FormRiepilogo"
+                    type="XML"
+                />
             </FlexBox>
-            <FlexBox direction="Column"
-                visible="{= ${product>/from} === 'CATALOGO' ? true : false }">
-                <HBox backgroundDesign="Solid"
-                    justifyContent="SpaceBetween" alignContent="Center"
-                    alignItems="Center" class="sapUiSmallMarginBeginEnd">
-                    <Label design="Bold" text="Prezzo di Listino: 3.50€"/>
-                    <Button text="Aggiungi al Riepilogo"
-                        icon="sap-icon://add"
-                        type="Emphasized" />
-                </HBox>
-                <VBox >
-                    <form:SimpleForm layout="ResponsiveGridLayout"
-                        columnsXL="2"
-                        columnsL="2"
-                        columnsM="1"
-                        labelSpanXL="3"
-                        labelSpanL="3"
-                        labelSpanM="4"
-                        labelSpanS="12"
-                        emptySpanXL="1"
-                        emptySpanL="1"
-                        emptySpanM="0"
-                        emptySpanS="0"
-                        editable="false">
-
-                        <!-- Identificazione -->
-                        <core:Title text="Identificazione Prodotto" />
-                        <Label text="Codice Materiale" />
-                        <Text text="PRD-002345" />
-                        <Label text="Descrizione" />
-                        <Text text="Bastoncini di mozzarella panati surgelati" />
-                        <Label text="Categoria" />
-                        <Text text="Prodotti panati surgelati" />
-                        <Label text="Marchio / Produttore" />
-                        <Text text="Pastificio e Latticini Italia S.p.A." />
-                        <Label text="Codice EAN" />
-                        <Text text="8001234567895" />
-
-                        <!-- Informazioni Legali e Normative -->
-                        <core:Title text="Informazioni Legali e Normative" />
-                        <Label text="Ingredienti" />
-                        <Text text="Mozzarella (50%) [latte, sale, caglio], panatura [farina di grano, farina di mais, amido, uovo in polvere, paprica, lievito, sale], olio di semi di girasole, acqua." />
-                        <Label text="Allergeni" />
-                        <Text text="Latte, uova, glutine. Può contenere tracce di soia e sedano." />
-                        <Label text="Valori Nutrizionali (100 g)" />
-                        <Text text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g" />
-                        <Label text="Additivi" />
-                        <Text text="Non dichiarati" />
-                        <Label text="Data Scadenza / TMC" />
-                        <Text text="12 mesi dalla produzione" />
-                        <Label text="Normativa" />
-                        <Text text="Reg. UE 1169/2011" />
-                    </form:SimpleForm>
-                </VBox>
+            <FlexBox
+                direction="Column"
+                visible="{= ${product>/from} === 'CATALOGO' ? true : false }"
+            >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.product.FormCatalogo"
+                    type="XML"
+                />
             </FlexBox>
         </content>
     </Page>

@@ -1,7 +1,7 @@
 <mvc:View
     xmlns:uxap="sap.uxap"
     displayBlock="true"
-    controllerName="cles.agenti.controller.Ordine"
+    controllerName="cles.agenti.controller.Main"
     height="100%"
     xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
@@ -43,27 +43,46 @@
                 id="storicoOrdini"
                 title="Storico Ordini"
                 showTitle="false"
-                visible="{= ${proposta>/header/mode} === 'ORD' ? true : false }"
+                visible="{= 
+                  (${proposta>/header/mode} === 'ORD' &amp;&amp; ${proposta>/header/tabOrdine} === 'STORICO') ? true :
+                  ${proposta>/header/mode} === 'OFF' ? true :
+                  false 
+                }"
             >
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.StoricoOrdini"
+                            fragmentName="cles.agenti.view.fragment.ordine.tab.StoricoOrdini"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>
             <uxap:ObjectPageSection
-                id="storicoOfferte"
-                title="Offerte Attive"
+                id="offertaOrdini"
+                title="Offerta"
                 showTitle="false"
-                visible="{= ${proposta>/header/mode} === 'OFF' ? true : false }"
+                visible="{= (${proposta>/header/mode} === 'ORD' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
             >
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.PropostaProdotti"
+                            fragmentName="cles.agenti.view.fragment.ordine.tab.Offerta"
+                            type="XML"
+                        />
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection
+                id="propostaProdotti"
+                title="Proposta Prodotti"
+                showTitle="false"
+                visible="{= (${proposta>/header/mode} === 'ORD' || ${proposta>/header/mode} === 'OFF') ? true : false }"
+            >
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <core:Fragment
+                            fragmentName="cles.agenti.view.fragment.ordine.tab.PropostaProdotti"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
@@ -77,7 +96,7 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.Catalogo"
+                            fragmentName="cles.agenti.view.fragment.ordine.tab.Catalogo"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>

@@ -1,0 +1,40 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:layout="sap.ui.layout.cssgrid"
+>
+    <layout:CSSGrid
+        items="{/step1/cards}"
+        gridGap="1rem"
+        gridTemplateColumns="repeat(auto-fit, minmax(250px, 1fr))"
+    >
+        <layout:items>
+            <f:Card
+                class="clickableCard"
+                width="100%"
+                semanticRole="ListItem"
+                press=".onWizardCardPress"
+            >
+                <f:header>
+                    <card:Header title="{cardHeader/title}" />
+                </f:header>
+
+                <f:content>
+                    <VBox
+                        class="sapUiTinyMargin"
+                        justifyContent="SpaceBetween"
+                        alignItems="Center"
+                    >
+                        <Image
+                            width="100%"
+                            src="{cardContent/src}"
+                        />
+                        <Text text="{cardContent/text}" />
+                    </VBox>
+                </f:content>
+            </f:Card>
+        </layout:items>
+    </layout:CSSGrid>
+</core:FragmentDefinition>

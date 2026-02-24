@@ -11,24 +11,6 @@
             text="{proposta>/header/customer/name}"
             wrapping="true"
         />
-        <HBox>
-            <ObjectStatus
-                class="sapUiTinyMargin"
-                text="PARTITE SCADUTE"
-                active="false"
-                inverted="true"
-                state="Error"
-                icon="sap-icon://warning"
-            />
-            <ObjectStatus
-                class="sapUiTinyMargin"
-                text="FIDO TRA 1% E 2%"
-                active="false"
-                inverted="true"
-                state="Warning"
-                icon="sap-icon://warning"
-            />
-        </HBox>
     </VBox>
     <VBox visible="{= ${proposta>/header/mode} === 'PRE' ? true : false }">
         <Label text="Titolo" />
@@ -46,4 +28,22 @@
             wrapping="true"
         />
     </VBox>
+    <HBox>
+        <ObjectStatus
+            class="sapUiTinyMargin"
+            text="PARTITE SCADUTE"
+            active="false"
+            inverted="true"
+            state="Error"
+            icon="sap-icon://warning"
+        />
+        <ObjectStatus
+            class="sapUiTinyMargin"
+            text="FIDO TRA 1% E 2%"
+            active="false"
+            inverted="true"
+            state="Warning"
+            icon="sap-icon://warning"
+        />
+    </HBox>
 </core:FragmentDefinition>

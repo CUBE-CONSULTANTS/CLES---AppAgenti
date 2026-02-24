@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <OverflowToolbar>
+        <ToolbarSpacer />
+        <OverflowToolbarButton
+            type="Transparent"
+            icon="sap-icon://decline"
+            press="onClosePress"
+            tooltip="Close middle column"
+        />
+    </OverflowToolbar>
+</core:FragmentDefinition>

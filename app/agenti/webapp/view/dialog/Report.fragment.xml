@@ -1,32 +1,37 @@
-<core:FragmentDefinition xmlns:form="sap.ui.layout.form" xmlns:u="sap.ui.unified"
+<core:FragmentDefinition
+    xmlns:form="sap.ui.layout.form"
+    xmlns:u="sap.ui.unified"
     xmlns="sap.m"
-    xmlns:core="sap.ui.core">
-    <Dialog showHeader="true" title="Crea Segnalazione" contentWidth="20%">
+    xmlns:core="sap.ui.core"
+>
+    <Dialog
+        showHeader="true"
+        title="Crea Segnalazione"
+    >
         <content>
-            <form:SimpleForm >
-                <RadioButtonGroup >
-                    <RadioButton text="Problemi Prodotto" selected="true"/>
-                    <RadioButton text="Modifica Indirizzo"/>
-                    <RadioButton text="Incasso"/>
+            <form:SimpleForm>
+                <RadioButtonGroup>
+                    <RadioButton
+                        text="Segnalazione Prodotto"
+                        selected="true"
+                    />
+                    <RadioButton text="Modifica Anagrafica" />
                 </RadioButtonGroup>
+                <Label text="Note" design="Bold"/>
+                <TextArea rows="4"/>
             </form:SimpleForm>
-            <VBox class="sapUiSmallMargin">
-                <Label text="Carica un allegato" design="Bold"/>
-                <u:FileUploader width="100%" style="Emphasized"
-                    name="myFileUpload"
-                    uploadUrl="upload/"
-                    value="{/value}"
-                    uploadComplete="handleUploadComplete" />
-            </VBox>
         </content>
         <buttons>
-            <Button text="Upload"
-                enabled="{= ${/value} ? true : false }"
+            <Button
+                text="Invia"
                 type="Emphasized"
-                press=".defaultDialogClose" />
-            <Button text="Chiudi"
+                press=".defaultDialogClose"
+            />
+            <Button
+                text="Chiudi"
                 type="Emphasized"
-                press=".defaultDialogClose" />
+                press=".defaultDialogClose"
+            />
         </buttons>
     </Dialog>
 </core:FragmentDefinition>

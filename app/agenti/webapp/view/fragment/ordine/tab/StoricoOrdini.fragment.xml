@@ -9,7 +9,7 @@
             type="XML"
         />
         <List
-            id="proposta_list"
+            id="storico_list"
             width="100%"
             mode="None"
             growing="true"
@@ -48,7 +48,7 @@
                     <SearchField
                         placeholder="Cerca per categoria o codice/descrizione"
                         showSearchButton="false"
-                        liveChange="onSearch($event, 'proposta_prodotti')"
+                        liveChange="onSearch($event, 'storico_ordini')"
                     />
                 </Toolbar>
             </infoToolbar>
@@ -78,17 +78,12 @@
                                 <Label
                                     wrapping="true"
                                     design="Bold"
-                                    text="Categoria: {proposta>category}"
+                                    text="{proposta>category}"
                                 />
                                 <Label
                                     wrapping="true"
                                     design="Bold"
-                                    text="Prodotto: {proposta>product}"
-                                />
-                                <Label
-                                    wrapping="true"
-                                    design="Bold"
-                                    text="Descrizione: {proposta>description}"
+                                    text="{proposta>description} ({proposta>product})"
                                 />
                             </VBox>
                             <VBox class="sapUiTinyMargin">
@@ -122,6 +117,9 @@
                                     inverted="true"
                                     state="{proposta>status_state}"
                                 />
+                            </VBox>
+                            <VBox>
+                                <StepInput />
                             </VBox>
                         </HBox>
                     </HBox>

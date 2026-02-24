@@ -107,7 +107,26 @@ sap.ui.define(
 					}
 					parent = parent.getParent();
 				}
-			}
+			},
+
+      onHeaderAttachmentPress() {
+        Dialog.getAttachmentDialog({ controller: this });
+      },
+
+      onHeaderAttachmentItemPress(e) {
+        const pdfViewer = new sap.m.PDFViewer({
+          title: "Allegato",
+          isTrustedSource: true,
+        });
+
+        this.getView().addDependent(pdfViewer);
+        pdfViewer.setSource(
+          sap.ui.require.toUrl(
+            "https://sapui5.hana.ondemand.com/sap/m/sample/PDFViewerPopup/sample1.pdf",
+          ),
+        );
+        pdfViewer.open();
+      },
 		});
 	}
 );

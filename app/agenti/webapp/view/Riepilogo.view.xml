@@ -23,13 +23,13 @@
     >
         <uxap:headerTitle>
             <core:Fragment
-                fragmentName="cles.agenti.view.fragment.ordine.HeaderTitle"
+                fragmentName="cles.agenti.view.fragment.riepilogo.HeaderTitle"
                 type="XML"
             />
         </uxap:headerTitle>
         <uxap:headerContent>
             <core:Fragment
-                fragmentName="cles.agenti.view.fragment.ordine.HeaderContent"
+                fragmentName="cles.agenti.view.fragment.riepilogo.HeaderContent"
                 type="XML"
             />
         </uxap:headerContent>
@@ -42,32 +42,6 @@
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
                             fragmentName="cles.agenti.view.fragment.riepilogo.Lista"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection
-                title="Totali"
-                showTitle="false"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.riepilogo.Totali"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection
-                title="Chiusura"
-                showTitle="false"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.riepilogo.Chiusura"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>

@@ -1,0 +1,89 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <VBox>
+        <form:SimpleForm
+            editable="true"
+            layout="ResponsiveGridLayout"
+            columnsL="2"
+            columnsM="2"
+        >
+            <form:content>
+                <core:Title text="Dati Generali" />
+                <Label text="Cliente" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value="{/step3/customer/name}"
+                />
+                <Label text="Indirizzo" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Partita IVA" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Codice SDI" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Giorni di consegna" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Giorni di visita" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Agente" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Pagatore" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Termini di Pagamento" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Telefono" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Mail" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+                <Label text="Esposizione Fido" />
+                <Input
+                    editable="{/step3/formEnabled}"
+                    value=""
+                />
+            </form:content>
+        </form:SimpleForm>
+        <HBox
+            backgroundDesign="Translucent"
+            justifyContent="End"
+        >
+            <Button
+                visible="{/step3/formEnabled}"
+                type="Success"
+                text="Salva"
+                press=".onCustomerConfirmPress"
+            />
+        </HBox>
+    </VBox>
+</core:FragmentDefinition>

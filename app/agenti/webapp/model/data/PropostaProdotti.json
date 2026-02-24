@@ -17,7 +17,8 @@
       "id": "",
       "name": ""
     },
-    "mode": "ORD"
+    "mode": "ORD",
+    "tabOrdine": "STORICO"
   },
   "table": {
     "columns": {

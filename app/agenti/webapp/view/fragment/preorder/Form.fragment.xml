@@ -1,0 +1,37 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <form:SimpleForm
+        editable="true"
+        layout="ResponsiveGridLayout"
+        columnsL="2"
+        columnsM="2"
+    >
+        <form:content>
+            <Label
+                text="Titolo"
+                required="true"
+            />
+            <Input value="{/step2/preorder/selected/name}" />
+            <Label
+                required="true"
+                text="Data di Validità:"
+                design="Bold"
+            />
+            <DatePicker dateValue="{/step2/date/value}" />
+        </form:content>
+    </form:SimpleForm>
+    <HBox
+        backgroundDesign="Translucent"
+        justifyContent="End"
+    >
+        <Button
+            type="Success"
+            text="Conferma"
+            icon="sap-icon://save"
+            press=".onPreorderConfirmPress"
+        />
+    </HBox>
+</core:FragmentDefinition>
