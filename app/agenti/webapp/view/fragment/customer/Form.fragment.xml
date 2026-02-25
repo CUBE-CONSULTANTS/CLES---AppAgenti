@@ -74,16 +74,5 @@
                 />
             </form:content>
         </form:SimpleForm>
-        <HBox
-            backgroundDesign="Translucent"
-            justifyContent="End"
-        >
-            <Button
-                visible="{/step3/formEnabled}"
-                type="Success"
-                text="Salva"
-                press=".onCustomerConfirmPress"
-            />
-        </HBox>
     </VBox>
 </core:FragmentDefinition>

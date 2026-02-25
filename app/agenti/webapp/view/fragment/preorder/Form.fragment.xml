@@ -23,15 +23,4 @@
             <DatePicker dateValue="{/step2/date/value}" />
         </form:content>
     </form:SimpleForm>
-    <HBox
-        backgroundDesign="Translucent"
-        justifyContent="End"
-    >
-        <Button
-            type="Success"
-            text="Conferma"
-            icon="sap-icon://save"
-            press=".onPreorderConfirmPress"
-        />
-    </HBox>
 </core:FragmentDefinition>

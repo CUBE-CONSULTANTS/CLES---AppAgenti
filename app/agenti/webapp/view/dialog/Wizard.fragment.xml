@@ -8,7 +8,6 @@
 >
     <Dialog
         showHeader="true"
-        contentHeight="80vh"
         stretch="true"
         title="Crea documento"
     >
@@ -19,12 +18,26 @@
                 press=".onWizardPreviousStep"
                 type="Emphasized"
             />
+            <Button
+                visible="{= (${/step3/formEnabled} &amp;&amp; ${/currentStep} === 2 ) ? true : false }"
+                type="Success"
+                text="Salva"
+                press=".onCustomerConfirmPress"
+            />
+            <Button
+                type="Success"
+                text="Conferma"
+                visible="{= (${/selectedMode} === 'PREORDINE' &amp;&amp; ${/currentStep} === 1 ) ? true : false }"
+                icon="sap-icon://save"
+                press=".onPreorderConfirmPress"
+            />
         </buttons>
         <content>
             <Wizard
                 id="wizardMode"
+                width="100%"
                 height="100%"
-                class="sapUiResponsivePadding--header sapUiResponsivePadding--content"
+                backgroundDesign="Transparent"
                 showNextButton="false"
                 renderMode="Page"
                 navigationChange="handleNavigationChange"

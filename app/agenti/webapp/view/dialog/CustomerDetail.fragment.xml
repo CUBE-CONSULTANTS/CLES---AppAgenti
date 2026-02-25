@@ -6,7 +6,9 @@
 >
     <Dialog
         showHeader="true"
-        title="Crea Segnalazione">
+        stretch="false"
+        title="Dettagli Cliente" 
+        >
         <content>
             <form:SimpleForm
                 editable="true"

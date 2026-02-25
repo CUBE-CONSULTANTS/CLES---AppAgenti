@@ -12,14 +12,24 @@
 } */
 
 /* Custom CSS */
+.cardGrid > *:last-child {
+    grid-column: auto;
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .cardGrid > *:last-child {
+        grid-column: 1 / -1;
+    }
+}
 
 .tabbedBar .sapMITBHead{
     text-align:center;
 }
 
 .circularImage {
-  border-radius: 50%; /* Or a value like 100px */
-  object-fit: cover; /* Ensures the image covers the circular area */
+  border-radius: 50%; 
+  object-fit: cover; 
 }
 
 .clickableCard {
@@ -31,27 +41,22 @@
   transform: translateY(-2px);
 }
 
-/* Stato base */
 .coloredCustomListItem {
     background-color: #f0eab8;
 }
 
-/* Hover */
 .coloredCustomListItem.sapMLIBHoverable:hover {
     background-color: #ebe4a6;
 }
 
-/* Active (click / press) */
 .coloredCustomListItem.sapMLIBActive {
     background-color: #f0eab8;
 }
 
-/* Selected */
 .coloredCustomListItem.sapMLIBSelected {
     background-color: #f0eab8;
 }
 
-/* Selected + Hover */
 .coloredCustomListItem.sapMLIBSelected.sapMLIBHoverable:hover {
     background-color: #f0eab8;
 }

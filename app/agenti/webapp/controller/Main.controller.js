@@ -196,6 +196,15 @@ sap.ui.define(
         model.setProperty("/step3/formEnabled", true);
 
         this.byId("wizardMode").nextStep();
+
+        model.setProperty(
+            "/currentStep",
+            parseInt(
+              wizard
+                .getCurrentStep()
+                .substring(wizard.getCurrentStep().length - 1),
+            ),
+          );
       },
 
       onCustomerInfoPress(e) {
@@ -208,6 +217,15 @@ sap.ui.define(
         model.setProperty("/step3/formEnabled", false);
 
         this.byId("wizardMode").nextStep();
+
+        model.setProperty(
+            "/currentStep",
+            parseInt(
+              wizard
+                .getCurrentStep()
+                .substring(wizard.getCurrentStep().length - 1),
+            ),
+          );
       },
 
       onCustomerReportPress() {
@@ -301,10 +319,6 @@ sap.ui.define(
             and: false,
           }),
         ]);
-      },
-
-      onFilterPress(e) {
-        Dialog.getFiltersDialog({ controller: this });
       },
 
       onFiltriCategorieButtonPress: function (e, mode) {

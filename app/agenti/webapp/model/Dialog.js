@@ -40,7 +40,7 @@ sap.ui.define(
                       },
                       cardContent: {
                         src: "./public/img/OdV.svg",
-                        text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini e il catalogo per la creazione di un ordine di vendita",
+                        text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini, le offerte(se disponbili) e il catalogo per la creazione di un ordine di vendita",
                       },
                     },
                     {
@@ -51,7 +51,7 @@ sap.ui.define(
                       },
                       cardContent: {
                         src: "./public/img/Offer.svg",
-                        text: "Selezionando questa modalità verranno visualizzati la proposta prodotti e il catalogo per la creazione di una nuova offerta o la convalida di una già esistente",
+                        text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini, la proposta prodotti e il catalogo per la creazione di una nuova offerta o la convalida di una già esistente",
                       },
                     },
                     {
@@ -230,26 +230,6 @@ sap.ui.define(
             const oDialog = await this._getDialogBase({
               name: "_customerReportDialog",
               path: "view.dialog.CustomerReport",
-              controller,
-              model: new JSONModel({
-                value: null,
-              }),
-            });
-
-            oDialog.open();
-            resolve();
-          } catch (error) {
-            reject(error);
-          }
-        });
-      },
-
-      async getFiltersDialog({ controller }) {
-        return new Promise(async (resolve, reject) => {
-          try {
-            const oDialog = await this._getDialogBase({
-              name: "_filtersDialog",
-              path: "view.dialog.Filters",
               controller,
               model: new JSONModel({
                 value: null,

@@ -11,6 +11,7 @@
                 design="Transparent"
                 style="Clear"
             >
+                <Title text="Lista Clienti" />
                 <ToolbarSpacer />
                 <Button
                     text="Crea anagrafica cliente"
@@ -54,7 +55,7 @@
                     </VBox>
                     <VBox>
                         <Button
-                          press=".onCustomerInfoPress"
+                            press=".onCustomerInfoPress"
                             text="{= ${device>/system/phone} ? '' : 'Informazioni Cliente'}"
                             icon="sap-icon://information"
                         />
