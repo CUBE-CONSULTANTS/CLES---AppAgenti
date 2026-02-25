@@ -25,6 +25,7 @@
         showFooter="true"
         sectionChange=".onObjectPageSectionChange"
         toggleHeaderOnTitleClick="true"
+        useTwoColumnsForLargeScreen="false"
     >
         <uxap:headerTitle>
             <core:Fragment

@@ -1,6 +1,7 @@
 <core:FragmentDefinition
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
+    xmlns:grid="sap.ui.layout.cssgrid"
 >
     <List
         width="100%"
@@ -16,60 +17,88 @@
                 type="Active"
                 press=".onProductListItemPress($event, 'RIEPILOGO')"
             >
-                <HBox>
-                    <Image
-                        class="circularImage"
-                        src="{proposta>src}"
-                        lazyLoading="true"
-                        width="6rem"
-                        height="6rem"
-                        press=".onShowPhotoPress"
-                    />
-                    <HBox
-                        width="100%"
-                        wrap="Wrap"
-                        class="sapUiSmallMarginBegin"
-                        alignContent="Center"
-                        alignItems="Center"
-                        justifyContent="SpaceBetween"
-                    >
-                        <VBox class="sapUiTinyMargin">
-                            <Label
-                                wrapping="true"
-                                design="Bold"
-                                text="Prodotto: {proposta>product}"
-                            />
-                            <Label
-                                wrapping="true"
-                                design="Bold"
-                                text="Descrizione: {proposta>description}"
-                            />
-                            <Label
-                                wrapping="true"
-                                design="Bold"
-                                text="Prezzo unitario: {proposta>price}"
-                            />
-                            <Label
-                                wrapping="true"
-                                design="Bold"
-                                text="Valore totale di riga: {proposta>quantity}"
-                            />
-                            <Label
-                                wrapping="true"
-                                design="Bold"
-                                text="Aliquota IVA: {proposta>quantity}"
-                            />
-                            <VBox>
-                                    <StepInput change=".onStepInputChange" min="0"  />
-                                </VBox>
-                            <Button
-                                text="Elimina Articolo"
-                                type="Negative"
-                                icon="sap-icon://delete"
-                            />
-                        </VBox>
-                    </HBox>
-                </HBox>
+                <grid:CSSGrid>
+                    <grid:customLayout>
+                        <grid:GridResponsiveLayout>
+                            <grid:layoutS>
+                                <grid:GridSettings
+                                    gridTemplateColumns="1fr 1fr"
+                                    gridGap="0.1rem"
+                                />
+                            </grid:layoutS>
+                            <grid:layout>
+                                <grid:GridSettings
+                                    gridTemplateColumns="2fr 6fr 6fr"
+                                    gridGap="0.1rem"
+                                />
+                            </grid:layout>
+                            <grid:layoutXL>
+                                <grid:GridSettings
+                                    gridTemplateColumns="1fr 6fr 4fr 4fr"
+                                    gridRowGap="0.5rem"
+                                    gridColumnGap="0.5rem"
+                                />
+                            </grid:layoutXL>
+                        </grid:GridResponsiveLayout>
+                    </grid:customLayout>
+
+                    <VBox class="sapUiResponsiveMargin">
+                        <Image
+                            class="circularImage"
+                            src="{proposta>src}"
+                            lazyLoading="true"
+                            width="6rem"
+                            height="6rem"
+                            press=".onShowPhotoPress"
+                        />
+                    </VBox>
+                    <VBox class="sapUiResponsiveMargin">
+                        <ObjectStatus
+                            inverted="true"
+                            state="Indication12"
+                            text="{proposta>category}"
+                        />
+                        <Label
+                            wrapping="true"
+                            design="Bold"
+                            text="{proposta>description} ({proposta>product})"
+                        />
+                    </VBox>
+                    <VBox class="sapUiResponsiveMargin">
+                        <Label
+                            wrapping="true"
+                            design="Bold"
+                            text="Prezzo unitario: {proposta>price}"
+                        />
+                        <Label
+                            wrapping="true"
+                            design="Bold"
+                            text="Valore totale di riga: {proposta>quantity}"
+                        />
+                        <Label
+                            wrapping="true"
+                            design="Bold"
+                            text="Aliquota IVA: {proposta>quantity}"
+                        />
+                    </VBox>
+                    <VBox class="sapUiResponsiveMargin">
+                        <Label
+                            design="Bold"
+                            text="Quantità selezionata"
+                        />
+                        <StepInput
+                            class="sapUiTinyMarginTop"
+                            change=".onStepInputChange"
+                            min="0"
+                        />
+                        <Button
+                            class="sapUiTinyMarginTop"
+                            text="Elimina Articolo"
+                            type="Negative"
+                            icon="sap-icon://delete"
+                        />
+                    </VBox>
+                </grid:CSSGrid>
             </CustomListItem>
         </items>
     </List>

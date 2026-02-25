@@ -2,6 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout"
+    xmlns:grid="sap.ui.layout.cssgrid"
 >
     <VBox>
         <core:Fragment
@@ -9,7 +10,7 @@
             type="XML"
         />
         <ScrollContainer
-            height="400px"
+            height="500px"
             vertical="true"
         >
             <List
@@ -41,72 +42,101 @@
                         type="Active"
                         press=".onProductListItemPress($event, 'LISTA')"
                     >
-                        <HBox>
-                            <Image
-                                class="circularImage"
-                                src="{proposta>src}"
-                                lazyLoading="true"
-                                width="6rem"
-                                height="6rem"
-                                press=".onShowPhotoPress"
-                            />
-                            <HBox
-                                width="100%"
-                                wrap="Wrap"
-                                class="sapUiSmallMarginBegin"
-                                alignContent="Center"
-                                alignItems="Center"
-                                justifyContent="SpaceBetween"
-                            >
-                                <VBox class="sapUiTinyMargin">
-                                    <ObjectStatus
-                                        inverted="true"
-                                        state="Indication12"
-                                        text="{proposta>category}"
-                                    />
-                                    <Label
-                                        wrapping="true"
-                                        design="Bold"
-                                        text="{proposta>description} ({proposta>product})"
-                                    />
-                                </VBox>
-                                <VBox class="sapUiTinyMargin">
-                                    <Label
-                                        design="Bold"
-                                        text="Ultimo acquisto: {proposta>u_acq}"
-                                    />
-                                    <Label
-                                        design="Bold"
-                                        text="Ultimo prezzo: {proposta>u_prz} €"
-                                    />
-                                    <Label
-                                        design="Bold"
-                                        text="Ultima quantità: {proposta>u_qta}"
-                                    />
-                                </VBox>
-                                <VBox class="sapUiTinyMargin">
-                                    <Label
-                                        design="Bold"
-                                        text="Disponibilità: {proposta>disponibilita}"
-                                    />
-                                    <ProgressIndicator
-                                        class="sapUiSmallMarginBottom"
-                                        percentValue="50"
-                                        showValue="false"
-                                        state="Error"
-                                    />
-                                    <ObjectStatus
-                                        text="{proposta>status_text}"
-                                        active="true"
-                                        inverted="true"
-                                        state="{proposta>status_state}"
-                                    />
-                                </VBox>
-                                <VBox>
-                                    <StepInput change=".onStepInputChange" min="0"  />
-                                </VBox>
-                            </HBox>
-                        </HBox>
+                        <grid:CSSGrid>
+                            <grid:customLayout>
+                                <grid:GridResponsiveLayout>
+                                    <grid:layoutS>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="1fr 1fr"
+                                            gridGap="0.1rem"
+                                        />
+                                    </grid:layoutS>
+                                    <grid:layout>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="2fr 6fr 6fr"
+                                            gridGap="0.1rem"
+                                        />
+                                    </grid:layout>
+                                    <grid:layoutXL>
+                                        <grid:GridSettings
+                                            gridTemplateColumns="1fr 6fr 4fr 4fr 2fr"
+                                            gridRowGap="0.5rem"
+                                            gridColumnGap="0.5rem"
+                                        />
+                                    </grid:layoutXL>
+                                </grid:GridResponsiveLayout>
+                            </grid:customLayout>
+
+                            <VBox class="sapUiResponsiveMargin">
+                                <Image
+                                    class="circularImage"
+                                    src="{proposta>src}"
+                                    lazyLoading="true"
+                                    width="6rem"
+                                    height="6rem"
+                                    press=".onShowPhotoPress"
+                                />
+                            </VBox>
+                            <VBox class="sapUiResponsiveMargin">
+                                <ObjectStatus
+                                    inverted="true"
+                                    state="Indication12"
+                                    text="{proposta>category}"
+                                />
+                                <Label
+                                    wrapping="true"
+                                    design="Bold"
+                                    text="{proposta>description} ({proposta>product})"
+                                />
+                            </VBox>
+                            <VBox class="sapUiResponsiveMargin">
+                                <Label
+                                    design="Bold"
+                                    text="Ultimo acquisto: {proposta>u_acq}"
+                                />
+                                <Label
+                                    design="Bold"
+                                    text="Ultimo prezzo: {proposta>u_prz} €"
+                                />
+                                <Label
+                                    design="Bold"
+                                    text="Ultima quantità: {proposta>u_qta}"
+                                />
+                            </VBox>
+                            <VBox class="sapUiResponsiveMargin">
+                                <Label
+                                    design="Bold"
+                                    text="Disponibilità: {proposta>disponibilita}"
+                                />
+                                <ProgressIndicator
+                                    percentValue="{= 
+                                      ${proposta>disponibilita} &lt; 1 ? '0' :
+                                      ${proposta>disponibilita} &lt; 5 ? '25' :
+                                      ${proposta>disponibilita} &lt; 10 ? '50' :
+                                      '75'
+                                    }"
+                                    showValue="false"
+                                    state="{= 
+                                      ${proposta>disponibilita} &lt; 5 ? 'Error' :
+                                      ${proposta>disponibilita} &lt; 10 ? 'Warning' :
+                                      'Success'
+                                    }"
+                                />
+                                <StepInput
+                                    class="sapUiTinyMarginTop"
+                                    change=".onStepInputChange"
+                                    min="0"
+                                />
+                            </VBox>
+                            <VBox class="sapUiResponsiveMargin">
+                                <ObjectStatus
+                                    text="{proposta>status_text}"
+                                    active="true"
+                                    inverted="true"
+                                    state="{proposta>status_state}"
+                                />
+                            </VBox>
+                        </grid:CSSGrid>
                     </CustomListItem>
                 </items>
             </List>

@@ -372,7 +372,7 @@ sap.ui.define(
 
       onStepInputChange(e) {
         const { value } = e.getParameters();
-        const listItem = e.getSource().getParent().getParent().getParent().getParent()
+        const listItem = e.getSource().getParent().getParent().getParent()
 
         if( value > 0 ) return listItem.addStyleClass("coloredCustomListItem")
 

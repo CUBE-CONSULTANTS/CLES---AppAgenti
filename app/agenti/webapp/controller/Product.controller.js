@@ -10,19 +10,19 @@ sap.ui.define(
           .attachPatternMatched(this._onObjectMatched, this);
       },
 
-      _onObjectMatched(oEvent) {
-        const { desktop } = this.getModel("device").getProperty("/system");
+      _onObjectMatched(e) {
+        const { arguments: { from } } = e.getParameters();
 
-        if( desktop  )
+        if( from === "RIEPILOGO" )
+        this.getModel("layout").setProperty(
+          "/layoutMode",
+          "MidColumnFullScreen",
+        );
+        else
           this.getModel("layout").setProperty(
-            "/layoutMode",
-            "TwoColumnsBeginExpanded",
-          );
-          else
-            this.getModel("layout").setProperty(
-            "/layoutMode",
-            "MidColumnFullScreen",
-          );
+          "/layoutMode",
+          "TwoColumnsBeginExpanded",
+        );
       },
 
       onClosePress() {

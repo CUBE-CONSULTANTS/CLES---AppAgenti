@@ -4,7 +4,7 @@ sap.ui.define(
 		"sap/ui/core/UIComponent",
 		"sap/ui/core/routing/History",
     "../model/Dialog",
-    "../model/Formatter"
+    "../model/formatter"
 	],
 	function (Controller, UIComponent, History, Dialog, formatter) {
 		"use strict";
