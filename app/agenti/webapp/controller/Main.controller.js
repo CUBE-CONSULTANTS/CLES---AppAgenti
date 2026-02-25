@@ -55,10 +55,15 @@ sap.ui.define(
             "/objectPageLayout/currentList",
             "storico_list",
           );
-        else if (section.getId().includes("storicoOfferte"))
+        else if (section.getId().includes("propostaProdotti"))
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "proposta_list",
+          );
+          else if(section.getId().includes("offertaOrdini")  )
+            this.getModel("proposta").setProperty(
+            "/objectPageLayout/currentList",
+            "offerta_list",
           );
       },
 

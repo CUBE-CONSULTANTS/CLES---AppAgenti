@@ -26,7 +26,7 @@
                 </grid:layoutXL>
             </grid:GridResponsiveLayout>
         </grid:customLayout>
-        <VBox width="100%" visible="{= ${proposta>/header/tabOrdine} === 'OFFERTA' }">
+        <VBox width="100%" visible="{= ${proposta>/objectPageLayout/currentList} === 'offerta_list' }">
             <Label
                 text="Offerta:"
                 design="Bold"

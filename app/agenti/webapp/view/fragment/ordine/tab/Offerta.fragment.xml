@@ -14,7 +14,7 @@
             vertical="true"
         >
             <List
-                id="storico_offerte_list"
+                id="offerta_list"
                 width="100%"
                 mode="None"
                 growing="true"
