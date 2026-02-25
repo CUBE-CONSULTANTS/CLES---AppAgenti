@@ -7,17 +7,16 @@
         backgroundDesign="Solid"
         justifyContent="SpaceBetween"
         alignContent="Center"
-        alignItems="Center"
+        alignItems="End"
         class="sapUiSmallMarginBeginEnd"
     >
         <Label
             design="Bold"
             text="Prezzo di Listino: 3.50€"
         />
-        <Button
-            text="Aggiungi al Riepilogo"
-            icon="sap-icon://add"
-            type="Emphasized"
+        <StepInput
+            change=".onStepInputChange"
+            min="0"
         />
     </HBox>
     <VBox>

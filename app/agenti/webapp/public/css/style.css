@@ -36,6 +36,11 @@
     background-color: #f0eab8;
 }
 
+/* Hover */
+.coloredCustomListItem.sapMLIBHoverable:hover {
+    background-color: #ebe4a6;
+}
+
 /* Active (click / press) */
 .coloredCustomListItem.sapMLIBActive {
     background-color: #f0eab8;

@@ -66,7 +66,9 @@
                                 </grid:GridResponsiveLayout>
                             </grid:customLayout>
 
-                            <VBox class="sapUiResponsiveMargin">
+                            <VBox
+                                class="sapUiResponsiveMargin"
+                            >
                                 <Image
                                     class="circularImage"
                                     src="{proposta>src}"
@@ -76,22 +78,27 @@
                                     press=".onShowPhotoPress"
                                 />
                             </VBox>
-                            <VBox class="sapUiResponsiveMargin">
+                            <VBox
+                                class="sapUiResponsiveMargin"
+                                justifyContent="Start"
+                            >
                                 <ObjectStatus
                                     inverted="true"
                                     state="Indication12"
                                     text="{proposta>category}"
                                 />
                                 <Label
+                                    class="sapUiTinyMarginTop"
                                     wrapping="true"
                                     design="Bold"
                                     text="{proposta>description} ({proposta>product})"
                                 />
-                            </VBox>
-                            <VBox class="sapUiResponsiveMargin">
-                                <Label
-                                    design="Bold"
-                                    text="Prezzo di listino: {proposta>listino}"
+                                <ObjectNumber
+                                    class="sapMObjectNumberLarge sapUiTinyMarginTop"
+                                    number="{proposta>listino}"
+                                    inverted="true"
+                                    emphasized="true"
+                                    state="Information"
                                 />
                             </VBox>
                             <VBox class="sapUiResponsiveMargin">
@@ -120,7 +127,10 @@
                                     min="0"
                                 />
                             </VBox>
-                            <VBox class="sapUiResponsiveMargin">
+                            <VBox
+                                class="sapUiResponsiveMargin"
+                                alignItems="End"
+                            >
                                 <ObjectStatus
                                     text="{proposta>status_text}"
                                     active="true"

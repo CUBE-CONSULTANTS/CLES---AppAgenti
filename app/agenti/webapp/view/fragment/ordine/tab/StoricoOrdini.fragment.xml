@@ -153,6 +153,7 @@
                                     text="{proposta>category}"
                                 />
                                 <Label
+                                    class="sapUiTinyMarginTop"
                                     wrapping="true"
                                     design="Bold"
                                     text="{proposta>description} ({proposta>product})"

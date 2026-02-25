@@ -72,7 +72,7 @@ sap.ui.define(
                         title: "Scegli in seguito",
                       },
                       cardContent: {
-                        src: "./public/img/Undecided2.svg",
+                        src: "./public/img/Undecided.svg",
                         text: "Selezionando questa modalità verrà visualizzato solo il catalogo per procedere solo successivamente alla scelta della modalità operativa",
                       },
                     },
