@@ -27,9 +27,13 @@
             <Button
                 type="Success"
                 text="Conferma"
-                visible="{= (${/selectedMode} === 'PREORDINE' &amp;&amp; ${/currentStep} === 1 ) ? true : false }"
+                visible="{= 
+                  (${/selectedMode} === 'PREORDINE' &amp;&amp; ${/currentStep} === 1 ) ? true :
+                  (${/selectedMode} === 'ORDINE' &amp;&amp; ${/currentStep} === 2 ) ? true :
+                  false 
+                }"
                 icon="sap-icon://save"
-                press=".onPreorderConfirmPress"
+                press=".onWizardConfirmPress"
             />
         </buttons>
         <content>
@@ -55,7 +59,7 @@
                             type="XML"
                         />
                     </WizardStep>
-                    <WizardStep title="Informazioni cliente">
+                    <WizardStep title="Visualizzazione">
                         <core:Fragment
                             fragmentName="cles.agenti.view.fragment.wizard.Step3"
                         />

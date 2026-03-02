@@ -6,6 +6,12 @@
         design="Solid"
         style="Clear"
     >
+        <SearchField
+            width="20rem"
+            placeholder="Cerca per categoria o codice/descrizione"
+            showSearchButton="false"
+            liveChange=".onSearch($event, 'catalogo_odv')"
+        />
         <ToolbarSpacer />
         <Button
             type="Emphasized"
@@ -13,7 +19,7 @@
             icon="sap-icon://group-2"
         />
         <ToolbarSeparator />
-        <MenuButton
+        <!-- <MenuButton
             text="Codice"
             type="Emphasized"
             icon="sap-icon://sort"
@@ -32,7 +38,7 @@
                     </items>
                 </Menu>
             </menu>
-        </MenuButton>
+        </MenuButton> -->
         <MenuButton
             text="Descrizione"
             type="Emphasized"

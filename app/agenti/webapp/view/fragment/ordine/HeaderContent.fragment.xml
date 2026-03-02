@@ -3,33 +3,17 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
+    <core:Fragment
+        fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+    />
+    <core:Fragment
+        fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
+    />
     <VBox
-        visible="{= (${proposta>/header/mode} === 'PREORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
-    >
-        <ObjectStatus
-            press=".onCustomerObjectPagePress"
-            text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
-            inverted="true"
-            active="true"
-            icon="sap-icon://information"
-            state="Indication14"
-        />
-    </VBox>
-    <VBox
-        visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }"
-    >
-        <ObjectStatus
-            text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
-            inverted="true"
-            active="false"
-            state="Indication14"
-        />
-    </VBox>
-    <VBox
-      class="sapUiTinyMarginTop"
+        class="sapUiTinyMarginTop"
         visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
     >
-      <ObjectStatus
+        <ObjectStatus
             text="{
               path: 'proposta>/header/date/value',
               formatter: '.formatter.formatDate' 
@@ -57,4 +41,8 @@
             icon="sap-icon://warning"
         />
     </HBox>
+    <core:Fragment
+        fragmentName="cles.agenti.view.fragment.common.FilterBar"
+        type="XML"
+    />
 </core:FragmentDefinition>

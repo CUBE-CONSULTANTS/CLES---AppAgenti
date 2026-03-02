@@ -12,7 +12,7 @@
 >
     <uxap:ObjectPageLayout
         id="objectPageOrdine"
-        showEditHeaderButton="false"
+        showEditHeaderButton="true"
         showTitleInHeaderContent="false"
         alwaysShowContentHeader="false"
         useIconTabBar="true"
@@ -61,7 +61,7 @@
             </uxap:ObjectPageSection>
             <uxap:ObjectPageSection
                 id="offertaOrdini"
-                title="Offerta"
+                title="{proposta>/header/tabOfferta}"
                 showTitle="false"
                 visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
             >

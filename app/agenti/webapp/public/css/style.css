@@ -1,15 +1,4 @@
 /* SAP OVERWRITE */
-.sapFDynamicPageContent {
-    padding: 0px 0px 0px 0px !important;
-}
-
-.sapFDynamicPageContentFitContainer {
-    padding: 0px 0px 0px 0px !important;
-}
-
-/* .sapMCrslControls {
-  visibility: hidden !important;
-} */
 
 /* Custom CSS */
 .cardGrid > *:last-child {
@@ -28,7 +17,7 @@
 }
 
 .circularImage {
-  border-radius: 50%; 
+  border-radius: 25%; 
   object-fit: cover; 
 }
 
@@ -42,21 +31,21 @@
 }
 
 .coloredCustomListItem {
-    background-color: #f0eab8;
+    background-color: var(--sapContent_Illustrative_Color18) !important;
 }
 
 .coloredCustomListItem.sapMLIBHoverable:hover {
-    background-color: #ebe4a6;
+    background-color: var(--sapContent_Illustrative_Color19) !important;
 }
 
 .coloredCustomListItem.sapMLIBActive {
-    background-color: #f0eab8;
+    background-color: var(--sapContent_Illustrative_Color18) !important;
 }
 
 .coloredCustomListItem.sapMLIBSelected {
-    background-color: #f0eab8;
+    background-color: var(--sapContent_Illustrative_Color18) !important;
 }
 
 .coloredCustomListItem.sapMLIBSelected.sapMLIBHoverable:hover {
-    background-color: #f0eab8;
+    background-color: var(--sapContent_Illustrative_Color18) !important;
 }

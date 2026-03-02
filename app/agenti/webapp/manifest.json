@@ -95,32 +95,39 @@
         {
           "name": "Product",
           "pattern": "product/{from}/{product}",
-          "target": ["TargetMain", "TargetProduct"]
+          "target": ["TargetMain", "TargetProductMain"]
         },
         {
           "name": "Riepilogo",
           "pattern": "riepilogo",
-          "target": ["TargetMain", "TargetRiepilogo"]
+          "target": ["TargetRiepilogo"]
+        },
+        {
+          "name": "ProductRiepilogo",
+          "pattern": "productRiepilogo/{from}/{product}",
+          "target": ["TargetRiepilogo", "TargetProductRiepilogo"]
         }
       ],
       "targets": {
         "TargetMain": {
           "id": "Main",
           "name": "Main",
-          "controlAggregation": "beginColumnPages",
-          "level": 0
+          "controlAggregation": "beginColumnPages"
         },
-        "TargetProduct": {
+        "TargetProductMain": {
           "id": "Product",
           "name": "Product",
-          "controlAggregation": "midColumnPages",
-          "level": 2
+          "controlAggregation": "midColumnPages"
         },
         "TargetRiepilogo": {
           "id": "Riepilogo",
           "name": "Riepilogo",
-          "controlAggregation": "midColumnPages",
-          "level": 2
+          "controlAggregation": "beginColumnPages"
+        },
+        "TargetProductRiepilogo": {
+          "id": "ProductRiepilogo",
+          "name": "ProductRiepilogo",
+          "controlAggregation": "midColumnPages"
         }
       }
     },

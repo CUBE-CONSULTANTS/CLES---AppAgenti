@@ -85,13 +85,6 @@ sap.ui.define(
                   date: {
                     value: new Date(),
                   },
-                  tab: {
-                    selected: "STORICO",
-                    items: [
-                      { key: "STORICO", text: "Storico Ordini" },
-                      { key: "OFFERTA", text: "Offerta" },
-                    ],
-                  },
                   customer: {
                     id: "",
                     name: "",
@@ -141,11 +134,41 @@ sap.ui.define(
                   },
                 },
                 step3: {
-                  formEnabled: false,
-                  customer: {
-                    id: "",
-                    name: "",
-                    city: "",
+                  customer: {},
+                  tab: {
+                    selected: "STORICO",
+                    items: [
+                      { key: "STORICO", text: "Storico Ordini" },
+                      { key: "OFFERTA", text: "Offerta" },
+                    ],
+                  },
+                  offer: {
+                    selected: {
+                      id: "1",
+                      selected: true,
+                      name: "Offerta X",
+                      expiry: "26/03/2026",
+                    },
+                    items: [
+                      {
+                        id: "1",
+                        selected: true,
+                        name: "Offerta X",
+                        expiry: "26/03/2026",
+                      },
+                      {
+                        id: "2",
+                        selected: false,
+                        name: "Offerta Y",
+                        expiry: "11/04/2026",
+                      },
+                      {
+                        id: "3",
+                        selected: false,
+                        name: "Offerta Z",
+                        expiry: "18/04/2026",
+                      },
+                    ],
                   },
                 },
               }),
@@ -168,8 +191,8 @@ sap.ui.define(
               controller,
               model: new JSONModel({
                 step3: {
-                  formEnabled: false
-                }
+                  formEnabled: false,
+                },
               }),
             });
 
@@ -197,6 +220,27 @@ sap.ui.define(
             });
 
             oDialog.open();
+
+            try {
+              window._stream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: true,
+              });
+
+              const container = document.getElementById("cameraContainer");
+              container.innerHTML = "";
+
+              window._video = document.createElement("video");
+              window._video.autoplay = true;
+              window._video.playsInline = true;
+              window._video.srcObject = window._stream;
+              window._video.style.width = "100%";
+
+              container.appendChild(window._video);
+            } catch (err) {
+              sap.m.MessageToast.show("Errore accesso camera: " + err.message);
+            }
+
             resolve();
           } catch (error) {
             reject(error);

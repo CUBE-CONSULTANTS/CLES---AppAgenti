@@ -1,9 +1,10 @@
 {
   "objectPageLayout": {
+    "objectStatus": {},
     "currentList": "",
-    "dynamicListHeight": "",
     "mode": "",
-    "title": ""
+    "title": "",
+    "objectStatusText": ""
   },
   "header": {
     "customer": {
@@ -21,7 +22,8 @@
       "name": ""
     },
     "mode": "ORDINE",
-    "tabOrdine": "STORICO"
+    "tabOrdine": "STORICO",
+    "tabOfferta": ""
   },
   "table": {
     "columns": {
@@ -56,13 +58,77 @@
             "type": "Default"
           }
         ],
-        "caratteristiche": [
+        "gruppi": [
           {
-            "text": "TOP SELLER",
+            "text": "Gruppo Materiali 1",
             "type": "Default"
           },
           {
-            "text": "GLUTEN FREE",
+            "text": "Gruppo Materiali 2",
+            "type": "Default"
+          },
+          {
+            "text": "Gruppo Materiali 3",
+            "type": "Default"
+          },
+          {
+            "text": "Gruppo Materiali 4",
+            "type": "Default"
+          },
+          {
+            "text": "Gruppo Materiali 5",
+            "type": "Default"
+          }
+        ],
+        "attributi": [
+          {
+            "text": "Attributo Prodotto 1",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 2",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 3",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 4",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 5",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 6",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 7",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 8",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 9",
+            "pressed": false,
+            "type": "Default"
+          },
+          {
+            "text": "Attributo Prodotto 10",
+            "pressed": false,
             "type": "Default"
           }
         ]

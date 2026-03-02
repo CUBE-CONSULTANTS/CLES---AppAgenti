@@ -2,16 +2,21 @@
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
     xmlns:uxap="sap.uxap"
+    xmlns:f="sap.f"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
+        <uxap:heading>
+            <Title text="{proposta>/objectPageLayout/title}" />
+        </uxap:heading>
+        <uxap:expandedHeading>
+            <Title text="{proposta>/objectPageLayout/title}" />
+        </uxap:expandedHeading>
         <uxap:snappedContent>
-            <ObjectStatus
-                press=".onCustomerObjectPagePress"
-                text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
-                inverted="true"
-                active="true"
-                icon="sap-icon://information"
-                state="Indication14"
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+            />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
             />
         </uxap:snappedContent>
         <uxap:navigationActions>

@@ -60,8 +60,8 @@ sap.ui.define(
             "/objectPageLayout/currentList",
             "proposta_list",
           );
-          else if(section.getId().includes("offertaOrdini")  )
-            this.getModel("proposta").setProperty(
+        else if (section.getId().includes("offertaOrdini"))
+          this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "offerta_list",
           );
@@ -80,22 +80,12 @@ sap.ui.define(
           return wizard.getParent().close();
         }
 
-        wizard.nextStep();
+        this._wizardNextStep();
 
         context.getModel().setProperty("/selectedMode", selectedKey);
-        context
-          .getModel()
-          .setProperty(
-            "/currentStep",
-            parseInt(
-              wizard
-                .getCurrentStep()
-                .substring(wizard.getCurrentStep().length - 1),
-            ),
-          );
       },
 
-      onWizardPreviousStep(e) {
+      _wizardPreviousStep() {
         this.byId("wizardMode").previousStep();
         this.byId("wizardMode")
           .getModel()
@@ -107,6 +97,24 @@ sap.ui.define(
                 .substring(this.byId("wizardMode").getCurrentStep().length - 1),
             ),
           );
+      },
+
+      _wizardNextStep() {
+        this.byId("wizardMode").nextStep();
+        this.byId("wizardMode")
+          .getModel()
+          .setProperty(
+            "/currentStep",
+            parseInt(
+              this.byId("wizardMode")
+                .getCurrentStep()
+                .substring(this.byId("wizardMode").getCurrentStep().length - 1),
+            ),
+          );
+      },
+
+      onWizardPreviousStep(e) {
+        this._wizardPreviousStep();
       },
 
       handleNavigationChange(e) {
@@ -172,8 +180,8 @@ sap.ui.define(
         );
 
         this.getModel("proposta").setProperty(
-          "/objectPageLayout/title",
-          context.getProperty("name"),
+          "/objectPageLayout/objectStatusText",
+          context.getModel().getProperty("/step2/customer/name"),
         );
 
         if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
@@ -181,16 +189,33 @@ sap.ui.define(
             "/header/tabOrdine",
             context.getModel().getProperty("/step2/tab/selected"),
           );
+
+          context
+            .getModel()
+            .setProperty("/step3/customer", context.getObject());
         }
 
         if (context.getModel().getProperty("/selectedMode") === "OFFERTA") {
+          this.getModel("proposta").setProperty(
+            "/objectPageLayout/title",
+            "Creazione offerta cliente",
+          );
+
           this.getModel("proposta").setProperty(
             "/header/date/value",
             context.getModel().getProperty("/step2/date/value"),
           );
         }
 
-        this.byId("wizardMode").getParent().close();
+        if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
+          this.getModel("proposta").setProperty(
+            "/objectPageLayout/title",
+            "Creazione ordine di vendita",
+          );
+          return this._wizardNextStep();
+        }
+
+        return this.byId("wizardMode").getParent().close();
       },
 
       onCustomerCreatePress(e) {
@@ -200,16 +225,7 @@ sap.ui.define(
         model.setProperty("/step3/customer", null);
         model.setProperty("/step3/formEnabled", true);
 
-        this.byId("wizardMode").nextStep();
-
-        model.setProperty(
-            "/currentStep",
-            parseInt(
-              wizard
-                .getCurrentStep()
-                .substring(wizard.getCurrentStep().length - 1),
-            ),
-          );
+        this._wizardNextStep();
       },
 
       onCustomerInfoPress(e) {
@@ -221,48 +237,96 @@ sap.ui.define(
         model.setProperty("/step3/customer/city", context.getProperty("city"));
         model.setProperty("/step3/formEnabled", false);
 
-        this.byId("wizardMode").nextStep();
-
-        model.setProperty(
-            "/currentStep",
-            parseInt(
-              wizard
-                .getCurrentStep()
-                .substring(wizard.getCurrentStep().length - 1),
-            ),
-          );
+        this._wizardNextStep();
       },
 
       onCustomerReportPress() {
         Dialog.getCustomerReportDialog({ controller: this });
       },
 
-      onCustomerConfirmPress() {
-        this.byId("wizardMode").nextStep();
+      onCustomerOfferSelectionChange(e) {
+        const { listItem } = e.getParameters();
 
-        this.byId("wizardMode")
+        if (!listItem) return;
+
+        const context = listItem.getBindingContext();
+
+        context
           .getModel()
-          .setProperty(
-            "/currentStep",
-            parseInt(
-              this.byId("wizardMode")
-                .getCurrentStep()
-                .substring(this.byId("wizardMode").getCurrentStep().length - 1),
-            ),
-          );
+          .setProperty("/step3/offer/selected", context.getObject());
       },
 
-      onPreorderConfirmPress(e) {
+      onCustomerConfirmPress() {
+        this._wizardNextStep();
+      },
+
+      _confirmWizardOrdine(model) {
+        this.getModel("proposta").setProperty(
+          "/header/tabOfferta",
+          model.getProperty("/step3/offer/selected/name"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/header/tabOrdine",
+          model.getProperty("/step3/tab/selected"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/header/customer",
+          model.getProperty("/step3/customer"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          "Creazione ordine di vendita",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          model.getProperty("/step3/customer/name"),
+        );
+      },
+
+      _confirmWizardOfferta(model) {
+        this.getModel("proposta").setProperty(
+          "/header/customer",
+          model.getProperty("/step2/customer"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          "Creazione offerta cliente",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          model.getProperty("/step3/customer/name"),
+        );
+      },
+
+      _confirmWizardPreordine(model) {
+        this.getModel("proposta").setProperty(
+          "/header/title/value",
+          model.getProperty("/step2/title/value"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          "Creazione preordine",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          model.getProperty("/step2/title/value"),
+        );
+      },
+
+      onWizardConfirmPress(e) {
         const model = e.getSource().getModel();
 
         this.getModel("proposta").setProperty(
           "/header/mode",
           model.getProperty("/selectedMode"),
-        );
-
-        this.getModel("proposta").setProperty(
-          "/header/title/value",
-          model.getProperty("/step2/title/value"),
         );
 
         this.getModel("proposta").setProperty(
@@ -275,10 +339,13 @@ sap.ui.define(
           model.getProperty("/selectedMode"),
         );
 
-        this.getModel("proposta").setProperty(
-          "/objectPageLayout/title",
-          model.getProperty("/step2/title/value"),
-        );
+        if (model.getProperty("/selectedMode") === "ORDINE") {
+          this._confirmWizardOrdine(model);
+        } else if (model.getProperty("/selectedMode") === "OFFERTA") {
+          this._confirmWizardOfferta(model);
+        } else if (model.getProperty("/selectedMode") === "PREORDINE") {
+          this._confirmWizardPreordine(model);
+        }
 
         this.byId("wizardMode").getParent().close();
       },
@@ -357,7 +424,7 @@ sap.ui.define(
         }
       },
 
-      onFiltriCaratteristicheButtonPress: function (e) {
+      onFilterAttributePress: function (e) {
         const context = e.getSource().getBindingContext("proposta");
         const model = context.getModel();
         const type = context.getProperty("type");
@@ -366,36 +433,37 @@ sap.ui.define(
             "/objectPageLayout/currentList",
           ),
         );
-        const blank = model
-          .getProperty("/table/toolbar/filtri/caratteristiche")
-          .map((el) => ({ ...el, type: "Default" }));
 
-        model.setProperty("/table/toolbar/filtri/caratteristiche", blank);
-
-        if (type === "Reject") {
+        if (type === "Emphasized") {
           context.setProperty("type", "Default");
-          table.getBinding("items").filter([]);
         } else if (type === "Default") {
-          context.setProperty("type", "Reject");
-          table
-            .getBinding("items")
-            .filter(
-              new Filter(
-                "status_text",
-                FilterOperator.EQ,
-                context.getProperty("text").toUpperCase(),
-              ),
-            );
+          context.setProperty("type", "Emphasized");
         }
+
+        table.getBinding("items").filter(
+          new Filter({
+            filters: model
+              .getProperty("/table/toolbar/filtri/attributi")
+              .filter((el) => el.type === "Emphasized")
+              .map((el) => {
+                return new Filter(
+                  "status_text",
+                  FilterOperator.EQ,
+                  context.getProperty("text").toUpperCase(),
+                );
+              }),
+            and: true,
+          }),
+        );
       },
 
       onStepInputChange(e) {
         const { value } = e.getParameters();
-        const listItem = e.getSource().getParent().getParent().getParent()
+        const listItem = e.getSource().getParent().getParent().getParent();
 
-        if( value > 0 ) return listItem.addStyleClass("coloredCustomListItem")
+        if (value > 0) return listItem.addStyleClass("coloredCustomListItem");
 
-        return listItem.removeStyleClass("coloredCustomListItem")
+        return listItem.removeStyleClass("coloredCustomListItem");
       },
 
       onProductListItemPress(e, from) {

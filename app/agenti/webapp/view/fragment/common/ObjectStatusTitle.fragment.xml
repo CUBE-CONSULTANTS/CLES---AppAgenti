@@ -1,0 +1,13 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectStatus
+        visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }"
+        text="{proposta>/objectPageLayout/objectStatusText}"
+        inverted="true"
+        active="false"
+        icon="sap-icon://information"
+        state="Indication14"
+    />
+</core:FragmentDefinition>

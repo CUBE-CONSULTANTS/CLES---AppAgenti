@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:grid="sap.ui.layout.cssgrid"
 >
-    <grid:CSSGrid>
+    <!-- <grid:CSSGrid>
         <grid:customLayout>
             <grid:GridResponsiveLayout>
                 <grid:layoutS>
@@ -26,15 +26,6 @@
                 </grid:layoutXL>
             </grid:GridResponsiveLayout>
         </grid:customLayout>
-        <VBox width="100%" visible="{= ${proposta>/objectPageLayout/currentList} === 'offerta_list' }">
-            <Label
-                text="Offerta:"
-                design="Bold"
-            />
-            <Input
-                showValueHelp="true"
-            />
-        </VBox>
         <VBox width="100%">
             <Label
                 text="Categorie"
@@ -63,7 +54,7 @@
             <MultiComboBox
                 placeholder="Caratteristiche"
                 items="{
-                      path: 'proposta>/table/toolbar/filtri/caratteristiche', 
+                      path: 'proposta>/table/toolbar/filtri/gruppi', 
                       sorter: { path: 'text', descending: false}
                     }"
             >
@@ -75,16 +66,85 @@
                 </items>
             </MultiComboBox>
         </VBox>
-        <VBox width="100%">
-            <Label
-                text="Cerca"
-                design="Bold"
+        <HeaderContainer scrollStep="100">
+          <content>
+            <HBox items="{
+              path: 'proposta>/table/toolbar/filtri/attributi', 
+              sorter: { path: 'text', descending: false}
+            }">
+              <items>
+                <Button text="{proposta>text}" type="Emphasized"/>
+              </items>
+            </HBox>
+          </content>
+        </HeaderContainer>
+    </grid:CSSGrid> -->
+    <VBox
+        width="100%"
+        class="sapUiTinyMarginTop"
+    >
+        <Label
+            text="Categorie"
+            design="Bold"
+        />
+        <MultiComboBox
+            placeholder="Categorie"
+            items="{
+                      path: 'proposta>/table/toolbar/filtri/categorie', 
+                      sorter: { path: 'text', descending: false}
+                    }"
+        >
+            <items>
+                <core:Item
+                    key="{proposta>key}"
+                    text="{proposta>text}"
+                />
+            </items>
+        </MultiComboBox>
+    </VBox>
+    <VBox
+        width="100%"
+        class="sapUiTinyMarginTop"
+    >
+        <Label
+            text="Gruppi Materiale"
+            design="Bold"
+        />
+        <MultiComboBox
+            placeholder="Gruppi Materiale"
+            items="{
+              path: 'proposta>/table/toolbar/filtri/gruppi', 
+              sorter: { path: 'text', descending: false}
+            }"
+        >
+            <items>
+                <core:Item
+                    key="{proposta>key}"
+                    text="{proposta>text}"
+                />
+            </items>
+        </MultiComboBox>
+    </VBox>
+    <VBox width="100%" class="sapUiTinyMarginTop">
+        <Label
+            text="Attributi"
+            design="Bold"
+        />
+        <HeaderContainer
+            showDividers="true"
+            gridLayout="false"
+            scrollStepByItem="2"
+            showOverflowItem="true"
+            content="{
+              path: 'proposta>/table/toolbar/filtri/attributi', 
+              sorter: { path: 'text', descending: false}
+            }"
+        >
+            <Button
+                press=".onFilterAttributePress"
+                text="{proposta>text}"
+                type="{proposta>type}"
             />
-            <SearchField
-                placeholder="Cerca per categoria o codice/descrizione"
-                showSearchButton="false"
-                liveChange=".onSearch($event, 'catalogo_odv')"
-            />
-        </VBox>
-    </grid:CSSGrid>
+        </HeaderContainer>
+    </VBox>
 </core:FragmentDefinition>

@@ -1,0 +1,48 @@
+<mvc:View
+    displayBlock="true"
+    controllerName="cles.agenti.controller.ProductRiepilogo"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:f="sap.f"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Page title="{product>/product/id} - {product>/product/description}">
+        <headerContent>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.product.HeaderContent"
+                type="XML"
+            />
+        </headerContent>
+        <content>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.product.Toolbar"
+                type="XML"
+            />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.product.Carousel"
+                type="XML"
+            />
+            <FlexBox
+                direction="{= ${device>/system/phone} ? 'Column': 'Row' }"
+                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
+            >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.product.FormRiepilogo"
+                    type="XML"
+                />
+            </FlexBox>
+            <FlexBox
+                direction="Column"
+                visible="{= ${product>/from} === 'CATALOGO' ? true : false }"
+            >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.product.FormCatalogo"
+                    type="XML"
+                />
+            </FlexBox>
+        </content>
+    </Page>
+</mvc:View>

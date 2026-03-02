@@ -11,7 +11,7 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
     _onObjectMatched(oEvent) {
       const { desktop } = this.getModel("device").getProperty("/system");
 
-      this.getModel("layout").setProperty("/layoutMode", "MidColumnFullScreen");
+      this.getModel("layout").setProperty("/layoutMode", "OneColumn");
     },
 
     onProductListItemPress(e, from) {
@@ -36,7 +36,7 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
         },
       });
 
-      this.getRouter().navTo("Product", { from, product: product });
+      this.getRouter().navTo("ProductRiepilogo", { from, product: product });
     },
 
     onRiepilogoPress(e) {

@@ -3,37 +3,40 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
-    <VBox
+    <HBox
         class="sapUiTinyMarginBottom"
-        width="{= ${device>/system/phone} ? '100%' : '50%' }"
+        width="100%"
+        alignItems="Center"
+        wrap="Wrap"
         visible="{= ${/selectedMode} === 'PREORDINE' ? false : true }"
     >
-        <Label
-            required="true"
-            text="{= ${/selectedMode} === 'ORDINE' ? 'Data di Consegna:' : 'Data di Validità:' }"
-            design="Bold"
-        />
-        <DatePicker dateValue="{/step2/date/value}" />
-    </VBox>
-    <VBox
-        class="sapUiTinyMarginBottom"
-        width="{= ${device>/system/phone} ? '100%' : '50%' }"
-        visible="{= ${/selectedMode} === 'ORDINE' ? true : false }"
-    >
-        <Label
-            required="true"
-            text="Visualizzazione:"
-            design="Bold"
-        />
-        <SegmentedButton selectedKey="{/step2/tab/selected}" items="{/step2/tab/items}">
-            <items>
-                <SegmentedButtonItem
-                    key="{key}"
-                    text="{text}"
-                />
-            </items>
-        </SegmentedButton>
-    </VBox>
+        <VBox width="100%">
+            <Label
+                required="true"
+                text="{= ${/selectedMode} === 'ORDINE' ? 'Data di Consegna:' : 'Data di Validità:' }"
+                design="Bold"
+            />
+            <SegmentedButton
+                selectedKey="today"
+                contentMode="ContentFit"
+            >
+                <items>
+                    <SegmentedButtonItem
+                        key="today"
+                        text="Oggi"
+                    />
+                    <SegmentedButtonItem
+                        key="tomorrow"
+                        text="Domani"
+                    />
+                </items>
+            </SegmentedButton>
+        </VBox>
+
+        <VBox class="sapUiTinyMarginTop">
+            <DatePicker dateValue="{/step2/date/value}" />
+        </VBox>
+    </HBox>
     <VBox
         class="sapUiTinyMarginBottom"
         fitContainer="true"

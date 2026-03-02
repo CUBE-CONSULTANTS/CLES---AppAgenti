@@ -4,26 +4,18 @@
     xmlns:uxap="sap.uxap"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
-        <uxap:content>
-            <VBox class="sapUiTinyMarginTop">
-                <ObjectStatus
-                    press=".onCustomerObjectPagePress"
-                    text="{proposta>/objectPageLayout/mode}: {proposta>/objectPageLayout/title}"
-                    inverted="true"
-                    active="true"
-                    icon="sap-icon://information"
-                    state="Indication14"
-                />
-            </VBox>
-        </uxap:content>
-        <uxap:navigationActions>
-            <Button
-                text="Indietro"
-                type="Emphasized"
-                tooltip="Naviga indietro"
-                icon="sap-icon://nav-back"
-                press=".onNavBack"
+        <uxap:heading>
+            <Title text="{proposta>/objectPageLayout/title}" />
+        </uxap:heading>
+        <uxap:expandedHeading>
+            <Title text="{proposta>/objectPageLayout/title}" />
+        </uxap:expandedHeading>
+        <uxap:snappedContent>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
             />
+        </uxap:snappedContent>
+        <uxap:navigationActions>
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
                 type="XML"

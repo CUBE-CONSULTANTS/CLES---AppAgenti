@@ -3,10 +3,10 @@ sap.ui.define(
   function (BaseController, Dialog) {
     "use strict";
 
-    return BaseController.extend("cles.agenti.controller.Product", {
+    return BaseController.extend("cles.agenti.controller.ProductRiepilogo", {
       onInit() {
         this.getRouter()
-          .getRoute("Product")
+          .getRoute("ProductRiepilogo")
           .attachPatternMatched(this._onObjectMatched, this);
       },
 
@@ -22,7 +22,7 @@ sap.ui.define(
       },
 
       onClosePress() {
-        this.getRouter().navTo("Main");
+        this.getRouter().navTo("Riepilogo");
       },
 
       onShowProductDetailPress(e) {

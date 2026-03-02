@@ -13,13 +13,13 @@
             >
                 <Title text="Lista Clienti" />
                 <ToolbarSpacer />
-                <Button
+                <!-- <Button
                     text="Crea anagrafica cliente"
                     type="Emphasized"
                     tooltip="Crea una nuova anagrafica di un cliente"
                     icon="sap-icon://write-new"
                     press=".onCustomerCreatePress"
-                />
+                /> -->
             </OverflowToolbar>
         </headerToolbar>
         <infoToolbar>
@@ -53,13 +53,13 @@
                             text="{name}"
                         />
                     </VBox>
-                    <VBox>
+                    <!-- <VBox>
                         <Button
                             press=".onCustomerInfoPress"
                             text="{= ${device>/system/phone} ? '' : 'Informazioni Cliente'}"
                             icon="sap-icon://information"
                         />
-                    </VBox>
+                    </VBox> -->
                 </HBox>
             </CustomListItem>
         </items>
