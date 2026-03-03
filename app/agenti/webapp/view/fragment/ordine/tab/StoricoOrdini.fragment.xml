@@ -33,7 +33,7 @@
                 type="Active"
                 press=".onProductListItemPress($event, 'LISTA')"
             >
-              <customData>
+                <customData>
                     <core:CustomData
                         key="customListItemClass"
                         value="{= ${proposta>quantity} > 0 ? 'coloredListItem' : '' }"
@@ -76,6 +76,7 @@
                     </VBox>
                     <VBox class="sapUiResponsiveMargin">
                         <ObjectStatus
+                            visible="{= ${proposta>/table/toolbar/sorters/groupedByCategory} ? false : true }"
                             inverted="true"
                             state="Indication12"
                             text="{proposta>category}"

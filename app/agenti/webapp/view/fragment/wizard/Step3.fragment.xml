@@ -9,6 +9,8 @@
             layout="ResponsiveGridLayout"
             columnsL="2"
             columnsM="2"
+            emptySpanXL="4"
+            emptySpanL="4"
         >
             <form:content>
                 <Label

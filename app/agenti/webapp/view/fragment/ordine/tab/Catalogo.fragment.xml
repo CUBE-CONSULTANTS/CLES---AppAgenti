@@ -90,7 +90,7 @@
                             text="{proposta>product} - {proposta>description}"
                         />
                         <ObjectNumber
-                            class="sapMObjectNumberLarge sapUiTinyMarginTop"
+                            class="sapMObjectNumberLarge"
                             number="{proposta>listino}"
                             inverted="true"
                             emphasized="true"
