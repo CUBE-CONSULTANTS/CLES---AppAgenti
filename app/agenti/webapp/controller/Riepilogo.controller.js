@@ -42,7 +42,7 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
     onRiepilogoPress(e) {
       const type = e.getSource().getType();
 
-      if( type === "Ghost" )
+      if( type === "Critical" )
         return MessageBox.warning("Il cambio di modalità potrebbe compromettere il lavoro svolto. Eventuali prezzi inseriti o prodotti selezionati potrebbero non essere inclusi nel riepilogo finale, sicuro di voler procedere?", {
           actions: [MessageBox.Action.OK, MessageBox.Action.ABORT],
           emphasizedAction: MessageBox.Action.OK,
