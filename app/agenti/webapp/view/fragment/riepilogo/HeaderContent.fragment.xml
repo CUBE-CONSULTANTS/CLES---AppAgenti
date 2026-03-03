@@ -2,6 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
     xmlns:card="sap.f.cards"
 >
     <f:Card>
@@ -12,57 +13,83 @@
             />
         </f:header>
         <f:content>
-            <VBox class="sapUiTinyMarginBegin">
-                <HBox>
-                    <ObjectStatus
-                        class="sapUiTinyMargin"
-                        text="PARTITE SCADUTE"
-                        active="false"
-                        inverted="true"
-                        state="Error"
-                        icon="sap-icon://warning"
-                    />
-                    <ObjectStatus
-                        class="sapUiTinyMargin"
-                        text="FIDO TRA 1% E 2%"
-                        active="false"
-                        inverted="true"
-                        state="Warning"
-                        icon="sap-icon://warning"
-                    />
-                </HBox>
-                <HBox
-                    class="sapUiSmallMarginTop sapUiTinyMarginBegin"
-                    alignItems="Center"
-                >
-                    <VBox class="sapUiTinyMarginBottom">
-                        <Label
-                            design="Bold"
-                            text="Totale Imponibile:"
-                        />
-                        <ObjectNumber
-                            state="Success"
+            <HBox
+                wrap="Wrap"
+                justifyContent="SpaceAround"
+                alignItems="Center"
+            >
+                <VBox class="sapUiTinyMarginBegin">
+                    <HBox>
+                        <ObjectStatus
+                            class="sapUiTinyMargin"
+                            text="PARTITE SCADUTE"
+                            active="false"
                             inverted="true"
-                            number="270.00"
-                            unit="€"
-                            emphasized="true"
+                            state="Error"
+                            icon="sap-icon://warning"
                         />
-                    </VBox>
-                    <VBox class="sapUiSmallMarginBegin sapUiTinyMarginBottom">
-                        <Label
-                            design="Bold"
-                            text="Totale IVA:"
-                        />
-                        <ObjectNumber
+                        <ObjectStatus
+                            class="sapUiTinyMargin"
+                            text="FIDO TRA 1% E 2%"
+                            active="false"
+                            inverted="true"
                             state="Warning"
-                            inverted="true"
-                            number="329.40"
-                            unit="€"
-                            emphasized="true"
+                            icon="sap-icon://warning"
                         />
-                    </VBox>
-                </HBox>
-            </VBox>
+                    </HBox>
+                    <HBox
+                        class="sapUiSmallMarginTop sapUiTinyMarginBegin"
+                        alignItems="Center"
+                    >
+                        <VBox class="sapUiTinyMarginBottom">
+                            <Label
+                                design="Bold"
+                                text="Totale Imponibile:"
+                            />
+                            <ObjectNumber
+                                state="Success"
+                                inverted="true"
+                                number="270.00"
+                                unit="€"
+                                emphasized="true"
+                            />
+                        </VBox>
+                        <VBox
+                            class="sapUiSmallMarginBegin sapUiTinyMarginBottom"
+                        >
+                            <Label
+                                design="Bold"
+                                text="Totale IVA:"
+                            />
+                            <ObjectNumber
+                                state="Warning"
+                                inverted="true"
+                                number="329.40"
+                                unit="€"
+                                emphasized="true"
+                            />
+                        </VBox>
+                    </HBox>
+                </VBox>
+                <VBox class="sapUiTinyMarginBegin">
+                    <form:SimpleForm
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="12"
+                        labelSpanL="12"
+                        labelSpanM="12"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                    >
+                        <Label text="Note ordine" />
+                        <TextArea
+                            value="{proposta>/header/notes}"
+                            placeholder="Aggiungi note per l'ordine..."
+                            rows="4"
+                        />
+                    </form:SimpleForm>
+                </VBox>
+            </HBox>
         </f:content>
     </f:Card>
 </core:FragmentDefinition>

@@ -224,7 +224,7 @@ sap.ui.define(
             try {
               window._stream = await navigator.mediaDevices.getUserMedia({
                 video: true,
-                audio: true,
+                audio: false,
               });
 
               const container = document.getElementById("cameraContainer");
@@ -254,26 +254,6 @@ sap.ui.define(
             const oDialog = await this._getDialogBase({
               name: "_reportDialog",
               path: "view.dialog.Report",
-              controller,
-              model: new JSONModel({
-                value: null,
-              }),
-            });
-
-            oDialog.open();
-            resolve();
-          } catch (error) {
-            reject(error);
-          }
-        });
-      },
-
-      async getCustomerReportDialog({ controller }) {
-        return new Promise(async (resolve, reject) => {
-          try {
-            const oDialog = await this._getDialogBase({
-              name: "_customerReportDialog",
-              path: "view.dialog.CustomerReport",
               controller,
               model: new JSONModel({
                 value: null,

@@ -37,8 +37,8 @@
                         <grid:GridResponsiveLayout>
                             <grid:layoutS>
                                 <grid:GridSettings
-                                    gridTemplateColumns="150px repeat(auto-fit, minmax(100px, 1fr))"
-                                    gridGap="0.1rem"
+                                    gridTemplateColumns="120px 1fr"
+                                    gridGap="0.5rem"
                                 />
                             </grid:layoutS>
                             <grid:layout>

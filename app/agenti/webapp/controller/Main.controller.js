@@ -35,6 +35,70 @@ sap.ui.define(
         }
       },
 
+      _applyListFilter({ model, searchFilters }) {
+        const final = [];
+        const tables = [
+          this.byId("catalogo_list"),
+          this.byId("offerta_list"),
+          this.byId("proposta_list"),
+          this.byId("storico_list"),
+        ];
+
+        const filtriCategorie = model
+          .getProperty("/table/toolbar/filtri/categorie")
+          .filter((el) => el.selected)
+          .map((el) => {
+            return new Filter(
+              "category",
+              FilterOperator.EQ,
+              el.text.toUpperCase(),
+            );
+          });
+
+        const filtriGruppi = model
+          .getProperty("/table/toolbar/filtri/gruppi")
+          .filter((el) => el.selected)
+          .map((el) => {
+            return new Filter("group", FilterOperator.EQ, el.key);
+          });
+
+        const filtriAttributi = model
+          .getProperty("/table/toolbar/filtri/attributi")
+          .filter((el) => el.type === "Emphasized")
+          .map((el) => {
+            return new Filter(
+              "status_text",
+              FilterOperator.EQ,
+              el.text.toUpperCase(),
+            );
+          });
+
+        filtriCategorie.length
+          ? final.push(new Filter({ filters: filtriCategorie, and: false }))
+          : null;
+
+        filtriGruppi.length
+          ? final.push(new Filter({ filters: filtriGruppi, and: false }))
+          : null;
+
+        filtriAttributi.length
+          ? final.push(new Filter({ filters: filtriAttributi, and: false }))
+          : null;
+
+        searchFilters.length
+          ? final.push(new Filter({ filters: searchFilters, and: false }))
+          : null;
+
+        tables.forEach((table) => {
+          table.getBinding("items").filter(
+            new Filter({
+              filters: final,
+              and: true,
+            }),
+          );
+        });
+      },
+
       //Navigation Actions
 
       onRiepilogoPress() {
@@ -240,10 +304,6 @@ sap.ui.define(
         this._wizardNextStep();
       },
 
-      onCustomerReportPress() {
-        Dialog.getCustomerReportDialog({ controller: this });
-      },
-
       onCustomerOfferSelectionChange(e) {
         const { listItem } = e.getParameters();
 
@@ -362,77 +422,67 @@ sap.ui.define(
         });
       },
 
-      onSearch(e, id) {
+      onSearch(e) {
         const { newValue } = e.getParameters();
-        const oTable = this.byId(id);
-        const binding = oTable.getBinding("items");
 
-        if (!newValue) return binding.filter([]);
+        if (!newValue)
+          return this._applyListFilter({
+            model: this.getModel("proposta"),
+            searchFilters: [],
+          });
 
-        return binding.filter([
-          new Filter({
-            filters: [
-              new Filter({
-                path: "product",
-                operator: FilterOperator.Contains,
-                value1: newValue,
-              }),
-              new Filter({
-                path: "category",
-                operator: FilterOperator.Contains,
-                value1: newValue,
-              }),
-              new Filter({
-                path: "description",
-                operator: FilterOperator.Contains,
-                value1: newValue,
-              }),
-            ],
-            and: false,
-          }),
-        ]);
+        this._applyListFilter({
+          model: this.getModel("proposta"),
+          searchFilters: [
+            new Filter({
+              path: "product",
+              operator: FilterOperator.Contains,
+              value1: newValue,
+            }),
+            new Filter({
+              path: "category",
+              operator: FilterOperator.Contains,
+              value1: newValue,
+            }),
+            new Filter({
+              path: "description",
+              operator: FilterOperator.Contains,
+              value1: newValue,
+            }),
+          ],
+        });
       },
 
-      onFiltriCategorieButtonPress: function (e, mode) {
-        const context = e.getSource().getBindingContext("proposta");
+      onFiltriCategorieSelectionChange: function (e, mode) {
+        const { changedItem, selected } = e.getParameters();
+
+        if (!changedItem) return;
+
+        const context = changedItem.getBindingContext("proposta");
         const model = context.getModel();
-        const type = context.getProperty("type");
-        const table = this.byId(
-          this.getModel("proposta").getProperty(
-            "/objectPageLayout/currentList",
-          ),
-        );
-        const binding = table.getBinding("items");
-        const blank = model
-          .getProperty("/table/toolbar/filtri/categorie")
-          .map((el) => ({ ...el, type: "Default" }));
 
-        model.setProperty("/table/toolbar/filtri/categorie", blank);
+        context.setProperty("selected", selected);
 
-        if (type === "Emphasized") {
-          context.setProperty("type", "Default");
-          binding.filter([]);
-        } else if (type === "Default") {
-          context.setProperty("type", "Emphasized");
-          binding.filter(
-            new Filter(
-              "category",
-              FilterOperator.EQ,
-              context.getProperty("text").toUpperCase(),
-            ),
-          );
-        }
+        this._applyListFilter({ model, searchFilters: [] });
+      },
+
+      onFiltriGruppiSelectionChange: function (e, mode) {
+        const { changedItem, selected } = e.getParameters();
+
+        if (!changedItem) return;
+
+        const context = changedItem.getBindingContext("proposta");
+        const model = context.getModel();
+
+        context.setProperty("selected", selected);
+
+        this._applyListFilter({ model, searchFilters: [] });
       },
 
       onFilterAttributePress: function (e) {
         const context = e.getSource().getBindingContext("proposta");
         const model = context.getModel();
         const type = context.getProperty("type");
-        const table = this.byId(
-          this.getModel("proposta").getProperty(
-            "/objectPageLayout/currentList",
-          ),
-        );
 
         if (type === "Emphasized") {
           context.setProperty("type", "Default");
@@ -440,21 +490,7 @@ sap.ui.define(
           context.setProperty("type", "Emphasized");
         }
 
-        table.getBinding("items").filter(
-          new Filter({
-            filters: model
-              .getProperty("/table/toolbar/filtri/attributi")
-              .filter((el) => el.type === "Emphasized")
-              .map((el) => {
-                return new Filter(
-                  "status_text",
-                  FilterOperator.EQ,
-                  context.getProperty("text").toUpperCase(),
-                );
-              }),
-            and: true,
-          }),
-        );
+        this._applyListFilter({ model, searchFilters: [] });
       },
 
       onStepInputChange(e) {

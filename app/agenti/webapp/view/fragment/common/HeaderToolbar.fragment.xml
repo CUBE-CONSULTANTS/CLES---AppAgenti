@@ -10,7 +10,7 @@
             width="20rem"
             placeholder="Cerca per categoria o codice/descrizione"
             showSearchButton="false"
-            liveChange=".onSearch($event, 'catalogo_odv')"
+            liveChange=".onSearch"
         />
         <ToolbarSpacer />
         <Button

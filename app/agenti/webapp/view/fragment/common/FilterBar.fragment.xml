@@ -3,40 +3,22 @@
     xmlns="sap.m"
     xmlns:grid="sap.ui.layout.cssgrid"
 >
-    <!-- <grid:CSSGrid>
-        <grid:customLayout>
-            <grid:GridResponsiveLayout>
-                <grid:layoutS>
-                    <grid:GridSettings
-                        gridTemplateColumns="1fr"
-                        gridGap="0.1rem"
-                    />
-                </grid:layoutS>
-                <grid:layout>
-                    <grid:GridSettings
-                        gridTemplateColumns="1fr 1fr"
-                        gridGap="1rem"
-                    />
-                </grid:layout>
-                <grid:layoutXL>
-                    <grid:GridSettings
-                        gridTemplateColumns="1fr 1fr 1fr"
-                        gridGap="1rem"
-                    />
-                </grid:layoutXL>
-            </grid:GridResponsiveLayout>
-        </grid:customLayout>
-        <VBox width="100%">
+    <HBox
+        width="100%"
+        wrap="Wrap"
+    >
+        <VBox class="sapUiTinyMarginTop">
             <Label
                 text="Categorie"
                 design="Bold"
             />
             <MultiComboBox
                 placeholder="Categorie"
+                selectionChange=".onFiltriCategorieSelectionChange"
                 items="{
-                      path: 'proposta>/table/toolbar/filtri/categorie', 
-                      sorter: { path: 'text', descending: false}
-                    }"
+                  path: 'proposta>/table/toolbar/filtri/categorie', 
+                  sorter: { path: 'text', descending: false}
+                }"
             >
                 <items>
                     <core:Item
@@ -46,17 +28,19 @@
                 </items>
             </MultiComboBox>
         </VBox>
-        <VBox width="100%">
+
+        <VBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
             <Label
-                text="Caratteristiche"
+                text="Gruppi Materiale"
                 design="Bold"
             />
             <MultiComboBox
-                placeholder="Caratteristiche"
+                selectionChange=".onFiltriGruppiSelectionChange"
+                placeholder="Gruppi Materiale"
                 items="{
-                      path: 'proposta>/table/toolbar/filtri/gruppi', 
-                      sorter: { path: 'text', descending: false}
-                    }"
+                  path: 'proposta>/table/toolbar/filtri/gruppi', 
+                  sorter: { path: 'text', descending: false}
+                }"
             >
                 <items>
                     <core:Item
@@ -66,66 +50,11 @@
                 </items>
             </MultiComboBox>
         </VBox>
-        <HeaderContainer scrollStep="100">
-          <content>
-            <HBox items="{
-              path: 'proposta>/table/toolbar/filtri/attributi', 
-              sorter: { path: 'text', descending: false}
-            }">
-              <items>
-                <Button text="{proposta>text}" type="Emphasized"/>
-              </items>
-            </HBox>
-          </content>
-        </HeaderContainer>
-    </grid:CSSGrid> -->
+    </HBox>
     <VBox
         width="100%"
         class="sapUiTinyMarginTop"
     >
-        <Label
-            text="Categorie"
-            design="Bold"
-        />
-        <MultiComboBox
-            placeholder="Categorie"
-            items="{
-                      path: 'proposta>/table/toolbar/filtri/categorie', 
-                      sorter: { path: 'text', descending: false}
-                    }"
-        >
-            <items>
-                <core:Item
-                    key="{proposta>key}"
-                    text="{proposta>text}"
-                />
-            </items>
-        </MultiComboBox>
-    </VBox>
-    <VBox
-        width="100%"
-        class="sapUiTinyMarginTop"
-    >
-        <Label
-            text="Gruppi Materiale"
-            design="Bold"
-        />
-        <MultiComboBox
-            placeholder="Gruppi Materiale"
-            items="{
-              path: 'proposta>/table/toolbar/filtri/gruppi', 
-              sorter: { path: 'text', descending: false}
-            }"
-        >
-            <items>
-                <core:Item
-                    key="{proposta>key}"
-                    text="{proposta>text}"
-                />
-            </items>
-        </MultiComboBox>
-    </VBox>
-    <VBox width="100%" class="sapUiTinyMarginTop">
         <Label
             text="Attributi"
             design="Bold"

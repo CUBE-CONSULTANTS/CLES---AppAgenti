@@ -35,49 +35,54 @@
         "categorie": [
           {
             "text": "APERITIVO",
-            "type": "Default"
+            "selected": false
           },
           {
             "text": "CARNE BIANCA",
-            "type": "Default"
+            "selected": false
           },
           {
             "text": "CARNE ROSSA",
-            "type": "Default"
+            "selected": false
           },
           {
             "text": "PANE",
-            "type": "Default"
+            "selected": false
           },
           {
             "text": "PASTA",
-            "type": "Default"
+            "selected": false
           },
           {
             "text": "ALCOLICI",
-            "type": "Default"
+            "selected": false
           }
         ],
         "gruppi": [
           {
-            "text": "Gruppo Materiali 1",
-            "type": "Default"
+            "key": "group1",
+            "text": "Gruppo 1",
+            "selected": false
           },
           {
-            "text": "Gruppo Materiali 2",
-            "type": "Default"
+            "key": "group2",
+            "text": "Gruppo 2",
+            "selected": false
           },
           {
-            "text": "Gruppo Materiali 3",
-            "type": "Default"
+            "key": "group3",
+            "text": "Gruppo 3",
+            "selected": false
           },
           {
-            "text": "Gruppo Materiali 4",
-            "type": "Default"
+            "key": "group4",
+            "text": "Gruppo 4",
+            "selected": false
           },
           {
-            "text": "Gruppo Materiali 5",
-            "type": "Default"
+            "key": "group5",
+            "text": "Gruppo 5",
+            "selected": false
           }
         ],
         "attributi": [
@@ -141,6 +146,7 @@
         "category": "APERITIVO",
         "product": "4060",
         "src": "https://i1.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2018/08/3681_Bastoncini.jpg?resize=895%2C616&ssl=1",
+        "group": "group1",
         "description": "Bastoncini di mozzarella panati",
         "u_acq": "18/06/2024",
         "u_prz": "3.88",
@@ -160,6 +166,7 @@
         "category": "CARNE ROSSA",
         "product": "4060",
         "src": "./public/img/notFound.jpeg",
+        "group": "group1",
         "description": "Lonza di maiale ai peperoni",
         "u_acq": "18/06/2024",
         "u_prz": "7.88",
@@ -179,6 +186,7 @@
         "category": "CARNE BIANCA",
         "product": "0340",
         "src": "https://www.aziendagricolailpoggio.it/public/Files/rif000002/564/ricetta-quaglie.jpg",
+        "group": "group2",
         "description": "Quaglie ripiene in padella",
         "u_acq": "15/02/2024",
         "u_prz": "7.64",
@@ -198,6 +206,7 @@
         "category": "CARNE BIANCA",
         "product": "0341",
         "src": "https://blog.giallozafferano.it/allacciateilgrembiule/wp-content/uploads/2019/03/straccetti-pollo-verdure-1.jpg",
+        "group": "group2",
         "description": "Straccetti di pollo alle verdure",
         "u_acq": "15/07/2024",
         "u_prz": "6.33",
@@ -217,6 +226,7 @@
         "category": "CARNE BIANCA",
         "product": "0342",
         "src": "./public/img/notFound.jpeg",
+        "group": "group5",
         "description": "Faraona Nostrana",
         "u_acq": "05/04/2024",
         "u_prz": "16.33",
@@ -233,6 +243,7 @@
         "category": "CARNE ROSSA",
         "product": "0343",
         "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/933-carre-fresco-disossato-lombo-lonza-1kg.jpeg?16923670341",
+        "group": "group3",
         "description": "Lombo Suino Disossato",
         "u_acq": "05/04/2024",
         "u_prz": "11.33",
@@ -249,6 +260,7 @@
         "category": "CARNE ROSSA",
         "product": "0344",
         "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/934-coppa-fresca-disossata-1kg.jpeg?16923635071",
+        "group": "group3",
         "description": "Coppa Suino Disossato",
         "u_acq": "05/04/2024",
         "u_prz": "9.33",

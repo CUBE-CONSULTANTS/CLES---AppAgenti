@@ -5,11 +5,18 @@
     xmlns:core="sap.ui.core"
 >
     <Dialog
+        contentWidth="40%"
         showHeader="true"
         title="Crea Segnalazione"
     >
         <content>
-            <form:SimpleForm>
+            <form:SimpleForm layout="ResponsiveGridLayout"
+                columnsL="2"
+                columnsM="2">
+                <Label
+                    text="Tipologia"
+                    design="Bold"
+                />
                 <RadioButtonGroup>
                     <RadioButton
                         text="Segnalazione Prodotto"
@@ -17,8 +24,11 @@
                     />
                     <RadioButton text="Modifica Anagrafica" />
                 </RadioButtonGroup>
-                <Label text="Note" design="Bold"/>
-                <TextArea rows="4"/>
+                <Label
+                    text="Note"
+                    design="Bold"
+                />
+                <TextArea rows="4" />
             </form:SimpleForm>
         </content>
         <buttons>
