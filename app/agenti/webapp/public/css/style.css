@@ -30,22 +30,22 @@
   transform: translateY(-2px);
 }
 
-.coloredCustomListItem {
+[data-customListItemClass="coloredListItem"] {
     background-color: var(--sapContent_Illustrative_Color18) !important;
 }
 
-.coloredCustomListItem.sapMLIBHoverable:hover {
+[data-customListItemClass="coloredListItem"] .sapMLIBHoverable:hover {
     background-color: var(--sapContent_Illustrative_Color19) !important;
 }
 
-.coloredCustomListItem.sapMLIBActive {
+[data-customListItemClass="coloredListItem"] .sapMLIBActive {
     background-color: var(--sapContent_Illustrative_Color18) !important;
 }
 
-.coloredCustomListItem.sapMLIBSelected {
+[data-customListItemClass="coloredListItem"] .sapMLIBSelected {
     background-color: var(--sapContent_Illustrative_Color18) !important;
 }
 
-.coloredCustomListItem.sapMLIBSelected.sapMLIBHoverable:hover {
+[data-customListItemClass="coloredListItem"] .sapMLIBSelected .sapMLIBHoverable:hover {
     background-color: var(--sapContent_Illustrative_Color18) !important;
 }

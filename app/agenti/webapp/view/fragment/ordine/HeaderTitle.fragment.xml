@@ -18,6 +18,9 @@
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
             />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
+            />
         </uxap:snappedContent>
         <uxap:navigationActions>
             <core:Fragment

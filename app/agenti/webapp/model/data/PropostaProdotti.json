@@ -23,7 +23,7 @@
     },
     "mode": "ORDINE",
     "tabOrdine": "STORICO",
-    "tabOfferta": ""
+    "tabOfferta": {}
   },
   "table": {
     "columns": {
@@ -153,7 +153,6 @@
         "u_qta": "3.00",
         "price": "0.00",
         "unit_of_measure": "CF",
-        "quantity": "0.00",
         "disponibilita": "3",
         "note": "1",
         "status_text": "TOP SELLER",

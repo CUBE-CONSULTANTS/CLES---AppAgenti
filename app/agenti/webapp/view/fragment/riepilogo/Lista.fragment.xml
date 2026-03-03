@@ -87,7 +87,6 @@
                         />
                         <StepInput
                             class="sapUiTinyMarginTop"
-                            change=".onStepInputChange"
                             min="0"
                         />
                         <Button

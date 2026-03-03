@@ -61,7 +61,7 @@
             </uxap:ObjectPageSection>
             <uxap:ObjectPageSection
                 id="offertaOrdini"
-                title="{proposta>/header/tabOfferta}"
+                title="{proposta>/header/tabOfferta/name} (Valida fino al {proposta>/header/tabOfferta/expiry})"
                 showTitle="false"
                 visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
             >

@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectStatus
+        visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
+        text="{
+          path: 'proposta>/header/date/value',
+          formatter: '.formatter.formatDate' 
+        }"
+        inverted="true"
+        active="false"
+        state="Indication12"
+    />
+</core:FragmentDefinition>

@@ -32,6 +32,13 @@
                 type="Active"
                 press=".onProductListItemPress($event, 'CATALOGO')"
             >
+                <customData>
+                    <core:CustomData
+                        key="customListItemClass"
+                        value="{= ${proposta>quantity} > 0 ? 'coloredListItem' : '' }"
+                        writeToDom="true"
+                    />
+                </customData>
                 <grid:CSSGrid>
                     <grid:customLayout>
                         <grid:GridResponsiveLayout>
@@ -111,7 +118,7 @@
                         />
                         <StepInput
                             class="sapUiTinyMarginTop"
-                            change=".onStepInputChange"
+                            value="{proposta>quantity}"
                             min="0"
                         />
                     </VBox>

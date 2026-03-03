@@ -33,6 +33,13 @@
                 type="Active"
                 press=".onProductListItemPress($event, 'LISTA')"
             >
+                <customData>
+                    <core:CustomData
+                        key="customListItemClass"
+                        value="{= ${proposta>quantity} > 0 ? 'coloredListItem' : '' }"
+                        writeToDom="true"
+                    />
+                </customData>
                 <grid:CSSGrid>
                     <grid:customLayout>
                         <grid:GridResponsiveLayout>
@@ -56,7 +63,6 @@
                             </grid:layoutXL>
                         </grid:GridResponsiveLayout>
                     </grid:customLayout>
-
                     <VBox class="sapUiResponsiveMargin">
                         <Image
                             class="circularImage"
@@ -87,21 +93,21 @@
                         />
                         <ProgressIndicator
                             percentValue="{= 
-                                      ${proposta>disponibilita} &lt; 1 ? '0' :
-                                      ${proposta>disponibilita} &lt; 5 ? '25' :
-                                      ${proposta>disponibilita} &lt; 10 ? '50' :
-                                      '75'
-                                    }"
+                              ${proposta>disponibilita} &lt; 1 ? '0' :
+                              ${proposta>disponibilita} &lt; 5 ? '25' :
+                              ${proposta>disponibilita} &lt; 10 ? '50' :
+                              '75'
+                            }"
                             showValue="false"
                             state="{= 
-                                      ${proposta>disponibilita} &lt; 5 ? 'Error' :
-                                      ${proposta>disponibilita} &lt; 10 ? 'Warning' :
-                                      'Success'
-                                    }"
+                              ${proposta>disponibilita} &lt; 5 ? 'Error' :
+                              ${proposta>disponibilita} &lt; 10 ? 'Warning' :
+                              'Success'
+                            }"
                         />
                         <StepInput
                             class="sapUiTinyMarginTop"
-                            change=".onStepInputChange"
+                            value="{proposta>quantity}"
                             min="0"
                         />
                     </VBox>

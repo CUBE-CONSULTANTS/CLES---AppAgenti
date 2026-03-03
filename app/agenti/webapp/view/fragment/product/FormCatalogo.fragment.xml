@@ -15,7 +15,6 @@
             text="Prezzo di Listino: 3.50€"
         />
         <StepInput
-            change=".onStepInputChange"
             min="0"
         />
     </HBox>

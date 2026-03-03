@@ -3,6 +3,7 @@
     xmlns:core="sap.ui.core"
 >
     <ObjectStatus
+        class="sapUiTinyMarginEnd"
         visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }"
         text="{proposta>/objectPageLayout/objectStatusText}"
         inverted="true"

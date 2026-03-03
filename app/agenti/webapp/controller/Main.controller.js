@@ -262,7 +262,7 @@ sap.ui.define(
         if (context.getModel().getProperty("/selectedMode") === "OFFERTA") {
           this.getModel("proposta").setProperty(
             "/objectPageLayout/title",
-            "Creazione offerta cliente",
+            "Offerta cliente",
           );
 
           this.getModel("proposta").setProperty(
@@ -274,7 +274,7 @@ sap.ui.define(
         if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
           this.getModel("proposta").setProperty(
             "/objectPageLayout/title",
-            "Creazione ordine di vendita",
+            "Ordine di vendita",
           );
           return this._wizardNextStep();
         }
@@ -323,7 +323,7 @@ sap.ui.define(
       _confirmWizardOrdine(model) {
         this.getModel("proposta").setProperty(
           "/header/tabOfferta",
-          model.getProperty("/step3/offer/selected/name"),
+          model.getProperty("/step3/offer/selected"),
         );
 
         this.getModel("proposta").setProperty(
@@ -338,7 +338,7 @@ sap.ui.define(
 
         this.getModel("proposta").setProperty(
           "/objectPageLayout/title",
-          "Creazione ordine di vendita",
+          "Ordine di vendita",
         );
 
         this.getModel("proposta").setProperty(
@@ -355,7 +355,7 @@ sap.ui.define(
 
         this.getModel("proposta").setProperty(
           "/objectPageLayout/title",
-          "Creazione offerta cliente",
+          "Offerta cliente",
         );
 
         this.getModel("proposta").setProperty(
@@ -372,7 +372,7 @@ sap.ui.define(
 
         this.getModel("proposta").setProperty(
           "/objectPageLayout/title",
-          "Creazione preordine",
+          "Preordine",
         );
 
         this.getModel("proposta").setProperty(
@@ -491,15 +491,6 @@ sap.ui.define(
         }
 
         this._applyListFilter({ model, searchFilters: [] });
-      },
-
-      onStepInputChange(e) {
-        const { value } = e.getParameters();
-        const listItem = e.getSource().getParent().getParent().getParent();
-
-        if (value > 0) return listItem.addStyleClass("coloredCustomListItem");
-
-        return listItem.removeStyleClass("coloredCustomListItem");
       },
 
       onProductListItemPress(e, from) {
