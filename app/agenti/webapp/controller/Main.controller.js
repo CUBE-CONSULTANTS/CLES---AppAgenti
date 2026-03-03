@@ -67,6 +67,11 @@ sap.ui.define(
           this.byId("storico_list"),
         ];
 
+        this.getModel("proposta").setProperty(
+          "/table/toolbar/sorters/groupedByCategory",
+          false,
+        );
+
         tables.forEach((table) => {
           table
             .getBinding("items")
@@ -240,11 +245,6 @@ sap.ui.define(
       },
 
       onSortByCategoryAsc(e) {
-        this.getModel("proposta").setProperty(
-          "/table/toolbar/sorters/groupedByCategory",
-          false,
-        );
-
         this._applyListSorting({
           property: "category",
           descending: false,
@@ -252,11 +252,6 @@ sap.ui.define(
       },
 
       onSortByCategoryDesc(e) {
-        this.getModel("proposta").setProperty(
-          "/table/toolbar/sorters/groupedByCategory",
-          false,
-        );
-
         this._applyListSorting({
           property: "category",
           descending: true,
