@@ -80,7 +80,10 @@
                             text="Aliquota IVA: {proposta>quantity}"
                         />
                     </VBox>
-                    <VBox class="sapUiResponsiveMargin" alignItems="End">
+                    <VBox
+                        class="sapUiResponsiveMargin"
+                        alignItems="End"
+                    >
                         <Label
                             design="Bold"
                             text="Quantità selezionata"
@@ -89,12 +92,28 @@
                             class="sapUiTinyMarginTop"
                             min="0"
                         />
-                        <Button
-                            class="sapUiTinyMarginTop"
-                            text="Elimina Articolo"
-                            type="Negative"
-                            icon="sap-icon://delete"
-                        />
+                        <HBox wrap="Wrap">
+                            <Button
+                                class="sapUiTinyMarginEnd sapUiTinyMarginTop"
+                                text="Note"
+                                press=".onAddNotePress"
+                                type="Emphasized"
+                                icon="sap-icon://notes"
+                            >
+                                <customData>
+                                    <BadgeCustomData
+                                        writeToDom="true"
+                                        value="3"
+                                    />
+                                </customData>
+                            </Button>
+                            <Button
+                                class="sapUiTinyMarginTop"
+                                text="Elimina"
+                                type="Negative"
+                                icon="sap-icon://delete"
+                            />
+                        </HBox>
                     </VBox>
                 </grid:CSSGrid>
             </CustomListItem>

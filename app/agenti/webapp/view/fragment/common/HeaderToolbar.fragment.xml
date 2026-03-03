@@ -13,8 +13,9 @@
             liveChange=".onSearch"
         />
         <ToolbarSpacer />
-        <Button
-            type="Emphasized"
+        <ToggleButton
+            pressed="{proposta>/table/toolbar/sorters/groupedByCategory}"
+            press=".onGroupByCategory"
             text="Raggruppa per Categoria"
             icon="sap-icon://group-2"
         />
@@ -48,10 +49,12 @@
                 <Menu>
                     <items>
                         <MenuItem
+                            press=".onSortByDescriptionAsc"
                             text="Ordine Ascendente"
                             icon="sap-icon://sort-ascending"
                         />
                         <MenuItem
+                            press=".onSortByDescriptionDesc"
                             text="Ordine Discendente"
                             icon="sap-icon://sort-descending"
                         />
@@ -68,10 +71,12 @@
                 <Menu>
                     <items>
                         <MenuItem
+                            press=".onSortByCategoryAsc"
                             text="Ordine Ascendente"
                             icon="sap-icon://sort-ascending"
                         />
                         <MenuItem
+                            press=".onSortByCategoryDesc"
                             text="Ordine Discendente"
                             icon="sap-icon://sort-descending"
                         />

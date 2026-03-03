@@ -176,6 +176,285 @@ sap.ui.define(
 
         oScroll.setHeight(iHeight + "px");
       },
+
+      //Wizard
+
+      onWizardCardPress(e) {
+        const wizard = this.byId("wizardMode");
+        const context = e.getSource().getBindingContext();
+        const selectedKey = context.getProperty("key");
+
+        if (selectedKey === "SKIP") {
+          context.getModel().setProperty("/selectedMode", selectedKey);
+          this.getModel("proposta").setProperty("/header/mode", selectedKey);
+          return wizard.getParent().close();
+        }
+
+        this._wizardNextStep();
+
+        context.getModel().setProperty("/selectedMode", selectedKey);
+      },
+
+      _wizardPreviousStep() {
+        this.byId("wizardMode").previousStep();
+        this.byId("wizardMode")
+          .getModel()
+          .setProperty(
+            "/currentStep",
+            parseInt(
+              this.byId("wizardMode")
+                .getCurrentStep()
+                .substring(this.byId("wizardMode").getCurrentStep().length - 1),
+            ),
+          );
+      },
+
+      _wizardNextStep() {
+        this.byId("wizardMode").nextStep();
+        this.byId("wizardMode")
+          .getModel()
+          .setProperty(
+            "/currentStep",
+            parseInt(
+              this.byId("wizardMode")
+                .getCurrentStep()
+                .substring(this.byId("wizardMode").getCurrentStep().length - 1),
+            ),
+          );
+      },
+
+      onWizardPreviousStep(e) {
+        this._wizardPreviousStep();
+      },
+
+      handleNavigationChange(e) {
+        const { step } = e.getParameters();
+
+        this.byId("wizardMode")
+          .getModel()
+          .setProperty(
+            "/currentStep",
+            parseInt(step.getId().substring(step.getId().length - 1)),
+          );
+
+        this.byId("wizardMode").setCurrentStep(step);
+      },
+
+      //Wizard - Step 1
+
+      onModeSelectionChange(e, key) {
+        const context = e.getSource().getBindingContext();
+        const model = context.getModel();
+
+        model.setProperty("/step1/mode/selectedKey", key);
+        model.setProperty(
+          "/step1/mode/activeCard",
+          model.getProperty("/step1/mode/cards").find((el) => el.key === key),
+        );
+      },
+
+      //Wizard = Step 2
+
+      onCustomerListSelect(e) {
+        const selectedItem = e.getSource();
+
+        if (!selectedItem) return;
+
+        const context = selectedItem.getBindingContext();
+
+        context
+          .getModel()
+          .setProperty("/step2/customer/id", context.getProperty("id"));
+
+        context
+          .getModel()
+          .setProperty("/step2/customer/name", context.getProperty("name"));
+
+        context
+          .getModel()
+          .setProperty("/step2/customer/city", context.getProperty("city"));
+
+        this.getModel("proposta").setProperty(
+          "/header/mode",
+          context.getModel().getProperty("/selectedMode"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/header/customer",
+          context.getObject(),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/mode",
+          context.getModel().getProperty("/selectedMode"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          context.getModel().getProperty("/step2/customer/name"),
+        );
+
+        if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
+          this.getModel("proposta").setProperty(
+            "/header/tabOrdine",
+            context.getModel().getProperty("/step2/tab/selected"),
+          );
+
+          context
+            .getModel()
+            .setProperty("/step3/customer", context.getObject());
+        }
+
+        if (context.getModel().getProperty("/selectedMode") === "OFFERTA") {
+          this.getModel("proposta").setProperty(
+            "/objectPageLayout/title",
+            "Offerta cliente",
+          );
+
+          this.getModel("proposta").setProperty(
+            "/header/date/value",
+            context.getModel().getProperty("/step2/date/value"),
+          );
+        }
+
+        if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
+          this.getModel("proposta").setProperty(
+            "/objectPageLayout/title",
+            "Ordine di vendita",
+          );
+          return this._wizardNextStep();
+        }
+
+        return this.byId("wizardMode").getParent().close();
+      },
+
+      onCustomerCreatePress(e) {
+        const wizard = this.byId("wizardMode");
+        const model = wizard.getModel();
+
+        model.setProperty("/step3/customer", null);
+        model.setProperty("/step3/formEnabled", true);
+
+        this._wizardNextStep();
+      },
+
+      onCustomerInfoPress(e) {
+        const context = e.getSource().getBindingContext();
+        const model = context.getModel();
+
+        model.setProperty("/step3/customer/id", context.getProperty("id"));
+        model.setProperty("/step3/customer/name", context.getProperty("name"));
+        model.setProperty("/step3/customer/city", context.getProperty("city"));
+        model.setProperty("/step3/formEnabled", false);
+
+        this._wizardNextStep();
+      },
+
+      onCustomerOfferSelectionChange(e) {
+        const { listItem } = e.getParameters();
+
+        if (!listItem) return;
+
+        const context = listItem.getBindingContext();
+
+        context
+          .getModel()
+          .setProperty("/step3/offer/selected", context.getObject());
+      },
+
+      onCustomerConfirmPress() {
+        this._wizardNextStep();
+      },
+
+      _confirmWizardOrdine(model) {
+        this.getModel("proposta").setProperty(
+          "/header/tabOfferta",
+          model.getProperty("/step3/offer/selected"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/header/tabOrdine",
+          model.getProperty("/step3/tab/selected"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/header/customer",
+          model.getProperty("/step3/customer"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          "Ordine di vendita",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          model.getProperty("/step3/customer/name"),
+        );
+      },
+
+      _confirmWizardOfferta(model) {
+        this.getModel("proposta").setProperty(
+          "/header/customer",
+          model.getProperty("/step2/customer"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          "Offerta cliente",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          model.getProperty("/step3/customer/name"),
+        );
+      },
+
+      _confirmWizardPreordine(model) {
+        this.getModel("proposta").setProperty(
+          "/header/title/value",
+          model.getProperty("/step2/title/value"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          "Preordine",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          model.getProperty("/step2/title/value"),
+        );
+      },
+
+      onWizardConfirmPress(e) {
+        const model = e.getSource().getModel();
+
+        this.getModel("proposta").setProperty(
+          "/header/mode",
+          model.getProperty("/selectedMode"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/header/date/value",
+          model.getProperty("/step2/date/value"),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/mode",
+          model.getProperty("/selectedMode"),
+        );
+
+        if (model.getProperty("/selectedMode") === "ORDINE") {
+          this._confirmWizardOrdine(model);
+        } else if (model.getProperty("/selectedMode") === "OFFERTA") {
+          this._confirmWizardOfferta(model);
+        } else if (model.getProperty("/selectedMode") === "PREORDINE") {
+          this._confirmWizardPreordine(model);
+        }
+
+        this.byId("wizardMode").getParent().close();
+      },
     });
   },
 );

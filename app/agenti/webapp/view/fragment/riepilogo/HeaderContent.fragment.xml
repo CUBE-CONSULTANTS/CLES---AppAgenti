@@ -9,6 +9,7 @@
         <f:header>
             <card:Header
                 title="{proposta>/header/customer/name}"
+                iconSrc="sap-icon://customer"
                 subtitle="Articoli selezionati: ({proposta>/table/items/length})"
             />
         </f:header>

@@ -22,7 +22,7 @@
                     <Label text="Cliente" />
                     <Input
                         editable="{/step3/formEnabled}"
-                        value="{/step3/customer/name}"
+                        value="{proposta>/header/customer/name}"
                     />
                     <Label text="Indirizzo" />
                     <Input

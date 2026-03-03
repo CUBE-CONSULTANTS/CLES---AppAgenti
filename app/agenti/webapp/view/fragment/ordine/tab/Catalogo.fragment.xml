@@ -78,6 +78,7 @@
                         justifyContent="Start"
                     >
                         <ObjectStatus
+                          visible="{= ${proposta>/table/toolbar/sorters/groupedByCategory} ? false : true }"
                             inverted="true"
                             state="Indication12"
                             text="{proposta>category}"

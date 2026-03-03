@@ -10,9 +10,10 @@
             class="sapUiTinyMargin"
             text="Dettagli Prodotto"
             icon="sap-icon://information"
-            press=".onShowProductproductPress"
+            press=".onShowProductDetailPress"
         />
         <Button
+            visible="false"
             class="sapUiTinyMargin"
             text="Allegati prodotto"
             icon="sap-icon://attachment"
