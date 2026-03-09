@@ -31,6 +31,8 @@
     },
     "toolbar": {
       "groupByCategory": false,
+      "showAttributes": true,
+      "showImages": true,
       "filtri": {
         "categorie": [
           {
@@ -61,79 +63,69 @@
         "gruppi": [
           {
             "key": "group1",
-            "text": "Gruppo 1",
+            "text": "Carni Rosse Fresche",
             "selected": false
           },
           {
             "key": "group2",
-            "text": "Gruppo 2",
+            "text": "Carni Bianche e Avicole",
             "selected": false
           },
           {
             "key": "group3",
-            "text": "Gruppo 3",
-            "selected": false
-          },
-          {
-            "key": "group4",
-            "text": "Gruppo 4",
-            "selected": false
-          },
-          {
-            "key": "group5",
-            "text": "Gruppo 5",
+            "text": "Piatti Pronti",
             "selected": false
           }
         ],
         "attributi": [
           {
-            "text": "Attributo Prodotto 1",
-            "pressed": false,
+            "text": "Origine Nazionale Certificata",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 2",
-            "pressed": false,
+            "text": "Allevato a Terra Senza Antibiotici",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 3",
-            "pressed": false,
+            "text": "Frollatura Superiore 30gg",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 4",
-            "pressed": false,
+            "text": "Ready-to-Drink (Premiscelato)",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 5",
-            "pressed": false,
+            "text": "Filiera Biologica Controllata",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 6",
-            "pressed": false,
+            "text": "Taglio Magro Scelto",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 7",
-            "pressed": false,
+            "text": "Senza Glutine / Gluten Free",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 8",
-            "pressed": false,
+            "text": "TOP SELLER",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 9",
-            "pressed": false,
+            "text": "Analcolico / Low Alcohol",
+            "pressed": "false",
             "type": "Default"
           },
           {
-            "text": "Attributo Prodotto 10",
-            "pressed": false,
+            "text": "Prodotto Gourmet / Premium",
+            "pressed": "false",
             "type": "Default"
           }
         ]
@@ -149,19 +141,25 @@
         "category": "APERITIVO",
         "product": "4060",
         "src": "https://i1.wp.com/www.piccolericette.net/piccolericette/wp-content/uploads/2018/08/3681_Bastoncini.jpg?resize=895%2C616&ssl=1",
-        "group": "group1",
+        "group": "group3",
         "description": "Bastoncini di mozzarella panati",
         "u_acq": "18/06/2024",
-        "u_prz": "3.88",
-        "u_qta": "3.00",
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
         "disponibilita": "3",
         "note": "1",
-        "status_text": "TOP SELLER",
-        "status_state": "Indication15",
-        "listino": "3.50€"
+        "listino": "3.50€",
+        "attributes": [
+          {
+            "status_text": "TOP SELLER",
+            "status_state": "Indication15"
+          },
+          {
+            "status_text": "VEGETARIANO",
+            "status_state": "Indication15"
+          }
+        ]
       },
       {
         "selected": false,
@@ -181,7 +179,13 @@
         "note": "0",
         "status_text": "GLUTEN FREE",
         "status_state": "Indication14",
-        "listino": "10.50€"
+        "listino": "10.50€",
+        "attributes": [
+          {
+            "status_text": "GLUTEN FREE",
+            "status_state": "Indication15"
+          }
+        ]
       },
       {
         "selected": false,
@@ -201,7 +205,13 @@
         "note": "3",
         "status_text": "GLUTEN FREE",
         "status_state": "Indication14",
-        "listino": "11.50€"
+        "listino": "11.50€",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
       },
       {
         "selected": false,
@@ -221,7 +231,13 @@
         "note": "1",
         "status_text": "",
         "status_state": "Indication12",
-        "listino": "9.50€"
+        "listino": "9.50€",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
       },
       {
         "selected": false,
@@ -238,7 +254,13 @@
         "unit_of_measure": "CF",
         "quantity": "0.00",
         "disponibilita": "0",
-        "note": "0"
+        "note": "0",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
       },
       {
         "selected": false,
@@ -246,7 +268,7 @@
         "category": "CARNE ROSSA",
         "product": "0343",
         "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/933-carre-fresco-disossato-lombo-lonza-1kg.jpeg?16923670341",
-        "group": "group3",
+        "group": "group1",
         "description": "Lombo Suino Disossato",
         "u_acq": "05/04/2024",
         "u_prz": "11.33",
@@ -255,7 +277,13 @@
         "unit_of_measure": "CF",
         "quantity": "0.00",
         "disponibilita": "0",
-        "note": "0"
+        "note": "0",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
       },
       {
         "selected": false,
@@ -263,7 +291,7 @@
         "category": "CARNE ROSSA",
         "product": "0344",
         "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/934-coppa-fresca-disossata-1kg.jpeg?16923635071",
-        "group": "group3",
+        "group": "group1",
         "description": "Coppa Suino Disossato",
         "u_acq": "05/04/2024",
         "u_prz": "9.33",
@@ -272,7 +300,13 @@
         "unit_of_measure": "CF",
         "quantity": "0.00",
         "disponibilita": "15",
-        "note": "2"
+        "note": "2",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
       }
     ]
   }

@@ -16,9 +16,9 @@
     text-align:center;
 }
 
-.circularImage {
-  border-radius: 25%; 
-  object-fit: cover; 
+.circularImage > img {
+  border-radius: 25% !important; 
+  object-fit: cover !important; 
 }
 
 .clickableCard {

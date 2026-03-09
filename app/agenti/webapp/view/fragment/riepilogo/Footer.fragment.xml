@@ -13,13 +13,6 @@
         <ToolbarSpacer />
         <Button
             class="sapUiTinyMargin"
-            text="{= ${proposta>/header/mode} === 'SKIP' ? 'Scegli Modalità' : 'Cambia Modalità' }"
-            type="Critical"
-            icon="sap-icon://sales-document"
-            press=".onRiepilogoPress"
-        />
-        <Button
-            class="sapUiTinyMargin"
             text="Crea Ordine"
             visible="{= ${proposta>/header/mode} === 'ORDINE' ? true : false }"
             type="Emphasized"
@@ -39,6 +32,13 @@
             text="Crea Preordine"
             visible="{= ${proposta>/header/mode} === 'PREORDINE' ? true : false }"
             type="Emphasized"
+            icon="sap-icon://sales-document"
+            press=".onRiepilogoPress"
+        />
+        <Button
+            class="sapUiTinyMargin"
+            text="{= ${proposta>/header/mode} === 'SKIP' ? 'Scegli Modalità' : 'Cambia Modalità' }"
+            type="Critical"
             icon="sap-icon://sales-document"
             press=".onRiepilogoPress"
         />

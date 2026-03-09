@@ -11,9 +11,33 @@
             <Title text="{proposta>/objectPageLayout/title}" />
         </uxap:expandedHeading>
         <uxap:snappedContent>
-            <core:Fragment
-                fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
-            />
+            <HBox wrap="Wrap" alignItems="Center" >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+                />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
+                />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
+                />
+                <ObjectNumber
+                    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                    state="Success"
+                    inverted="true"
+                    number="Totale Imponibile 270.00"
+                    unit="€"
+                    emphasized="true"
+                />
+                <ObjectNumber
+                    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                    state="Warning"
+                    inverted="true"
+                    number="Totale IVA 329.40"
+                    unit="€"
+                    emphasized="true"
+                />
+            </HBox>
         </uxap:snappedContent>
         <uxap:navigationActions>
             <core:Fragment

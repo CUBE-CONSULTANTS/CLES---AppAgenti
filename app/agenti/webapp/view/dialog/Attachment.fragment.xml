@@ -9,7 +9,6 @@
             <VBox class="sapUiContentPadding">
                 <VBox class="sapUiSmallMargin">
                     <core:HTML
-                        id="cameraHtml"
                         content="&lt;div id='cameraContainer'&gt;&lt;/div&gt;"
                     />
 

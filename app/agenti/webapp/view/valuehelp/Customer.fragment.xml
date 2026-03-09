@@ -5,8 +5,7 @@
     xmlns:u="sap.ui.unified"
 >
     <Dialog
-        stretch="false"
-        contentWidth="100%"
+        stretch="true"
         showHeader="false"
     >
         <buttons>

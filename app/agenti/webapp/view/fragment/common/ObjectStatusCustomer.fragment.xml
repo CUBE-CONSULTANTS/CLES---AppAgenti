@@ -3,7 +3,7 @@
     xmlns:core="sap.ui.core"
 >
     <ObjectStatus
-        class="sapUiTinyMarginEnd"
+        class="sapUiTinyMarginTop sapUiTinyMarginEnd"
         visible="{= (${proposta>/header/mode} === 'PREORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
         press=".onCustomerObjectPagePress"
         text="{proposta>/objectPageLayout/objectStatusText}"

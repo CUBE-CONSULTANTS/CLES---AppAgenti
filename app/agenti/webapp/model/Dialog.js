@@ -221,7 +221,7 @@ sap.ui.define(
 
             oDialog.open();
 
-            try {
+            /* try {
               window._stream = await navigator.mediaDevices.getUserMedia({
                 video: true,
                 audio: false,
@@ -239,7 +239,7 @@ sap.ui.define(
               container.appendChild(window._video);
             } catch (err) {
               sap.m.MessageToast.show("Errore accesso camera: " + err.message);
-            }
+            } */
 
             resolve();
           } catch (error) {

@@ -55,7 +55,10 @@
                     alignItems="Center"
                     justifyContent="End"
                 >
-                    <StepInput min="0"  value="1" />
+                    <StepInput
+                        min="0"
+                        value="1"
+                    />
                 </HBox>
                 <Label
                     design="Bold"
@@ -102,7 +105,7 @@
         <form:SimpleForm
             backgroundDesign="Transparent"
             maxContainerCols="2"
-            editable="false"
+            editable="true"
             layout="ResponsiveGridLayout"
             labelSpanL="12"
             labelSpanM="12"
@@ -114,6 +117,11 @@
             <form:content>
                 <Label
                     design="Bold"
+                    text="Sconto agente %"
+                />
+                <Input value="5%" />
+                <Label
+                    design="Bold"
                     text="Prezzo unità di vendita"
                 />
                 <Title
@@ -121,11 +129,7 @@
                     text="3.50€"
                     titleStyle="H4"
                 />
-                <Label
-                    design="Bold"
-                    text="Sconto agente %"
-                />
-                <Input value="5%" />
+
                 <Label
                     design="Bold"
                     text="Prezzo applicato"

@@ -1,13 +1,38 @@
 <core:FragmentDefinition
+    xmlns:grid="sap.ui.layout.cssgrid"
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
-    xmlns:grid="sap.ui.layout.cssgrid"
 >
-    <HBox
-        width="100%"
-        wrap="Wrap"
-    >
-        <VBox class="sapUiTinyMarginTop">
+    <grid:CSSGrid class="sapUiTinyMarginTop">
+        <grid:customLayout>
+            <grid:GridResponsiveLayout>
+                <grid:layoutS>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr"
+                        gridGap="0.5rem"
+                    />
+                </grid:layoutS>
+                <grid:layoutM>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr 1fr"
+                        gridGap="0.5rem"
+                    />
+                </grid:layoutM>
+                <grid:layoutL>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr 1fr"
+                        gridGap="0.5rem"
+                    />
+                </grid:layoutL>
+                <grid:layoutXL>
+                    <grid:GridSettings
+                        gridTemplateColumns="1fr 1fr"
+                        gridGap="0.5rem"
+                    />
+                </grid:layoutXL>
+            </grid:GridResponsiveLayout>
+        </grid:customLayout>
+        <VBox>
             <Label
                 text="Categorie"
                 design="Bold"
@@ -29,7 +54,7 @@
             </MultiComboBox>
         </VBox>
 
-        <VBox class="sapUiTinyMarginTop sapUiTinyMarginBegin">
+        <VBox>
             <Label
                 text="Gruppi Materiale"
                 design="Bold"
@@ -50,7 +75,7 @@
                 </items>
             </MultiComboBox>
         </VBox>
-    </HBox>
+    </grid:CSSGrid>
     <VBox
         width="100%"
         class="sapUiTinyMarginTop"

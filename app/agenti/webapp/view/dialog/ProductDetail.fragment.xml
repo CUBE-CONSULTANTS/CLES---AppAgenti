@@ -2,7 +2,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
     <Dialog showHeader="true"
-    contentWidth="60%"
+    contentWidth="{= ${device>/system/phone} ? '100%' : '60%'}"
         stretch="false"
         title="Scheda Informativa Prodotto">
         <buttons>

@@ -9,22 +9,24 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
-    <Page title="{product>/product/id} - {product>/product/description}">
-        <headerContent>
-            <core:Fragment
-                fragmentName="cles.agenti.view.fragment.product.HeaderContent"
-                type="XML"
-            />
-        </headerContent>
-        <content>
+    <Page
+        title="{product>/product/id} - {product>/product/description}"
+        showNavButton="true"
+        showHeader="true"
+        showSubHeader="true"
+        navButtonPress=".onNavBack"
+    >
+        <subHeader>
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.product.Toolbar"
                 type="XML"
             />
-            <core:Fragment
+        </subHeader>
+        <content>
+            <!-- <core:Fragment
                 fragmentName="cles.agenti.view.fragment.product.Carousel"
                 type="XML"
-            />
+            /> -->
             <FlexBox
                 direction="{= ${device>/system/phone} ? 'Column': 'Row' }"
                 visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"

@@ -2,22 +2,19 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
 >
-    <HBox
-        justifyContent="End"
-        visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
-    >
+    <OverflowToolbar>
+        <ToolbarSpacer />
+        <Button
+            class="sapUiTinyMargin"
+            text="Allegati Prodotto"
+            icon="sap-icon://attachment"
+            press=".onShowProductAttachmentsPress"
+        />
         <Button
             class="sapUiTinyMargin"
             text="Dettagli Prodotto"
             icon="sap-icon://information"
             press=".onShowProductDetailPress"
         />
-        <Button
-            visible="false"
-            class="sapUiTinyMargin"
-            text="Allegati prodotto"
-            icon="sap-icon://attachment"
-            press=".onShowProductAttachmentsPress"
-        />
-    </HBox>
+    </OverflowToolbar>
 </core:FragmentDefinition>
