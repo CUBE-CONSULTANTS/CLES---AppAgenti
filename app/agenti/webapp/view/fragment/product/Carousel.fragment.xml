@@ -1,6 +1,7 @@
 <core:FragmentDefinition
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified"
 >
     <VBox width="100%">
         <Carousel
@@ -11,5 +12,59 @@
                 <Image src="{product>src}" />
             </pages>
         </Carousel>
+        <VBox class="sapUiSmallMargin">
+            <Label
+                text="Carica un allegato"
+                design="Bold"
+            />
+            <u:FileUploader
+                width="100%"
+                style="Emphasized"
+                name="myFileUpload"
+                uploadUrl="upload/"
+                value="{/value}"
+                uploadComplete="handleUploadComplete"
+            />
+        </VBox>
+
+        <ScrollContainer
+            vertical="true"
+            horizontal="false"
+        >
+            <List
+                items="{/attachments/items}"
+                sticky="HeaderToolbar"
+            >
+                <items>
+                    <CustomListItem
+                        type="Active"
+                        press=".onHeaderAttachmentItemPress"
+                    >
+                        <HBox
+                            width="100%"
+                            alignItems="Center"
+                            justifyContent="SpaceBetween"
+                        >
+                            <Text
+                                class="sapUiTinyMarginBeginEnd"
+                                wrapping="true"
+                                text="{data}"
+                            />
+                            <Text
+                                class="sapUiTinyMarginBeginEnd"
+                                wrapping="true"
+                                text="{nome}"
+                            />
+                            <Button
+                                class="sapUiTinyMarginBeginEnd"
+                                type="Negative"
+                                icon="sap-icon://delete"
+                                press=".onHeaderAttachmentDeletePress"
+                            />
+                        </HBox>
+                    </CustomListItem>
+                </items>
+            </List>
+        </ScrollContainer>
     </VBox>
 </core:FragmentDefinition>

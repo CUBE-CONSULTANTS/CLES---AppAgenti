@@ -13,8 +13,8 @@
         <content>
             <VBox width="100%">
                 <form:SimpleForm layout="ResponsiveGridLayout"
-                    columnsXL="2"
-                    columnsL="2"
+                    columnsXL="1"
+                    columnsL="1"
                     columnsM="1"
                     labelSpanXL="3"
                     labelSpanL="3"
@@ -47,12 +47,6 @@
                     <Text text="Latte, uova, glutine. Può contenere tracce di soia e sedano." />
                     <Label text="Valori Nutrizionali (100 g)" />
                     <Text text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g" />
-                    <Label text="Additivi" />
-                    <Text text="Non dichiarati" />
-                    <Label text="Data Scadenza / TMC" />
-                    <Text text="12 mesi dalla produzione" />
-                    <Label text="Normativa" />
-                    <Text text="Reg. UE 1169/2011" />
                 </form:SimpleForm>
             </VBox>
         </content>

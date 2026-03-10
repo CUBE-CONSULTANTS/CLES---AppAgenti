@@ -3,21 +3,6 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
-    <HBox
-        backgroundDesign="Solid"
-        justifyContent="SpaceBetween"
-        alignContent="Center"
-        alignItems="End"
-        class="sapUiSmallMarginBeginEnd"
-    >
-        <Label
-            design="Bold"
-            text="Prezzo di Listino: 3.50€"
-        />
-        <StepInput
-            min="0"
-        />
-    </HBox>
     <VBox>
         <form:SimpleForm
             layout="ResponsiveGridLayout"
@@ -34,6 +19,11 @@
             emptySpanS="0"
             editable="false"
         >
+            <Label
+                design="Bold"
+                text="Prezzo di Listino: 3.50€"
+            />
+            <StepInput min="0" />
             <!-- Identificazione -->
             <core:Title text="Identificazione Prodotto" />
             <Label text="Codice Materiale" />
@@ -61,12 +51,6 @@
             <Text
                 text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g"
             />
-            <Label text="Additivi" />
-            <Text text="Non dichiarati" />
-            <Label text="Data Scadenza / TMC" />
-            <Text text="12 mesi dalla produzione" />
-            <Label text="Normativa" />
-            <Text text="Reg. UE 1169/2011" />
         </form:SimpleForm>
     </VBox>
 </core:FragmentDefinition>

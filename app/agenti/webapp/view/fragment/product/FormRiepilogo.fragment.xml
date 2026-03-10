@@ -17,9 +17,6 @@
         columnsM="1"
         columnsXL="1"
     >
-        <form:title>
-            <core:Title text="Dettagli Prodotto" />
-        </form:title>
         <form:content>
             <core:Title
                 text="Quantità"
