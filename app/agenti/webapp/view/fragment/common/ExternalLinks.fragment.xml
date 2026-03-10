@@ -3,7 +3,7 @@
     xmlns:core="sap.ui.core"
 >
   <Button
-        text="Impostazioni"
+        text="Utente"
         type="Emphasized"
         icon="sap-icon://user-settings"
     />

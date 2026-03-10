@@ -142,7 +142,6 @@ sap.ui.define(
           );
         });
       },
-      
 
       //Navigation Actions
 
@@ -153,13 +152,15 @@ sap.ui.define(
       //Sections
       onObjectPageSectionChange(e) {
         const { section } = e.getParameters();
+        let from = "LISTA";
 
-        if (section.getId().includes("catalogo"))
+        if (section.getId().includes("catalogo")) {
+          from = "CATALOGO";
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "catalogo_list",
           );
-        else if (section.getId().includes("storicoOrdini"))
+        } else if (section.getId().includes("storicoOrdini"))
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "storico_list",
@@ -174,6 +175,13 @@ sap.ui.define(
             "/objectPageLayout/currentList",
             "offerta_list",
           );
+
+        if (window.location.hash.split("/")[3]) {
+          this.getRouter().navTo("Product", {
+            from,
+            product: window.location.hash.split("/")[3],
+          });
+        }
       },
 
       //List
@@ -304,7 +312,10 @@ sap.ui.define(
       //ListItems
 
       onInfoLinkIconPress(e) {
-        return Dialog.getInfoPopover({ controller: this, source: e.getSource() })
+        return Dialog.getInfoPopover({
+          controller: this,
+          source: e.getSource(),
+        });
       },
 
       onProductListItemPress(e, from) {

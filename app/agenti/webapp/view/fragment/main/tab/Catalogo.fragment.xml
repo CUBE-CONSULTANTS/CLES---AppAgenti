@@ -42,7 +42,13 @@
                 <grid:CSSGrid>
                     <grid:customLayout>
                         <grid:GridResponsiveLayout>
-                            <grid:layoutS>
+                            <grid:layout>
+                                <grid:GridSettings
+                                    gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
+                                    gridGap="0.5rem"
+                                />
+                            </grid:layout>
+                            <!-- <grid:layoutS>
                                 <grid:GridSettings
                                     gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
                                     gridGap="0.5rem"
@@ -65,15 +71,23 @@
                                     gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
                                     gridGap="0.5rem"
                                 />
-                            </grid:layoutXL>
+                            </grid:layoutXL> -->
                         </grid:GridResponsiveLayout>
                     </grid:customLayout>
                     <VBox
                         justifyContent="Center"
-                        visible="{proposta>/table/toolbar/showImages}"
+                        visible="{= ${proposta>/table/toolbar/sorters/groupedByCategory} ? false : true }"
                     >
+                        <ObjectStatus
+                            inverted="true"
+                            state="Indication12"
+                            text="{proposta>category}"
+                        />
+                    </VBox>
+                    <HBox alignItems="Center" class="sapUiTinyMarginTop">
                         <Image
-                            class="circularImage"
+                            visible="{proposta>/table/toolbar/showImages}"
+                            class="circularImage sapUiTinyMarginEnd"
                             src="{proposta>src}"
                             lazyLoading="true"
                             width="50px"
@@ -90,29 +104,19 @@
                                 </LightBox>
                             </detailBox>
                         </Image>
-                    </VBox>
-                    <VBox
-                        justifyContent="Center"
-                        visible="{= ${proposta>/table/toolbar/sorters/groupedByCategory} ? false : true }"
-                    >
-                        <ObjectStatus
-                            inverted="true"
-                            state="Indication12"
-                            text="{proposta>category}"
-                        />
-                    </VBox>
-                    <VBox justifyContent="Center">
-                        <Label
-                            class="sapUiTinyMarginTop"
-                            wrapping="true"
-                            design="Bold"
-                            text="{proposta>product} - {proposta>description}"
-                        />
-                        <Label
-                            design="Bold"
-                            text="Prezzo di Listino: {proposta>listino}"
-                        />
-                    </VBox>
+                        <VBox>
+                            <Label
+                                design="Bold"
+                                wrapping="true"
+                                text="{proposta>product} - {proposta>description}"
+                            />
+                            <Label
+                                design="Bold"
+                                wrapping="true"
+                                text="Prezzo di listino: {proposta>listino}"
+                            />
+                        </VBox>
+                    </HBox>
                     <VBox justifyContent="Center">
                         <Label
                             design="Bold"

@@ -30,13 +30,13 @@
     >
         <uxap:headerTitle>
             <core:Fragment
-                fragmentName="cles.agenti.view.fragment.ordine.HeaderTitle"
+                fragmentName="cles.agenti.view.fragment.main.HeaderTitle"
                 type="XML"
             />
         </uxap:headerTitle>
         <uxap:headerContent>
             <core:Fragment
-                fragmentName="cles.agenti.view.fragment.ordine.HeaderContent"
+                fragmentName="cles.agenti.view.fragment.main.HeaderContent"
                 type="XML"
             />
         </uxap:headerContent>
@@ -54,7 +54,7 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.tab.StoricoOrdini"
+                            fragmentName="cles.agenti.view.fragment.main.tab.StoricoOrdini"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
@@ -69,7 +69,7 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.tab.Offerta"
+                            fragmentName="cles.agenti.view.fragment.main.tab.Offerta"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
@@ -84,7 +84,7 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.tab.PropostaProdotti"
+                            fragmentName="cles.agenti.view.fragment.main.tab.PropostaProdotti"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
@@ -98,7 +98,7 @@
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.ordine.tab.Catalogo"
+                            fragmentName="cles.agenti.view.fragment.main.tab.Catalogo"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
@@ -107,7 +107,7 @@
         </uxap:sections>
         <uxap:footer>
             <core:Fragment
-                fragmentName="cles.agenti.view.fragment.ordine.Footer"
+                fragmentName="cles.agenti.view.fragment.main.Footer"
                 type="XML"
             />
         </uxap:footer>

@@ -15,6 +15,8 @@ sap.ui.define(
           arguments: { from },
         } = e.getParameters();
 
+        this.getModel("product").setProperty("/from", from);
+
         this.getModel("layout").setProperty(
           "/layoutMode",
           "TwoColumnsBeginExpanded",
