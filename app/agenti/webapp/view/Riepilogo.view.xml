@@ -14,7 +14,7 @@
         alwaysShowContentHeader="false"
         useIconTabBar="false"
         backgroundDesignAnchorBar="Transparent"
-        preserveHeaderStateOnScroll="true"
+        preserveHeaderStateOnScroll="false"
         headerContentPinnable="true"
         isChildPage="false"
         upperCaseAnchorBar="true"

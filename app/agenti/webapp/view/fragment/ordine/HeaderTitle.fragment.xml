@@ -5,9 +5,9 @@
     xmlns:f="sap.f"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
-        <uxap:heading>
+        <uxap:snappedHeading>
             <Title text="{proposta>/objectPageLayout/title}" />
-        </uxap:heading>
+        </uxap:snappedHeading>
         <uxap:expandedHeading>
             <Title text="{proposta>/objectPageLayout/title}" />
         </uxap:expandedHeading>

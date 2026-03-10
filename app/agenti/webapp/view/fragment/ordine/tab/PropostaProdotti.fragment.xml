@@ -114,10 +114,28 @@
                         />
                     </VBox>
                     <VBox justifyContent="Center">
-                        <Label
-                            design="Bold"
-                            text="Disponibilità: {proposta>disponibilita}"
-                        />
+                        <HBox
+                            alignContent="Center"
+                            alignItems="Center"
+                        >
+                            <Link
+                                class="noText"
+                                reactiveAreaMode="Overlay"
+                                ariaHasPopup="Dialog"
+                                emphasized="true"
+                                target="_self"
+                                icon="sap-icon://information"
+                                text="-"
+                                emptyIndicatorMode="Off"
+                                tooltip="Indica la giacenza del materiale indicato"
+                                press=".onInfoLinkIconPress"
+                            />
+                            <Label
+                                design="Bold"
+                                text="Disponibilità: {proposta>disponibilita}"
+                            />
+                        </HBox>
+
                         <ProgressIndicator
                             percentValue="{= 
                               ${proposta>disponibilita} &lt; 1 ? '0' :

@@ -142,6 +142,7 @@ sap.ui.define(
           );
         });
       },
+      
 
       //Navigation Actions
 
@@ -298,6 +299,12 @@ sap.ui.define(
         }
 
         this._applyListFilter({ model, searchFilters: [] });
+      },
+
+      //ListItems
+
+      onInfoLinkIconPress(e) {
+        return Dialog.getInfoPopover({ controller: this, source: e.getSource() })
       },
 
       onProductListItemPress(e, from) {

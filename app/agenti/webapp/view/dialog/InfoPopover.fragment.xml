@@ -1,0 +1,15 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <ResponsivePopover
+        class="sapUiContentPadding"
+        placement="Top"
+        showCloseButton="true"
+        showHeader="{= ${device>/system/phone} ? true : false }"
+    >
+        <content>
+            <Text text="{/infoText}" />
+        </content>
+    </ResponsivePopover>
+</core:FragmentDefinition>

@@ -14,7 +14,7 @@
         showNavButton="true"
         showHeader="true"
         showSubHeader="true"
-        navButtonPress=".onNavBack"
+        navButtonPress=".onClosePress"
     >
         <subHeader>
             <core:Fragment

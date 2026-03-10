@@ -3,6 +3,161 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
+    <form:SimpleForm
+        backgroundDesign="Transparent"
+        singleContainerFullSize="true"
+        maxContainerCols="2"
+        editable="false"
+        layout="ResponsiveGridLayout"
+        labelSpanL="12"
+        labelSpanM="12"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="1"
+        columnsM="1"
+        columnsXL="1"
+    >
+        <form:title>
+            <core:Title text="Dettagli Prodotto" />
+        </form:title>
+        <form:content>
+            <core:Title
+                text="Quantità"
+                level="H4"
+                emphasized="true"
+            />
+            <Label
+                design="Bold"
+                text="Tipo Riga"
+            />
+            <Select>
+                <items>
+                    <core:Item
+                        key="VENDITA"
+                        text="Vendita"
+                    />
+                </items>
+            </Select>
+            <Label
+                design="Bold"
+                text="U.M."
+            />
+            <Select>
+                <items>
+                    <core:Item
+                        key="VENDITA"
+                        text="Cassa"
+                    />
+                </items>
+            </Select>
+            <Label
+                design="Bold"
+                text="Quantità per unità ( 3 PZ )"
+            />
+            <HBox
+                alignContent="Center"
+                alignItems="Center"
+                justifyContent="End"
+            >
+                <StepInput
+                    min="0"
+                    value="1"
+                />
+            </HBox>
+            <Label
+                design="Bold"
+                text="Totale Quantità"
+            />
+            <ObjectNumber
+                class="sapMObjectNumberLarge"
+                textAlign="End"
+                inverted="true"
+                active="false"
+                emphasized="true"
+                state="Information"
+                number="3"
+                unit="PZ"
+            />
+
+            <core:Title
+                text="Prezzo"
+                level="H4"
+                emphasized="true"
+            />
+
+            <Label
+                design="Bold"
+                text="Sconto agente (%)"
+            />
+            <StepInput
+                min="0"
+                max="100"
+                value="5"
+            />
+            <Label
+                design="Bold"
+                text="Prezzo unità di vendita"
+            />
+            <Title
+                textAlign="End"
+                text="3.50€"
+                titleStyle="H4"
+            />
+
+            <Label
+                design="Bold"
+                text="Prezzo applicato"
+            />
+            <Title
+                textAlign="End"
+                text="3.50€/PZ"
+                titleStyle="H4"
+            />
+            <Label
+                design="Bold"
+                text="Totale riga"
+            />
+            <Title
+                textAlign="End"
+                text="10.50€/PZ"
+                titleStyle="H4"
+            />
+            <Label
+                design="Bold"
+                text="Marginalità"
+            />
+            <Label
+                design="Bold"
+                text="Marginalità"
+            />
+            <HBox
+                justifyContent="End"
+                alignContent="Center"
+                alignItems="Center"
+            >
+                <core:Icon
+                    class="sapUiTinyMarginEnd"
+                    src="sap-icon://circle-task-2"
+                    color="Neutral"
+                />
+                <core:Icon
+                    class="sapUiTinyMarginEnd"
+                    src="sap-icon://circle-task-2"
+                    color="Neutral"
+                />
+                <core:Icon
+                    src="sap-icon://circle-task-2"
+                    color="Positive"
+                />
+            </HBox>
+        </form:content>
+    </form:SimpleForm>
+</core:FragmentDefinition>
+<!-- <core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
     <VBox width="{= ${device>/system/phone} ? '100%': '50%' }">
         <Title
             class="sapUiSmallMargin"
@@ -176,3 +331,4 @@
         </form:SimpleForm>
     </VBox>
 </core:FragmentDefinition>
+ -->

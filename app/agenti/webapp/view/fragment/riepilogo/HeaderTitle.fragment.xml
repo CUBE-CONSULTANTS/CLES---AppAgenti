@@ -4,14 +4,17 @@
     xmlns:uxap="sap.uxap"
 >
     <uxap:ObjectPageDynamicHeaderTitle>
-        <uxap:heading>
+        <uxap:snappedHeading>
             <Title text="{proposta>/objectPageLayout/title}" />
-        </uxap:heading>
+        </uxap:snappedHeading>
         <uxap:expandedHeading>
             <Title text="{proposta>/objectPageLayout/title}" />
         </uxap:expandedHeading>
         <uxap:snappedContent>
-            <HBox wrap="Wrap" alignItems="Center" >
+            <HBox
+                wrap="Wrap"
+                alignItems="Center"
+            >
                 <core:Fragment
                     fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
                 />

@@ -1,4 +1,7 @@
 /* SAP OVERWRITE */
+.sapMLnkText {
+  visibility: hidden !important;
+} 
 
 /* Custom CSS */
 .cardGrid > *:last-child {

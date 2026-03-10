@@ -5,14 +5,29 @@
     <OverflowToolbar>
         <ToolbarSpacer />
         <Button
+            icon="sap-icon://notes"
+            tooltip="Note di riga"
+            type="Default"
+            text="Note"
+            press=".onAddNotePress"
+        >
+            <customData>
+                <BadgeCustomData
+                    value="{product>/product/notes/length}"
+                    writeToDom="true"
+                />
+            </customData>
+        </Button>
+        <Button
             class="sapUiTinyMargin"
-            text="Allegati Prodotto"
+            text="Allegati"
             icon="sap-icon://attachment"
             press=".onShowProductAttachmentsPress"
         />
         <Button
+            visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
             class="sapUiTinyMargin"
-            text="Dettagli Prodotto"
+            text="Informazioni"
             icon="sap-icon://information"
             press=".onShowProductDetailPress"
         />

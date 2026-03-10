@@ -97,16 +97,13 @@
                             text="Aliquota IVA: {proposta>quantity}"
                         />
                     </VBox>
-                    <VBox
-                        justifyContent="Center"
-                    >
+                    <VBox justifyContent="Center">
                         <Label
                             design="Bold"
                             text="Quantità selezionata"
                         />
                         <StepInput
-                          width="80%"
-                            class="sapUiTinyMarginTop"
+                            width="80%"
                             min="0"
                         />
                     </VBox>

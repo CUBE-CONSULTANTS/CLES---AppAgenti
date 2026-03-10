@@ -2,6 +2,8 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:richtexteditor="sap.ui.richtexteditor"
 >
     <HBox
         class="sapUiTinyMarginBottom"
@@ -16,26 +18,37 @@
                 text="{= ${/selectedMode} === 'ORDINE' ? 'Data di Consegna:' : 'Data di Validità:' }"
                 design="Bold"
             />
-            <SegmentedButton
-                selectedKey="today"
-                contentMode="ContentFit"
-            >
-                <items>
-                    <SegmentedButtonItem
-                        key="today"
-                        text="Oggi"
-                    />
-                    <SegmentedButtonItem
-                        key="tomorrow"
-                        text="Domani"
-                    />
-                </items>
-            </SegmentedButton>
         </VBox>
 
-        <VBox class="sapUiTinyMarginTop">
-            <DatePicker dateValue="{/step2/date/value}" />
-        </VBox>
+        <Button
+            class="sapUiTinyMarginEnd"
+            text="Oggi"
+            icon="sap-icon://date-time"
+            type="Default"
+            press=".onStep2DateButtonPress"
+        >
+            <customData>
+                <core:CustomData
+                    key="dateBtn"
+                    value="today"
+                />
+            </customData>
+        </Button>
+        <Button
+            class="sapUiTinyMarginEnd"
+            text="Domani"
+            icon="sap-icon://date-time"
+            type="Default"
+            press=".onStep2DateButtonPress"
+        >
+            <customData>
+                <core:CustomData
+                    key="dateBtn"
+                    value="tomorrow"
+                />
+            </customData>
+        </Button>
+        <DatePicker dateValue="{/step2/date/value}" />
     </HBox>
     <VBox
         class="sapUiTinyMarginBottom"

@@ -125,9 +125,9 @@ sap.ui.define(
             this._stream = null;
           }
 
-          if( Dialog._attachmentDialog ) Dialog._attachmentDialog.destroy()
+          if (Dialog._attachmentDialog) Dialog._attachmentDialog.destroy();
 
-          if( this._video ) this._video = null;
+          if (this._video) this._video = null;
         } catch (err) {
           sap.m.MessageToast.show("Errore accesso camera: " + err.message);
         }
@@ -196,31 +196,29 @@ sap.ui.define(
       },
 
       _wizardPreviousStep() {
+        const currentStep = this.byId("wizardMode")
+          .getSteps()
+          .find((el) => el.getId() === this.byId("wizardMode").getCurrentStep())
+          .getCustomData()[0]
+          .getValue();
+
         this.byId("wizardMode").previousStep();
         this.byId("wizardMode")
           .getModel()
-          .setProperty(
-            "/currentStep",
-            parseInt(
-              this.byId("wizardMode")
-                .getCurrentStep()
-                .substring(this.byId("wizardMode").getCurrentStep().length - 1),
-            ),
-          );
+          .setProperty("/currentStep", currentStep);
       },
 
       _wizardNextStep() {
+        const currentStep = this.byId("wizardMode")
+          .getSteps()
+          .find((el) => el.getId() === this.byId("wizardMode").getCurrentStep())
+          .getCustomData()[0]
+          .getValue();
+
         this.byId("wizardMode").nextStep();
         this.byId("wizardMode")
           .getModel()
-          .setProperty(
-            "/currentStep",
-            parseInt(
-              this.byId("wizardMode")
-                .getCurrentStep()
-                .substring(this.byId("wizardMode").getCurrentStep().length - 1),
-            ),
-          );
+          .setProperty("/currentStep", currentStep);
       },
 
       onWizardPreviousStep(e) {
@@ -254,6 +252,25 @@ sap.ui.define(
       },
 
       //Wizard = Step 2
+
+      onStep2DateButtonPress(e) {
+        let date = new Date();
+        const model = e.getSource().getModel();
+        const value = e.getSource().getCustomData()[0].getValue();
+
+        switch (value) {
+          case "today":
+            date = new Date();
+            break;
+          case "tomorrow":
+            date = new Date(new Date().getTime() + 86400 * 1000);
+            break;
+          default:
+            break;
+        }
+
+        model.setProperty("/step2/date/value", date);
+      },
 
       onCustomerListSelect(e) {
         const selectedItem = e.getSource();

@@ -2,6 +2,11 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
 >
+  <Button
+        text="Impostazioni"
+        type="Emphasized"
+        icon="sap-icon://user-settings"
+    />
     <Button
         text="Analisi"
         type="Emphasized"
