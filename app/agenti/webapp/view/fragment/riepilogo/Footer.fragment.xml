@@ -5,7 +5,7 @@
     <OverflowToolbar>
         <Button
             text="Indietro"
-            type="Ghost"
+            type="Emphasized"
             tooltip="Naviga indietro"
             icon="sap-icon://nav-back"
             press=".onNavMain"

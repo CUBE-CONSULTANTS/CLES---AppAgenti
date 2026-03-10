@@ -161,6 +161,7 @@
                     <VBox justifyContent="Center">
                         <StepInput
                             value="{proposta>quantity}"
+                            max="{proposta>disponibilita}"
                             min="0"
                         />
                     </VBox>

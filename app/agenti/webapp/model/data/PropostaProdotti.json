@@ -147,7 +147,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "3",
+        "disponibilita": 3,
         "note": "1",
         "listino": "3.50€",
         "attributes": [
@@ -166,7 +166,7 @@
         "highlight": "Indication03",
         "category": "CARNE ROSSA",
         "product": "4060",
-        "src": "./public/img/notFound.jpeg",
+        "src": "./public/img/notFound.svg",
         "group": "group1",
         "description": "Lonza di maiale ai peperoni",
         "u_acq": "18/06/2024",
@@ -175,7 +175,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "3",
+        "disponibilita": 3,
         "note": "0",
         "status_text": "GLUTEN FREE",
         "status_state": "Indication14",
@@ -201,7 +201,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "12",
+        "disponibilita": 12,
         "note": "3",
         "status_text": "GLUTEN FREE",
         "status_state": "Indication14",
@@ -227,7 +227,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "7",
+        "disponibilita": 7,
         "note": "1",
         "status_text": "",
         "status_state": "Indication12",
@@ -244,7 +244,7 @@
         "highlight": "Indication02",
         "category": "CARNE BIANCA",
         "product": "0342",
-        "src": "./public/img/notFound.jpeg",
+        "src": "./public/img/notFound.svg",
         "group": "group5",
         "description": "Faraona Nostrana",
         "u_acq": "05/04/2024",
@@ -253,7 +253,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "0",
+        "disponibilita": 0,
         "note": "0",
         "attributes": [
           {
@@ -276,7 +276,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "0",
+        "disponibilita": 0,
         "note": "0",
         "attributes": [
           {
@@ -299,7 +299,7 @@
         "price": "0.00",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": "15",
+        "disponibilita": 15,
         "note": "2",
         "attributes": [
           {
