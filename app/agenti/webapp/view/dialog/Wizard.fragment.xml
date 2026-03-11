@@ -7,9 +7,8 @@
     xmlns:u="sap.ui.unified"
 >
     <Dialog
-        showHeader="true"
+        showHeader="false"
         stretch="true"
-        title="Crea documento"
     >
         <buttons>
             <Button

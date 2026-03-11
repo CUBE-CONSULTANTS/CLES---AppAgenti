@@ -5,10 +5,34 @@
 >
     <uxap:ObjectPageDynamicHeaderTitle>
         <uxap:snappedHeading>
-            <Title text="{proposta>/objectPageLayout/title}" />
+            <HBox
+                alignItems="Center"
+                renderType="Bare"
+            >
+                <Button
+                    class="sapUiTinyMarginEnd"
+                    text="Indietro"
+                    type="Emphasized"
+                    icon="sap-icon://nav-back"
+                    press=".onNavMain"
+                />
+                <Title text="{proposta>/objectPageLayout/title}" />
+            </HBox>
         </uxap:snappedHeading>
         <uxap:expandedHeading>
-            <Title text="{proposta>/objectPageLayout/title}" />
+            <HBox
+                alignItems="Center"
+                renderType="Bare"
+            >
+                <Button
+                    class="sapUiTinyMarginEnd"
+                    text="Indietro"
+                    type="Emphasized"
+                    icon="sap-icon://nav-back"
+                    press=".onNavMain"
+                />
+                <Title text="{proposta>/objectPageLayout/title}" />
+            </HBox>
         </uxap:expandedHeading>
         <uxap:snappedContent>
             <HBox

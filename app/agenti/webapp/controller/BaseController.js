@@ -320,6 +320,16 @@ sap.ui.define(
           context
             .getModel()
             .setProperty("/step3/customer", context.getObject());
+
+          this.getModel("proposta").setProperty(
+            "/objectPageLayout/title",
+            "Ordine di vendita",
+          );
+
+          if (
+            context.getModel().getProperty("/step2/tab/selected") === "OFFERTA"
+          )
+            return this._wizardNextStep();
         }
 
         if (context.getModel().getProperty("/selectedMode") === "OFFERTA") {
@@ -332,14 +342,6 @@ sap.ui.define(
             "/header/date/value",
             context.getModel().getProperty("/step2/date/value"),
           );
-        }
-
-        if (context.getModel().getProperty("/selectedMode") === "ORDINE") {
-          this.getModel("proposta").setProperty(
-            "/objectPageLayout/title",
-            "Ordine di vendita",
-          );
-          return this._wizardNextStep();
         }
 
         return this.byId("wizardMode").getParent().close();
@@ -391,7 +393,7 @@ sap.ui.define(
 
         this.getModel("proposta").setProperty(
           "/header/tabOrdine",
-          model.getProperty("/step3/tab/selected"),
+          model.getProperty("/step2/tab/selected"),
         );
 
         this.getModel("proposta").setProperty(

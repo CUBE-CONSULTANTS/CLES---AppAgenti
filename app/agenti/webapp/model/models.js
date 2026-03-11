@@ -80,6 +80,13 @@ sap.ui.define(
             date: {
               value: new Date(),
             },
+            tab: {
+              selected: "STORICO",
+              items: [
+                { key: "STORICO", text: "Storico Ordini" },
+                { key: "OFFERTA", text: "Offerta" },
+              ],
+            },
             customer: {
               id: "",
               name: "",
@@ -130,13 +137,6 @@ sap.ui.define(
           },
           step3: {
             customer: {},
-            tab: {
-              selected: "STORICO",
-              items: [
-                { key: "STORICO", text: "Storico Ordini" },
-                { key: "OFFERTA", text: "Offerta" },
-              ],
-            },
             offer: {
               selected: {
                 id: "1",

@@ -52,6 +52,30 @@
     </HBox>
     <VBox
         class="sapUiTinyMarginBottom"
+        width="100%"
+        justifyContent="Center"
+        wrap="Wrap"
+        visible="{= ${/selectedMode} === 'ORDINE' ? true : false }"
+    >
+        <Label
+            text="Visualizzazione tab:"
+            required="true"
+            design="Bold"
+        />
+        <SegmentedButton
+            selectedKey="{/step2/tab/selected}"
+            items="{/step2/tab/items}"
+        >
+            <items>
+                <SegmentedButtonItem
+                    key="{key}"
+                    text="{text}"
+                />
+            </items>
+        </SegmentedButton>
+    </VBox>
+    <VBox
+        class="sapUiTinyMarginBottom"
         fitContainer="true"
         height="100%"
         visible="{= ${/selectedMode} === 'PREORDINE' ? false : true }"

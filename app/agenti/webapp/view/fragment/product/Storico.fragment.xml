@@ -1,0 +1,78 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:grid="sap.ui.layout.cssgrid"
+>
+    <Table
+        autoPopinMode="true"
+        popinLayout="Block"
+        showSeparators="Inner"
+    >
+        <columns>
+            <Column hAlign="Center">
+                <Label
+                    wrapping="true"
+                    text="Documento"
+                    design="Bold"
+                />
+            </Column>
+            <Column hAlign="Center">
+                <Label
+                    wrapping="true"
+                    text="Data ordine"
+                    design="Bold"
+                />
+            </Column>
+            <Column hAlign="Center">
+                <Label
+                    wrapping="true"
+                    text="Quantità"
+                    design="Bold"
+                />
+            </Column>
+            <Column hAlign="Center">
+                <Label
+                    wrapping="true"
+                    text="Prezzo unitario"
+                    design="Bold"
+                />
+            </Column>
+            <Column hAlign="Center">
+                <Label
+                    wrapping="true"
+                    text="Prezzo applicato"
+                    design="Bold"
+                />
+            </Column>
+        </columns>
+        <items>
+            <ColumnListItem>
+                <cells>
+                    <Text text="123456" />
+                    <Text text="19/03/2026" />
+                    <Text text="9 PZ" />
+                    <Text text="11.37€" />
+                    <Text text="102.37€" />
+                </cells>
+            </ColumnListItem>
+            <ColumnListItem>
+                <cells>
+                    <Text text="392871" />
+                    <Text text="01/02/2026" />
+                    <Text text="3 PZ" />
+                    <Text text="9.29€" />
+                    <Text text="27.89€" />
+                </cells>
+            </ColumnListItem>
+            <ColumnListItem>
+                <cells>
+                    <Text text="078912" />
+                    <Text text="11/01/2026" />
+                    <Text text="23 PZ" />
+                    <Text text="9,21€" />
+                    <Text text="211.89€" />
+                </cells>
+            </ColumnListItem>
+        </items>
+    </Table>
+</core:FragmentDefinition>

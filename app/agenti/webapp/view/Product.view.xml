@@ -88,6 +88,19 @@
         </uxap:headerTitle>
         <uxap:sections>
             <uxap:ObjectPageSection
+                title="Storico"
+                visible="{= (${product>/from} === 'LISTA' &amp;&amp; ${proposta>/header/mode} === 'ORDINE') ? true : false }"
+            >
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <core:Fragment
+                            fragmentName="cles.agenti.view.fragment.product.Storico"
+                            type="XML"
+                        />
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection
                 title="Dettagli"
                 visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
             >

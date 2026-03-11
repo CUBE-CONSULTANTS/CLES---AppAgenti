@@ -21,25 +21,10 @@
                     editable="false"
                     value="{/step2/customer/name}"
                 />
-                <Label
-                    text="Visualizzazione tab"
-                    design="Bold"
-                />
-                <SegmentedButton
-                    selectedKey="{/step3/tab/selected}"
-                    items="{/step3/tab/items}"
-                >
-                    <items>
-                        <SegmentedButtonItem
-                            key="{key}"
-                            text="{text}"
-                        />
-                    </items>
-                </SegmentedButton>
             </form:content>
         </form:SimpleForm>
         <List
-            visible="{= ${/step3/tab/selected} === 'OFFERTA' ? true : false }"
+            visible="{= ${/step2/tab/selected} === 'OFFERTA' ? true : false }"
             mode="SingleSelectLeft"
             items="{/step3/offer/items}"
             rememberSelections="true"

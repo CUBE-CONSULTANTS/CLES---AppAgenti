@@ -89,21 +89,25 @@
                         </VBox>
                     </HBox>
                     <VBox justifyContent="Center">
-                        <Label
-                            wrapping="true"
-                            design="Bold"
-                            text="Prezzo unitario: {proposta>price}"
+                        <ObjectNumber
+                            inverted="false"
+                            number="Totale: 1.220,00"
+                            unit="EUR"
+                            state="Information"
                         />
-                        <Label
-                            wrapping="true"
-                            design="Bold"
-                            text="Valore totale di riga: {proposta>quantity}"
-                        />
-                        <Label
-                            wrapping="true"
-                            design="Bold"
-                            text="Aliquota IVA: {proposta>quantity}"
-                        />
+                        <HBox alignItems="Start">
+                            <Label
+                                text="Prezzo: 50,00 €/pz"
+                                design="Bold"
+                                class="sapUiTinyMarginEnd"
+                            />
+                            <ObjectNumber
+                                inverted="false"
+                                number="IVA 22"
+                                unit="%"
+                                state="Warning"
+                            />
+                        </HBox>
                     </VBox>
                     <VBox justifyContent="Center">
                         <Label
