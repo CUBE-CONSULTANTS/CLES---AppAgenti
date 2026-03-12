@@ -89,12 +89,6 @@
                         </VBox>
                     </HBox>
                     <VBox justifyContent="Center">
-                        <ObjectNumber
-                            inverted="false"
-                            number="Totale: 1.220,00"
-                            unit="EUR"
-                            state="Information"
-                        />
                         <HBox alignItems="Start">
                             <Label
                                 text="Prezzo: 50,00 €/pz"
@@ -108,6 +102,12 @@
                                 state="Warning"
                             />
                         </HBox>
+                        <ObjectNumber
+                            inverted="false"
+                            number="Totale: 1.220,00"
+                            unit="EUR"
+                            state="Information"
+                        />
                     </VBox>
                     <VBox justifyContent="Center">
                         <Label

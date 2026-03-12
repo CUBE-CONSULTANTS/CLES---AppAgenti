@@ -18,11 +18,6 @@
         columnsXL="1"
     >
         <form:content>
-            <core:Title
-                text="Quantità"
-                level="H4"
-                emphasized="true"
-            />
             <Label
                 design="Bold"
                 text="Tipo Riga"
@@ -74,12 +69,6 @@
                 state="Information"
                 number="3"
                 unit="PZ"
-            />
-
-            <core:Title
-                text="Prezzo"
-                level="H4"
-                emphasized="true"
             />
 
             <Label

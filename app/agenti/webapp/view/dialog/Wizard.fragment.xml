@@ -58,7 +58,7 @@
                             type="XML"
                         />
                     </WizardStep>
-                    <WizardStep title="Visualizzazione">
+                    <WizardStep title="Offerte">
                         <core:Fragment
                             fragmentName="cles.agenti.view.fragment.wizard.Step3"
                         />
