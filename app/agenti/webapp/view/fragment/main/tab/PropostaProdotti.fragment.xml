@@ -120,7 +120,7 @@
                             />
                         </VBox>
                     </HBox>
-                    <VBox justifyContent="Center">
+                    <VBox justifyContent="Center" visible="{proposta>/table/toolbar/showQuantity}">
                         <HBox
                             alignContent="Center"
                             alignItems="Center"

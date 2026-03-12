@@ -19,6 +19,11 @@
             icon="sap-icon://picture"
         />
         <ToggleButton
+            pressed="{proposta>/table/toolbar/showQuantity}"
+            text="Mostra Disponibilità"
+            icon="sap-icon://product"
+        />
+        <ToggleButton
             pressed="{proposta>/table/toolbar/showAttributes}"
             text="Mostra attributi"
             icon="sap-icon://tag"

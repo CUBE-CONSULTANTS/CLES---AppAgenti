@@ -33,6 +33,7 @@
       "groupByCategory": false,
       "showAttributes": true,
       "showImages": true,
+      "showQuantity": true,
       "filtri": {
         "categorie": [
           {

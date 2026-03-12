@@ -6,10 +6,10 @@
 >
     <uxap:ObjectPageDynamicHeaderTitle>
         <uxap:snappedHeading>
-            <Title text="{proposta>/objectPageLayout/title}" />
+            <Title text="{proposta>/objectPageLayout/title}" wrapping="true" />
         </uxap:snappedHeading>
         <uxap:expandedHeading>
-            <Title text="{proposta>/objectPageLayout/title}" />
+            <Title text="{proposta>/objectPageLayout/title}" wrapping="true" />
         </uxap:expandedHeading>
         <uxap:snappedContent>
             <core:Fragment

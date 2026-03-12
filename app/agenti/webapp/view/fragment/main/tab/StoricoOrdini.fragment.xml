@@ -121,7 +121,7 @@
                             />
                         </VBox>
                     </HBox>
-                    <VBox justifyContent="Center">
+                    <VBox justifyContent="Center" visible="{proposta>/table/toolbar/showQuantity}">
                         <Label
                             design="Bold"
                             text="Disponibilità: {proposta>disponibilita}"
