@@ -308,6 +308,98 @@
             "type": "Default"
           }
         ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication02",
+        "category": "CARNE ROSSA",
+        "product": "0343",
+        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/933-carre-fresco-disossato-lombo-lonza-1kg.jpeg?16923670341",
+        "group": "group1",
+        "description": "Lombo Suino Disossato",
+        "u_acq": "05/04/2024",
+        "u_prz": "11.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 0,
+        "note": "0",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication04",
+        "category": "CARNE ROSSA",
+        "product": "0344",
+        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/934-coppa-fresca-disossata-1kg.jpeg?16923635071",
+        "group": "group1",
+        "description": "Coppa Suino Disossato",
+        "u_acq": "05/04/2024",
+        "u_prz": "9.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 15,
+        "note": "2",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication02",
+        "category": "CARNE ROSSA",
+        "product": "0343",
+        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/933-carre-fresco-disossato-lombo-lonza-1kg.jpeg?16923670341",
+        "group": "group1",
+        "description": "Lombo Suino Disossato",
+        "u_acq": "05/04/2024",
+        "u_prz": "11.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 0,
+        "note": "0",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication04",
+        "category": "CARNE ROSSA",
+        "product": "0344",
+        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/934-coppa-fresca-disossata-1kg.jpeg?16923635071",
+        "group": "group1",
+        "description": "Coppa Suino Disossato",
+        "u_acq": "05/04/2024",
+        "u_prz": "9.33",
+        "u_qta": "12.00",
+        "price": "0.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 15,
+        "note": "2",
+        "attributes": [
+          {
+            "text": "Ready-to-Drink (Premiscelato)",
+            "type": "Default"
+          }
+        ]
       }
     ]
   }

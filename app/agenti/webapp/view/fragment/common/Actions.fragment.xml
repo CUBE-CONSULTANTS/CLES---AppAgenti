@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Button
+        text="Segnalazioni"
+        type="Critical"
+        tooltip="Apre il menù delle segnalazioni"
+        icon="sap-icon://warning"
+        press=".onReportPress"
+    />
+    <Button
+        text="Allegati"
+        type="Emphasized"
+        tooltip="Carica allegati di testata"
+        icon="sap-icon://attachment"
+        press=".onHeaderAttachmentPress"
+    />
+</core:FragmentDefinition>

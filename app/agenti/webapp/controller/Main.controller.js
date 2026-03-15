@@ -151,26 +151,26 @@ sap.ui.define(
 
       //Sections
       onObjectPageSectionChange(e) {
-        const { section } = e.getParameters();
+        const { selectedItem } = e.getParameters();
         let from = "LISTA";
 
-        if (section.getId().includes("catalogo")) {
+        if (selectedItem.getId().includes("catalogo")) {
           from = "CATALOGO";
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "catalogo_list",
           );
-        } else if (section.getId().includes("storicoOrdini"))
+        } else if (selectedItem.getId().includes("storicoOrdini"))
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "storico_list",
           );
-        else if (section.getId().includes("propostaProdotti"))
+        else if (selectedItem.getId().includes("propostaProdotti"))
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "proposta_list",
           );
-        else if (section.getId().includes("offertaOrdini"))
+        else if (selectedItem.getId().includes("offertaOrdini"))
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "offerta_list",

@@ -1,22 +1,24 @@
 <core:FragmentDefinition
     xmlns:core="sap.ui.core"
     xmlns="sap.m"
-    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.f"
 >
-    <uxap:ObjectPageDynamicHeaderTitle>
+    <!-- <uxap:ObjectPageDynamicHeaderTitle>
         <uxap:snappedHeading>
             <HBox
+                height="100%"
                 alignItems="Center"
                 renderType="Bare"
             >
                 <Button
+                    visible="{= ${device>/system/phone} ? false : true }"
                     class="sapUiTinyMarginEnd"
                     text="Indietro"
                     type="Emphasized"
                     icon="sap-icon://nav-back"
                     press=".onNavMain"
                 />
-                <Title text="{proposta>/objectPageLayout/title}" />
+                <Title wrapping="true" text="{proposta>/objectPageLayout/title}" />
             </HBox>
         </uxap:snappedHeading>
         <uxap:expandedHeading>
@@ -25,13 +27,14 @@
                 renderType="Bare"
             >
                 <Button
+                    visible="{= ${device>/system/phone} ? false : true }"
                     class="sapUiTinyMarginEnd"
                     text="Indietro"
                     type="Emphasized"
                     icon="sap-icon://nav-back"
                     press=".onNavMain"
                 />
-                <Title text="{proposta>/objectPageLayout/title}" />
+                <Title wrapping="true" text="{proposta>/objectPageLayout/title}" />
             </HBox>
         </uxap:expandedHeading>
         <uxap:snappedContent>
@@ -67,6 +70,13 @@
             </HBox>
         </uxap:snappedContent>
         <uxap:navigationActions>
+            <Button
+                visible="{device>/system/phone}"
+                text="Indietro"
+                type="Emphasized"
+                icon="sap-icon://nav-back"
+                press=".onNavMain"
+            />
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
                 type="XML"
@@ -88,5 +98,77 @@
                 press=".onHeaderAttachmentPress"
             />
         </uxap:actions>
-    </uxap:ObjectPageDynamicHeaderTitle>
+    </uxap:ObjectPageDynamicHeaderTitle> -->
+    <f:DynamicPageTitle>
+        <f:heading>
+            <HBox
+                height="100%"
+                alignItems="Center"
+                renderType="Bare"
+            >
+                <Button
+                    visible="{device>/system/desktop}"
+                    class="sapUiTinyMarginEnd"
+                    text="Indietro"
+                    type="Emphasized"
+                    icon="sap-icon://nav-back"
+                    press=".onNavMain"
+                />
+                <Title
+                    wrapping="true"
+                    text="{proposta>/objectPageLayout/title}"
+                />
+            </HBox>
+        </f:heading>
+        <f:snappedContent>
+            <HBox
+                wrap="Wrap"
+                alignItems="Center"
+            >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+                />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
+                />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
+                />
+                <ObjectNumber
+                    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                    state="Success"
+                    inverted="true"
+                    number="Totale Imponibile 270.00"
+                    unit="€"
+                    emphasized="true"
+                />
+                <ObjectNumber
+                    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                    state="Warning"
+                    inverted="true"
+                    number="Totale IVA 329.40"
+                    unit="€"
+                    emphasized="true"
+                />
+            </HBox>
+        </f:snappedContent>
+        <f:content />
+        <f:actions>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.Actions"
+            />
+        </f:actions>
+        <f:navigationActions>
+            <Button
+                visible="{= ${device>/system/desktop} ? false : true }"
+                text="Indietro"
+                type="Emphasized"
+                icon="sap-icon://nav-back"
+                press=".onNavMain"
+            />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
+            />
+        </f:navigationActions>
+    </f:DynamicPageTitle>
 </core:FragmentDefinition>

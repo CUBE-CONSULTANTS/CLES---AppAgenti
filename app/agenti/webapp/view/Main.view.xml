@@ -10,8 +10,9 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
-    <uxap:ObjectPageLayout
+    <!-- <uxap:ObjectPageLayout
         id="objectPageOrdine"
+        class="sapUiNoContentPadding"
         showEditHeaderButton="true"
         showTitleInHeaderContent="false"
         alwaysShowContentHeader="false"
@@ -43,6 +44,7 @@
         <uxap:sections>
             <uxap:ObjectPageSection
                 id="storicoOrdini"
+                titleVisible="false"
                 title="Storico Ordini"
                 showTitle="false"
                 visible="{= 
@@ -62,6 +64,7 @@
             </uxap:ObjectPageSection>
             <uxap:ObjectPageSection
                 id="offertaOrdini"
+                titleVisible="false"
                 title="{proposta>/header/tabOfferta/name} (Valida fino al {proposta>/header/tabOfferta/expiry})"
                 showTitle="false"
                 visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
@@ -77,6 +80,7 @@
             </uxap:ObjectPageSection>
             <uxap:ObjectPageSection
                 id="propostaProdotti"
+                titleVisible="false"
                 title="Proposta Prodotti"
                 showTitle="false"
                 visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
@@ -92,6 +96,7 @@
             </uxap:ObjectPageSection>
             <uxap:ObjectPageSection
                 id="catalogo"
+                titleVisible="false"
                 title="Catalogo"
                 showTitle="false"
             >
@@ -111,5 +116,103 @@
                 type="XML"
             />
         </uxap:footer>
-    </uxap:ObjectPageLayout>
+    </uxap:ObjectPageLayout> -->
+    <f:DynamicPage
+        class="sapUiNoContentPadding"
+        preserveHeaderStateOnScroll="false"
+        stickySubheaderProvider="iconTabBar"
+        headerExpanded="true"
+        headerPinned="false"
+        showFooter="true"
+        fitContent="false"
+    >
+        <!-- DynamicPage Title -->
+        <f:title>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.main.HeaderTitle"
+                type="XML"
+            />
+        </f:title>
+
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.main.HeaderContent"
+                />
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <IconTabBar
+            id="iconTabBar"
+                applyContentPadding="false"
+                expandable="false"
+                expanded="true"
+                stretchContentHeight="true"
+                select=".onObjectPageSectionChange"
+            >
+                <items>
+                    <IconTabFilter
+                        id="storicoOrdini"
+                        text="Storico Ordini"
+                        visible="{= 
+                        (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'STORICO') ? true :
+                        ${proposta>/header/mode} === 'OFFERTA' ? true :
+                        false 
+                      }"
+                    >
+                        <content>
+                            <core:Fragment
+                                fragmentName="cles.agenti.view.fragment.main.tab.StoricoOrdini"
+                                type="XML"
+                            />
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        id="offertaOrdini"
+                        text="{proposta>/header/tabOfferta/name} (Valida fino al {proposta>/header/tabOfferta/expiry})"
+                        visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
+                    >
+                        <content>
+                            <core:Fragment
+                                fragmentName="cles.agenti.view.fragment.main.tab.Offerta"
+                                type="XML"
+                            />
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        id="propostaProdotti"
+                        text="Proposta Prodotti"
+                        visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
+                    >
+                        <content>
+                            <core:Fragment
+                                fragmentName="cles.agenti.view.fragment.main.tab.PropostaProdotti"
+                                type="XML"
+                            />
+                        </content>
+                    </IconTabFilter>
+                    <IconTabFilter
+                        id="catalogo"
+                        text="Catalogo"
+                    >
+                        <content>
+                            <core:Fragment
+                                fragmentName="cles.agenti.view.fragment.main.tab.Catalogo"
+                                type="XML"
+                            />
+                        </content>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </f:content>
+        <!-- DynamicPage Footer -->
+        <f:footer>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.main.Footer"
+                type="XML"
+            />
+        </f:footer>
+    </f:DynamicPage>
 </mvc:View>

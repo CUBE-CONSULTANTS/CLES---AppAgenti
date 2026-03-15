@@ -75,6 +75,7 @@
                         </grid:GridResponsiveLayout>
                     </grid:customLayout>
                     <VBox
+                        class="sapUiTinyMargin"
                         justifyContent="Center"
                         visible="{= ${proposta>/table/toolbar/sorters/groupedByCategory} ? false : true }"
                     >
@@ -86,7 +87,7 @@
                     </VBox>
                     <HBox
                         alignItems="Center"
-                        class="sapUiTinyMarginTop"
+                        class="sapUiTinyMargin"
                     >
                         <Image
                             visible="{proposta>/table/toolbar/showImages}"
@@ -120,7 +121,11 @@
                             />
                         </VBox>
                     </HBox>
-                    <VBox justifyContent="Center" visible="{proposta>/table/toolbar/showQuantity}">
+                    <VBox
+                        class="sapUiTinyMargin"
+                        justifyContent="Center"
+                        visible="{proposta>/table/toolbar/showQuantity}"
+                    >
                         <HBox
                             alignContent="Center"
                             alignItems="Center"
@@ -158,7 +163,10 @@
                             }"
                         />
                     </VBox>
-                    <VBox justifyContent="Center">
+                    <VBox
+                        class="sapUiTinyMargin"
+                        justifyContent="Center"
+                    >
                         <StepInput
                             value="{proposta>quantity}"
                             max="{proposta>disponibilita}"
@@ -168,7 +176,7 @@
                 </grid:CSSGrid>
                 <HBox
                     visible="{proposta>/table/toolbar/showAttributes}"
-                    class="sapUiTinyMarginTop"
+                    class="sapUiTinyMargin"
                     wrap="Wrap"
                     items="{proposta>attributes}"
                 >

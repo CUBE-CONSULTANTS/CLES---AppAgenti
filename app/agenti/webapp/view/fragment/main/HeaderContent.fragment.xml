@@ -3,17 +3,16 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
-    <core:Fragment
-        fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
-    />
-    <core:Fragment
-        fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
-    />
-    <VBox
-        class="sapUiTinyMarginTop"
-        visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
-    >
+    <!-- <HBox wrap="Wrap">
+        <core:Fragment
+            fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+        />
+        <core:Fragment
+            fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
+        />
         <ObjectStatus
+            class="sapUiTinyMarginTop"
+            visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
             text="{
               path: 'proposta>/header/date/value',
               formatter: '.formatter.formatDate' 
@@ -22,10 +21,8 @@
             active="false"
             state="Indication12"
         />
-    </VBox>
-    <HBox>
         <ObjectStatus
-            class="sapUiTinyMarginTop"
+            class="sapUiTinyMarginTop sapUiTinyMarginEnd"
             text="PARTITE SCADUTE"
             active="false"
             inverted="true"
@@ -33,7 +30,7 @@
             icon="sap-icon://warning"
         />
         <ObjectStatus
-            class="sapUiTinyMarginTop sapUiTinyMarginBegin"
+            class="sapUiTinyMarginTop"
             text="FIDO TRA 1% E 2%"
             active="false"
             inverted="true"
@@ -41,6 +38,10 @@
             icon="sap-icon://warning"
         />
     </HBox>
+    <core:Fragment
+        fragmentName="cles.agenti.view.fragment.common.FilterBar"
+        type="XML"
+    /> -->
     <core:Fragment
         fragmentName="cles.agenti.view.fragment.common.FilterBar"
         type="XML"

@@ -4,7 +4,7 @@
     xmlns:uxap="sap.uxap"
     xmlns:f="sap.f"
 >
-    <uxap:ObjectPageDynamicHeaderTitle>
+    <!-- <uxap:ObjectPageDynamicHeaderTitle>
         <uxap:snappedHeading>
             <Title text="{proposta>/objectPageLayout/title}" wrapping="true" />
         </uxap:snappedHeading>
@@ -44,5 +44,76 @@
                 press=".onHeaderAttachmentPress"
             />
         </uxap:actions>
-    </uxap:ObjectPageDynamicHeaderTitle>
+    </uxap:ObjectPageDynamicHeaderTitle> -->
+    <f:DynamicPageTitle>
+        <f:heading>
+            <Title
+                text="{proposta>/objectPageLayout/title}"
+                wrapping="true"
+            />
+        </f:heading>
+        <f:expandedContent>
+            <HBox wrap="Wrap">
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+                />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
+                />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
+                />
+
+                <ObjectStatus
+                    class="sapUiTinyMarginTop"
+                    visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
+                    text="{
+                      path: 'proposta>/header/date/value',
+                      formatter: '.formatter.formatDate' 
+                    }"
+                    inverted="true"
+                    active="false"
+                    state="Indication12"
+                />
+                <ObjectStatus
+                    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                    text="PARTITE SCADUTE"
+                    active="false"
+                    inverted="true"
+                    state="Error"
+                    icon="sap-icon://warning"
+                />
+                <ObjectStatus
+                    class="sapUiTinyMarginTop"
+                    text="FIDO TRA 1% E 2%"
+                    active="false"
+                    inverted="true"
+                    state="Warning"
+                    icon="sap-icon://warning"
+                />
+            </HBox>
+        </f:expandedContent>
+        <f:snappedContent>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusCustomer"
+            />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusTitle"
+            />
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
+            />
+        </f:snappedContent>
+        <f:content />
+        <f:actions>
+          <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.Actions"
+            />
+        </f:actions>
+        <f:navigationActions>
+        <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
+            />
+        </f:navigationActions>
+    </f:DynamicPageTitle>
 </core:FragmentDefinition>

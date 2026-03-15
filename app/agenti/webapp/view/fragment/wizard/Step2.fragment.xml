@@ -24,7 +24,7 @@
             class="sapUiTinyMarginEnd"
             text="Oggi"
             icon="sap-icon://date-time"
-            type="Default"
+            type="Neutral"
             press=".onStep2DateButtonPress"
         >
             <customData>

@@ -4,11 +4,11 @@
     height="100%"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.f"
     xmlns:form="sap.ui.layout.form"
     xmlns:core="sap.ui.core"
 >
-    <uxap:ObjectPageLayout
+    <!-- <uxap:ObjectPageLayout
         showEditHeaderButton="false"
         showTitleInHeaderContent="false"
         alwaysShowContentHeader="false"
@@ -54,5 +54,44 @@
                 type="XML"
             />
         </uxap:footer>
-    </uxap:ObjectPageLayout>
+    </uxap:ObjectPageLayout> -->
+    <f:DynamicPage
+        class="sapUiResponsiveContentPadding"
+        preserveHeaderStateOnScroll="false"
+        headerExpanded="true"
+        headerPinned="false"
+        showFooter="true"
+        fitContent="false"
+    >
+        <!-- DynamicPage Title -->
+        <f:title>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.riepilogo.HeaderTitle"
+                type="XML"
+            />
+        </f:title>
+
+        <!-- DynamicPage Header -->
+        <f:header>
+            <f:DynamicPageHeader pinnable="true">
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.riepilogo.HeaderContent"
+                />
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.riepilogo.Lista"
+                type="XML"
+            />
+        </f:content>
+        <!-- DynamicPage Footer -->
+        <f:footer>
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.riepilogo.Footer"
+                type="XML"
+            />
+        </f:footer>
+    </f:DynamicPage>
 </mvc:View>

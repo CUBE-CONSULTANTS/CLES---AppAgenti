@@ -1,7 +1,11 @@
 /* SAP OVERWRITE */
-.sapMLnkText {
+.sapMLnkLargeReactiveArea .sapMLnkText {
   visibility: hidden !important;
 } 
+
+.sapFDynamicPageTitleMainHeadingInner {
+    margin-top: 0.4175rem  !important;
+}
 
 /* Custom CSS */
 .cardGrid > *:last-child {

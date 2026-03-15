@@ -1,0 +1,73 @@
+<mvc:View
+    xmlns:f="sap.f"
+    displayBlock="true"
+    controllerName="cles.agenti.controller.Main"
+    height="100%"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:m="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+>
+    <Page showFooter="true">
+        <!-- DynamicPage Title -->
+        <customHeader>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
+                    type="XML"
+                />
+                <Button
+                    visible="{device>/system/desktop}"
+                    text="Segnalazioni"
+                    type="Critical"
+                    tooltip="Apre il menù delle segnalazioni"
+                    icon="sap-icon://warning"
+                    press=".onReportPress"
+                />
+                <Button
+                    visible="{device>/system/desktop}"
+                    text="Allegati"
+                    type="Emphasized"
+                    tooltip="Carica allegati di testata"
+                    icon="sap-icon://attachment"
+                    press=".onHeaderAttachmentPress"
+                />
+            </OverflowToolbar>
+        </customHeader>
+        <subHeader>
+            <OverflowToolbar>
+                <ToolbarSpacer />
+                <Button
+                    visible="{device>/system/phone}"
+                    text="Segnalazioni"
+                    type="Critical"
+                    tooltip="Apre il menù delle segnalazioni"
+                    icon="sap-icon://warning"
+                    press=".onReportPress"
+                />
+                <Button
+                    visible="{device>/system/phone}"
+                    text="Allegati"
+                    type="Emphasized"
+                    tooltip="Carica allegati di testata"
+                    icon="sap-icon://attachment"
+                    press=".onHeaderAttachmentPress"
+                />
+            </OverflowToolbar>
+        </subHeader>
+        <content>
+            <core:Fragment
+                fragmentName="cles.agenti.view.test.SidePanel"
+                type="XML"
+            />
+        </content>
+        <footer>
+          <core:Fragment
+                fragmentName="cles.agenti.view.fragment.main.Footer"
+                type="XML"
+            />
+        </footer>
+    </Page>
+</mvc:View>

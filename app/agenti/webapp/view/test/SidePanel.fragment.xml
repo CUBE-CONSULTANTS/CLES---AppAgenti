@@ -1,0 +1,139 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.f"
+>
+    <f:SidePanel sidePanelPosition="Left">
+        <f:mainContent>
+            <ObjectHeader
+                responsive="true"
+                title="{proposta>/objectPageLayout/title}"
+                backgroundDesign="Solid"
+            >
+                <statuses>
+                    <ObjectStatus
+                        visible="{= (${proposta>/header/mode} === 'PREORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
+                        press=".onCustomerObjectPagePress"
+                        text="{proposta>/objectPageLayout/objectStatusText}"
+                        inverted="true"
+                        active="true"
+                        icon="sap-icon://information"
+                        state="Indication14"
+                    />
+                </statuses>
+                <headerContainer>
+                    <IconTabBar applyContentPadding="false">
+                        <items>
+                            <IconTabFilter text="Catalogo">
+                                <core:Fragment
+                                    fragmentName="cles.agenti.view.fragment.main.tab.Catalogo"
+                                    type="XML"
+                                />
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                </headerContainer>
+            </ObjectHeader>
+        </f:mainContent>
+        <f:items>
+            <f:SidePanelItem
+                icon="sap-icon://filter"
+                text="Filtri"
+            >
+                <VBox width="100%">
+                    <Label
+                        text="Categorie"
+                        design="Bold"
+                    />
+                    <MultiComboBox
+                        placeholder="Categorie"
+                        selectionChange=".onFiltriCategorieSelectionChange"
+                        items="{
+                          path: 'proposta>/table/toolbar/filtri/categorie', 
+                          sorter: { path: 'text', descending: false}
+                        }"
+                    >
+                        <items>
+                            <core:Item
+                                key="{proposta>key}"
+                                text="{proposta>text}"
+                            />
+                        </items>
+                    </MultiComboBox>
+
+                    <Label
+                        text="Gruppi Materiale"
+                        design="Bold"
+                    />
+                    <MultiComboBox
+                        selectionChange=".onFiltriGruppiSelectionChange"
+                        placeholder="Gruppi Materiale"
+                        items="{
+                          path: 'proposta>/table/toolbar/filtri/gruppi', 
+                          sorter: { path: 'text', descending: false}
+                        }"
+                    >
+                        <items>
+                            <core:Item
+                                key="{proposta>key}"
+                                text="{proposta>text}"
+                            />
+                        </items>
+                    </MultiComboBox>
+
+                    <Label
+                        text="Attributi"
+                        design="Bold"
+                    />
+                    <HeaderContainer
+                        showDividers="true"
+                        gridLayout="false"
+                        scrollStepByItem="1"
+                        showOverflowItem="true"
+                        content="{
+                          path: 'proposta>/table/toolbar/filtri/attributi', 
+                          sorter: { path: 'text', descending: false}
+                        }"
+                    >
+                        <Button
+                            press=".onFilterAttributePress"
+                            text="{proposta>text}"
+                            type="{proposta>type}"
+                        />
+                    </HeaderContainer>
+                </VBox>
+            </f:SidePanelItem>
+            <f:SidePanelItem
+                icon="sap-icon://addresses"
+                text="Go home"
+            >
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.HeaderToolbar"
+                    type="XML"
+                />
+            </f:SidePanelItem>
+            <f:SidePanelItem
+                icon="sap-icon://building"
+                text="Go to office"
+            />
+            <f:SidePanelItem
+                icon="sap-icon://flight"
+                text="Fly abroad"
+                enabled="false"
+            />
+            <f:SidePanelItem
+                icon="sap-icon://building"
+                text="Go to office"
+            />
+            <f:SidePanelItem
+                icon="sap-icon://building"
+                text="Go to office"
+            />
+            <f:SidePanelItem
+                icon="sap-icon://building"
+                text="Go to office"
+                
+            />
+        </f:items>
+    </f:SidePanel>
+</core:FragmentDefinition>
