@@ -1,11 +1,13 @@
 <core:FragmentDefinition
+    xmlns:cssgrid="sap.ui.layout.cssgrid"
     xmlns="sap.m"
     xmlns:core="sap.ui.core"
     xmlns:f="sap.f"
     xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
     xmlns:card="sap.f.cards"
 >
-    <f:Card width="auto">
+    <!-- <f:Card width="auto">
         <f:header>
             <card:Header
                 title="{proposta>/header/customer/name}"
@@ -91,6 +93,195 @@
                     </form:SimpleForm>
                 </VBox>
             </HBox>
+        </f:content>
+    </f:Card> -->
+    <f:Card width="100%">
+        <f:header>
+            <card:Header
+                title="Riepilogo ordine"
+                subtitle="{proposta>/header/customer/name}"
+                titleMaxLines="1"
+                iconSrc="sap-icon://sales-order"
+            />
+        </f:header>
+
+        <f:content>
+            <cssgrid:CSSGrid class="sapUiSmallMargin">
+                <cssgrid:customLayout>
+                    <cssgrid:GridResponsiveLayout>
+                        <cssgrid:layout>
+                            <cssgrid:GridSettings
+                                gridTemplateColumns="repeat(auto-fit, minmax(200px,1fr))"
+                                gridGap="0.5rem"
+                            />
+                        </cssgrid:layout>
+                    </cssgrid:GridResponsiveLayout>
+                </cssgrid:customLayout>
+                <!-- CONTATTI -->
+                <VBox
+                    class="sapUiTinyMargin"
+                    visible="{= ${device>/system/phone} ? false : true }"
+                >
+                    <Title
+                        text="Contatti"
+                        wrapping="true"
+                        level="H5"
+                    />
+
+                    <HBox justifyContent="Start">
+                        <Label
+                            text="Telefono:"
+                            class="sapUiTinyMarginEnd"
+                            design="Bold"
+                            wrapping="true"
+                        />
+                        <Text
+                            text="+39 312 283 3812"
+                            wrapping="true"
+                        />
+                    </HBox>
+
+                    <HBox justifyContent="Start">
+                        <Label
+                            text="Mail:"
+                            class="sapUiTinyMarginEnd"
+                            design="Bold"
+                            wrapping="true"
+                        />
+                        <Link
+                            text="info@mail.com"
+                            wrapping="true"
+                        />
+                    </HBox>
+                </VBox>
+
+                <!-- INDIRIZZO -->
+                <VBox
+                    class="sapUiTinyMargin"
+                    visible="{= ${device>/system/phone} ? false : true }"
+                >
+                    <Title
+                        text="Indirizzo"
+                        wrapping="true"
+                        level="H5"
+                    />
+                    <HBox justifyContent="Start">
+                        <Label
+                            text="Città:"
+                            class="sapUiTinyMarginEnd"
+                            design="Bold"
+                            wrapping="true"
+                        />
+                        <Text
+                            text="Pisa"
+                            wrapping="true"
+                        />
+                    </HBox>
+                    <HBox justifyContent="Start">
+                        <Label
+                            text="Strada:"
+                            class="sapUiTinyMarginEnd"
+                            design="Bold"
+                            wrapping="true"
+                        />
+                        <Text
+                            text="Via Sergente Maggiore 46"
+                            wrapping="true"
+                        />
+                    </HBox>
+                    <HBox justifyContent="Start">
+                        <Label
+                            text="Codice Postale:"
+                            class="sapUiTinyMarginEnd"
+                            design="Bold"
+                            wrapping="true"
+                        />
+                        <Text
+                            text="56043"
+                            wrapping="true"
+                        />
+                    </HBox>
+                </VBox>
+
+                <!-- DATI FISCALI -->
+                <VBox
+                    class="sapUiTinyMargin"
+                    visible="{= ${device>/system/phone} ? false : true }"
+                >
+                    <Title
+                        text="Dati fiscali"
+                        wrapping="true"
+                        level="H5"
+                    />
+                    <HBox justifyContent="Start">
+                        <Label
+                            class="sapUiTinyMarginEnd"
+                            design="Bold"
+                            text="P.IVA:"
+                            wrapping="true"
+                        />
+                        <Text text="IT 07643520567" />
+                    </HBox>
+                </VBox>
+
+                <!-- PAGAMENTO -->
+                <VBox
+                    class="sapUiTinyMargin"
+                    visible="{= ${device>/system/phone} ? false : true }"
+                >
+                    <Title
+                        text="Pagamento"
+                        wrapping="true"
+                        level="H5"
+                    />
+                    <HBox justifyContent="SpaceBetween">
+                        <ObjectStatus
+                            text="30 giorni data fattura (net 30), pagamento a vista, o scaglionati come 30/60/90 giorni"
+                        />
+                    </HBox>
+                </VBox>
+
+                <!-- TOTALI -->
+                <VBox class="sapUiTinyMargin">
+                    <Title
+                        text="Totali ({riepilogo>/table/items/length} Articoli selezionati)"
+                        wrapping="true"
+                        level="H5"
+                    />
+                    <HBox alignItems="Center">
+                        <VBox class="sapUiTinyMarginBottom">
+                            <Label
+                                design="Bold"
+                                text="Totale Imponibile:"
+                                wrapping="true"
+                            />
+                            <ObjectNumber
+                                state="Success"
+                                inverted="true"
+                                number="270.00"
+                                unit="€"
+                                emphasized="true"
+                            />
+                        </VBox>
+                        <VBox
+                            class="sapUiSmallMarginBegin sapUiTinyMarginBottom"
+                        >
+                            <Label
+                                design="Bold"
+                                text="Totale IVA:"
+                                wrapping="true"
+                            />
+                            <ObjectNumber
+                                state="Warning"
+                                inverted="true"
+                                number="329.40"
+                                unit="€"
+                                emphasized="true"
+                            />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </cssgrid:CSSGrid>
         </f:content>
     </f:Card>
 </core:FragmentDefinition>

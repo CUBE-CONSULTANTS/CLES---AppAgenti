@@ -17,7 +17,7 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
     onProductListItemPress(e, from) {
       const { description, product, src } = e
         .getSource()
-        .getBindingContext("proposta")
+        .getBindingContext("riepilogo")
         .getObject();
 
       this.getModel("product").setData({

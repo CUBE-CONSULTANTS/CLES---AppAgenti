@@ -151,6 +151,8 @@
                         justifyContent="Center"
                     >
                         <StepInput
+                            change=".onStepInputChange"
+                            max="{proposta>disponibilita}"
                             value="{proposta>quantity}"
                             min="0"
                         />

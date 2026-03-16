@@ -279,6 +279,14 @@ sap.ui.define(
           },
         });
       },
+      createRiepilogoModel() {
+        return new JSONModel({
+          table: {
+            items: []
+          }
+        })
+      }
     };
+
   },
 );

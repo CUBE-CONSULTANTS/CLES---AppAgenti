@@ -169,6 +169,7 @@
                     >
                         <StepInput
                             value="{proposta>quantity}"
+                            change=".onStepInputChange"
                             max="{proposta>disponibilita}"
                             min="0"
                         />

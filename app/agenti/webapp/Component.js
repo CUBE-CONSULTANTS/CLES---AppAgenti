@@ -21,6 +21,7 @@ sap.ui.define(
         this.setModel(models.createDeviceModel(), "device");
         this.setModel(models.createLayoutModel(), "layout");
         this.setModel(models.createProductModel(), "product");
+        this.setModel(models.createRiepilogoModel(), "riepilogo");
 
         // enable routing
         this.getRouter().initialize();

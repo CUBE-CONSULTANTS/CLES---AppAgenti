@@ -19,7 +19,7 @@
             <customData>
                 <BadgeCustomData
                     writeToDom="true"
-                    value="7"
+                    value="{riepilogo>/table/items/length}"
                 />
             </customData>
         </Button>

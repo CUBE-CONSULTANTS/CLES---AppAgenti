@@ -63,15 +63,12 @@
         showFooter="true"
         fitContent="false"
     >
-        <!-- DynamicPage Title -->
         <f:title>
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.riepilogo.HeaderTitle"
                 type="XML"
             />
         </f:title>
-
-        <!-- DynamicPage Header -->
         <f:header>
             <f:DynamicPageHeader pinnable="true">
                 <core:Fragment
@@ -79,14 +76,12 @@
                 />
             </f:DynamicPageHeader>
         </f:header>
-
         <f:content>
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.riepilogo.Lista"
                 type="XML"
             />
         </f:content>
-        <!-- DynamicPage Footer -->
         <f:footer>
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.riepilogo.Footer"

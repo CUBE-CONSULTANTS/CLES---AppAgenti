@@ -318,6 +318,15 @@ sap.ui.define(
         });
       },
 
+      onStepInputChange() {
+        this.getModel("riepilogo").setProperty(
+          "/table/items",
+          this.getModel("proposta")
+            .getProperty("/table/items")
+            .filter((el) => parseFloat(el.quantity) > 0),
+        );
+      },
+
       onProductListItemPress(e, from) {
         const { description, product, src } = e
           .getSource()
