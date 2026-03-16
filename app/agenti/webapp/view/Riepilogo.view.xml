@@ -56,7 +56,7 @@
         </uxap:footer>
     </uxap:ObjectPageLayout> -->
     <f:DynamicPage
-        class="sapUiResponsiveContentPadding"
+        class="sapUiNoContentPadding"
         preserveHeaderStateOnScroll="false"
         headerExpanded="true"
         headerPinned="false"

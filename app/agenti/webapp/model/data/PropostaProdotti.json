@@ -311,93 +311,261 @@
       },
       {
         "selected": false,
-        "highlight": "Indication02",
-        "category": "CARNE ROSSA",
-        "product": "0343",
-        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/933-carre-fresco-disossato-lombo-lonza-1kg.jpeg?16923670341",
+        "highlight": "Indication01",
+        "category": "CARNE BIANCA",
+        "product": "5021",
+        "src": "./public/img/notFound.svg",
         "group": "group1",
-        "description": "Lombo Suino Disossato",
-        "u_acq": "05/04/2024",
-        "u_prz": "11.33",
-        "u_qta": "12.00",
-        "price": "0.00",
-        "unit_of_measure": "CF",
+        "description": "Petto di pollo al curry e latte di cocco",
+        "u_acq": "10/03/2026",
+        "u_prz": "12.50",
+        "u_qta": "1.50",
+        "price": "18.75",
+        "unit_of_measure": "KG",
         "quantity": "0.00",
-        "disponibilita": 0,
-        "note": "0",
+        "disponibilita": 10,
+        "note": "Senza lattosio",
+        "status_text": "BIO",
+        "status_state": "Indication05",
+        "listino": "15.00€",
         "attributes": [
           {
-            "text": "Ready-to-Drink (Premiscelato)",
-            "type": "Default"
+            "status_text": "LACTOSE FREE",
+            "status_state": "Indication12"
+          }
+        ]
+      },
+      {
+        "selected": true,
+        "highlight": "Indication03",
+        "category": "PESCE",
+        "product": "2015",
+        "src": "./public/img/notFound.svg",
+        "group": "group2",
+        "description": "Trancio di salmone norvegese alla griglia",
+        "u_acq": "15/03/2026",
+        "u_prz": "24.00",
+        "u_qta": "0.50",
+        "price": "12.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 5,
+        "note": "Ricco di Omega-3",
+        "status_text": "FRESH",
+        "status_state": "Indication08",
+        "listino": "28.50€",
+        "attributes": [
+          {
+            "status_text": "OMEGA-3",
+            "status_state": "Indication20"
           }
         ]
       },
       {
         "selected": false,
-        "highlight": "Indication04",
+        "highlight": "Indication02",
         "category": "CARNE ROSSA",
-        "product": "0344",
-        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/934-coppa-fresca-disossata-1kg.jpeg?16923635071",
+        "product": "1088",
+        "src": "./public/img/notFound.svg",
         "group": "group1",
-        "description": "Coppa Suino Disossato",
-        "u_acq": "05/04/2024",
-        "u_prz": "9.33",
-        "u_qta": "12.00",
-        "price": "0.00",
+        "description": "Tagliata di manzo con rucola e grana",
+        "u_acq": "14/03/2026",
+        "u_prz": "18.90",
+        "u_qta": "2.00",
+        "price": "37.80",
+        "unit_of_measure": "KG",
+        "quantity": "0.00",
+        "disponibilita": 2,
+        "note": "Cottura media",
+        "status_text": "LOCAL",
+        "status_state": "Indication02",
+        "listino": "22.00€",
+        "attributes": [
+          {
+            "status_text": "HIGH PROTEIN",
+            "status_state": "Indication10"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication10",
+        "category": "VEGETARIANO",
+        "product": "8842",
+        "src": "./public/img/notFound.svg",
+        "group": "group3",
+        "description": "Lasagna vegetariana alla zucca e provola",
+        "u_acq": "16/03/2026",
+        "u_prz": "6.50",
+        "u_qta": "1.00",
+        "price": "6.50",
         "unit_of_measure": "CF",
         "quantity": "0.00",
         "disponibilita": 15,
-        "note": "2",
+        "note": "Edizione stagionale",
+        "status_text": "VEGGIE",
+        "status_state": "Indication04",
+        "listino": "8.50€",
         "attributes": [
           {
-            "text": "Ready-to-Drink (Premiscelato)",
-            "type": "Default"
+            "status_text": "HANDMADE",
+            "status_state": "Indication13"
           }
         ]
       },
       {
         "selected": false,
-        "highlight": "Indication02",
+        "highlight": "Indication03",
         "category": "CARNE ROSSA",
-        "product": "0343",
-        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/933-carre-fresco-disossato-lombo-lonza-1kg.jpeg?16923670341",
+        "product": "3055",
+        "src": "./public/img/notFound.svg",
         "group": "group1",
-        "description": "Lombo Suino Disossato",
-        "u_acq": "05/04/2024",
-        "u_prz": "11.33",
-        "u_qta": "12.00",
-        "price": "0.00",
-        "unit_of_measure": "CF",
+        "description": "Polpette al sugo di pomodoro",
+        "u_acq": "12/03/2026",
+        "u_prz": "9.20",
+        "u_qta": "5.00",
+        "price": "46.00",
+        "unit_of_measure": "KG",
         "quantity": "0.00",
-        "disponibilita": 0,
-        "note": "0",
+        "disponibilita": 8,
+        "note": "Ricetta tradizionale",
+        "status_text": "GLUTEN FREE",
+        "status_state": "Indication14",
+        "listino": "11.00€",
         "attributes": [
           {
-            "text": "Ready-to-Drink (Premiscelato)",
-            "type": "Default"
+            "status_text": "GLUTEN FREE",
+            "status_state": "Indication15"
           }
         ]
       },
       {
         "selected": false,
-        "highlight": "Indication04",
-        "category": "CARNE ROSSA",
-        "product": "0344",
-        "src": "https://static.spaghettiemandolino.it/cdn-cgi/image/format=auto,fit=contain,width=500,height=500/img_prodotti/big/934-coppa-fresca-disossata-1kg.jpeg?16923635071",
-        "group": "group1",
-        "description": "Coppa Suino Disossato",
-        "u_acq": "05/04/2024",
-        "u_prz": "9.33",
-        "u_qta": "12.00",
-        "price": "0.00",
+        "highlight": "Indication05",
+        "category": "GASTRONOMIA",
+        "product": "7721",
+        "src": "./public/img/notFound.svg",
+        "group": "group4",
+        "description": "Insalata russa artigianale",
+        "u_acq": "16/03/2026",
+        "u_prz": "4.50",
+        "u_qta": "0.25",
+        "price": "1.12",
         "unit_of_measure": "CF",
         "quantity": "0.00",
-        "disponibilita": 15,
-        "note": "2",
+        "disponibilita": 20,
+        "note": "Consumare entro 2 giorni",
+        "status_text": "READY TO EAT",
+        "status_state": "Indication01",
+        "listino": "5.50€",
         "attributes": [
           {
-            "text": "Ready-to-Drink (Premiscelato)",
-            "type": "Default"
+            "status_text": "PRESERVATIVE FREE",
+            "status_state": "Indication18"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication03",
+        "category": "FORMAGGI",
+        "product": "1244",
+        "src": "./public/img/notFound.svg",
+        "group": "group2",
+        "description": "Pecorino Sardo DOP Stagionato",
+        "u_acq": "01/03/2026",
+        "u_prz": "21.50",
+        "u_qta": "1.00",
+        "price": "21.50",
+        "unit_of_measure": "KG",
+        "quantity": "0.00",
+        "disponibilita": 12,
+        "note": "DOP Certificato",
+        "status_text": "DOP",
+        "status_state": "Indication06",
+        "listino": "25.90€",
+        "attributes": [
+          {
+            "status_text": "TRADITIONAL",
+            "status_state": "Indication11"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication09",
+        "category": "VEGANO",
+        "product": "6602",
+        "src": "./public/img/notFound.svg",
+        "group": "group3",
+        "description": "Hummus di ceci alla libanese",
+        "u_acq": "15/03/2026",
+        "u_prz": "3.80",
+        "u_qta": "2.00",
+        "price": "7.60",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 25,
+        "note": "Con tahina extra",
+        "status_text": "VEGAN",
+        "status_state": "Indication13",
+        "listino": "4.90€",
+        "attributes": [
+          {
+            "status_text": "100% PLANT BASED",
+            "status_state": "Indication16"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication03",
+        "category": "CARNE ROSSA",
+        "product": "4090",
+        "src": "./public/img/notFound.svg",
+        "group": "group1",
+        "description": "Hamburger di Black Angus",
+        "u_acq": "16/03/2026",
+        "u_prz": "15.00",
+        "u_qta": "0.40",
+        "price": "6.00",
+        "unit_of_measure": "CF",
+        "quantity": "0.00",
+        "disponibilita": 30,
+        "note": "Confezione da 2 pezzi",
+        "status_text": "PREMIUM",
+        "status_state": "Indication09",
+        "listino": "18.50€",
+        "attributes": [
+          {
+            "status_text": "GRAIN FED",
+            "status_state": "Indication17"
+          }
+        ]
+      },
+      {
+        "selected": false,
+        "highlight": "Indication07",
+        "category": "PESCE",
+        "product": "2050",
+        "src": "./public/img/notFound.svg",
+        "group": "group2",
+        "description": "Insalata di mare ai frutti di bosco",
+        "u_acq": "16/03/2026",
+        "u_prz": "26.00",
+        "u_qta": "0.30",
+        "price": "7.80",
+        "unit_of_measure": "KG",
+        "quantity": "0.00",
+        "disponibilita": 4,
+        "note": "Senza aglio",
+        "status_text": "FRESH",
+        "status_state": "Indication08",
+        "listino": "32.00€",
+        "attributes": [
+          {
+            "status_text": "LOW FAT",
+            "status_state": "Indication19"
           }
         ]
       }

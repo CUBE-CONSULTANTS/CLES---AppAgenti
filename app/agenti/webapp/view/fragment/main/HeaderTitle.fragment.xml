@@ -45,7 +45,7 @@
             />
         </uxap:actions>
     </uxap:ObjectPageDynamicHeaderTitle> -->
-    <f:DynamicPageTitle>
+    <f:DynamicPageTitle >
         <f:heading>
             <Title
                 text="{proposta>/objectPageLayout/title}"

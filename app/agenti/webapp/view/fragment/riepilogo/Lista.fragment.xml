@@ -54,7 +54,7 @@
                     </grid:customLayout>
                     <HBox
                         alignItems="Center"
-                        class="sapUiTinyMarginTop"
+                        class="sapUiTinyMargin"
                     >
                         <Image
                             visible="{proposta>/table/toolbar/showImages}"
@@ -88,7 +88,10 @@
                             />
                         </VBox>
                     </HBox>
-                    <VBox justifyContent="Center">
+                    <VBox
+                        justifyContent="Center"
+                        class="sapUiTinyMargin"
+                    >
                         <HBox alignItems="Start">
                             <Label
                                 text="Prezzo: 50,00 €/pz"
@@ -109,7 +112,10 @@
                             state="Information"
                         />
                     </VBox>
-                    <VBox justifyContent="Center">
+                    <VBox
+                        justifyContent="Center"
+                        class="sapUiTinyMargin"
+                    >
                         <Label
                             design="Bold"
                             text="Quantità selezionata"
