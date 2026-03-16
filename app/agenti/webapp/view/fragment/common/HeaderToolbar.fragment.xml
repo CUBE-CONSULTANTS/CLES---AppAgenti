@@ -16,17 +16,20 @@
         <ToggleButton
             pressed="{proposta>/table/toolbar/showImages}"
             text="Immagini"
-            icon="sap-icon://picture"
+            type="Critical"
+            icon="{= ${proposta>/table/toolbar/showImages} ? 'sap-icon://show' : 'sap-icon://hide'}"
         />
         <ToggleButton
             pressed="{proposta>/table/toolbar/showQuantity}"
             text="Disponibilità"
-            icon="sap-icon://product"
+            type="Success"
+            icon="{= ${proposta>/table/toolbar/showQuantity} ? 'sap-icon://show' : 'sap-icon://hide'}"
         />
         <ToggleButton
             pressed="{proposta>/table/toolbar/showAttributes}"
             text="Attributi"
-            icon="sap-icon://tag"
+            type="Reject"
+            icon="{= ${proposta>/table/toolbar/showAttributes} ? 'sap-icon://show' : 'sap-icon://hide'}"
         />
         <ToolbarSeparator />
         <ToggleButton

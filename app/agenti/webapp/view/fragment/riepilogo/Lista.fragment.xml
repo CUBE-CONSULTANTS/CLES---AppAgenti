@@ -70,7 +70,7 @@
                     >
                         <HBox alignItems="Start">
                             <Label
-                                text="Prezzo: 50,00 €/pz"
+                                text="Prezzo: {riepilogo>listino} €/pz"
                                 design="Bold"
                                 class="sapUiTinyMarginEnd"
                             />
@@ -83,7 +83,7 @@
                         </HBox>
                         <ObjectNumber
                             inverted="false"
-                            number="Totale: 1.220,00"
+                            number="Totale: { parts: ['riepilogo>listino', 'riepilogo>quantity'], formatter: '.formatter.calculateTotal'}"
                             unit="EUR"
                             state="Information"
                         />
@@ -99,6 +99,7 @@
                         <StepInput
                             width="80%"
                             value="{riepilogo>quantity}"
+                            change=".onStepInputChange"
                             min="0"
                         />
                     </VBox>

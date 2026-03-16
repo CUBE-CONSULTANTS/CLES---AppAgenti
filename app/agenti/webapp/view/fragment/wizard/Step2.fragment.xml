@@ -19,36 +19,38 @@
                 design="Bold"
             />
         </VBox>
-
-        <Button
-            class="sapUiTinyMarginEnd"
-            text="Oggi"
-            icon="sap-icon://date-time"
-            type="Neutral"
-            press=".onStep2DateButtonPress"
-        >
-            <customData>
-                <core:CustomData
-                    key="dateBtn"
-                    value="today"
-                />
-            </customData>
-        </Button>
-        <Button
-            class="sapUiTinyMarginEnd"
-            text="Domani"
-            icon="sap-icon://date-time"
-            type="Default"
-            press=".onStep2DateButtonPress"
-        >
-            <customData>
-                <core:CustomData
-                    key="dateBtn"
-                    value="tomorrow"
-                />
-            </customData>
-        </Button>
-        <DatePicker dateValue="{/step2/date/value}" />
+        <VBox class="sapUiTinyMarginEnd">
+            <DatePicker dateValue="{/step2/date/value}" />
+        </VBox>
+        <HBox>
+            <Button
+                class="sapUiTinyMarginEnd"
+                text="Oggi"
+                icon="sap-icon://date-time"
+                type="Neutral"
+                press=".onStep2DateButtonPress"
+            >
+                <customData>
+                    <core:CustomData
+                        key="dateBtn"
+                        value="today"
+                    />
+                </customData>
+            </Button>
+            <Button
+                text="Domani"
+                icon="sap-icon://date-time"
+                type="Default"
+                press=".onStep2DateButtonPress"
+            >
+                <customData>
+                    <core:CustomData
+                        key="dateBtn"
+                        value="tomorrow"
+                    />
+                </customData>
+            </Button>
+        </HBox>
     </HBox>
     <VBox
         class="sapUiTinyMarginBottom"
@@ -63,6 +65,8 @@
             design="Bold"
         />
         <SegmentedButton
+            width="{= ${device>/system/desktop} ? '40%' : '100%'}"
+            contentMode="EqualSized"
             selectedKey="{/step2/tab/selected}"
             items="{/step2/tab/items}"
         >

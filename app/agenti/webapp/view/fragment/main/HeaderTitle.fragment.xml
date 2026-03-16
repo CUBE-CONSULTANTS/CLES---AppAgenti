@@ -45,7 +45,7 @@
             />
         </uxap:actions>
     </uxap:ObjectPageDynamicHeaderTitle> -->
-    <f:DynamicPageTitle >
+    <f:DynamicPageTitle areaShrinkRatio="1.6:1:1.6">
         <f:heading>
             <Title
                 text="{proposta>/objectPageLayout/title}"
@@ -76,14 +76,16 @@
                     state="Indication12"
                 />
                 <ObjectStatus
+                    visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
                     class="sapUiTinyMarginTop sapUiTinyMarginEnd"
                     text="PARTITE SCADUTE"
-                    active="false"
+                    active="true"
                     inverted="true"
                     state="Error"
                     icon="sap-icon://warning"
                 />
                 <ObjectStatus
+                    visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
                     class="sapUiTinyMarginTop"
                     text="FIDO TRA 1% E 2%"
                     active="false"
@@ -106,12 +108,12 @@
         </f:snappedContent>
         <f:content />
         <f:actions>
-          <core:Fragment
+            <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.Actions"
             />
         </f:actions>
         <f:navigationActions>
-        <core:Fragment
+            <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ExternalLinks"
             />
         </f:navigationActions>

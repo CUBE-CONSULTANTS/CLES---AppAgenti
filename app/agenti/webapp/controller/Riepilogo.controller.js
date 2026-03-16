@@ -39,6 +39,16 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
       this.getRouter().navTo("ProductRiepilogo", { from, product: product });
     },
 
+    onStepInputChange() {
+      const items = this.getModel("riepilogo").getProperty("/table/items");
+      const totale = items.reduce((acc, curr) => acc + (parseFloat(curr.listino) * parseFloat(curr.quantity)), 0);
+      const totaleNetto = totale;
+      const totaleLordo = totale + (totale * 0.22);
+
+      this.getModel("riepilogo").setProperty("/table/totaleNetto", totaleNetto);
+      this.getModel("riepilogo").setProperty("/table/totaleLordo", totaleLordo);
+    },
+
     onRiepilogoPress(e) {
       const type = e.getSource().getType();
 

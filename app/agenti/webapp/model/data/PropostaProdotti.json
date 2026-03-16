@@ -256,6 +256,7 @@
         "quantity": "0.00",
         "disponibilita": 0,
         "note": "0",
+        "listino": "14.50€",
         "attributes": [
           {
             "text": "Ready-to-Drink (Premiscelato)",
@@ -279,6 +280,7 @@
         "quantity": "0.00",
         "disponibilita": 0,
         "note": "0",
+        "listino": "10.50€",
         "attributes": [
           {
             "text": "Ready-to-Drink (Premiscelato)",
@@ -302,6 +304,7 @@
         "quantity": "0.00",
         "disponibilita": 15,
         "note": "2",
+        "listino": "12.50€",
         "attributes": [
           {
             "text": "Ready-to-Drink (Premiscelato)",
@@ -315,7 +318,7 @@
         "category": "CARNE BIANCA",
         "product": "5021",
         "src": "./public/img/notFound.svg",
-        "group": "group1",
+        "group": "group2",
         "description": "Petto di pollo al curry e latte di cocco",
         "u_acq": "10/03/2026",
         "u_prz": "12.50",

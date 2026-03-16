@@ -258,7 +258,7 @@
                             <ObjectNumber
                                 state="Success"
                                 inverted="true"
-                                number="270.00"
+                                number="{riepilogo>/table/totaleNetto}"
                                 unit="€"
                                 emphasized="true"
                             />
@@ -274,7 +274,7 @@
                             <ObjectNumber
                                 state="Warning"
                                 inverted="true"
-                                number="329.40"
+                                number="{riepilogo>/table/totaleLordo}"
                                 unit="€"
                                 emphasized="true"
                             />

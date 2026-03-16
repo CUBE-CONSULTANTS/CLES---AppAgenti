@@ -58,11 +58,11 @@
                             type="XML"
                         />
                     </WizardStep>
-                    <WizardStep title="Offerte">
+                    <!-- <WizardStep title="Offerte" >
                         <core:Fragment
                             fragmentName="cles.agenti.view.fragment.wizard.Step3"
                         />
-                    </WizardStep>
+                    </WizardStep> -->
                 </steps>
             </Wizard>
         </content>

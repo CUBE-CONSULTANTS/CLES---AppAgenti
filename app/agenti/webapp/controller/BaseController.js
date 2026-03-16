@@ -3,10 +3,11 @@ sap.ui.define(
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
+    "sap/ui/core/Fragment",
     "../model/Dialog",
     "../model/formatter",
   ],
-  function (Controller, UIComponent, History, Dialog, formatter) {
+  function (Controller, UIComponent, History, Fragment, Dialog, formatter) {
     "use strict";
 
     return Controller.extend("cles.agenti.controller.BaseController", {
@@ -272,7 +273,7 @@ sap.ui.define(
         model.setProperty("/step2/date/value", date);
       },
 
-      onCustomerListSelect(e) {
+      async onCustomerListSelect(e) {
         const selectedItem = e.getSource();
 
         if (!selectedItem) return;
@@ -328,8 +329,29 @@ sap.ui.define(
 
           if (
             context.getModel().getProperty("/step2/tab/selected") === "OFFERTA"
-          )
+          ) {
+            if (this.byId("wizardMode").getSteps().length <= 2) {
+              try {
+                const fragment = await Fragment.load({
+                  id: this.getView().getId(),
+                  name: "cles.agenti.view.fragment.wizard.Step3",
+                  controller: this,
+                });
+
+                this.byId("wizardMode").addStep(
+                  new sap.m.WizardStep({
+                    title: "Offerte",
+                    validated: true,
+                    content: [fragment],
+                  }),
+                );
+              } catch (error) {
+                debugger;
+              }
+            }
+
             return this._wizardNextStep();
+          }
         }
 
         if (context.getModel().getProperty("/selectedMode") === "OFFERTA") {

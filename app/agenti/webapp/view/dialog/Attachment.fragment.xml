@@ -6,7 +6,7 @@
 >
     <Dialog showHeader="false">
         <content>
-            <VBox class="sapUiContentPadding">
+            <VBox>
                 <VBox class="sapUiSmallMargin">
                     <core:HTML
                         content="&lt;div id='cameraContainer'&gt;&lt;/div&gt;"

@@ -99,7 +99,7 @@
             />
         </uxap:actions>
     </uxap:ObjectPageDynamicHeaderTitle> -->
-    <f:DynamicPageTitle>
+    <f:DynamicPageTitle areaShrinkRatio="1:2:2">
         <f:heading>
             <HBox
                 height="100%"
@@ -109,7 +109,6 @@
                 <Button
                     visible="{device>/system/desktop}"
                     class="sapUiTinyMarginEnd"
-                    text="Indietro"
                     type="Emphasized"
                     icon="sap-icon://nav-back"
                     press=".onNavMain"
@@ -138,7 +137,7 @@
                     class="sapUiTinyMarginTop sapUiTinyMarginEnd"
                     state="Success"
                     inverted="true"
-                    number="Totale Imponibile 270.00"
+                    number="Totale Imponibile {riepilogo>/table/totaleNetto}"
                     unit="€"
                     emphasized="true"
                 />
@@ -146,7 +145,7 @@
                     class="sapUiTinyMarginTop sapUiTinyMarginEnd"
                     state="Warning"
                     inverted="true"
-                    number="Totale IVA 329.40"
+                    number="Totale IVA {riepilogo>/table/totaleLordo}"
                     unit="€"
                     emphasized="true"
                 />

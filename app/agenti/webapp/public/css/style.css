@@ -7,6 +7,19 @@
     margin-top: 0.4175rem  !important;
 }
 
+.sapFDynamicPage .sapFDynamicPageFooter .sapFDynamicPageActualFooterControl {
+    position: relative;
+    height: 3rem;
+    width: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 0rem;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+}
+
 /* Custom CSS */
 .cardGrid > *:last-child {
     grid-column: auto;

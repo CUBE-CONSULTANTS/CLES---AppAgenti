@@ -18,6 +18,10 @@ sap.ui.define(
 
         return "Valido fino al " + jsDate.toLocaleDateString();
       },
+
+      calculateTotal(price, quantity) {
+        return parseFloat(price) * parseFloat(quantity);
+      }
     };
   },
 );
