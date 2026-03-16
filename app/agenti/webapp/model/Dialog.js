@@ -96,7 +96,9 @@ sap.ui.define(
 
             try {
               window._stream = await navigator.mediaDevices.getUserMedia({
-                video: true,
+                video: {
+                  facingMode: "environment",
+                },
                 audio: false,
               });
 
