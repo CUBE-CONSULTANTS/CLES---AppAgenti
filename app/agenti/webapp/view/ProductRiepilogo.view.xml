@@ -64,6 +64,7 @@
         toggleHeaderOnTitleClick="true"
         flexEnabled="true"
         useTwoColumnsForLargeScreen="true"
+        selectedSection="dettagliRiepilogo"
     >
         <uxap:headerTitle>
             <uxap:ObjectPageDynamicHeaderTitle>
@@ -92,37 +93,11 @@
             </uxap:ObjectPageDynamicHeaderTitle>
         </uxap:headerTitle>
         <uxap:sections>
-            <uxap:ObjectPageSection
-                title="Dettagli"
-                visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
-            >
+            <uxap:ObjectPageSection title="Dettagli" id="dettagliRiepilogo">
                 <uxap:subSections>
                     <uxap:ObjectPageSubSection>
                         <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.product.FormRiepilogo"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection
-                title="Dettagli"
-                visible="{= ${product>/from} === 'CATALOGO' ? true : false }"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.product.FormCatalogo"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection title="Allegati">
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.product.Carousel"
+                            fragmentName="cles.agenti.view.fragment.product.Form"
                             type="XML"
                         />
                     </uxap:ObjectPageSubSection>
@@ -208,6 +183,16 @@
                                 text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g"
                             />
                         </form:SimpleForm>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+            <uxap:ObjectPageSection title="Allegati">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection>
+                        <core:Fragment
+                            fragmentName="cles.agenti.view.fragment.product.Carousel"
+                            type="XML"
+                        />
                     </uxap:ObjectPageSubSection>
                 </uxap:subSections>
             </uxap:ObjectPageSection>

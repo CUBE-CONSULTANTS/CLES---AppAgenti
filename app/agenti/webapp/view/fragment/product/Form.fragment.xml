@@ -1,0 +1,493 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+>
+    <!-- <form:SimpleForm
+        maxContainerCols="2"
+        layout="ResponsiveGridLayout"
+        editable="true"
+        labelSpanXL="3"
+        labelSpanL="3"
+        labelSpanM="4"
+        labelSpanS="12"
+        adjustLabelSpan="false"
+        emptySpanXL="4"
+        emptySpanL="4"
+        emptySpanM="0"
+        emptySpanS="0"
+        columnsXL="2"
+        columnsL="2"
+        columnsM="1"
+        singleContainerFullSize="true"
+    >
+        <form:content>
+            <Label
+                design="Bold"
+                text="Tipo Riga"
+            />
+            <Select>
+              
+                <items>
+                    <core:Item
+                        key="VENDITA"
+                        text="Vendita"
+                    />
+                </items>
+            </Select>
+            <Label
+                design="Bold"
+                text="U.M."
+            />
+            <Select>
+                <items>
+                    <core:Item
+                        key="VENDITA"
+                        text="Cassa"
+                    />
+                </items>
+            </Select>
+            <Label
+                design="Bold"
+                text="Quantità per unità ( 3 PZ )"
+            />
+            <HBox
+                alignContent="Center"
+                alignItems="Center"
+                justifyContent="End"
+            >
+                <StepInput
+                    min="0"
+                    value="1"
+                />
+            </HBox>
+            <Label
+                design="Bold"
+                text="Totale Quantità"
+            />
+            <ObjectNumber
+                class="sapMObjectNumberLarge"
+                textAlign="End"
+                inverted="true"
+                active="false"
+                emphasized="true"
+                state="Information"
+                number="3"
+                unit="PZ"
+            />
+
+            <Label
+                design="Bold"
+                text="Sconto agente (%)"
+            />
+            <StepInput
+                min="0"
+                max="100"
+                value="5"
+            />
+            <Label
+                design="Bold"
+                text="Prezzo unità di vendita"
+            />
+            <Title
+                textAlign="End"
+                text="3.50€"
+                titleStyle="H4"
+            />
+
+            <Label
+                design="Bold"
+                text="Prezzo applicato"
+            />
+            <Title
+                textAlign="End"
+                text="3.50€/PZ"
+                titleStyle="H4"
+            />
+            <Label
+                design="Bold"
+                text="Totale riga"
+            />
+            <Title
+                textAlign="End"
+                text="10.50€/PZ"
+                titleStyle="H4"
+            />
+            <Label
+                design="Bold"
+                text="Marginalità"
+            />
+            <HBox
+                justifyContent="End"
+                alignContent="Center"
+                alignItems="Center"
+            >
+                <core:Icon
+                    class="sapUiTinyMarginEnd"
+                    src="sap-icon://circle-task-2"
+                    color="Neutral"
+                />
+                <core:Icon
+                    class="sapUiTinyMarginEnd"
+                    src="sap-icon://circle-task-2"
+                    color="Neutral"
+                />
+                <core:Icon
+                    src="sap-icon://circle-task-2"
+                    color="Positive"
+                />
+            </HBox>
+        </form:content>
+    </form:SimpleForm> -->
+    <!-- <form:Form editable="true">
+        <form:layout>
+            <form:ResponsiveGridLayout
+                labelSpanXL="12"
+                labelSpanL="12"
+                labelSpanM="12"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="4"
+                emptySpanL="4"
+                emptySpanM="4"
+                emptySpanS="0"
+                columnsXL="2"
+                columnsL="2"
+                columnsM="2"
+                singleContainerFullSize="true"
+            />
+        </form:layout>
+        <form:formContainers>
+            <form:FormContainer>
+                <form:formElements>
+                    <form:FormElement label="Tipo Riga">
+                        <form:fields>
+                            <Select>
+                                <items>
+                                    <core:Item
+                                        key="VENDITA"
+                                        text="Vendita"
+                                    />
+                                </items>
+                            </Select>
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="U.M.">
+                        <form:fields>
+                            <Select>
+                                <items>
+                                    <core:Item
+                                        key="VENDITA"
+                                        text="Cassa"
+                                    />
+                                </items>
+                            </Select>
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="Quantità per unità ( 3 PZ )">
+                        <form:fields>
+                            <StepInput
+                                min="0"
+                                value="1"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="Totale Quantità">
+                        <form:fields>
+                            <ObjectNumber
+                                textAlign="End"
+                                inverted="true"
+                                active="false"
+                                emphasized="true"
+                                state="Information"
+                                number="3"
+                                unit="PZ"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                </form:formElements>
+            </form:FormContainer>
+            <form:FormContainer>
+                <form:formElements>
+                    <form:FormElement label="Sconto Agente (%)">
+                        <form:fields>
+                            <StepInput
+                                min="0"
+                                max="100"
+                                value="5"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="Prezzo unità di vendita">
+                        <form:fields>
+                            <Title
+                                textAlign="End"
+                                text="3.50€"
+                                titleStyle="H6"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="Prezzo applicato">
+                        <form:fields>
+                            <Title
+                                textAlign="End"
+                                text="3.50€/PZ"
+                                titleStyle="H6"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="Totale riga">
+                        <form:fields>
+                            <Title
+                                textAlign="End"
+                                text="10.50€/PZ"
+                                titleStyle="H6"
+                            />
+                        </form:fields>
+                    </form:FormElement>
+                    <form:FormElement label="Marginalità">
+                        <form:fields>
+                            <HBox
+                                justifyContent="End"
+                                alignContent="Center"
+                                alignItems="Center"
+                            >
+                                <core:Icon
+                                    class="sapUiTinyMarginEnd"
+                                    src="sap-icon://circle-task-2"
+                                    color="Neutral"
+                                />
+                                <core:Icon
+                                    class="sapUiTinyMarginEnd"
+                                    src="sap-icon://circle-task-2"
+                                    color="Neutral"
+                                />
+                                <core:Icon
+                                    src="sap-icon://circle-task-2"
+                                    color="Positive"
+                                />
+                            </HBox>
+                        </form:fields>
+                    </form:FormElement>
+                </form:formElements>
+            </form:FormContainer>
+        </form:formContainers>
+    </form:Form> -->
+    <VBox
+        visible="{= (${product>/from} === 'LISTA' || ${product>/from} === 'RIEPILOGO') ? true : false }"
+    >
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="Tipo Riga"
+            />
+            <Select>
+                <items>
+                    <core:Item
+                        key="VENDITA"
+                        text="Vendita"
+                    />
+                </items>
+            </Select>
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="U.M."
+            />
+            <Select>
+                <items>
+                    <core:Item
+                        key="VENDITA"
+                        text="Cassa"
+                    />
+                </items>
+            </Select>
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                class="sapUiTinyMarginEnd"
+                design="Bold"
+                text="Quantità per unità ( 3 PZ )"
+            />
+            <StepInput
+                min="0"
+                value="1"
+            />
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="Totale Quantità"
+            />
+            <ObjectNumber
+                class="sapMObjectNumberLarge"
+                textAlign="End"
+                inverted="true"
+                active="false"
+                emphasized="true"
+                state="Information"
+                number="3"
+                unit="PZ"
+            />
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                class="sapUiTinyMarginEnd"
+                design="Bold"
+                text="Sconto agente (%)"
+            />
+            <StepInput
+                min="0"
+                max="100"
+                value="5"
+            />
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="Prezzo unità di vendita"
+            />
+            <Title
+                textAlign="End"
+                text="3.50€"
+                titleStyle="H4"
+            />
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="Prezzo applicato"
+            />
+            <Title
+                textAlign="End"
+                text="3.50€/PZ"
+                titleStyle="H4"
+            />
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="Totale riga"
+            />
+            <Title
+                textAlign="End"
+                text="10.50€/PZ"
+                titleStyle="H4"
+            />
+        </HBox>
+        <HBox
+            class="sapUiTinyMargin"
+            justifyContent="SpaceBetween"
+            alignItems="Center"
+        >
+            <Label
+                design="Bold"
+                text="Marginalità"
+            />
+            <HBox
+                justifyContent="End"
+                alignContent="Center"
+                alignItems="Center"
+            >
+                <core:Icon
+                    class="sapUiTinyMarginEnd"
+                    src="sap-icon://circle-task-2"
+                    color="Neutral"
+                />
+                <core:Icon
+                    class="sapUiTinyMarginEnd"
+                    src="sap-icon://circle-task-2"
+                    color="Neutral"
+                />
+                <core:Icon
+                    src="sap-icon://circle-task-2"
+                    color="Positive"
+                />
+            </HBox>
+        </HBox>
+    </VBox>
+    <VBox visible="{= ${product>/from} === 'CATALOGO' ? true : false }">
+        <form:SimpleForm
+            layout="ResponsiveGridLayout"
+            columnsXL="2"
+            columnsL="2"
+            columnsM="1"
+            labelSpanXL="3"
+            labelSpanL="3"
+            labelSpanM="4"
+            labelSpanS="12"
+            emptySpanXL="1"
+            emptySpanL="1"
+            emptySpanM="0"
+            emptySpanS="0"
+            editable="false"
+        >
+            <Label
+                design="Bold"
+                text="Prezzo di Listino: 3.50€"
+            />
+            <StepInput min="0" />
+            <!-- Identificazione -->
+            <core:Title text="Identificazione Prodotto" />
+            <Label text="Codice Materiale" />
+            <Text text="PRD-002345" />
+            <Label text="Descrizione" />
+            <Text text="Bastoncini di mozzarella panati surgelati" />
+            <Label text="Categoria" />
+            <Text text="Prodotti panati surgelati" />
+            <Label text="Marchio / Produttore" />
+            <Text text="Pastificio e Latticini Italia S.p.A." />
+            <Label text="Codice EAN" />
+            <Text text="8001234567895" />
+
+            <!-- Informazioni Legali e Normative -->
+            <core:Title text="Informazioni Legali e Normative" />
+            <Label text="Ingredienti" />
+            <Text
+                text="Mozzarella (50%) [latte, sale, caglio], panatura [farina di grano, farina di mais, amido, uovo in polvere, paprica, lievito, sale], olio di semi di girasole, acqua."
+            />
+            <Label text="Allergeni" />
+            <Text
+                text="Latte, uova, glutine. Può contenere tracce di soia e sedano."
+            />
+            <Label text="Valori Nutrizionali (100 g)" />
+            <Text
+                text="Energia 943 kJ / 225 kcal • Grassi 9,0 g (saturi 5,8 g) • Carboidrati 23 g (zuccheri 2,5 g) • Fibre 2,2 g • Proteine 12 g • Sale 1,5 g"
+            />
+        </form:SimpleForm>
+    </VBox>
+</core:FragmentDefinition>
