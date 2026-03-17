@@ -20,18 +20,21 @@
                             class="sapUiTinyMargin"
                             type="Emphasized"
                             text="Scatta Foto"
+                            icon="sap-icon://camera"
                             press=".onTakePhoto"
                         />
                         <Button
                             class="sapUiTinyMargin"
                             type="Emphasized"
                             text="Avvia Registrazione"
+                            icon="sap-icon://record"
                             press=".onStartRecording"
                         />
                         <Button
                             class="sapUiTinyMargin"
                             type="Emphasized"
                             text="Stop Registrazione"
+                            icon="sap-icon://record"
                             press=".onStopRecording"
                         />
                     </HBox>
