@@ -49,15 +49,19 @@
             "selected": false
           },
           {
-            "text": "PANE",
+            "text": "FORMAGGI",
             "selected": false
           },
           {
-            "text": "PASTA",
+            "text": "PESCE",
             "selected": false
           },
           {
-            "text": "ALCOLICI",
+            "text": "VEGANO",
+            "selected": false
+          },
+          {
+            "text": "VEGETARIANO",
             "selected": false
           }
         ],
@@ -447,7 +451,7 @@
       {
         "selected": false,
         "highlight": "Indication05",
-        "category": "GASTRONOMIA",
+        "category": "VEGETARIANO",
         "product": "7721",
         "src": "./public/img/notFound.svg",
         "group": "group4",

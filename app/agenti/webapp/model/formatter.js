@@ -20,7 +20,7 @@ sap.ui.define(
       },
 
       calculateTotal(price, quantity) {
-        return parseFloat(price) * parseFloat(quantity);
+        return (parseFloat(price) * parseFloat(quantity)).toFixed(2);
       }
     };
   },

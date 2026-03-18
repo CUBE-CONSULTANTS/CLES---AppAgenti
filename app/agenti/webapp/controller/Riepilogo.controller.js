@@ -45,8 +45,8 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
       const totaleNetto = totale;
       const totaleLordo = totale + (totale * 0.22);
 
-      this.getModel("riepilogo").setProperty("/table/totaleNetto", totaleNetto);
-      this.getModel("riepilogo").setProperty("/table/totaleLordo", totaleLordo);
+      this.getModel("riepilogo").setProperty("/table/totaleNetto", totaleNetto.toFixed(2));
+      this.getModel("riepilogo").setProperty("/table/totaleLordo", totaleLordo.toFixed(2));
     },
 
     onRiepilogoPress(e) {

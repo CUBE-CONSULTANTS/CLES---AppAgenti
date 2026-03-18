@@ -333,15 +333,15 @@ sap.ui.define(
           0,
         );
         const totaleNetto = totale;
-        const totaleLordo = totale + totale * 0.22;
+        const totaleLordo = (totale + totale * 0.22);
 
         this.getModel("riepilogo").setProperty(
           "/table/totaleNetto",
-          totaleNetto,
+          totaleNetto.toFixed(2),
         );
         this.getModel("riepilogo").setProperty(
           "/table/totaleLordo",
-          totaleLordo,
+          totaleLordo.toFixed(2),
         );
       },
 
