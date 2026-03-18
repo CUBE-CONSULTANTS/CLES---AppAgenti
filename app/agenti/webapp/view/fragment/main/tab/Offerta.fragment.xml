@@ -115,13 +115,23 @@
                                 wrapping="true"
                                 text="{proposta>product} - {proposta>description}"
                             />
-                            <Label
-                                design="Bold"
-                                wrapping="true"
-                                text="Ultimo acquisto: {proposta>u_acq}"
-                            />
                         </VBox>
                     </HBox>
+                    <VBox
+                        class="sapUiTinyMargin"
+                        justifyContent="Center"
+                    >
+                        <Label
+                            design="Bold"
+                            wrapping="true"
+                            text="Ultimo acquisto: {proposta>u_acq}"
+                        />
+                        <Label
+                            design="Bold"
+                            wrapping="true"
+                            text="Ultimo prezzo: {proposta>u_prz} €"
+                        />
+                    </VBox>
                     <VBox
                         class="sapUiTinyMargin"
                         justifyContent="Center"

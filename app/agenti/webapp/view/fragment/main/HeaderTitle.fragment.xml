@@ -63,18 +63,6 @@
                 <core:Fragment
                     fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
                 />
-
-                <ObjectStatus
-                    class="sapUiTinyMarginTop"
-                    visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
-                    text="{
-                      path: 'proposta>/header/date/value',
-                      formatter: '.formatter.formatDate' 
-                    }"
-                    inverted="true"
-                    active="false"
-                    state="Indication12"
-                />
                 <ObjectStatus
                     visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
                     class="sapUiTinyMarginTop sapUiTinyMarginEnd"
@@ -104,6 +92,24 @@
             />
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
+            />
+            <ObjectStatus
+                visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
+                class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+                text="PARTITE SCADUTE"
+                active="true"
+                inverted="true"
+                state="Error"
+                icon="sap-icon://warning"
+            />
+            <ObjectStatus
+                visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
+                class="sapUiTinyMarginTop"
+                text="FIDO TRA 1% E 2%"
+                active="false"
+                inverted="true"
+                state="Warning"
+                icon="sap-icon://warning"
             />
         </f:snappedContent>
         <f:content />
