@@ -24,83 +24,78 @@ sap.ui.define(
           .attachPatternMatched(this._onObjectMatched, this);
 
         this._checkQueryParams(window.location.hash);
+        window.addEventListener("beforeunload", this.onBeforeUnload.bind(this));
       },
 
       _checkQueryParams(hash) {
         let mode, customer, date;
         const source = hash || location.hash || location.search;
-  
+
         if (!source || source.length <= 1) {
           return this.getModalita();
         }
 
-        const cleanString = source.replace(/^[#?]/, '');
+        const cleanString = source.replace(/^[#?]/, "");
         const params = new URLSearchParams(cleanString);
 
-        mode = (params.get('mode') ?? '').toLowerCase();
-        customer = params.get('customer') ?? '';
-        date = params.get('date') ?? '';
+        mode = (params.get("mode") ?? "").toLowerCase();
+        customer = params.get("customer") ?? "";
+        date = params.get("date") ?? "";
 
         this._queryParamsInit({ mode, customer, date });
       },
 
       _queryParamsInit({ mode, customer, date }) {
-        if( !mode || !customer || !date ) return this.getModalita()
+        if (!mode || !customer || !date) return this.getModalita();
 
-        this.getOwnerComponent().getModel("proposta").setProperty(
-          "/header/mode",
-          mode.toUpperCase(),
-        );
+        this.getOwnerComponent()
+          .getModel("proposta")
+          .setProperty("/header/mode", mode.toUpperCase());
 
-        this.getOwnerComponent().getModel("proposta").setProperty(
-          "/objectPageLayout/mode",
-          mode.toUpperCase(),
-        );
+        this.getOwnerComponent()
+          .getModel("proposta")
+          .setProperty("/objectPageLayout/mode", mode.toUpperCase());
 
-        this.getOwnerComponent().getModel("proposta").setProperty(
-          "/objectPageLayout/title",
-          mode === "ordine"
-            ? "Ordine di vendita"
-            : mode === "offerta"
-              ? "Offerta Cliente"
-              : mode === "preordine"
-                ? "Preordine"
-                : "",
-        );
+        this.getOwnerComponent()
+          .getModel("proposta")
+          .setProperty(
+            "/objectPageLayout/title",
+            mode === "ordine"
+              ? "Ordine di vendita"
+              : mode === "offerta"
+                ? "Offerta Cliente"
+                : mode === "preordine"
+                  ? "Preordine"
+                  : "",
+          );
 
-        this.getOwnerComponent().getModel("proposta").setProperty(
-          "/objectPageLayout/objectStatusText",
-          customer,
-        );
+        this.getOwnerComponent()
+          .getModel("proposta")
+          .setProperty("/objectPageLayout/objectStatusText", customer);
 
         if (mode === "ordine" || mode === "offerta") {
-          this.getOwnerComponent().getModel("proposta").setProperty(
-            "/header/customer/id",
-            customer || "",
-          );
+          this.getOwnerComponent()
+            .getModel("proposta")
+            .setProperty("/header/customer/id", customer || "");
 
-          this.getOwnerComponent().getModel("proposta").setProperty(
-            "/header/customer/name",
-            customer || "",
-          );
+          this.getOwnerComponent()
+            .getModel("proposta")
+            .setProperty("/header/customer/name", customer || "");
         }
 
         if (mode === "preordine") {
-          this.getOwnerComponent().getModel("proposta").setProperty(
-            "/header/preorder/id",
-            customer || "",
-          );
+          this.getOwnerComponent()
+            .getModel("proposta")
+            .setProperty("/header/preorder/id", customer || "");
 
-          this.getOwnerComponent().getModel("proposta").setProperty(
-            "/header/preorder/name",
-            customer || "",
-          );
+          this.getOwnerComponent()
+            .getModel("proposta")
+            .setProperty("/header/preorder/name", customer || "");
         }
 
-        this.getOwnerComponent().getModel("proposta").setProperty(
-          "/header/date/value",
-          date || "",
-        );
+        this.getOwnerComponent()
+          .getModel("proposta")
+          .setProperty("/header/date/value", date || "");
       },
 
       _onObjectMatched(e) {

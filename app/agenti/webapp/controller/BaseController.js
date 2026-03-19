@@ -86,6 +86,14 @@ sap.ui.define(
         this.getRouter().navTo("Main", {}, undefined, true);
       },
 
+      onBeforeUnload: function (oEvent) {
+        oEvent.preventDefault();
+
+        oEvent.returnValue =
+          "Ci sono modifiche non salvate. Vuoi davvero uscire?";
+        return oEvent.returnValue;
+      },
+
       //Navigation Actions
 
       onHeaderAttachmentPress() {
