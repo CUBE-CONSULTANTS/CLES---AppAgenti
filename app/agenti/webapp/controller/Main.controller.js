@@ -18,11 +18,6 @@ sap.ui.define(
     "use strict";
 
     return BaseController.extend("cles.agenti.controller.Main", {
-      _wizardOpened: false,
-      _mode: "",
-      _customer: "",
-      _date: "",
-
       onInit() {
         this.getRouter()
           .getRoute("Main")
@@ -32,78 +27,84 @@ sap.ui.define(
       },
 
       _checkQueryParams(hash) {
-        if (!hash || !hash.length) return this.getModalita();
+        let mode, customer, date;
+        const source = hash || location.hash || location.search;
+  
+        if (!source || source.length <= 1) {
+          return this.getModalita();
+        }
 
-        const queryString = hash.startsWith("#") ? hash.substring(1) : hash;
-        const params = new URLSearchParams(queryString);
+        const cleanString = source.replace(/^[#?]/, '');
+        const params = new URLSearchParams(cleanString);
 
-        this._mode = (params.get("mode") ?? "").toLowerCase();
-        this._customer = params.get("customer") ?? "";
-        this._date = params.get("date") ?? "";
+        mode = (params.get('mode') ?? '').toLowerCase();
+        customer = params.get('customer') ?? '';
+        date = params.get('date') ?? '';
+
+        this._queryParamsInit({ mode, customer, date });
       },
 
-      _queryParamsInit() {
-        if( !this._mode || !this._customer || !this._date ) return this.getModalita()
+      _queryParamsInit({ mode, customer, date }) {
+        if( !mode || !customer || !date ) return this.getModalita()
 
-        this.getModel("proposta").setProperty(
+        this.getOwnerComponent().getModel("proposta").setProperty(
           "/header/mode",
-          this._mode.toUpperCase(),
+          mode.toUpperCase(),
         );
 
-        this.getModel("proposta").setProperty(
+        this.getOwnerComponent().getModel("proposta").setProperty(
           "/objectPageLayout/mode",
-          this._mode.toUpperCase(),
+          mode.toUpperCase(),
         );
 
-        this.getModel("proposta").setProperty(
+        this.getOwnerComponent().getModel("proposta").setProperty(
           "/objectPageLayout/title",
-          this._mode === "ordine"
+          mode === "ordine"
             ? "Ordine di vendita"
-            : this._mode === "offerta"
+            : mode === "offerta"
               ? "Offerta Cliente"
-              : this._mode === "preordine"
+              : mode === "preordine"
                 ? "Preordine"
                 : "",
         );
 
-        this.getModel("proposta").setProperty(
+        this.getOwnerComponent().getModel("proposta").setProperty(
           "/objectPageLayout/objectStatusText",
-          this._customer,
+          customer,
         );
 
-        if (this._mode === "ordine" || this._mode === "offerta") {
-          this.getModel("proposta").setProperty(
+        if (mode === "ordine" || mode === "offerta") {
+          this.getOwnerComponent().getModel("proposta").setProperty(
             "/header/customer/id",
-            this._customer || "",
+            customer || "",
           );
 
-          this.getModel("proposta").setProperty(
+          this.getOwnerComponent().getModel("proposta").setProperty(
             "/header/customer/name",
-            this._customer || "",
+            customer || "",
           );
         }
 
-        if (this._mode === "preordine") {
-          this.getModel("proposta").setProperty(
+        if (mode === "preordine") {
+          this.getOwnerComponent().getModel("proposta").setProperty(
             "/header/preorder/id",
-            this._customer || "",
+            customer || "",
           );
 
-          this.getModel("proposta").setProperty(
+          this.getOwnerComponent().getModel("proposta").setProperty(
             "/header/preorder/name",
-            this._customer || "",
+            customer || "",
           );
         }
 
-        this.getModel("proposta").setProperty(
+        this.getOwnerComponent().getModel("proposta").setProperty(
           "/header/date/value",
-          this._date || "",
+          date || "",
         );
       },
 
       _onObjectMatched(e) {
         this.getModel("layout").setProperty("/layoutMode", "OneColumn");
-        this._queryParamsInit();
       },
 
       _applyListGrouping({ pressed, groupFunction, groupFactory }) {
