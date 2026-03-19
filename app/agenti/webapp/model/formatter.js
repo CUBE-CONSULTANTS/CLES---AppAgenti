@@ -13,15 +13,27 @@ sap.ui.define(
         return `data:image/jpeg;base64,${base64}`;
       },
 
-      formatDate(jsDate) {
-        if (!jsDate) return;
+      formatDate(date, mode) {
+        let prefix = "";
 
-        return "Valido fino al " + jsDate.toLocaleDateString();
+        if (!date) return;
+
+        if( mode === "ORDINE" ) prefix = "Data di consegna ";
+        else prefix = "Valido fino al ";
+
+        if (date instanceof Date)
+          return prefix + date.toLocaleDateString();
+
+        const year = parseInt(date.slice(0, 4));
+        const month = parseInt(date.slice(4, 6)) - 1;
+        const day = parseInt(date.slice(6, 8));
+
+        return prefix + new Date(year, month, day).toLocaleDateString();
       },
 
       calculateTotal(price, quantity) {
         return (parseFloat(price) * parseFloat(quantity)).toFixed(2);
-      }
+      },
     };
   },
 );

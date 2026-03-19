@@ -3,10 +3,10 @@
     xmlns:core="sap.ui.core"
 >
     <ObjectStatus
-    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
-        visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'SKIP') ? false : true }"
+        class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+        visible="{= ${proposta>/header/mode} === 'SKIP' ? false : true }"
         text="{
-          path: 'proposta>/header/date/value',
+          parts: ['proposta>/header/date/value', 'proposta>/header/mode'],
           formatter: '.formatter.formatDate' 
         }"
         inverted="true"

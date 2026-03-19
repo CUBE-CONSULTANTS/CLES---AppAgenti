@@ -303,6 +303,11 @@ sap.ui.define(
         );
 
         this.getModel("proposta").setProperty(
+          "/header/date/value",
+          context.getModel().getProperty("/step2/date/value"),
+        );
+
+        this.getModel("proposta").setProperty(
           "/objectPageLayout/mode",
           context.getModel().getProperty("/selectedMode"),
         );
@@ -367,6 +372,17 @@ sap.ui.define(
         }
 
         return this.byId("wizardMode").getParent().close();
+      },
+
+      onWizardDialogBeforeClose(e) {
+        const mode = e.getSource().getModel().getProperty("/selectedMode");
+        let tab = "";
+
+        if( mode === "ORDINE" || mode === "OFFERTA" ) tab = "storico";
+        else tab = "catalogo";
+
+        this.getModel("proposta").setProperty("/activeTab", tab)
+        return e.getSource().destroy();
       },
 
       onCustomerCreatePress(e) {

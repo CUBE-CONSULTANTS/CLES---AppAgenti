@@ -5,35 +5,105 @@ sap.ui.define(
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/model/Sorter",
+    "sap/m/MessageBox",
   ],
-  function (BaseController, Dialog, Filter, FilterOperator, Sorter) {
+  function (
+    BaseController,
+    Dialog,
+    Filter,
+    FilterOperator,
+    Sorter,
+    MessageBox,
+  ) {
     "use strict";
 
     return BaseController.extend("cles.agenti.controller.Main", {
+      _wizardOpened: false,
+      _mode: "",
+      _customer: "",
+      _date: "",
+
       onInit() {
         this.getRouter()
           .getRoute("Main")
           .attachPatternMatched(this._onObjectMatched, this);
 
-        this.getModalita();
+        this._checkQueryParams(window.location.hash);
+      },
+
+      _checkQueryParams(hash) {
+        if (!hash || !hash.length) return this.getModalita();
+
+        const queryString = hash.startsWith("#") ? hash.substring(1) : hash;
+        const params = new URLSearchParams(queryString);
+
+        this._mode = (params.get("mode") ?? "").toLowerCase();
+        this._customer = params.get("customer") ?? "";
+        this._date = params.get("date") ?? "";
+      },
+
+      _queryParamsInit() {
+        if( !this._mode || !this._customer || !this._date ) return this.getModalita()
+
+        this.getModel("proposta").setProperty(
+          "/header/mode",
+          this._mode.toUpperCase(),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/mode",
+          this._mode.toUpperCase(),
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/title",
+          this._mode === "ordine"
+            ? "Ordine di vendita"
+            : this._mode === "offerta"
+              ? "Offerta Cliente"
+              : this._mode === "preordine"
+                ? "Preordine"
+                : "",
+        );
+
+        this.getModel("proposta").setProperty(
+          "/objectPageLayout/objectStatusText",
+          this._customer,
+        );
+
+        if (this._mode === "ordine" || this._mode === "offerta") {
+          this.getModel("proposta").setProperty(
+            "/header/customer/id",
+            this._customer || "",
+          );
+
+          this.getModel("proposta").setProperty(
+            "/header/customer/name",
+            this._customer || "",
+          );
+        }
+
+        if (this._mode === "preordine") {
+          this.getModel("proposta").setProperty(
+            "/header/preorder/id",
+            this._customer || "",
+          );
+
+          this.getModel("proposta").setProperty(
+            "/header/preorder/name",
+            this._customer || "",
+          );
+        }
+
+        this.getModel("proposta").setProperty(
+          "/header/date/value",
+          this._date || "",
+        );
       },
 
       _onObjectMatched(e) {
-        const { arguments: queryParams } = e.getParameters();
-
         this.getModel("layout").setProperty("/layoutMode", "OneColumn");
-
-        if (queryParams["?query"]) {
-          const { customer, customer_name } = queryParams["?query"];
-          this.getModel("proposta").setProperty(
-            "/header/customer/id",
-            customer,
-          );
-          this.getModel("proposta").setProperty(
-            "/header/customer/name",
-            customer_name,
-          );
-        }
+        this._queryParamsInit();
       },
 
       _applyListGrouping({ pressed, groupFunction, groupFactory }) {
@@ -145,6 +215,24 @@ sap.ui.define(
 
       //Navigation Actions
 
+      onCambioModalitaPress(e) {
+        const type = e.getSource().getType();
+
+        if (type === "Critical")
+          return MessageBox.warning(
+            "Il cambio di modalità potrebbe compromettere il lavoro svolto. Eventuali prezzi inseriti o prodotti selezionati potrebbero non essere inclusi nel riepilogo finale, sicuro di voler procedere?",
+            {
+              actions: [MessageBox.Action.OK, MessageBox.Action.ABORT],
+              emphasizedAction: MessageBox.Action.OK,
+              onClose: (action) => {
+                if (action === "OK") this.getModalita();
+              },
+            },
+          );
+
+        return MessageBox.success("Documento creato con successo");
+      },
+
       onRiepilogoPress() {
         this.getRouter().navTo("Riepilogo");
       },
@@ -154,23 +242,23 @@ sap.ui.define(
         const { selectedItem } = e.getParameters();
         let from = "LISTA";
 
-        if (selectedItem.getId().includes("catalogo")) {
+        if (selectedItem.getKey() === "catalogo") {
           from = "CATALOGO";
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "catalogo_list",
           );
-        } else if (selectedItem.getId().includes("storicoOrdini"))
+        } else if (selectedItem.getKey() === "storico")
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "storico_list",
           );
-        else if (selectedItem.getId().includes("propostaProdotti"))
+        else if (selectedItem.getKey() === "proposta")
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "proposta_list",
           );
-        else if (selectedItem.getId().includes("offertaOrdini"))
+        else if (selectedItem.getKey() === "offerta")
           this.getModel("proposta").setProperty(
             "/objectPageLayout/currentList",
             "offerta_list",
@@ -333,7 +421,7 @@ sap.ui.define(
           0,
         );
         const totaleNetto = totale;
-        const totaleLordo = (totale + totale * 0.22);
+        const totaleLordo = totale + totale * 0.22;
 
         this.getModel("riepilogo").setProperty(
           "/table/totaleNetto",

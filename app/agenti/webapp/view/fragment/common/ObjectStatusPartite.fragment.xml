@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectStatus
+        visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
+        class="sapUiTinyMarginTop sapUiTinyMarginEnd"
+        text="PARTITE SCADUTE"
+        active="true"
+        inverted="true"
+        state="Error"
+        icon="sap-icon://warning"
+    />
+</core:FragmentDefinition>

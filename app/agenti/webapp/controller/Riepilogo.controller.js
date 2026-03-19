@@ -49,7 +49,7 @@ sap.ui.define(["./BaseController", "sap/m/MessageBox"], (BaseController, Message
       this.getModel("riepilogo").setProperty("/table/totaleLordo", totaleLordo.toFixed(2));
     },
 
-    onRiepilogoPress(e) {
+    onCambioModalitaPress(e) {
       const type = e.getSource().getType();
 
       if( type === "Critical" )

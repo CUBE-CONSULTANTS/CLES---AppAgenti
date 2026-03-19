@@ -9,6 +9,7 @@
     <Dialog
         showHeader="false"
         stretch="true"
+        beforeClose=".onWizardDialogBeforeClose"
     >
         <buttons>
             <Button
@@ -58,11 +59,6 @@
                             type="XML"
                         />
                     </WizardStep>
-                    <!-- <WizardStep title="Offerte" >
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.wizard.Step3"
-                        />
-                    </WizardStep> -->
                 </steps>
             </Wizard>
         </content>

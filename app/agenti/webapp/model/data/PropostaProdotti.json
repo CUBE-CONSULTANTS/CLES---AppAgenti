@@ -1,11 +1,11 @@
 {
   "objectPageLayout": {
-    "objectStatus": {},
     "currentList": "",
     "mode": "",
     "title": "",
     "objectStatusText": ""
   },
+  "activeTab": "storico",
   "header": {
     "customer": {
       "id": "",

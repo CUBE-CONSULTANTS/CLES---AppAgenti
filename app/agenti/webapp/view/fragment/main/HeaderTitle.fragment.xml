@@ -63,23 +63,11 @@
                 <core:Fragment
                     fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
                 />
-                <ObjectStatus
-                    visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
-                    class="sapUiTinyMarginTop sapUiTinyMarginEnd"
-                    text="PARTITE SCADUTE"
-                    active="true"
-                    inverted="true"
-                    state="Error"
-                    icon="sap-icon://warning"
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusPartite"
                 />
-                <ObjectStatus
-                    visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
-                    class="sapUiTinyMarginTop"
-                    text="FIDO TRA 1% E 2%"
-                    active="false"
-                    inverted="true"
-                    state="Warning"
-                    icon="sap-icon://warning"
+                <core:Fragment
+                    fragmentName="cles.agenti.view.fragment.common.ObjectStatusFido"
                 />
             </HBox>
         </f:expandedContent>
@@ -93,23 +81,11 @@
             <core:Fragment
                 fragmentName="cles.agenti.view.fragment.common.ObjectStatusDate"
             />
-            <ObjectStatus
-                visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
-                class="sapUiTinyMarginTop sapUiTinyMarginEnd"
-                text="PARTITE SCADUTE"
-                active="true"
-                inverted="true"
-                state="Error"
-                icon="sap-icon://warning"
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusPartite"
             />
-            <ObjectStatus
-                visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
-                class="sapUiTinyMarginTop"
-                text="FIDO TRA 1% E 2%"
-                active="false"
-                inverted="true"
-                state="Warning"
-                icon="sap-icon://warning"
+            <core:Fragment
+                fragmentName="cles.agenti.view.fragment.common.ObjectStatusFido"
             />
         </f:snappedContent>
         <f:content />

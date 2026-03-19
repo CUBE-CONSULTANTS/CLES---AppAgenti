@@ -33,7 +33,7 @@
             text="{= ${proposta>/header/mode} === 'SKIP' ? 'Scegli Modalità' : 'Cambia Modalità' }"
             type="Critical"
             icon="sap-icon://journey-change"
-            press=".onRiepilogoPress"
+            press=".onCambioModalitaPress"
         />
     </OverflowToolbar>
 </core:FragmentDefinition>

@@ -8,6 +8,13 @@
             type="Emphasized"
             icon="sap-icon://user-settings"
         />
+        <Button
+            class="sapUiTinyMargin"
+            text="{= ${proposta>/header/mode} === 'SKIP' ? 'Scegli Modalità' : 'Cambia Modalità' }"
+            type="Critical"
+            icon="sap-icon://journey-change"
+            press=".onCambioModalitaPress"
+        />
         <ToolbarSpacer />
         <Button
             icon="sap-icon://cart"

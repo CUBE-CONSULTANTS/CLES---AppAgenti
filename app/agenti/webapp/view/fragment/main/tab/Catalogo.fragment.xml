@@ -114,13 +114,18 @@
                                 wrapping="true"
                                 text="{proposta>product} - {proposta>description}"
                             />
-                            <Label
-                                design="Bold"
-                                wrapping="true"
-                                text="Prezzo di listino: {proposta>listino}"
-                            />
                         </VBox>
                     </HBox>
+                    <VBox
+                        class="sapUiTinyMargin"
+                        justifyContent="Center"
+                    >
+                        <Label
+                            design="Bold"
+                            wrapping="true"
+                            text="Prezzo di listino: {proposta>listino}"
+                        />
+                    </VBox>
                     <VBox
                         class="sapUiTinyMargin"
                         justifyContent="Center"

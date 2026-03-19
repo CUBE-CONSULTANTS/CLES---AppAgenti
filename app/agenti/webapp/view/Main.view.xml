@@ -10,113 +10,6 @@
     xmlns:core="sap.ui.core"
     xmlns:form="sap.ui.layout.form"
 >
-    <!-- <uxap:ObjectPageLayout
-        id="objectPageOrdine"
-        class="sapUiNoContentPadding"
-        showEditHeaderButton="true"
-        showTitleInHeaderContent="false"
-        alwaysShowContentHeader="false"
-        useIconTabBar="true"
-        backgroundDesignAnchorBar="Transparent"
-        preserveHeaderStateOnScroll="false"
-        headerContentPinnable="true"
-        isChildPage="false"
-        upperCaseAnchorBar="true"
-        showHeaderContent="true"
-        showFooter="true"
-        sectionChange=".onObjectPageSectionChange"
-        toggleHeaderOnTitleClick="true"
-        flexEnabled="true"
-        useTwoColumnsForLargeScreen="false"
-    >
-        <uxap:headerTitle>
-            <core:Fragment
-                fragmentName="cles.agenti.view.fragment.main.HeaderTitle"
-                type="XML"
-            />
-        </uxap:headerTitle>
-        <uxap:headerContent>
-            <core:Fragment
-                fragmentName="cles.agenti.view.fragment.main.HeaderContent"
-                type="XML"
-            />
-        </uxap:headerContent>
-        <uxap:sections>
-            <uxap:ObjectPageSection
-                id="storicoOrdini"
-                titleVisible="false"
-                title="Storico Ordini"
-                showTitle="false"
-                visible="{= 
-                  (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'STORICO') ? true :
-                  ${proposta>/header/mode} === 'OFFERTA' ? true :
-                  false 
-                }"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.main.tab.StoricoOrdini"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection
-                id="offertaOrdini"
-                titleVisible="false"
-                title="{proposta>/header/tabOfferta/name} (Valida fino al {proposta>/header/tabOfferta/expiry})"
-                showTitle="false"
-                visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.main.tab.Offerta"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection
-                id="propostaProdotti"
-                titleVisible="false"
-                title="Proposta Prodotti"
-                showTitle="false"
-                visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.main.tab.PropostaProdotti"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-            <uxap:ObjectPageSection
-                id="catalogo"
-                titleVisible="false"
-                title="Catalogo"
-                showTitle="false"
-            >
-                <uxap:subSections>
-                    <uxap:ObjectPageSubSection>
-                        <core:Fragment
-                            fragmentName="cles.agenti.view.fragment.main.tab.Catalogo"
-                            type="XML"
-                        />
-                    </uxap:ObjectPageSubSection>
-                </uxap:subSections>
-            </uxap:ObjectPageSection>
-        </uxap:sections>
-        <uxap:footer>
-            <core:Fragment
-                fragmentName="cles.agenti.view.fragment.main.Footer"
-                type="XML"
-            />
-        </uxap:footer>
-    </uxap:ObjectPageLayout> -->
     <f:DynamicPage
         class="sapUiNoContentPadding"
         preserveHeaderStateOnScroll="false"
@@ -145,16 +38,17 @@
 
         <f:content>
             <IconTabBar
-            id="iconTabBar"
+                id="iconTabBar"
                 applyContentPadding="false"
                 expandable="false"
                 expanded="true"
-                stretchContentHeight="true"
+                stretchContentHeight="false"
                 select=".onObjectPageSectionChange"
+                selectedKey="{proposta>/activeTab}"
             >
                 <items>
                     <IconTabFilter
-                        id="storicoOrdini"
+                        key="storico"
                         text="Storico Ordini"
                         visible="{= 
                         (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'STORICO') ? true :
@@ -170,7 +64,7 @@
                         </content>
                     </IconTabFilter>
                     <IconTabFilter
-                        id="offertaOrdini"
+                        key="offerta"
                         text="{proposta>/header/tabOfferta/name} (Valida fino al {proposta>/header/tabOfferta/expiry})"
                         visible="{= (${proposta>/header/mode} === 'ORDINE' &amp;&amp; ${proposta>/header/tabOrdine} === 'OFFERTA') ? true : false }"
                     >
@@ -182,7 +76,7 @@
                         </content>
                     </IconTabFilter>
                     <IconTabFilter
-                        id="propostaProdotti"
+                        key="proposta"
                         text="Proposta Prodotti"
                         visible="{= (${proposta>/header/mode} === 'ORDINE' || ${proposta>/header/mode} === 'OFFERTA') ? true : false }"
                     >
@@ -194,7 +88,7 @@
                         </content>
                     </IconTabFilter>
                     <IconTabFilter
-                        id="catalogo"
+                        key="catalogo"
                         text="Catalogo"
                     >
                         <content>

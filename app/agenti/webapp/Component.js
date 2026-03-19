@@ -25,7 +25,7 @@ sap.ui.define(
 
         // enable routing
         this.getRouter().initialize();
-        this.getRouter().navTo("Main");
+        //this.getRouter().navTo("Main");
       },
     });
   },
