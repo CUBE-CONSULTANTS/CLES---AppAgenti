@@ -45,7 +45,7 @@
                             <grid:layout>
                                 <grid:GridSettings
                                     gridTemplateColumns="repeat(auto-fit, minmax(200px, 1fr))"
-                                    gridGap="0.5rem"
+                                    gridGap="{= ${device>/system/phone} ? '0.1rem' : '0.5rem' }"
                                 />
                             </grid:layout>
                             <!-- <grid:layoutS>
@@ -75,11 +75,11 @@
                         </grid:GridResponsiveLayout>
                     </grid:customLayout>
                     <VBox
-                        class="sapUiTinyMargin"
                         justifyContent="Center"
                         visible="{= ${proposta>/table/toolbar/sorters/groupedByCategory} ? false : true }"
                     >
                         <ObjectStatus
+                            class="sapUiTinyMargin"
                             inverted="true"
                             state="Indication12"
                             text="{proposta>category}"
@@ -87,7 +87,7 @@
                     </VBox>
                     <HBox
                         alignItems="Center"
-                        class="sapUiTinyMargin"
+                        class="sapUiTinyMarginTop sapUiTinyMarginBeginEnd"
                     >
                         <Image
                             visible="{proposta>/table/toolbar/showImages}"
@@ -117,7 +117,7 @@
                         </VBox>
                     </HBox>
                     <VBox
-                        class="sapUiTinyMargin"
+                        class="sapUiTinyMarginBeginEnd"
                         justifyContent="Center"
                     >
                         <Label
@@ -127,7 +127,7 @@
                         />
                     </VBox>
                     <VBox
-                        class="sapUiTinyMargin"
+                        class="sapUiTinyMarginBeginEnd"
                         justifyContent="Center"
                         visible="{proposta>/table/toolbar/showQuantity}"
                     >
@@ -152,7 +152,7 @@
                         />
                     </VBox>
                     <VBox
-                        class="sapUiTinyMargin"
+                        class="sapUiTinyMarginBeginEnd"
                         justifyContent="Center"
                     >
                         <StepInput
