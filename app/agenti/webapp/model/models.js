@@ -46,7 +46,7 @@ sap.ui.define(
                 },
                 cardContent: {
                   src: "./public/img/Offer.svg",
-                  text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini, la proposta prodotti e il catalogo per la creazione di una nuova offerta o la convalida di una già esistente",
+                  text: "Selezionando questa modalità verranno visualizzati lo storico degli ordini, la proposta prodotti e il catalogo per la creazione di una nuova offerta",
                 },
               },
               {
